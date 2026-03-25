@@ -1,1 +1,27 @@
-// all you evan :p
+import javax.swing.text.html.parser.Parser;
+import java.util.ArrayList;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
+public class DataBase {
+    public parser = new Parser();
+    public ArrayList<Game> games;
+    public ArrayList<User> userList;
+
+    /* No Game object yet, commented out
+    public games = ArrayList<Game>;
+    */
+
+    /* No User object...
+    public userList = ArrayList<User>;
+    */
+
+    public searchGames() {
+
+    }
+
+    public writeToFile() {
+
+    }
+}
+
