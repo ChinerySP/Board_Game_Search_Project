@@ -1,3 +1,4 @@
+package main.model;
 import java.util.ArrayList;
 
 public class GameList{

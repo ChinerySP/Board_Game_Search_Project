@@ -1,4 +1,4 @@
-package Main.View.Panles;
+package main.view.panle;
 
 // TODO prune this to only import things that we need
 import java.awt.*;

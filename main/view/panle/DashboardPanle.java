@@ -1,10 +1,11 @@
-package Main.View.Panles;
+package main.view.panle;
 
-import Main.View.Panle;
 import java.awt.Color;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
+
+import main.view.Panle;
 
 
 /**

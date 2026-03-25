@@ -1,3 +1,5 @@
+package main.model;
+
 import javax.swing.text.html.parser.Parser;
 import java.util.ArrayList;
 import org.json.simple.JSONArray;

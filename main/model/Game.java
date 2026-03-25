@@ -1,3 +1,7 @@
+package main.model;
+
+import main.model.Rating;
+
 import java.util.ArrayList;
 public class Game implements Comparable<Game>{
     String name, description, categories, mechanics, designer, artist;

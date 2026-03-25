@@ -1,10 +1,11 @@
-package Main.View.Panles;
+package main.view.panle;
 
-import Main.View.Panle;
 import java.awt.Dimension;
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+
+import main.view.Panle;
 
 
 /**

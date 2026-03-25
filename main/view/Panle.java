@@ -1,8 +1,8 @@
-package Main.View;
+package main.view;
 
-// TODO prune this to only import things that we need
-import Main.View.Panles.RoundedPanle;
 import javax.swing.*;
+
+import main.view.panle.RoundedPanle;
 
 /**
  * A superclass that provides basic visibility control for other Panles. 

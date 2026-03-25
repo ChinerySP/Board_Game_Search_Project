@@ -1,10 +1,9 @@
-package Main.View;
+package main.view;
 
-import Main.View.Panles.*;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JFrame;
-// import Main.Model.User;
+import main.view.panle.*;
 
 /**
  * The overall screen that will be shown to the user. 

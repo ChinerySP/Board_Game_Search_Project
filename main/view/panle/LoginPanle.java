@@ -1,6 +1,5 @@
-package Main.View.Panles;
+package main.view.panle;
 
-import Main.View.Panle;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -9,6 +8,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+
+import main.view.Panle;
 
 /**
  * The panle that allows the user to sign in.
