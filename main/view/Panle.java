@@ -17,7 +17,7 @@ public class Panle extends RoundedPanle { // Yes, I am sticking to the bit of pa
      * @param String name The name of the panle
      */
     public Panle(String name) {
-        // All of our panels will be defaulted to just a box layout (they are all rather simple in their layout)
+        // All of our panles will be defaulted to just a box layout (they are all rather simple in their layout)
         super(CORNER_ROUNDING_RADIUS);
         this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 
@@ -34,7 +34,22 @@ public class Panle extends RoundedPanle { // Yes, I am sticking to the bit of pa
      * @param String other The name to compare to
      */
     public boolean equals(String other) {
+        System.out.println(String.format("For %s it got: %b", name, name.equals(other)));
         return name.equals(other);
+    }
+    
+    /**
+     * Hides the panle
+     */
+    public void hidePanle() {
+        this.setVisible(false);
+    }
+
+    /**
+     * Shows the panle
+     */
+    public void showPanle() {
+        this.setVisible(true);
     }
 
     final private String name;

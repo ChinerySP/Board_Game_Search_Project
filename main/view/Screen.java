@@ -3,6 +3,7 @@ package main.view;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JFrame;
+import main.model.User;
 import main.view.panle.*;
 
 /**
@@ -17,6 +18,7 @@ public class Screen {
      * Simple tester for the visuals
      */
     public static void main(String[] args) {
+        System.out.println("Running screen testing function.");
         Screen screen = new Screen();
     }
     
@@ -36,13 +38,13 @@ public class Screen {
         this.panles.add(new LoginPanle());
         this.panles.add(new StickySubPanle());
         this.panles.add(new DashboardPanle());
+        this.panles.add(new SettingsPanle());
 
-        // Adding them to the screen for testing
-        // Box box = Box.createVerticalBox();
-        // box.add(panles.get(0));
-        // box.add(panles.get(1));
-        // frame.add(box);
-        frame.add(this.panles.get(0));
+        // Adding them to the frame so that we can show them
+        for (Panle p : panles) {
+            frame.add(p);
+        }
+
 
         // Some eye candy 
         frame.getContentPane().setBackground(SCREEN_BACKGROUND_COLOR);
@@ -58,40 +60,74 @@ public class Screen {
      * @param String name The name of the Panle to show
      */
     public void showPanle(String name) {
-
-        // Iterating until we find the panle that they want
+        System.out.println(String.format("About to try to show panel %s", name));
+        // Iterating through and only showing the ones that are either directly specified in the input or the sticky subpanle
         for (Panle p : panles) {
-            if (name.equals(p.getName())) {
-                // TODO Stuff to show panele (hide other panle, then show the panle they want)
-
-                return;
+            if (p.equals(name) || p.equals("sticky")) {
+                p.showPanle();
+            } else {
+                p.hidePanle();
             }
         }
+        frame.revalidate();
+        frame.repaint();
 
     }
 
-    // Commented until User is implemented (or at least created) so that it doesn't cause errors on compilation
-    // /**
-    //  * A login function. Presents the user with the login panle and returns the User that gets logged in
-    //  * @param ArrayList<User> users The possible user that they may sign into
-    //  * @return user The User that logged in
-    //  */
-    // public User login(ArrayList<User> users) {
+    /**
+     * Hides the Panle who's name matches the inputted String
+     * @param String name The name of the Panle to hide
+     */
+    public void hidePanle(String name) {
+        getPanle(name).hidePanle();
+    }
 
-    //     // Showing the login screen
-    //     showPanle("login");
+    /**
+     * A login function. Presents the user with the login panle and returns the User that gets logged in.
+     * Takes the user to the dashboard after they have signed in.
+     * @param ArrayList<User> users The possible user that they may sign into
+     * @return user The User that logged in
+     */
+    public User login(ArrayList<User> users) {
 
-    //     // Getting the login 
+        // Showing the login screen
+        showPanle("login");
 
-    //     // while ()
-
-    //     return null; // Unfinished
-
-    // }
+        // Getting the login 
 
 
+        // Showing the dashboard
+        showPanle("dashboard");
+
+        return null; // Unfinished
+
+    }
+    
+    
+    // Getters and setters 
+
+    /**
+     * Gets the panel that matches the inputted name
+     * @param String name The name of the panel to get; This must match one of the Panles, otherwise returns null
+     */
+    public Panle getPanle(String name) {
+
+        // Iterating over the panles to get the one they want
+        for (Panle p : panles) {
+            if (name.equals(p.getName())) {
+                return p;
+            }
+        }
+        
+        // If we get here, then we didn't have the panle, so we panic
+        assert name.equals("alwaysError") : String.format("ERROR: Bad input; getPanle(%s)", name);
+        return null;
+    }
+
+    // Constants (generally for consistent visuals)
     public static final Color SCREEN_BACKGROUND_COLOR = new Color(6, 28, 43);
 
+    
     private JFrame frame;
     private ArrayList<Panle> panles;
     

@@ -8,15 +8,15 @@ import main.view.Panle;
 
 
 /**
- * The dashboard that acts as the home page for each user. Displays the user's favorites list and all of their lists so that they can access them
+ * The Panle that holds the search results after a search
  * @author Sam Whitlock
  */
-public class DashboardPanle extends Panle {
+public class SearchResultsPanle extends Panle {
 
     /**
      * Creates a new instance of the StickySubPanle
      */
-    public DashboardPanle() {
+    public SearchResultsPanle() {
         super("dashboard");
         
         // This panle also use a Box layout so that we can use each side to house either the GameDetails panle or collections
@@ -24,8 +24,8 @@ public class DashboardPanle extends Panle {
         
         // Regions for the left and the right of the screen
         // These by default hold the user's favorite games and a collection of their games 
-        left = new GameListSubPanle();
-        right = new GameListSubPanle();
+        left = new RoundedPanle(CORNER_ROUNDING_RADIUS);
+        right = new RoundedPanle(CORNER_ROUNDING_RADIUS);
 
         // Actually showing them on the screen
         this.add(left);
