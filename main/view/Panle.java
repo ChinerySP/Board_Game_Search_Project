@@ -58,23 +58,6 @@ public class Panle extends RoundedPanle { // Yes, I am sticking to the bit of pa
         return false;
     
     }
-    
-    /**
-     * Hides the panle
-     */
-    @Deprecated
-    public void hidePanle() {
-        this.setVisible(false);
-    }
-
-    /**
-     * Shows the panle
-     */
-    @Deprecated
-    public void showPanle() {
-        System.out.println(String.format("Showing %s", this.name));
-        this.setVisible(true);
-    }
 
     /**
      * Gets the name of the class as a String

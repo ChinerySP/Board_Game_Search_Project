@@ -92,37 +92,7 @@ public class SettingsPanle extends Panle {
 
         
     }
-    
 
-    /**
-     * Shows the panle for the stored User
-     * Precondition: The user for this settings panel must already have been set
-     */
-    @Override
-    public void showPanle() {
-
-        // Making sure that we have an actual user to display
-        assert user != null : "Error: No user set to display when calling the SettingsPanle.show() method";
-        
-        // TODO Show the user data on the panle
-
-        // Displaying like normal
-        super.showPanle();
-
-    }
-    
-    /**
-     * Shows the panle for the inputted user
-     * @param User user The User to display the settings panle for
-     */
-    public void showPanle(User user) {
-        this.user = user;
-        super.showPanle();
-
-
-        
-        // TODO Show the user data on the panle
-    }
 
     /**
      * Shows the panle for the inputted user

@@ -38,12 +38,6 @@ public class StickySubPanle extends Panle {
 
     }
 
-    @Override
-    public void showPanle() {
-        System.out.println("Showing sticky");
-        super.showPanle();
-    } 
-
 
     private Box componentBox;
 
