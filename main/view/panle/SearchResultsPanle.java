@@ -4,7 +4,7 @@ import java.awt.Color;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
-import main.view.Panle;
+import main.view.*;
 
 
 /**
@@ -14,10 +14,19 @@ import main.view.Panle;
 public class SearchResultsPanle extends Panle {
 
     /**
+     * Testing runner function
+     */
+    public static void main(String[] args) {
+        Screen screen = new Screen();
+        screen.showPanle("sticky");
+        screen.showPanle("searchresults");
+    }
+
+    /**
      * Creates a new instance of the StickySubPanle
      */
     public SearchResultsPanle() {
-        super("dashboard");
+        super("searchresults");
         
         // This panle also use a Box layout so that we can use each side to house either the GameDetails panle or collections
         this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
@@ -38,8 +47,6 @@ public class SearchResultsPanle extends Panle {
 
         // Just a bit of eye candy
         this.setBackground(new Color(0, 0, 0, 0));
-
-
 
     }
 

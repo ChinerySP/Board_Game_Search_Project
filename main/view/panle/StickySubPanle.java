@@ -36,15 +36,13 @@ public class StickySubPanle extends Panle {
         // Some simple changes to ensure that the panle looks nice
         this.setMaximumSize(new Dimension(this.getMaximumSize().width, 30));
 
-    
-        
-
-
     }
 
-    /**
-     * 
-     */
+    @Override
+    public void showPanle() {
+        System.out.println("Showing sticky");
+        super.showPanle();
+    } 
 
 
     private Box componentBox;

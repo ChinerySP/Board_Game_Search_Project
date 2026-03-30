@@ -57,6 +57,7 @@ public class SettingsPanle extends Panle {
 
 
         // The right side, which currently just holds our mascot
+        // The image is not scaled at all to retain aspect ratio, which is for two reasons: one, it is easier, and two, it is funny.
         right = new JPanel();
         right.setLayout(new GridLayout());
         ImageIcon tjs = new ImageIcon("resources/TJS.png");
@@ -121,6 +122,14 @@ public class SettingsPanle extends Panle {
 
         
         // TODO Show the user data on the panle
+    }
+
+    /**
+     * Shows the panle for the inputted user
+     * @return boolean Whether or not this panle has a user set 
+     */
+    public boolean hasUser() {
+        return this.user == null;
     }
 
     /**

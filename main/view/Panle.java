@@ -27,20 +27,42 @@ public class Panle extends RoundedPanle { // Yes, I am sticking to the bit of pa
         // Adding invisible padding so that there is some breathing room between all of the panles
         this.setBorder(BorderFactory.createEmptyBorder(DISTANCE_BETWEEN_COMPONENTS, DISTANCE_BETWEEN_COMPONENTS,
                 DISTANCE_BETWEEN_COMPONENTS, DISTANCE_BETWEEN_COMPONENTS));
+
+        // Showing the Panle (to hide the panle, it will be removed from the frame)
+        this.setVisible(true);
+        
     }
 
     /**
-     * A simple comparason for the name of the panle
-     * @param String other The name to compare to
+     * A simple comparison for both names and other Panles
+     * @param Object other The other object to compare against
      */
-    public boolean equals(String other) {
-        System.out.println(String.format("For %s it got: %b", name, name.equals(other)));
-        return name.equals(other);
+    @Override
+    public boolean equals(Object other) {
+
+        // Default simple cases
+        if (this == other) return true;
+        if (other == null) return false;
+
+        // If it is a String, we compare it to the name
+        if (other instanceof String) {
+            return name.equals(other);
+        }
+        
+        // If it is a Panle, we want to compare names
+        if (other instanceof Panle) {
+            return name.equals(((Panle)other).getName());
+        }
+
+        // Anything else will be false
+        return false;
+    
     }
     
     /**
      * Hides the panle
      */
+    @Deprecated
     public void hidePanle() {
         this.setVisible(false);
     }
@@ -48,8 +70,17 @@ public class Panle extends RoundedPanle { // Yes, I am sticking to the bit of pa
     /**
      * Shows the panle
      */
+    @Deprecated
     public void showPanle() {
+        System.out.println(String.format("Showing %s", this.name));
         this.setVisible(true);
+    }
+
+    /**
+     * Gets the name of the class as a String
+     */
+    public String getName() {
+        return name;
     }
 
     final private String name;
