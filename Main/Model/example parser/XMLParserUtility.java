@@ -1,76 +1,69 @@
-package main.model;
+import org.w3c.dom.*;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import org.w3c.dom.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.DoubleSummaryStatistics;
-import java.util.Scanner;
 
 /**
+ * This example code walks the elements of a DOM tree.  XML documents are retrieved using
+ * Apache's XERCES Dom parser (inluded in Java).   A document tree or DOM is stored
+ * as a hierarchical collection of linked nodes.
+ *
+ * In this example, I will simply walk elements of the tree looking for particular nodes based
+ * on the xml in the example file simple1.xml.
+ *
+ * The xml contained in this file is:
+ * <items termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+ * <item id="379005" rank="1">
+ * <thumbnail value="https://cf.geekdo-images.com/cFHnRZtfgB9XNWaw46bQ4Q__thumb/img/tPedQESQaqWqwZakkmsBMx0YIZI=/fit-in/200x150/filters:strip_icc()/pic7302419.png"/>
+ * <name value="The Lord of the Rings Adventure Book Game"/>
+ * <yearpublished value="2023"/>
+ * </item>
+ * <item id="358661" rank="2">
+ * <thumbnail value="https://cf.geekdo-images.com/vmFLMcfXt-c4sd8y6-579g__thumb/img/-m1uihAm8wcfhpITYpN3DmXBV9s=/fit-in/200x150/filters:strip_icc()/pic6738525.jpg"/>
+ * <name value="Andromeda's Edge"/>
+ * <yearpublished value="2024"/>
+ * </item>
+ * </items>
+ *
+ * There are two items in the document.
+ * Each item is a Game.  The <item tag has 2 attributes, id and rank
+ * and it has three child nodes. Each child node has a tag such as thumbnail, name, yearpublished
+ * Each of these child nodes has an attribute named "value".  These values become fields in our Game object
  *
  */
-public abstract class Parser {
+
+public class XMLParserUtility {
     /**
-     *
-     * @param numGames
-     * @return
+     * Constructor used to create a new XML parser object attached to the given file. If the file does not
+     * exist, then this will throw an exception for the user to deal with
+     * @param inputFileName filename containing xml text
+     * @throws FileNotFoundException, IOException
      */
-    public ArrayList<Game> getBoardGames(int numGames) {
-
-    }
-
-    /**
-     *
-     * @param toSearch
-     * @return
-     */
-    public ArrayList<Game> search(String toSearch) {
-
-    }
-
-    /**
-     *
-     * @param gameID the ID of the game we want to retrieve, I believe this is an int value
-     * @return Returns the game object whos ID matches the param 'gameID'
-     */
-    public Game retrieveGame(int gameID) {
-
-    }
-}
-
-public class XMLParser extends Parser {
-    public String fileLocation;
-
-    public XMLParser(String inputFileName) throws FileNotFoundException, IOException {
+    public XMLParserUtility(String inputFileName) throws FileNotFoundException, IOException {
         File inputFileTest = new File(inputFileName);
-        // check to verify the file location is valid
         if (!inputFileTest.exists()) {
             throw new FileNotFoundException(inputFileName+" not found.");
         }
 
-
+        // if the given file exists, we will open it, and retrieve the XML document from it
+        // if the XML is malformed, throw an exception
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         dbf.setNamespaceAware(true);
         dbf.setExpandEntityReferences(false);
-
-        // if the file exists, open it, and retrieve the XML doc
-        // if the XML is bad, throw an exception
         try {
-            // create a doc builder to parse the file
             DocumentBuilder db = dbf.newDocumentBuilder();
-            // parse and convert it into a DOM tree to be able to look through later
             xmlDocumentTree = db.parse(inputFileName);   // retrieves the XML text into a stored dom object
         } catch (Exception ex) {
             throw new java.io.IOException("Unable to parse XML document");
         }
 
-        // haven't set up the game list yet, is null until then
-        currentGameList = null;
-        // variable "xmlDocumentTree" has all nodes found in the XML file
+        currentGameList = null;   // start with unallocated list
+        // at this point, if there were no exceptions, the member variable
+        // xmlDocumentTree contains all of the nodes found in the XML file.
     }
 
     /**
@@ -78,11 +71,11 @@ public class XMLParser extends Parser {
      * @return an array list of game objects, in the order they were found in the file
      */
     public ArrayList<Game> retrieveGameList() {
-        // only need to create the game list if needed
+        // do the work to build this list only if needed
         if (currentGameList == null) {
             currentGameList = new ArrayList<Game>();
 
-            // retrieve the top level node in the tree, would be items
+            // retrieve the top level node in the tree, items
             Element items =  xmlDocumentTree.getDocumentElement();
             NodeList xmlGameList = items.getElementsByTagName("item");
 
@@ -169,8 +162,4 @@ public class XMLParser extends Parser {
     //----------- private internal attributes of a XMLParserUtility Object ---------------------
     private Document  xmlDocumentTree;  // this is the object tree parsed from the given XML File
     private ArrayList<Game> currentGameList;  // current game list, may be null
-}
-
-public class APIParser extends Parser {
-    public String apiKey;
 }
