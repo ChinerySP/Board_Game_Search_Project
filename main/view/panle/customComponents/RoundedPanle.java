@@ -1,8 +1,10 @@
-package main.view.panle;
+package main.view.panle.customComponents;
 
 // TODO prune this to only import things that we need
 import java.awt.*;
 import javax.swing.*;
+
+import main.view.Panle;
 
 // Yes I know this is very extra, but I have an idea of what I want in my mind and I think this could make it work nicely
 /**
@@ -54,9 +56,17 @@ public class RoundedPanle extends JPanel {
         // Making it looks smooth
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
+        // Painting the border color
+        g2.setColor(Panle.BORDER_COLOR);
+        g2.fillRoundRect(x - Panle.BORDER_WIDTH, y - Panle.BORDER_WIDTH, getWidth() - insets.left - insets.right + 2 * Panle.BORDER_WIDTH, getHeight() - insets.bottom - insets.top + 2 * Panle.BORDER_WIDTH,
+                radius, radius);
+
         // Painting the background color
         g2.setColor(getBackground());
-        g2.fillRoundRect(x, y, getWidth() - insets.left - insets.right, getHeight() - insets.bottom - insets.top, radius, radius);
+        g2.fillRoundRect(x, y, getWidth() - insets.left - insets.right, getHeight() - insets.bottom - insets.top,
+                radius, radius);
+        
+        
 
     }
 
