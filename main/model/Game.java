@@ -93,6 +93,7 @@ public class Game implements Comparable<Game>, Iterable<Rating>{
 
     /**
      *Allowes the Raitings to be iterated through
+     *@return iterator of ratings
      */
     public Iterator<Rating> iterator() {
         return ratings.iterator();
