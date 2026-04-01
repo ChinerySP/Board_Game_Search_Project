@@ -4,14 +4,20 @@ import main.model.Rating;
 
 import java.util.ArrayList;
 public class Game implements Comparable<Game>{
-    String name, description, categories, mechanics, designer, artist;
+    /**
+     * Create varables for all the things that make up a game
+    */
+    String name, description, thumbnail, categories, mechanics, designer, artist;
     int id, numPlayer, agePlayer, playTime, minPlayer, maxPlayer;
     ArrayList<Rating> ratings = new ArrayList<Rating>();
-    //thumbnail
 
-    // all the geters
+    /**
+     * Getters and setters for every varable, allowing for easy access
+     */
+    // all the getters
     String getName(){return name;}
     String getDescription(){return description;}
+    String getThumbnail(){return thumbnail;}
     String getCategories(){return categories;}
     String getMechanics(){return mechanics;}
     String getDesigner(){return designer;}
@@ -24,18 +30,19 @@ public class Game implements Comparable<Game>{
     int getMaxPlayer(){return maxPlayer;}
 
     // all the setters
-    void setName(String x){name = x;}
-    void setDescription(String x){description = x;}
-    void setCategories(String x){categories = x;}
-    void setMechanics(String x){mechanics = x;}
-    void setDesigner(String x){designer = x;}
-    void setArtist(String x){artist = x;}
-    void setId(int x){id = x;}
-    void setNumPlayer(int x){numPlayer = x;}
-    void setAgePlayer(int x){agePlayer = x;}
-    void setPlayTime(int x){playTime = x;}
-    void setMinPlayer(int x){minPlayer = x;}
-    void setMaxPlayer(int x){maxPlayer = x;}
+    void setName(String n){name = n;}
+    void setDescription(String des){description = des;}
+    void setThumbnail(String thum){thumbnail = thum;}
+    void setCategories(String cat){categories = cat;}
+    void setMechanics(String mech){mechanics = mech;}
+    void setDesigner(String desi){designer = desi;}
+    void setArtist(String art){artist = art;}
+    void setId(int i){id = i;}
+    void setNumPlayer(int num){numPlayer = num;}
+    void setAgePlayer(int age){agePlayer = age;}
+    void setPlayTime(int tim){playTime = tim;}
+    void setMinPlayer(int min){minPlayer = min;}
+    void setMaxPlayer(int max){maxPlayer = max;}
 
     //adds comparability
     @Override
@@ -43,7 +50,30 @@ public class Game implements Comparable<Game>{
         return this.id - other.id;
     }
 
-    //Raiting stuff
+    /**
+     * Defalt constructer to give all the varables an initial value, all of them should eventially
+     * over wtriiten to the acual value
+     */
+    Game(){
+        this.name = "OH GOD WHAT GAME IS THIS!!!";
+        this.description = "I HAVE NO CLUE WHAT THIS GAME IS ABOUT";
+        this.thumbnail = "blank.png";
+        this.categories = "";
+        this.mechanics = "";
+        this.designer = "";
+        this.artist = "";
+        this.id = -1;
+        this.numPlayer = -1;
+        this.agePlayer = -1;
+        this.playTime = -1;
+        this.minPlayer = -1;
+        this.maxPlayer = -1;
+    }
+
+    /**
+     * adds to the arraylist of ratings stored with each game
+     * the get raiting returns an avrage of all the ratings stored in the array list.
+     */
     void rate(Rating newRating){ratings.add(newRating);}
     int getRating(){
         int avgScore = 0;
