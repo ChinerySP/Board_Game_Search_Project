@@ -10,10 +10,6 @@ public class DataBase {
     public ArrayList<Game> games;
     public ArrayList<User> userList;
 
-    public games = ArrayList<Game>
-
-    public userList = ArrayList<User>;
-
     public searchGames() {
 
     }

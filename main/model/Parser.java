@@ -86,18 +86,20 @@ public class XMLParser extends Parser {
             Element items =  xmlDocumentTree.getDocumentElement();
             NodeList xmlGameList = items.getElementsByTagName("item");
 
+            // loop for each item node within the XML
             for (int gameNumber = 0; gameNumber < xmlGameList.getLength(); gameNumber++) {
-                Node game = xmlGameList.item(gameNumber);
-                currentGameList.add(parseNextGame(game));
+                Node currentGame = xmlGameList.item(gameNumber);
+                // convert the current game into a game object, add it to list
+                currentGameList.add(parseNextGame(currentGame));
             }
         }
-
         return currentGameList;
     }
 
     /**
      * Each child node of the main root node is an "item" node in the file. (Tagged with <item )
      * Parse all of the game attributes and fields out of the item.
+     * Converts the given game node into a Game object
      * @param xmlGameNode The game node from the DOM tree
      * @return a Game object containing the parsed attributes
      */
@@ -166,7 +168,6 @@ public class XMLParser extends Parser {
         return fieldValue;
     }
 
-    //----------- private internal attributes of a XMLParserUtility Object ---------------------
     private Document  xmlDocumentTree;  // this is the object tree parsed from the given XML File
     private ArrayList<Game> currentGameList;  // current game list, may be null
 }
