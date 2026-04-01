@@ -14,38 +14,31 @@ import java.util.Scanner;
  *
  */
 public abstract class Parser {
-    /**
-     *
-     * @param numGames
-     * @return
-     */
-    public ArrayList<Game> getBoardGames(int numGames) {
+    abstract public ArrayList<Game> getBoardGames(int numGames);
 
-    }
+    abstract ArrayList<Game> search(String toSearch);
 
-    /**
-     *
-     * @param toSearch
-     * @return
-     */
-    public ArrayList<Game> search(String toSearch) {
-
-    }
-
-    /**
-     *
-     * @param gameID the ID of the game we want to retrieve, I believe this is an int value
-     * @return Returns the game object whos ID matches the param 'gameID'
-     */
-    public Game retrieveGame(int gameID) {
-
-    }
+    abstract Game retrieveGame(int gameID);
 }
 
 public class XMLParser extends Parser {
     public String fileLocation;
 
+    @Override
+    Game retrieveGame(int gameID) {
+        for (Game g : retrieveGameList()) {
+            if (g.getID() == gameID) {
+                System.out.println("Matching game of ID: \"" + String.valueOf(gameID) + "\" found.");
+                return g;
+            }
+        }
+
+        System.out.println("No game with matching ID: \"" + String.valueOf(gameID) + "\" found in game list.");
+        return null;
+    }
+
     public XMLParser(String inputFileName) throws FileNotFoundException, IOException {
+        fileLocation = inputFileName;
         File inputFileTest = new File(inputFileName);
         // check to verify the file location is valid
         if (!inputFileTest.exists()) {
@@ -174,4 +167,31 @@ public class XMLParser extends Parser {
 
 public class APIParser extends Parser {
     public String apiKey;
+
+    //Still not 100% sure how to use the API, but I think this should return a string of the game(?)
+    //I think in XML format
+    @Override
+    Game retrieveGame(int gameID) {
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("https://boardgamegeek.com/xmlapi/boardgame/" + gameID))
+                .build();
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        System.out.println(response.body());
+
+        return null;
+    }
+
+    //I think this also should return an XML of the search results(?)
+    @Override
+    ArrayList<Game> search (String toSearch) {
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("https://boardgamegeek.com/xmlapi/search?search=" + toSearch))
+                .build();
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        System.out.println(response.body());
+
+        return null;
+    }
 }

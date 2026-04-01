@@ -5,6 +5,7 @@ import java.util.Iterator;
 public class GameList implements Iterable<Game>{
     /**
      *Allowes the Gamelists to be iterated through.
+     * @return iterator of gameData
      */
     public Iterator<Game> iterator() {
         return gameData.iterator();
@@ -18,6 +19,8 @@ public class GameList implements Iterable<Game>{
 
     /**
      * takes in an id and compares games in the gamedata array intill it finds it and can remove it
+     * @prama id Int id of game to be Deleted
+     * @return id of game deleted (mainly for testing)
      */
     public int deleteGame(int id){
         Game temp = new Game();
