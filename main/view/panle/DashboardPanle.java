@@ -34,7 +34,6 @@ public class DashboardPanle extends Panle {
         
         // Regions for the left and the right of the screen
         // These by default hold the user's favorite games and a collection of their games 
-        // TODO Uncomment these
         left = new GameListSubPanle();
         right = new GameListSubPanle();
 
@@ -51,11 +50,10 @@ public class DashboardPanle extends Panle {
     }
 
 
-    // Owns its own instance of the games details subpanle so that it can show it whenever it wants
-    // private GameDetailsSubPanle;
 
-    private JPanel left;
-    private JPanel right;
+    // TODO change to private
+    public GameListSubPanle left;
+    public GameListSubPanle right;
 
 
 }

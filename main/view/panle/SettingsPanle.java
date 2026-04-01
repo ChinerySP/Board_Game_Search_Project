@@ -6,8 +6,11 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.Insets;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -19,6 +22,10 @@ import javax.swing.JToggleButton;
 import main.model.User;
 import main.view.Panle;
 import main.view.Screen;
+
+import java.net.URI;
+import java.net.URL;
+
 
 // For testing specifically
 import main.view.Screen;
@@ -72,8 +79,25 @@ public class SettingsPanle extends Panle {
         // The image is not scaled at all to retain aspect ratio, which is for two reasons: one, it is easier, and two, it is funny.
         right = new JPanel();
         right.setLayout(new GridLayout());
-        ImageIcon tjs = new ImageIcon("resources/TJS.png");
-        right.add(new JLabel(tjs), constraints);
+        try {
+
+            // Fetching the image
+            Image image = ImageIO
+                    .read(new URI("https://jollytomato.com/wp-content/uploads/shrek-watermelon-600x400.jpg").toURL());
+            ImageIcon fromTheWeb = new ImageIcon(image);
+
+            // Adding it to the right side
+            right.add(new JLabel(fromTheWeb), constraints);
+
+            System.out.println("Printed the thing");
+
+        } catch (Exception e) {
+            System.out.println(e);
+            System.out.println("Caught an exception and didn't print it");
+
+            ImageIcon tjs = new ImageIcon("resources/TJS.png");
+            right.add(new JLabel(tjs), constraints);
+        }
        
         // The left side, which holds the different options
         apiToggleButton = new JToggleButton("API On");
