@@ -3,7 +3,8 @@ package main.model;
 import main.model.Rating;
 
 import java.util.ArrayList;
-public class Game implements Comparable<Game>{
+import java.util.Iterator;
+public class Game implements Comparable<Game>, Iterable<Rating>{
     /**
      * Create varables for all the things that make up a game
     */
@@ -83,5 +84,12 @@ public class Game implements Comparable<Game>{
             count++;
         }
         return avgScore/count;
+    }
+
+    /**
+     *Allowes the Raitings to be iterated through
+     */
+    public Iterator<Rating> iterator() {
+        return ratings.iterator();
     }
 }

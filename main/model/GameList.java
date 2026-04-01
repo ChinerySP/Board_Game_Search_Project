@@ -1,7 +1,15 @@
 package main.model;
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public class GameList{
+public class GameList implements Iterable<Game>{
+    /**
+     *Allowes the Gamelists to be iterated through.
+     */
+    public Iterator<Game> iterator() {
+        return gameData.iterator();
+    }
+
     /**
      * stores a list of games in an arraylist
      */
