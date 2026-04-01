@@ -19,7 +19,7 @@ public class GameList implements Iterable<Game>{
     /**
      * takes in an id and compares games in the gamedata array intill it finds it and can remove it
      */
-    int deleteGame(int id){
+    public int deleteGame(int id){
         Game temp = new Game();
         temp.setId(id);
         int count = 0;
@@ -35,14 +35,22 @@ public class GameList implements Iterable<Game>{
 
     /**
      * add game should be able to find a game from the database based off an id
+     * @param id Interder value for the Id of the game
      */
-    void addGame(int id){
+    public void addGame(int id){
         //gameData.add(searchGames(id)); // not function yet, but should pull game from data base and add it
     }
-    void addGame(Game game){
+    public void addGame(Game game){
         gameData.add(game); //used to add game to list via varable containing the game
     }
-    void deleteList(){}
-    GameList(String name){listName = name;}
+    /**
+     * Delete list removes all the games from inside itself
+     */
+    public void deleteList(){
+        for(int i = gameData.size(); i > 0; i--){
+            gameData.removeFirst();
+        }
+    }
+    public GameList(String name){listName = name;}
 
 }

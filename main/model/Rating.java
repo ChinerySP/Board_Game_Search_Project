@@ -5,12 +5,20 @@ public class Rating{
     String review;
     boolean recommended;
 
-    Rating(double s, String r){
+    /**
+     * Constructer for the raiting
+     * @param s The number raiting that the user gave
+     * @param r The revirew the user wrote about the game
+     */
+    public Rating(double s, String r){
         score = s;
         review = r;
     }
 
-    void setScore(double x){score = x;}
-    void setReview(String x){review = x;}
-    void setRecommended(boolean x){recommended = x;}
+    /**
+     * Setters for the varables within Rating
+     */
+    public void setScore(double sc){score = sc;}
+    public void setReview(String rev){review = rev;}
+    public void setRecommended(boolean rec){recommended = rec;}
 }

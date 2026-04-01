@@ -16,34 +16,34 @@ public class Game implements Comparable<Game>, Iterable<Rating>{
      * Getters and setters for every varable, allowing for easy access
      */
     // all the getters
-    String getName(){return name;}
-    String getDescription(){return description;}
-    String getThumbnail(){return thumbnail;}
-    String getCategories(){return categories;}
-    String getMechanics(){return mechanics;}
-    String getDesigner(){return designer;}
-    String getArtist(){return artist;}
-    int getId(){return id;}
-    int getNumPlayer(){return numPlayer;}
-    int getAgePlayer(){return agePlayer;}
-    int getPlayTime(){return playTime;}
-    int getMinPlayer(){return minPlayer;}
-    int getMaxPlayer(){return maxPlayer;}
+    public String getName(){return name;}
+    public String getDescription(){return description;}
+    public String getThumbnail(){return thumbnail;}
+    public String getCategories(){return categories;}
+    public String getMechanics(){return mechanics;}
+    public String getDesigner(){return designer;}
+    public String getArtist(){return artist;}
+    public int getId(){return id;}
+    public int getNumPlayer(){return numPlayer;}
+    public int getAgePlayer(){return agePlayer;}
+    public int getPlayTime(){return playTime;}
+    public int getMinPlayer(){return minPlayer;}
+    public int getMaxPlayer(){return maxPlayer;}
 
     // all the setters
-    void setName(String n){name = n;}
-    void setDescription(String des){description = des;}
-    void setThumbnail(String thum){thumbnail = thum;}
-    void setCategories(String cat){categories = cat;}
-    void setMechanics(String mech){mechanics = mech;}
-    void setDesigner(String desi){designer = desi;}
-    void setArtist(String art){artist = art;}
-    void setId(int i){id = i;}
-    void setNumPlayer(int num){numPlayer = num;}
-    void setAgePlayer(int age){agePlayer = age;}
-    void setPlayTime(int tim){playTime = tim;}
-    void setMinPlayer(int min){minPlayer = min;}
-    void setMaxPlayer(int max){maxPlayer = max;}
+    public void setName(String n){name = n;}
+    public void setDescription(String des){description = des;}
+    public void setThumbnail(String thum){thumbnail = thum;}
+    public void setCategories(String cat){categories = cat;}
+    public void setMechanics(String mech){mechanics = mech;}
+    public void setDesigner(String desi){designer = desi;}
+    public void setArtist(String art){artist = art;}
+    public void setId(int i){id = i;}
+    public void setNumPlayer(int num){numPlayer = num;}
+    public void setAgePlayer(int age){agePlayer = age;}
+    public void setPlayTime(int tim){playTime = tim;}
+    public void setMinPlayer(int min){minPlayer = min;}
+    public void setMaxPlayer(int max){maxPlayer = max;}
 
     //adds comparability
     @Override
@@ -55,7 +55,7 @@ public class Game implements Comparable<Game>, Iterable<Rating>{
      * Defalt constructer to give all the varables an initial value, all of them should eventially
      * over wtriiten to the acual value
      */
-    Game(){
+    public Game(){
         this.name = "OH GOD WHAT GAME IS THIS!!!";
         this.description = "I HAVE NO CLUE WHAT THIS GAME IS ABOUT";
         this.thumbnail = "blank.png";
@@ -73,10 +73,15 @@ public class Game implements Comparable<Game>, Iterable<Rating>{
 
     /**
      * adds to the arraylist of ratings stored with each game
-     * the get raiting returns an avrage of all the ratings stored in the array list.
+     * @param newRating Takes in a raiting object to be stored
      */
-    void rate(Rating newRating){ratings.add(newRating);}
-    int getRating(){
+    public void rate(Rating newRating){ratings.add(newRating);}
+
+    /**
+     * the get raiting returns an avrage of all the ratings stored in the array list.
+     * @return mean value of all the raitings
+     */
+    public int getRating(){
         int avgScore = 0;
         int count = 0;
         for(Rating i : ratings){
