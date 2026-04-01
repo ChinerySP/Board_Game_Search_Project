@@ -10,13 +10,9 @@ public class DataBase {
     public ArrayList<Game> games;
     public ArrayList<User> userList;
 
-    /* No Game object yet, commented out
-    public games = ArrayList<Game>;
-    */
+    public games = ArrayList<Game>
 
-    /* No User object...
     public userList = ArrayList<User>;
-    */
 
     public searchGames() {
 
