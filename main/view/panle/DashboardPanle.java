@@ -5,6 +5,7 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import main.view.*;
+import main.view.panle.customComponents.RoundedPanle;
 
 
 /**
@@ -34,24 +35,16 @@ public class DashboardPanle extends Panle {
         // Regions for the left and the right of the screen
         // These by default hold the user's favorite games and a collection of their games 
         // TODO Uncomment these
-        // left = new GameListSubPanle();
-        // right = new GameListSubPanle();
-
-        // TODO Remove, these are for testing
-        left = new RoundedPanle(CORNER_ROUNDING_RADIUS);
-        right = new RoundedPanle(CORNER_ROUNDING_RADIUS);
+        left = new GameListSubPanle();
+        right = new GameListSubPanle();
 
         // Actually showing them on the screen
         this.add(left);
         this.add( Box.createHorizontalStrut(DISTANCE_BETWEEN_COMPONENTS) );
         this.add(right);
 
-        // TODO remove because these are for testing 
-        left.setBackground(new Color(0, 0, 255));
-        right.setBackground(new Color(0, 255, 0));
 
         // Just a bit of eye candy
-        this.setBackground(new Color(0, 0, 0, 0));
 
 
 

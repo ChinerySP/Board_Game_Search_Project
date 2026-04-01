@@ -1,6 +1,6 @@
 package main.view.panle;
 
-import main.model.Game;
+// import main.model.Game;
 import main.view.Panle;
 
 /**
@@ -13,13 +13,13 @@ public class GameDetailsSubPanle extends Panle {
      * Creates a new GameDetailsSubPanle that shows the details of the inputted game
      * @param Game game The game to display
      */
-    public GameDetailsSubPanle(Game game) {
+    public GameDetailsSubPanle(/*Game game*/) {
         super("gamedetails");
 
         // TODO Make this screen look pretty 
         
         // Saving the game and displaying it to the screen
-        this.toDisplay = game;
+        // this.toDisplay = game;
         this.update();
 
     }
@@ -41,6 +41,6 @@ public class GameDetailsSubPanle extends Panle {
 
     
     // The game that is going to be displayed
-    private Game toDisplay;
+    // private Game toDisplay;
 
 }

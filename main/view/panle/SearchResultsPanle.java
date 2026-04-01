@@ -5,6 +5,7 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import main.view.*;
+import main.view.panle.customComponents.RoundedPanle;
 
 
 /**

@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Insets;
 
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -17,6 +18,7 @@ import javax.swing.JToggleButton;
 
 import main.model.User;
 import main.view.Panle;
+import main.view.Screen;
 
 // For testing specifically
 import main.view.Screen;
@@ -34,6 +36,7 @@ public class SettingsPanle extends Panle {
     public static void main(String[] args) {
         System.out.println("Running Settings Panle testing function.");
         Screen screen = new Screen();
+        screen.showPanle("sticky");
         screen.showPanle("settings");
     }
    
@@ -52,8 +55,17 @@ public class SettingsPanle extends Panle {
         // Here are the constraints so that everything is centered
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.anchor = GridBagConstraints.CENTER;
+
+        // Centering the everything (that was a mistype, but I think it's funny so I kept it)
         constraints.weightx = 0.0;
         constraints.weightx = 0.0;
+
+        // Giving them some padding between each other
+        constraints.ipadx = 40; 
+        constraints.ipady = 10;
+
+        // Giving everything an external margin
+        constraints.insets = new Insets(8, 20, 8, 20);
 
 
         // The right side, which currently just holds our mascot

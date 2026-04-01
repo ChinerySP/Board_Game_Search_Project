@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.border.Border;
 
-import main.model.User;
+// import main.model.User;
+import main.view.Panle;
 import main.view.panle.*;
 
 /**
@@ -53,7 +54,7 @@ public class Screen {
         frame.getContentPane().setBackground(SCREEN_BACKGROUND_COLOR);
 
         // Final steps to make sure that the frame shows up
-        frame.setSize(500, 400);
+        frame.setSize(1000, 800);
         frame.setVisible(true);
 
     }
@@ -126,22 +127,22 @@ public class Screen {
      * @param ArrayList<User> users The possible user that they may sign into
      * @return user The User that logged in
      */
-    public User login(ArrayList<User> users) {
+    // public User login(ArrayList<User> users) {
 
-        // Showing the login screen
-        showPanle("login");
+    //     // Showing the login screen
+    //     showPanle("login");
 
-        //! This will likely be moved to the View object?
-        // Getting the login 
+    //     //! This will likely be moved to the View object?
+    //     // Getting the login 
 
 
-        // Showing the dashboard
-        frame.add(this.getPanle("sticky"), BorderLayout.NORTH);
-        showPanle("dashboard");
+    //     // Showing the dashboard
+    //     frame.add(this.getPanle("sticky"), BorderLayout.NORTH);
+    //     showPanle("dashboard");
 
-        return null; // Unfinished
+    //     return null; // Unfinished
 
-    }
+    // }
     
     
     // Getters and setters 
@@ -166,7 +167,7 @@ public class Screen {
     
 
     // Constants (generally for consistent visuals)
-    public static final Color SCREEN_BACKGROUND_COLOR = new Color(6, 28, 43);
+    public static final Color SCREEN_BACKGROUND_COLOR = new Color(17, 17, 27);
 
     
     private JFrame frame;
