@@ -16,7 +16,11 @@ public class GameList implements Iterable<Game>{
      */
     ArrayList<Game> gameData = new ArrayList<Game>();
     String listName;
-
+    /**
+     * geter and setter for the name of the game list
+     */
+    public String getName(){return listName;}
+    public void setName(String n){listName = n;}
     /**
      * takes in an id and compares games in the gamedata array intill it finds it and can remove it
      * @prama id Int id of game to be Deleted
@@ -55,5 +59,11 @@ public class GameList implements Iterable<Game>{
         }
     }
     public GameList(String name){listName = name;}
-
+    /**
+     * gets the size of the game list
+     * @return size of the array list
+    */
+    public int getSize(){
+        return gameData.size();
+    }
 }
