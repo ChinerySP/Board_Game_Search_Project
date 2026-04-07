@@ -1,10 +1,9 @@
 package main.model;
 
-import main.model.Rating;
-
 import java.util.ArrayList;
 import java.util.Iterator;
-public class Game implements Comparable<Game>, Iterable<Rating>{
+import main.model.Rating;
+public class Game implements Comparable<main.model.Game>, Iterable<Rating>{
     /**
      * Create varables for all the things that make up a game
     */
@@ -47,7 +46,7 @@ public class Game implements Comparable<Game>, Iterable<Rating>{
 
     //adds comparability
     @Override
-    public int compareTo(Game other) {
+    public int compareTo(main.model.Game other) {
         return this.id - other.id;
     }
 

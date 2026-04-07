@@ -1,6 +1,7 @@
 package main.model;
 import java.util.ArrayList;
 import java.util.Iterator;
+import main.model.Game;
 
 public class GameList implements Iterable<Game>{
     /**
@@ -14,7 +15,7 @@ public class GameList implements Iterable<Game>{
     /**
      * stores a list of games in an arraylist
      */
-    ArrayList<Game> gameData = new ArrayList<Game>();
+    ArrayList<Game> gameData = new ArrayList<main.model.Game>();
     String listName;
     /**
      * geter and setter for the name of the game list
@@ -55,7 +56,7 @@ public class GameList implements Iterable<Game>{
      */
     public void deleteList(){
         for(int i = gameData.size(); i > 0; i--){
-            gameData.removeFirst();
+            gameData.remove(0);
         }
     }
     public GameList(String name){listName = name;}

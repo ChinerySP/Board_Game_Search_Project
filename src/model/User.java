@@ -5,7 +5,7 @@ public class User {
     /**
      * A collection of GameLists specific to the user
      */
-    public GameLists() {
+    public User() {
 
     }
 

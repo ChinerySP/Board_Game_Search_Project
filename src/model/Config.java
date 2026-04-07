@@ -1,6 +1,5 @@
 package main.model;
 
-import java.io.*;
 public class Config {
 
     private bool apiActive;

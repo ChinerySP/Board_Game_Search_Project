@@ -1,18 +1,14 @@
 package main.view.panle;
 
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Insets;
-import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -20,17 +16,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 
-import main.model.User;
 import main.view.Panle;
 import main.view.Screen;
-import main.view.panle.customComponents.RoundedPanle;
-
-import java.net.URI;
-import java.net.URL;
 
 
 // For testing specifically
-import main.view.Screen;
+
 
 /**
  * The Panle that allows for changing the settings of the program.
@@ -147,12 +138,12 @@ public class SettingsPanle extends Panle {
      * Sets the user that this settings panle will display
      * @param User user The user to be stored in this settings panle
      */
-    public void setUser(User user) {
+    public void setUser(main.model.User user) {
         this.user = user;
     }
     
     // The user to diplay
-    private User user;
+    private main.model.User user;
 
     // Display elements
     private JPanel left;

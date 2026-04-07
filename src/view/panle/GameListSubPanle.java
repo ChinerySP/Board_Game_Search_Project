@@ -1,7 +1,5 @@
 package main.view.panle;
 
-import main.model.GameList;
-
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -9,7 +7,6 @@ import java.awt.GridBagLayout;
 import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
-import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -17,15 +14,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
-
-import main.model.Game;
 
 import main.view.Panle;
 import main.view.panle.customComponents.RoundedPanle;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.function.Consumer;
+
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -56,8 +48,8 @@ public class GameListSubPanle extends Panle {
         GameListSubPanle right = dash.right;
         GameListSubPanle left = dash.left;
         for (int i = 0; i < 100; i++) {
-            right.games.addGame(new Game());
-            left.games.addGame(new Game());
+            right.games.addGame(new main.model.Game());
+            left.games.addGame(new main.model.Game());
             
         }
         right.updateGames();
@@ -69,7 +61,7 @@ public class GameListSubPanle extends Panle {
      * Creates a GameListSubPanle to display the inputted Games
      * @param GameList games The games to display
      */
-    public GameListSubPanle(GameList games) {
+    public GameListSubPanle(main.model.GameList games) {
         super("gamelist");
 
         // Setting up the internal container and title
@@ -120,7 +112,7 @@ public class GameListSubPanle extends Panle {
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         
         // Defauling to an unnamed list
-        this.games = new GameList("Un-named List");
+        this.games = new main.model.GameList("Un-named List");
         title = new JLabel("Un-named List", SwingConstants.CENTER);
         title.setForeground(Panle.TEXT_COLOR);
         title.setFont(new Font("Courier", Font.BOLD, GameListSubPanle.TITLE_FONT_SIZE));
@@ -141,7 +133,7 @@ public class GameListSubPanle extends Panle {
      * Changes the GameList that is being displayed
      * @param GameList newList The new GameList to show
      */
-    public void setGameList(GameList newList) {
+    public void setGameList(main.model.GameList newList) {
         this.games = newList;
     }
 
@@ -155,7 +147,7 @@ public class GameListSubPanle extends Panle {
         gamePanles = new ArrayList<>();
 
         // Iterating over the game panels and recreating them
-        for (Game game : games) {
+        for (main.model.Game game : games) {
 
             // The new panle that we will be adding to the list
             RoundedPanle toAdd = new Panle("gamePanle");
@@ -368,7 +360,7 @@ public class GameListSubPanle extends Panle {
 
     // The games that will be displayed here
     // TODO change to pivate
-    public GameList games;
+    public main.model.GameList games;
 
     // An arraylist that holds the visual elements for each game
     private ArrayList<RoundedPanle> gamePanles;

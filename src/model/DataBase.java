@@ -1,20 +1,19 @@
 package main.model;
 
-import javax.swing.text.html.parser.Parser;
 import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 public class DataBase {
-    public parser = new Parser();
+    public parser = new DataBase();
     public ArrayList<Game> games;
     public ArrayList<User> userList;
 
-    public searchGames(Arraylist<String> keywords) {
+    public DataBase(Arraylist<String> keywords) {
 
     }
 
-    public writeToFile() {
+    public DataBase() {
 
     }
 }

@@ -1,6 +1,6 @@
 package main.model;
 
-public class Rating{
+public class Rating {
     double score;
     String review;
     boolean recommended;
