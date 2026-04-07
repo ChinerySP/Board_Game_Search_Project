@@ -2,7 +2,7 @@ package src.model;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import main.model.Game;
+import src.model.Game;
 
 public class GameList<Game> implements Iterable<Game>{
     /**

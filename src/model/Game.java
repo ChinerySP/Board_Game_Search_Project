@@ -1,6 +1,6 @@
 package src.model;
 
-import main.model.Rating;
+import src.model.Rating;
 import java.util.ArrayList;
 import java.util.Iterator;
 public class Game implements Comparable<Game>, Iterable<Rating>{
