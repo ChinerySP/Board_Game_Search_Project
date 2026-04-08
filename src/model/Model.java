@@ -1,1 +1,1 @@
-package main.model;
+package src.model;
