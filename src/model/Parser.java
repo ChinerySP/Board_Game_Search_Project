@@ -125,7 +125,7 @@ public class XMLParser extends Parser {
         title = parseTextField(xmlGameNode,"name");
         thumburi = parseTextField(xmlGameNode, "thumbnail");
         year = parseIntegerField(xmlGameNode, "yearpublished");
-        return new Game(title,thumburi, year, bgg_rank, bgg_id);
+        return new Game(title, thumburi, year, bgg_rank, bgg_id);
     }
 
     /**
