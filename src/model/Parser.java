@@ -1,4 +1,4 @@
-package main.model;
+package model;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -6,6 +6,10 @@ import org.w3c.dom.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.util.ArrayList;
 
 /**
@@ -21,6 +25,16 @@ public abstract class Parser {
 
 public class XMLParser extends Parser {
     public String fileLocation;
+
+    @Override
+    public ArrayList<Game> getBoardGames(int numGames) {
+        return null;
+    }
+
+    @Override
+    ArrayList<Game> search(String toSearch) {
+        return null;
+    }
 
     @Override
     Game retrieveGame(int gameID) {
@@ -177,6 +191,11 @@ public class APIParser extends Parser {
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         System.out.println(response.body());
 
+        return null;
+    }
+
+    @Override
+    public ArrayList<Game> getBoardGames(int numGames) {
         return null;
     }
 
