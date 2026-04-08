@@ -1,12 +1,9 @@
-package model;
+package main.model;
 
 import java.io.*;
 public class Config {
 
-    public Config() {
-        apiActive = True:
-
-    }
+    private boolean apiActive;
 
     /**
      * Sets the API status to determine if user is in offline or online mode
@@ -16,8 +13,5 @@ public class Config {
      */
     public boolean setAPIActive(boolean apiActive) {
         //Online/offline mode toggled in settings?
-
     }
-
-    private boolean apiActive;
 }
