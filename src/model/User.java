@@ -1,11 +1,11 @@
-package model;
+package main.model;
 
 public class User {
 
     /**
      * A collection of GameLists specific to the user
      */
-    public User() {
+    public GameLists() {
 
     }
 
@@ -23,11 +23,11 @@ public class User {
      * @param guess The password input by the user
      * @return True if the password is correct, False if incorrect
      */
-    public boolean login(String guess) {
+    public bool login(String guess) {
         if (guess == password) {
-            return true;
+            return True;
         }
-        else return false;
+        else return False;
     }
 
     /**
@@ -36,18 +36,16 @@ public class User {
      * @return User either chooses to logout with our without saving data
      * True for save, False for not saved
      */
-    public boolean logout() {
-        // TODO implement
-        return false;
+    public bool logout() {
+
     }
 
     /**
      * User data is loaded
      * @return
      */
-    public boolean loadUserData() {
-        // TODO implement
-        return false;
+    public bool loadUserData() {
+
     }
 
     /**
@@ -55,9 +53,8 @@ public class User {
      *  on user choice
      * @return True for save data and False for not saved
      */
-    public boolean saveUserData() {
-        // TODO implement
-        return false;
+    public bool saveUserData() {
+
     }
 
     private String password;
