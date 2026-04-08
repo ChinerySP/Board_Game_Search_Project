@@ -9,6 +9,7 @@ import java.awt.Insets;
 import javax.swing.Box;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
@@ -129,7 +130,23 @@ public class LoginPanle extends Panle {
      * Allows a user to log in even if they forgot their password (alongside some shenanegians)
      */
     private void forgotPassword() {
-        // Todo
+
+        // Pulling who they said that they were
+        String name = usernameInput.getText();
+
+        JOptionPane.showMessageDialog(parent,
+            "",
+            "So, you are ",
+            JOptionPane.ERROR_MESSAGE);
+
+    }
+    
+
+    /**
+     * Logs in the user that currently has their username in the username slot
+     */
+    public void login() {
+
     }
     
     
