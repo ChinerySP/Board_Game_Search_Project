@@ -2,6 +2,10 @@ package main.view.panle.customComponents;
 
 // TODO prune
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+
+import main.view.Panle;
+
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
 
@@ -16,6 +20,12 @@ public class PrettyTextInput extends JTextField {
      */
     public PrettyTextInput() {
         super();
+
+        // ✨Style✨
+        this.setBorder(new EmptyBorder(0, 5, 0, 5));
+        this.setBackground(new Color(54, 58, 79));
+        this.setForeground(Panle.TEXT_COLOR);
+        this.setMaximumSize(new Dimension(Integer.MAX_VALUE, 28));
 
         // Setting to invisible so that we can actually see the background we draw
         this.setOpaque(false);

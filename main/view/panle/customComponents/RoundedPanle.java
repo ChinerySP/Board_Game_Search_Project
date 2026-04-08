@@ -58,19 +58,30 @@ public class RoundedPanle extends JPanel {
 
         // Painting the border color
         g2.setColor(Panle.BORDER_COLOR);
-        g2.fillRoundRect(x - Panle.BORDER_WIDTH, y - Panle.BORDER_WIDTH, getWidth() - insets.left - insets.right + 2 * Panle.BORDER_WIDTH, getHeight() - insets.bottom - insets.top + 2 * Panle.BORDER_WIDTH,
+        g2.fillRoundRect(x - Panle.BORDER_WIDTH, y - Panle.BORDER_WIDTH,
+                getWidth() - insets.left - insets.right + 2 * Panle.BORDER_WIDTH,
+                getHeight() - insets.bottom - insets.top + 2 * Panle.BORDER_WIDTH,
                 radius, radius);
 
         // Painting the background color
         g2.setColor(getBackground());
         g2.fillRoundRect(x, y, getWidth() - insets.left - insets.right, getHeight() - insets.bottom - insets.top,
                 radius, radius);
-        
-        
 
     }
 
-    final private int radius;
+    private int radius;
+    
+    /**
+     * Returns the radius of this RoundedPanle
+     */
+    public int getRadius() { return this.radius; }
+
+    /**
+     * Updates the radius of the RoundedPanle 
+     * @param int radius The new radius of the panle
+     */
+    public void setRadius(int radius) { this.radius = radius; }
 
 
 }

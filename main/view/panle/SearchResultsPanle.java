@@ -1,6 +1,9 @@
 package main.view.panle;
 
 import java.awt.Color;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
@@ -28,23 +31,21 @@ public class SearchResultsPanle extends Panle {
      */
     public SearchResultsPanle() {
         super("searchresults");
-        
-        // This panle also use a Box layout so that we can use each side to house either the GameDetails panle or collections
-        this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+
+        // This Panle will use a gridbag because it is my ✨favorite✨ (also so that the sizing works out but whatever)
+        this.setLayout(new GridBagLayout());
+        GridBagConstraints constraints = new GridBagConstraints(); 
         
         // Regions for the left and the right of the screen
         // These by default hold the user's favorite games and a collection of their games 
-        left = new RoundedPanle(CORNER_ROUNDING_RADIUS);
+        results = new RoundedPanle(CORNER_ROUNDING_RADIUS);
         right = new RoundedPanle(CORNER_ROUNDING_RADIUS);
 
         // Actually showing them on the screen
-        this.add(left);
+        // this.add(left);
         this.add( Box.createHorizontalStrut(DISTANCE_BETWEEN_COMPONENTS) );
         this.add(right);
 
-        // TODO remove because these are for testing 
-        left.setBackground(new Color(255, 0, 0));
-        right.setBackground(new Color(0, 255, 0));
 
         // Just a bit of eye candy
         this.setBackground(new Color(0, 0, 0, 0));
@@ -55,7 +56,7 @@ public class SearchResultsPanle extends Panle {
     // Owns its own instance of the games details subpanle so that it can show it whenever it wants
     // private GameDetailsSubPanle;
 
-    private JPanel left;
+    private JPanel results;
     private JPanel right;
 
 

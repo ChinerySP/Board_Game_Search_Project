@@ -39,11 +39,6 @@ public class StickySubPanle extends Panle {
 
         // Creating the textarea for input
         searchInput = new PrettyTextInput();
-        searchInput.setBorder(new EmptyBorder(0, 5, 0, 5));
-        // searchInput.setBorder(null);
-        searchInput.setBackground(new Color(54, 58, 79));
-        searchInput.setForeground(Panle.TEXT_COLOR);
-        searchInput.setMaximumSize(new Dimension(Integer.MAX_VALUE, 28));
 
         // Removing any other stuff from the icons
         homeButton.setBorder(null);

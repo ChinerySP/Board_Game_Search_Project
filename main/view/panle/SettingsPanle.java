@@ -11,6 +11,7 @@ import java.awt.Insets;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -22,6 +23,7 @@ import javax.swing.JToggleButton;
 import main.model.User;
 import main.view.Panle;
 import main.view.Screen;
+import main.view.panle.customComponents.RoundedPanle;
 
 import java.net.URI;
 import java.net.URL;
@@ -54,9 +56,9 @@ public class SettingsPanle extends Panle {
         super("settings");
         user = null;
 
-        // The settings panle holds everything in a grid layout
-        // This way, we can have the settings on one side and a meme on the other
-        this.setLayout(new GridLayout());
+        // The settings panle holds everything in a gridbag layout 
+        // This way, we can have the settings on one side and a meme on the other with a spacer between
+        this.setLayout(new GridBagLayout());
 
         // Each side is going to be a gridbag layout so that everything is centered
         // Here are the constraints so that everything is centered
@@ -74,30 +76,13 @@ public class SettingsPanle extends Panle {
         // Giving everything an external margin
         constraints.insets = new Insets(8, 20, 8, 20);
 
-
         // The right side, which currently just holds our mascot
         // The image is not scaled at all to retain aspect ratio, which is for two reasons: one, it is easier, and two, it is funny.
-        right = new JPanel();
+        right = new Panle("rightSettings");
         right.setLayout(new GridLayout());
-        try {
-
-            // Fetching the image
-            Image image = ImageIO
-                    .read(new URI("https://jollytomato.com/wp-content/uploads/shrek-watermelon-600x400.jpg").toURL());
-            ImageIcon fromTheWeb = new ImageIcon(image);
-
-            // Adding it to the right side
-            right.add(new JLabel(fromTheWeb), constraints);
-
-            System.out.println("Printed the thing");
-
-        } catch (Exception e) {
-            System.out.println(e);
-            System.out.println("Caught an exception and didn't print it");
-
-            ImageIcon tjs = new ImageIcon("resources/TJS.png");
-            right.add(new JLabel(tjs), constraints);
-        }
+        ImageIcon tjs = new ImageIcon("resources/TJS.png");
+        Image scaled = tjs.getImage().getScaledInstance(250, -1, Image.SCALE_SMOOTH);
+        right.add(new JLabel(new ImageIcon(scaled)), constraints);
        
         // The left side, which holds the different options
         apiToggleButton = new JToggleButton("API On");
@@ -105,7 +90,7 @@ public class SettingsPanle extends Panle {
         darkModeLabel = new JLabel("Dark Mode");
         darkModeCheckBox = new JCheckBox();
         resetPasswordButton = new JButton("Reset Password");
-        left = new JPanel();
+        left = new Panle("leftSettings");
         left.setLayout(new GridBagLayout());
         constraints.gridy = 0;
         left.add(apiToggleButton, constraints);
@@ -119,14 +104,34 @@ public class SettingsPanle extends Panle {
         constraints.gridy = 3;
         left.add(resetPasswordButton, constraints);
 
+        // Adding everything in
+        GridBagConstraints outerConstraints = new GridBagConstraints();
+        outerConstraints.weighty = 1.0;
+        outerConstraints.fill = GridBagConstraints.BOTH;
 
-        this.add(left);
-        this.add(right);
+        // Adding in the left with a weight of 0.5
+        outerConstraints.weightx = 0.5;
+        outerConstraints.gridx = 0;
+        left.setPreferredSize(new Dimension(0, 0)); 
+        this.add(left, outerConstraints);
 
+        // Adding in the spacer with a weight of 0.0 (to use the preferredSize)
+        outerConstraints.weightx = 0.0;
+        outerConstraints.fill = GridBagConstraints.VERTICAL;
+        outerConstraints.gridx = 1;
+        this.add(Box.createHorizontalStrut(Panle.DISTANCE_BETWEEN_COMPONENTS), outerConstraints);
+
+        // Adding in the right with a weight of 0.5 to match the left
+        outerConstraints.weightx = 0.5;
+        outerConstraints.fill = GridBagConstraints.BOTH;
+        outerConstraints.gridx = 2;
+        right.setPreferredSize(new Dimension(0, 0));
+        this.add(right, outerConstraints);
+
+        // Making sure everything is visible
         this.setVisible(true);
         this.setOpaque(true);
 
-        
     }
 
 
