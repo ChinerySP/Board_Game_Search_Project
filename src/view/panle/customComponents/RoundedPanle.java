@@ -1,10 +1,9 @@
-package src.view.panle.customComponents;
+package view.panle.customComponents;
 
 // TODO prune this to only import things that we need
 import java.awt.*;
 import javax.swing.*;
-
-import src.view.Panle;
+import view.panle.*;
 
 // Yes I know this is very extra, but I have an idea of what I want in my mind and I think this could make it work nicely
 /**

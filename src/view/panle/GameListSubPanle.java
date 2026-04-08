@@ -1,4 +1,4 @@
-package src.view.panle;
+package view.panle;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -15,8 +15,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
-import src.view.Panle;
-import src.view.panle.customComponents.RoundedPanle;
+import view.panle.customComponents.RoundedPanle;
 
 import javax.swing.plaf.basic.BasicScrollBarUI;
 
@@ -26,10 +25,18 @@ import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.Rectangle;
 import java.awt.RenderingHints;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseAdapter;
+
 import javax.swing.JComponent;
+import java.util.function.Consumer;
 
 // For testing
-import src.view.Screen;
+import view.Screen;
+import model.*;
+import javax.swing.*;
+import java.awt.*;
 
 
 /**
@@ -45,12 +52,12 @@ public class GameListSubPanle extends Panle {
         Screen screen = new Screen();
         screen.showPanle("sticky");
         screen.showPanle("dashboard");
-        DashboardPanle dash =  (DashboardPanle) screen.getPanle("dashboard");
+        DashboardPanle dash = (DashboardPanle) screen.getPanle("dashboard");
         GameListSubPanle right = dash.right;
         GameListSubPanle left = dash.left;
         for (int i = 0; i < 100; i++) {
-            right.games.addGame(new main.model.Game());
-            left.games.addGame(new main.model.Game());
+            right.games.addGame(new Game());
+            left.games.addGame(new Game());
             
         }
         right.updateGames();
@@ -113,7 +120,7 @@ public class GameListSubPanle extends Panle {
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         
         // Defauling to an unnamed list
-        this.games = new main.model.GameList("Un-named List");
+        this.games = new GameList("Un-named List");
         title = new JLabel("Un-named List", SwingConstants.CENTER);
         title.setForeground(Panle.TEXT_COLOR);
         title.setFont(new Font("Courier", Font.BOLD, GameListSubPanle.TITLE_FONT_SIZE));
@@ -134,7 +141,7 @@ public class GameListSubPanle extends Panle {
      * Changes the GameList that is being displayed
      * @param GameList newList The new GameList to show
      */
-    public void setGameList(main.model.GameList newList) {
+    public void setGameList(GameList newList) {
         this.games = newList;
     }
 
@@ -148,7 +155,7 @@ public class GameListSubPanle extends Panle {
         gamePanles = new ArrayList<>();
 
         // Iterating over the game panels and recreating them
-        for (main.model.Game game : games) {
+        for (Game game : games) {
 
             // The new panle that we will be adding to the list
             RoundedPanle toAdd = new Panle("gamePanle");
@@ -198,13 +205,32 @@ public class GameListSubPanle extends Panle {
             toAdd.setPreferredSize(new Dimension(0, GameListSubPanle.PANLE_HEIGHT));
             toAdd.setMaximumSize(new Dimension(Integer.MAX_VALUE, GameListSubPanle.PANLE_HEIGHT));
 
+            // Creating a mouselistener to listen for when a game is clicked
+            MouseAdapter clickListener = new MouseAdapter() {
+
+                /**
+                 * Overrideing the mouseClicked event for this eventListener
+                 */
+                // @Override
+                public void mouseClicked(MouseEvent e) {
+                    // If someone gave us an action to run, run it and pass the clicked game!
+                    if (onGameClicked != null) {
+                        onGameClicked.accept(game);
+                    }
+                }
+            };
+
+            // Adding the listener to all of the things (this way, it detects it even if I click the text)
+            toAdd.addMouseListener(clickListener);
+            name.addMouseListener(clickListener);
+            desc.addMouseListener(clickListener);
+
             // Actually adding it in to the list
             gamePanles.add(toAdd);
 
         }
 
         // If there aren't any games, then we need to have a fake game that lets them know that
-        System.out.println(String.format("There are %s games", gamePanles.size()));
         if (gamePanles.size() == 0) {
 
             // The new panle that we will be adding to the list
@@ -254,8 +280,7 @@ public class GameListSubPanle extends Panle {
             toAdd.setPreferredSize(new Dimension(0, GameListSubPanle.PANLE_HEIGHT));
             toAdd.setMaximumSize(new Dimension(Integer.MAX_VALUE, GameListSubPanle.PANLE_HEIGHT));
 
-            // Actually adding it in to the list
-            System.out.println(toAdd.toString());
+            // Actually adding it in to the list 
             gamePanles.add(toAdd);
 
         }
@@ -309,7 +334,7 @@ public class GameListSubPanle extends Panle {
                 button.setOpaque(false);
                 button.setContentAreaFilled(false);
                 button.setBorderPainted(false);
-                button.setFocusable(false); 
+                button.setFocusable(false);
                 return button;
             }
 
@@ -348,20 +373,28 @@ public class GameListSubPanle extends Panle {
                         8, 8);
                 g2.dispose();
             }
-            
+
         });
 
         // It kept duplicating the thing because it wasn't updating, so I went ahead and cretaed an eventListener
         // That makes it repaint whenever it gets moved
         pane.getVerticalScrollBar().addAdjustmentListener(e -> pane.repaint());
-        
+
         // Updating the scroll path to be transparent 
         pane.getVerticalScrollBar().setOpaque(false);
+    }
+    
+    /**
+     * Sets the action to be performed when a game panel is clicked.
+     * @param Consumer<Game> action The action to perform when the game is clicked on 
+     */
+    public void setOnGameClicked(Consumer<Game> action) {
+        this.onGameClicked = action;
     }
 
     // The games that will be displayed here
     // TODO change to pivate
-    public main.model.GameList games;
+    public GameList games;
 
     // An arraylist that holds the visual elements for each game
     private ArrayList<RoundedPanle> gamePanles;
@@ -373,10 +406,11 @@ public class GameListSubPanle extends Panle {
     // The label that holds the title of the list
     private JLabel title;
 
+    // The action to run when a game is clicked
+    private Consumer<Game> onGameClicked;
+
     // Any visual constants
     public static final int PANLE_HEIGHT = 100;
     public static final int TITLE_FONT_SIZE = 30;
     
 }
-
-// TODO make this open a gameDetailsSubPanle on the opposite side of where a game was clicked

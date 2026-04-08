@@ -1,2 +1,2 @@
-package main.model;
+package model;
 

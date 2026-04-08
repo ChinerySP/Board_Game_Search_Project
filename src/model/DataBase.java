@@ -1,17 +1,17 @@
-package src.model;
+package model;
 
 import javax.swing.text.html.parser.Parser;
 import java.util.ArrayList;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+//import org.json.simple.JSONArray;
+//import org.json.simple.JSONObject;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import main.model.game;
+import model.*;
 
 public class DataBase {
-    public parser = new Parser();
+    public Parser parser;
     public ArrayList<Game> games;
     public ArrayList<User> userList;
     public String gameXML = "resources/simple1.xml";
@@ -21,7 +21,7 @@ public class DataBase {
      * @param keywords list of keywords to look for within the game
      * @return
      */
-    public ArrayList<Game> searchGames(Arraylist<String> keywords) {
+    public ArrayList<Game> searchGames(ArrayList<String> keywords) {
         ArrayList<Game> results = null;
 
         try {

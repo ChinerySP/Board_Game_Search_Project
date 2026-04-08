@@ -1,4 +1,4 @@
-package src.model;
+package model;
 
 public class User {
 
@@ -23,11 +23,11 @@ public class User {
      * @param guess The password input by the user
      * @return True if the password is correct, False if incorrect
      */
-    public bool login(String guess) {
+    public boolean login(String guess) {
         if (guess == password) {
-            return True;
+            return true;
         }
-        else return False;
+        else return false;
     }
 
     /**
@@ -36,16 +36,18 @@ public class User {
      * @return User either chooses to logout with our without saving data
      * True for save, False for not saved
      */
-    public bool logout() {
-
+    public boolean logout() {
+        // TODO implement
+        return false;
     }
 
     /**
      * User data is loaded
      * @return
      */
-    public bool loadUserData() {
-
+    public boolean loadUserData() {
+        // TODO implement
+        return false;
     }
 
     /**
@@ -53,8 +55,9 @@ public class User {
      *  on user choice
      * @return True for save data and False for not saved
      */
-    public bool saveUserData() {
-
+    public boolean saveUserData() {
+        // TODO implement
+        return false;
     }
 
     private String password;

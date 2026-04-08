@@ -1,8 +1,8 @@
-package src.model;
+package model;
 
 public class Config {
 
-    private bool apiActive;
+    private boolean apiActive;
 
     /**
      * Sets the API status to determine if user is in offline or online mode
@@ -10,7 +10,8 @@ public class Config {
      * @return returns the current status of the API
      * True for online, False for offline
      */
-    public bool setAPIActive(bool apiActive) {
+    public boolean setAPIActive(boolean apiActive) {
         //Online/offline mode toggled in settings?
+        return false;
     }
 }

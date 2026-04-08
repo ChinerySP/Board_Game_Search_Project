@@ -1,4 +1,4 @@
-package src.model;
+package model;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -21,8 +21,14 @@ public abstract class Parser {
     abstract ArrayList<Game> search(String toSearch);
 
     abstract Game retrieveGame(int gameID);
+
+    // TODO implement (this was requested by the Database class)
+    abstract ArrayList<Game> retrieveGameList();
 }
 
+// TODO move to its own file (Java likes each public class to have its own file)
+// TODO move, what I usually do is make a folder for my subclasses named after my superclass (so each of these could go under a folder named 'parser')
+// TODO move, if you want to see, I did the same thing for Panle, by making a panle folder for all of them
 public class XMLParser extends Parser {
     public String fileLocation;
 
@@ -39,7 +45,7 @@ public class XMLParser extends Parser {
     @Override
     Game retrieveGame(int gameID) {
         for (Game g : retrieveGameList()) {
-            if (g.getID() == gameID) {
+            if (g.getId() == gameID) {
                 System.out.println("Matching game of ID: \"" + String.valueOf(gameID) + "\" found.");
                 return g;
             }
@@ -54,9 +60,8 @@ public class XMLParser extends Parser {
         File inputFileTest = new File(inputFileName);
         // check to verify the file location is valid
         if (!inputFileTest.exists()) {
-            throw new FileNotFoundException(inputFileName+" not found.");
+            throw new FileNotFoundException(inputFileName + " not found.");
         }
-
 
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         dbf.setNamespaceAware(true);
@@ -68,7 +73,7 @@ public class XMLParser extends Parser {
             // create a doc builder to parse the file
             DocumentBuilder db = dbf.newDocumentBuilder();
             // parse and convert it into a DOM tree to be able to look through later
-            xmlDocumentTree = db.parse(inputFileName);   // retrieves the XML text into a stored dom object
+            xmlDocumentTree = db.parse(inputFileName); // retrieves the XML text into a stored dom object
         } catch (Exception ex) {
             throw new java.io.IOException("Unable to parse XML document");
         }
@@ -88,7 +93,7 @@ public class XMLParser extends Parser {
             currentGameList = new ArrayList<Game>();
 
             // retrieve the top level node in the tree, would be items
-            Element items =  xmlDocumentTree.getDocumentElement();
+            Element items = xmlDocumentTree.getDocumentElement();
             NodeList xmlGameList = items.getElementsByTagName("item");
 
             // loop for each item node within the XML
@@ -110,21 +115,24 @@ public class XMLParser extends Parser {
      */
     private Game parseNextGame(Node xmlGameNode) {
         String bgg_id;
-        Integer bgg_rank=0;
-        String thumburi ="tbd";
-        String title="tbd";
+        Integer bgg_rank = 0;
+        String thumburi = "tbd";
+        String title = "tbd";
         Integer year = 0;
-        NamedNodeMap attributes = xmlGameNode.getAttributes();  // for this item, get its attributes
+        NamedNodeMap attributes = xmlGameNode.getAttributes(); // for this item, get its attributes
         bgg_id = attributes.getNamedItem("id").getNodeValue();
         try {
             bgg_rank = Integer.parseInt(attributes.getNamedItem("rank").getNodeValue());
         } catch (NumberFormatException e) {
-            bgg_rank = 0;  // let's use a default value if the data in the file is bad
+            bgg_rank = 0; // let's use a default value if the data in the file is bad
         }
 
-        title = parseTextField(xmlGameNode,"name");
+        title = parseTextField(xmlGameNode, "name");
         thumburi = parseTextField(xmlGameNode, "thumbnail");
         year = parseIntegerField(xmlGameNode, "yearpublished");
+
+        // TODO fix, there isn't a Game constructor that makes a game with these paramters.
+        // TODO fix, what I would do is create a game and then use the setters to update the parameters you need, then return that
         return new Game(title, thumburi, year, bgg_rank, bgg_id);
     }
 
@@ -166,17 +174,21 @@ public class XMLParser extends Parser {
                 try {
                     fieldValue = Integer.parseInt(attributes.getNamedItem("value").getNodeValue());
                 } catch (NumberFormatException e) {
-                    fieldValue = 0;  // use a default value or maybe throw an exception to deal with
+                    fieldValue = 0; // use a default value or maybe throw an exception to deal with
                 }
             }
         }
         return fieldValue;
     }
 
-    private Document  xmlDocumentTree;  // this is the object tree parsed from the given XML File
-    private ArrayList<Game> currentGameList;  // current game list, may be null
+    private Document xmlDocumentTree; // this is the object tree parsed from the given XML File
+    private ArrayList<Game> currentGameList; // current game list, may be null
 }
 
+
+// TODO move to its own file (Java likes each public class to have its own file)
+// TODO move, what I usually do is make a folder for my subclasses named after my superclass (so each of these could go under a folder named 'parser')
+// TODO move, if you want to see, I did the same thing for Panle, by making a panle folder for all of them
 public class APIParser extends Parser {
     public String apiKey;
 

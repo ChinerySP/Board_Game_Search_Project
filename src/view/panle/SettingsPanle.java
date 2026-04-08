@@ -1,6 +1,6 @@
-package src.view.panle;
+package view.panle;
 
-import src.model.User;
+import model.User;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -16,8 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 
-import src.view.Panle;
-import src.view.Screen;
+import view.Screen;
 
 
 // For testing specifically
@@ -138,12 +137,12 @@ public class SettingsPanle extends Panle {
      * Sets the user that this settings panle will display
      * @param User user The user to be stored in this settings panle
      */
-    public void setUser(main.model.User user) {
+    public void setUser(User user) {
         this.user = user;
     }
     
     // The user to diplay
-    private main.model.User user;
+    private User user;
 
     // Display elements
     private JPanel left;

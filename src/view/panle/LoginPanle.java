@@ -1,4 +1,4 @@
-package src.view.panle;
+package view.panle;
 
 import java.awt.Dimension;
 import java.awt.Font;
@@ -13,12 +13,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import src.view.panle.customComponents.PrettyButton;
-import src.view.panle.customComponents.PrettyTextInput;
-import src.view.Panle;
-
+import view.panle.customComponents.PrettyButton;
+import view.panle.customComponents.PrettyTextInput;
 // For testing
-import src.view.Screen;
+import view.Screen;
 
 /**
  * The panle that allows the user to sign in.

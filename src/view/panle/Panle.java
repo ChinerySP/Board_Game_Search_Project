@@ -1,10 +1,10 @@
-package src.view;
+package view.panle;
 
 import java.awt.Color;
 
 import javax.swing.*;
 
-import src.view.panle.customComponents.RoundedPanle;
+import view.panle.customComponents.RoundedPanle;
 
 /**
  * A superclass that provides basic visibility control for other Panles. 

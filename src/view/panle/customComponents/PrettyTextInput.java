@@ -1,13 +1,11 @@
-package src.view.panle.customComponents;
+package view.panle.customComponents;
 
 // TODO prune
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-
-import src.view.Panle;
-
+import view.panle.*;
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
+import javax.swing.border.EmptyBorder;
 
 /**
  * A simple wrapper for the JTextField that allows for better customization

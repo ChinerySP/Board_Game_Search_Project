@@ -1,10 +1,10 @@
-package src.model;
+package model;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import main.model.Game;
+import model.Game;
 
-public class GameList<Game> implements Iterable<Game>{
+public class GameList implements Iterable<Game> {
     /**
      *Allowes the Gamelists to be iterated through.
      * @return iterator of gameData
@@ -16,7 +16,7 @@ public class GameList<Game> implements Iterable<Game>{
     /**
      * stores a list of games in an arraylist
      */
-    ArrayList<Game> gameData = new ArrayList<main.model.Game>();
+    ArrayList<Game> gameData = new ArrayList<Game>();
     String listName;
     /**
      * geter and setter for the name of the game list

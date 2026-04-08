@@ -1,11 +1,11 @@
-package src.view.panle;
+package view.panle;
 
 import java.awt.Color;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
-import src.view.*;
-import src.view.panle.customComponents.RoundedPanle;
+import view.*;
+import view.panle.customComponents.RoundedPanle;
 
 
 /**

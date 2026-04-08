@@ -1,4 +1,4 @@
-package src.view;
+package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -8,9 +8,7 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.border.Border;
 
-// import main.model.User;
-import src.view.Panle;
-import src.view.panle.*;
+import view.panle.*;
 
 /**
  * The overall screen that will be shown to the user. 
