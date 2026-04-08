@@ -12,6 +12,5 @@ public class Config {
      * True for online, False for offline
      */
     public bool setAPIActive(bool apiActive) {
-        //Online/offline mode toggled in settings?
     }
 }
