@@ -171,7 +171,7 @@ public class APIParser extends Parser {
     //Still not 100% sure how to use the API, but I think this should return a string of the game(?)
     //I think in XML format
     @Override
-    Game retrieveGame(int gameID) {
+    public Game retrieveGame(int gameID) {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://boardgamegeek.com/xmlapi/boardgame/" + gameID))
@@ -184,7 +184,7 @@ public class APIParser extends Parser {
 
     //I think this also should return an XML of the search results(?)
     @Override
-    ArrayList<Game> search (String toSearch) {
+    public ArrayList<Game> search (String toSearch) {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://boardgamegeek.com/xmlapi/search?search=" + toSearch))

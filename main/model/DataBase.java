@@ -10,7 +10,7 @@ public class DataBase {
     public ArrayList<Game> games;
     public ArrayList<User> userList;
 
-    public searchGames() {
+    public searchGames(Arraylist<String> keywords) {
 
     }
 
