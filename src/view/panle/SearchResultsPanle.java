@@ -1,4 +1,4 @@
-package main.view.panle;
+package src.view.panle;
 
 import java.awt.Color;
 import java.awt.GridBagConstraints;
@@ -7,8 +7,8 @@ import java.awt.GridBagLayout;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
-import main.view.*;
-import main.view.panle.customComponents.RoundedPanle;
+import src.view.*;
+import src.view.panle.customComponents.RoundedPanle;
 
 
 /**

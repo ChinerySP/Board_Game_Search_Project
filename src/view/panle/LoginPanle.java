@@ -1,4 +1,4 @@
-package main.view.panle;
+package src.view.panle;
 
 import java.awt.Dimension;
 import java.awt.Font;
@@ -13,12 +13,12 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
-import main.view.panle.customComponents.PrettyButton;
-import main.view.panle.customComponents.PrettyTextInput;
-import main.view.Panle;
+import src.view.panle.customComponents.PrettyButton;
+import src.view.panle.customComponents.PrettyTextInput;
+import src.view.Panle;
 
 // For testing
-import main.view.Screen;
+import src.view.Screen;
 
 /**
  * The panle that allows the user to sign in.
@@ -134,10 +134,10 @@ public class LoginPanle extends Panle {
         // Pulling who they said that they were
         String name = usernameInput.getText();
 
-        JOptionPane.showMessageDialog(parent,
-            "",
-            "So, you are ",
-            JOptionPane.ERROR_MESSAGE);
+        // JOptionPane.showMessageDialog(parent,
+        //     "",
+        //     "So, you are ",
+        //     JOptionPane.ERROR_MESSAGE);
 
     }
     

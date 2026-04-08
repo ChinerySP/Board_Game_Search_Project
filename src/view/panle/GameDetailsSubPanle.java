@@ -1,7 +1,7 @@
-package main.view.panle;
+package src.view.panle;
 
 // import main.model.Game;
-import main.view.Panle;
+import src.view.Panle;
 
 /**
  * A subpanle that shows the details of any arbitrary game.

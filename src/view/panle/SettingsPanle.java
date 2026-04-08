@@ -1,6 +1,6 @@
-package main.view.panle;
+package src.view.panle;
 
-
+import src.model.User;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -16,8 +16,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 
-import main.view.Panle;
-import main.view.Screen;
+import src.view.Panle;
+import src.view.Screen;
 
 
 // For testing specifically

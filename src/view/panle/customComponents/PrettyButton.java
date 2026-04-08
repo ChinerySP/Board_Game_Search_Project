@@ -1,4 +1,4 @@
-package main.view.panle.customComponents;
+package src.view.panle.customComponents;
 
 // TODO prune
 import javax.swing.*;

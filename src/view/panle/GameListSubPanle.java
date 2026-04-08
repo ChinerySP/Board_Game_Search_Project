@@ -1,4 +1,4 @@
-package main.view.panle;
+package src.view.panle;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -15,10 +15,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
-import main.view.Panle;
-import main.view.panle.customComponents.RoundedPanle;
+import src.view.Panle;
+import src.view.panle.customComponents.RoundedPanle;
 
 import javax.swing.plaf.basic.BasicScrollBarUI;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -28,7 +29,7 @@ import java.awt.RenderingHints;
 import javax.swing.JComponent;
 
 // For testing
-import main.view.Screen;
+import src.view.Screen;
 
 
 /**
@@ -61,7 +62,7 @@ public class GameListSubPanle extends Panle {
      * Creates a GameListSubPanle to display the inputted Games
      * @param GameList games The games to display
      */
-    public GameListSubPanle(main.model.GameList games) {
+    public GameListSubPanle(GameList games) {
         super("gamelist");
 
         // Setting up the internal container and title

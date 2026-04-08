@@ -1,4 +1,4 @@
-package main.view.panle;
+package src.view.panle;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -10,8 +10,8 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import main.view.Panle;
-import main.view.panle.customComponents.*;
+import src.view.Panle;
+import src.view.panle.customComponents.*;
 
 
 /**

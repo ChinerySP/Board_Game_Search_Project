@@ -1,10 +1,10 @@
-package main.view.panle.customComponents;
+package src.view.panle.customComponents;
 
 // TODO prune
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
-import main.view.Panle;
+import src.view.Panle;
 
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;

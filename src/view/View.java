@@ -1,4 +1,4 @@
-package main.view;
+package src.view;
 
 public class View {
     
