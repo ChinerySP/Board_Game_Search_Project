@@ -2,9 +2,12 @@ package main.model;
 
 public class User {
 
-    // A collection of GameLists specific to the user
-        ArrayList<listName> GameLists = new ArrayList<listName>();
-        String somehting I have meeting
+    /**
+     * A collection of GameLists specific to the user
+     */
+    public GameLists() {
+
+    }
 
     /**
      * Used to reset the current password for the user

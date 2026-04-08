@@ -1,8 +1,10 @@
-package main.view;
+package view.panle;
+
+import java.awt.Color;
 
 import javax.swing.*;
 
-import main.view.panle.RoundedPanle;
+import view.panle.customComponents.RoundedPanle;
 
 /**
  * A superclass that provides basic visibility control for other Panles. 
@@ -27,6 +29,13 @@ public class Panle extends RoundedPanle { // Yes, I am sticking to the bit of pa
         // Adding invisible padding so that there is some breathing room between all of the panles
         this.setBorder(BorderFactory.createEmptyBorder(DISTANCE_BETWEEN_COMPONENTS, DISTANCE_BETWEEN_COMPONENTS,
                 DISTANCE_BETWEEN_COMPONENTS, DISTANCE_BETWEEN_COMPONENTS));
+
+
+        // Setting up the colors
+        this.setBackground(BACKGROUND_COLOR);
+
+
+
 
         // Showing the Panle (to hide the panle, it will be removed from the frame)
         this.setVisible(true);
@@ -58,23 +67,6 @@ public class Panle extends RoundedPanle { // Yes, I am sticking to the bit of pa
         return false;
     
     }
-    
-    /**
-     * Hides the panle
-     */
-    @Deprecated
-    public void hidePanle() {
-        this.setVisible(false);
-    }
-
-    /**
-     * Shows the panle
-     */
-    @Deprecated
-    public void showPanle() {
-        System.out.println(String.format("Showing %s", this.name));
-        this.setVisible(true);
-    }
 
     /**
      * Gets the name of the class as a String
@@ -85,8 +77,15 @@ public class Panle extends RoundedPanle { // Yes, I am sticking to the bit of pa
 
     final private String name;
 
-    // The distance between every component displayed, simply to make it look nice
+    // Some dimensional constants
     public static final int DISTANCE_BETWEEN_COMPONENTS = 10;
     public static final int CORNER_ROUNDING_RADIUS = 20;
+    public static final int BORDER_WIDTH = 1;
+
+
+    // Some color constants 
+    public static final Color BACKGROUND_COLOR = new Color(30, 32, 48);
+    public static final Color TEXT_COLOR = new Color(205, 214, 244);
+    public static final Color BORDER_COLOR = new Color(183, 189, 248);
 
 }
