@@ -1,8 +1,9 @@
 package model;
 
+import model.Game;
+
 import java.util.ArrayList;
 import java.util.Iterator;
-import model.Game;
 
 public class GameList implements Iterable<Game> {
     /**

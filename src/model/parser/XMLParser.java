@@ -1,6 +1,6 @@
 package model.parser;
 
-import model.Parser;
+import model.Game;
 import org.w3c.dom.*;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -19,12 +19,12 @@ public class XMLParser extends Parser {
     }
 
     @Override
-    ArrayList<Game> search(String toSearch) {
+    public ArrayList<Game> search(String toSearch) {
         return null;
     }
 
     @Override
-    Game retrieveGame(int gameID) {
+    public Game retrieveGame(int gameID) {
         for (Game g : retrieveGameList()) {
             if (g.getId() == gameID) {
                 System.out.println("Matching game of ID: \"" + String.valueOf(gameID) + "\" found.");
@@ -112,9 +112,14 @@ public class XMLParser extends Parser {
         thumburi = parseTextField(xmlGameNode, "thumbnail");
         year = parseIntegerField(xmlGameNode, "yearpublished");
 
-        // TODO fix, there isn't a Game constructor that makes a game with these paramters.
-        // TODO fix, what I would do is create a game and then use the setters to update the parameters you need, then return that
-        return new Game(title, thumburi, year, bgg_rank, bgg_id);
+        Game createdGame = new Game();
+        createdGame.setName(title);
+        createdGame.setThumbnail(thumburi);
+        createdGame.setId(Integer.parseInt(bgg_id));
+
+        return createdGame;
+
+        //return new Game(title, thumburi, year, bgg_rank, bgg_id);
     }
 
     /**

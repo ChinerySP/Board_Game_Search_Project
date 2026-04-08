@@ -1,7 +1,9 @@
-package model;
+package model.parser;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+
+import model.Game;
 import org.w3c.dom.*;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -22,7 +24,6 @@ public abstract class Parser {
 
     public abstract Game retrieveGame(int gameID);
 
-    // TODO implement (this was requested by the Database class)
     public abstract ArrayList<Game> retrieveGameList();
 }
 

@@ -1,7 +1,7 @@
 package model.parser;
 
-import model.Parser;
-
+import model.Game;
+import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -19,9 +19,19 @@ public class APIParser extends Parser {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://boardgamegeek.com/xmlapi/boardgame/" + gameID))
                 .build();
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = null;
+        try {
+            response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        } catch (IOException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         System.out.println(response.body());
 
+        return null;
+    }
+
+    @Override
+    public ArrayList<Game> retrieveGameList() {
         return null;
     }
 
@@ -37,7 +47,12 @@ public class APIParser extends Parser {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://boardgamegeek.com/xmlapi/search?search=" + toSearch))
                 .build();
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        HttpResponse<String> response = null;
+        try {
+            response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        } catch (IOException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         System.out.println(response.body());
 
         return null;
