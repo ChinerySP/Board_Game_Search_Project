@@ -1,34 +1,15 @@
-package model;
+package model.parser;
+
+import model.Parser;
+import org.w3c.dom.*;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import org.w3c.dom.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.util.ArrayList;
 
-/**
- *
- */
-public abstract class Parser {
-    abstract public ArrayList<Game> getBoardGames(int numGames);
-
-    abstract ArrayList<Game> search(String toSearch);
-
-    abstract Game retrieveGame(int gameID);
-
-    // TODO implement (this was requested by the Database class)
-    abstract ArrayList<Game> retrieveGameList();
-}
-
-// TODO move to its own file (Java likes each public class to have its own file)
-// TODO move, what I usually do is make a folder for my subclasses named after my superclass (so each of these could go under a folder named 'parser')
-// TODO move, if you want to see, I did the same thing for Panle, by making a panle folder for all of them
 public class XMLParser extends Parser {
     public String fileLocation;
 
@@ -183,44 +164,4 @@ public class XMLParser extends Parser {
 
     private Document xmlDocumentTree; // this is the object tree parsed from the given XML File
     private ArrayList<Game> currentGameList; // current game list, may be null
-}
-
-
-// TODO move to its own file (Java likes each public class to have its own file)
-// TODO move, what I usually do is make a folder for my subclasses named after my superclass (so each of these could go under a folder named 'parser')
-// TODO move, if you want to see, I did the same thing for Panle, by making a panle folder for all of them
-public class APIParser extends Parser {
-    public String apiKey;
-
-    //Still not 100% sure how to use the API, but I think this should return a string of the game(?)
-    //I think in XML format
-    @Override
-    public Game retrieveGame(int gameID) {
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://boardgamegeek.com/xmlapi/boardgame/" + gameID))
-                .build();
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println(response.body());
-
-        return null;
-    }
-
-    @Override
-    public ArrayList<Game> getBoardGames(int numGames) {
-        return null;
-    }
-
-    //I think this also should return an XML of the search results(?)
-    @Override
-    public ArrayList<Game> search (String toSearch) {
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create("https://boardgamegeek.com/xmlapi/search?search=" + toSearch))
-                .build();
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        System.out.println(response.body());
-
-        return null;
-    }
 }
