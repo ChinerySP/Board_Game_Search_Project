@@ -1,12 +1,21 @@
-package main.model;
+package model;
+import java.util.ArrayList;
 
 public class User {
+
+    public User() {
+        gameLists = new ArrayList<GameList>();
+        gameLists.add(new GameList("Favorites"));
+        password = "password";
+    }
+
+    public
 
     /**
      * A collection of GameLists specific to the user
      */
-    public GameLists() {
-
+    public ArrayList<GameList> GameLists() {
+        return gameLists;
     }
 
     /**
@@ -23,8 +32,8 @@ public class User {
      * @param guess The password input by the user
      * @return True if the password is correct, False if incorrect
      */
-    public bool login(String guess) {
-        if (guess == password) {
+    public boolean login(String guess) {
+        if (guess.equals(password)) {
             return True;
         }
         else return False;
@@ -36,16 +45,16 @@ public class User {
      * @return User either chooses to logout with our without saving data
      * True for save, False for not saved
      */
-    public bool logout() {
-
+    public boolean logout() {
+        return True;
     }
 
     /**
      * User data is loaded
      * @return
      */
-    public bool loadUserData() {
-
+    public boolean loadUserData() {
+        return True;
     }
 
     /**
@@ -53,10 +62,11 @@ public class User {
      *  on user choice
      * @return True for save data and False for not saved
      */
-    public bool saveUserData() {
-
+    public boolean saveUserData() {
+        return True;
     }
 
+    private ArrayList<GameList> gameLists;
     private String password;
     private Config config;
 }
