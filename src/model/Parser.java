@@ -1,4 +1,4 @@
-package model;
+package src.model;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;

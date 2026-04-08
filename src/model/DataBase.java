@@ -1,4 +1,4 @@
-package main.model;
+package src.model;
 
 import javax.swing.text.html.parser.Parser;
 import java.util.ArrayList;
