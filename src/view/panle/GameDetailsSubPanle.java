@@ -21,9 +21,20 @@ import javax.swing.SwingConstants;
 import java.net.URL;
 import javax.imageio.ImageIO;
 import java.awt.Image;
+import view.panle.*;
+
+import java.util.function.Consumer;
+import javax.swing.JOptionPane;
+import javax.swing.JPopupMenu;
+import javax.swing.JMenuItem;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.BiConsumer;
 
 // TODO prune
 import model.*;
+import view.*;
 
 /**
  * A subpanle that shows the details of any arbitrary game.
@@ -33,10 +44,11 @@ public class GameDetailsSubPanle extends Panle {
 
     /**
      * Creates a new GameDetailsSubPanle that shows the details of the inputted game
-     * @param Game game The game to display
+     * @param View The view that owns this panle
+     * 
      */
-    public GameDetailsSubPanle() {
-        super("gamedetails");
+    public GameDetailsSubPanle(View view) {
+        super("gamedetails", view);
 
         // This panle will use GridBag so that we can make things spread across the screen or be split at our leisure
         this.setLayout(new GridBagLayout());
@@ -64,9 +76,61 @@ public class GameDetailsSubPanle extends Panle {
         addToListButton.setFont(new Font("Arial", Font.PLAIN, 14));
         addToListButton.setFocusPainted(false);
 
+        // Giving the button something to do
+        addToListButton.addActionListener(e -> {
+            if (toDisplay == null)
+                return;
+
+            // Love pop up menus 
+            JPopupMenu popupMenu = new JPopupMenu();
+
+            // A button to add a new list
+            JMenuItem createNewListItem = new JMenuItem("+ Create New List");
+            createNewListItem.addActionListener(event -> {
+                // Pop open a tiny window asking for the name
+                String listName = JOptionPane.showInputDialog(
+                        this,
+                        "Enter a name for your new list:",
+                        "Create New List",
+                        JOptionPane.PLAIN_MESSAGE);
+
+                // If they typed something and didn't hit cancel, send it up the chain
+                if (listName != null && !listName.trim().isEmpty()) {
+                    if (onNewListCreated != null) {
+                        onNewListCreated.accept(listName.trim());
+                    }
+                }
+            });
+            popupMenu.add(createNewListItem);
+            popupMenu.addSeparator();
+
+            // Making sure not to do anything weird if they don't have any lists
+            if (userLists == null || userLists.isEmpty()) {
+                JMenuItem emptyItem = new JMenuItem("No lists created yet!");
+                emptyItem.setEnabled(false);
+                popupMenu.add(emptyItem);
+            } else {
+                // Loop through their lists and add them to the dropdown
+                for (GameList list : userLists) {
+                    JMenuItem item = new JMenuItem(list.getName());
+
+                    // When a specific list is clicked, trigger the callback
+                    item.addActionListener(event -> {
+                        if (onGameAddedToList != null) {
+                            onGameAddedToList.accept(toDisplay, list);
+                        }
+                    });
+                    popupMenu.add(item);
+                }
+            }
+
+            // Show the menu exactly positioned underneath the button
+            popupMenu.show(addToListButton, 0, addToListButton.getHeight());
+        });
+
         // Add some vertical spacing between elements in the info panel
         infoPanle.add(titleLabel);
-        infoPanle.add(Box.createRigidArea(new Dimension(0, 10))); 
+        infoPanle.add(Box.createRigidArea(new Dimension(0, 10)));
         infoPanle.add(playersLabel);
         infoPanle.add(Box.createRigidArea(new Dimension(0, 5)));
         infoPanle.add(categoryLabel);
@@ -81,7 +145,6 @@ public class GameDetailsSubPanle extends Panle {
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.anchor = GridBagConstraints.NORTHWEST;
         this.add(infoPanle, constraints);
-
 
         // In the top right, we will have whatever thumbnail the API gave us for the picture
         ImageIcon placeHolder = new ImageIcon("resources/ImageNotFound.png");
@@ -99,7 +162,6 @@ public class GameDetailsSubPanle extends Panle {
         constraints.anchor = GridBagConstraints.NORTHEAST;
         this.add(imagePlaceholder, constraints);
 
-
         // Lastly, we have a description area at the bottom
         descriptionArea = new JTextArea("Game description will appear here...");
         descriptionArea.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -114,15 +176,15 @@ public class GameDetailsSubPanle extends Panle {
         constraints.gridy = 1;
         constraints.gridwidth = 2;
         constraints.weightx = 1.0;
-        constraints.weighty = 1.0; 
-        constraints.fill = GridBagConstraints.BOTH; 
+        constraints.weighty = 1.0;
+        constraints.fill = GridBagConstraints.BOTH;
         this.add(descriptionArea, constraints);
-        
+
         // Actually displaying everything
         this.update();
 
     }
-    
+
     /**
      * Updates everything to reflect the current game
      */
@@ -144,7 +206,7 @@ public class GameDetailsSubPanle extends Panle {
 
         // Update title
         titleLabel.setText(toDisplay.getName());
-        
+
         // Format player count (e.g., "2 - 4" or just "2" if min and max are the same)
         if (toDisplay.getMinPlayer() == toDisplay.getMaxPlayer()) {
             playersLabel.setText("Number of Players: " + Math.max(1, toDisplay.getNumPlayer()));
@@ -167,29 +229,29 @@ public class GameDetailsSubPanle extends Panle {
         try {
             // Getting the URL of the image from the game
             URL imageUrl = new URL(toDisplay.getThumbnail());
-            
+
             // Trying to read the image over the network
             Image webImage = ImageIO.read(imageUrl);
-            
+
             // If it works, we use it, otherwise, we can't use it, so we jump to a default
             if (webImage != null) {
-                // 3. Scale the image to fit your 150x150 placeholder nicely
+                // Scale the image to fit 150x150 placeholder 
                 Image scaledImage = webImage.getScaledInstance(150, 150, Image.SCALE_SMOOTH);
                 imagePlaceholder.setIcon(new ImageIcon(scaledImage));
-                imagePlaceholder.setText(""); // Clear the text
+                imagePlaceholder.setText("");
             } else {
                 // If the image is null, force it into the catch block
                 throw new Exception("Image data was null");
             }
 
         } catch (Exception e) {
-            
+
             // Load the local fallback image
             ImageIcon fallbackIcon = new ImageIcon("resources/ImageNotFound.png");
-            
+
             // Scale the fallback 
             Image scaledFallback = fallbackIcon.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
-            
+
             imagePlaceholder.setIcon(new ImageIcon(scaledFallback));
         }
 
@@ -217,6 +279,36 @@ public class GameDetailsSubPanle extends Panle {
         return toDisplay;
     }
 
+    /**
+     * Sets the userLists that can be updated from the game details subpanle
+     * @param ArrayList<GameList> lists The lists that this panle can access
+     */
+    public void setUserLists(ArrayList<GameList> lists) {
+        userLists = lists;
+    }
+
+    /**
+     * Sets the action to perform when a dropdown item is clicked
+     */
+    public void setOnGameAddedToList(BiConsumer<Game, GameList> action) {
+        this.onGameAddedToList = action;
+    }
+
+    /**
+     * Sets the action to perform when the user creates a new list
+     */
+    public void setOnNewListCreated(Consumer<String> action) {
+        this.onNewListCreated = action;
+    }
+
+    // Storing the lists that the user has so that we can add to them or remove from them
+    private ArrayList<GameList> userLists;
+
+    // A consumer (function) to call when we click add to list in this panle
+    private BiConsumer<Game, GameList> onGameAddedToList;
+
+    // A consumer to call when the user wants to create a new list
+    private Consumer<String> onNewListCreated;
 
     // Visual components
     private JLabel titleLabel;

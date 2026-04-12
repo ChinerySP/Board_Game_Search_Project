@@ -12,6 +12,8 @@ import javax.swing.border.EmptyBorder;
 
 import view.panle.customComponents.*;
 
+// TODO prune
+import view.*;
 
 /**
  * The panel that always "sticks" to the top of the screen. It holds things that can be useful at all points in the program, like the search bar and a settings button.
@@ -21,9 +23,10 @@ public class StickySubPanle extends Panle {
 
     /**
      * Creates a new instance of the StickySubPanle
+     * @param View The view that owns this panle
      */
-    public StickySubPanle() {
-        super("sticky");
+    public StickySubPanle(View view) {
+        super("sticky", view);
       
         // The sticky subpanle will use the box layout to hold all components horizontally
         componentBox = Box.createHorizontalBox();
@@ -49,6 +52,26 @@ public class StickySubPanle extends Panle {
         homeButton.setFocusable(false);
         settingsButton.setFocusable(false);
         
+        // Making teh buttons actually do stuff
+        settingsButton.addActionListener(e -> {
+            view.showPanle("settings");
+        });
+        homeButton.addActionListener(e -> {
+            view.showPanle("dashboard");
+        });
+
+        // Making the search input actually search stuff when they hit enter
+        searchInput.addActionListener(e -> {
+            // Grab the text they typed
+            String query = searchInput.getText();
+            
+            // Prevent empty searches
+            if (!query.trim().isEmpty()) {
+                // view.searchForGame(query); 
+                view.showPanle("searchresults");
+                System.out.println("Searching for: " + query);
+            }
+        });
 
 
 

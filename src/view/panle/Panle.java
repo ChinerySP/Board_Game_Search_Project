@@ -4,6 +4,8 @@ import java.awt.Color;
 
 import javax.swing.*;
 
+import view.*;
+
 import view.panle.customComponents.RoundedPanle;
 
 /**
@@ -16,15 +18,17 @@ public class Panle extends RoundedPanle { // Yes, I am sticking to the bit of pa
     /**
      * Super constructor to create a Panle with a specific name
      * This is intended for internal use only, only to be called by subclasses
-     * @param String name The name of the panle
+     * @param String The name of the panle
+     * @param View The view that owns the panle
      */
-    public Panle(String name) {
+    public Panle(String name, View view) {
         // All of our panles will be defaulted to just a box layout (they are all rather simple in their layout)
         super(CORNER_ROUNDING_RADIUS);
         this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 
-        // Storing the name
+        // Storing instance variables
         this.name = name;
+        this.view = view;
 
         // Adding invisible padding so that there is some breathing room between all of the panles
         this.setBorder(BorderFactory.createEmptyBorder(DISTANCE_BETWEEN_COMPONENTS, DISTANCE_BETWEEN_COMPONENTS,
@@ -76,6 +80,9 @@ public class Panle extends RoundedPanle { // Yes, I am sticking to the bit of pa
     }
 
     final private String name;
+
+    // The view that owns this Panle
+    protected View view;
 
     // Some dimensional constants
     public static final int DISTANCE_BETWEEN_COMPONENTS = 10;

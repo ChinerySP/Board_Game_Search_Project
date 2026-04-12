@@ -32,8 +32,8 @@ import java.awt.event.MouseAdapter;
 import javax.swing.JComponent;
 import java.util.function.Consumer;
 
-// For testing
-import view.Screen;
+// TODO prune
+import view.*;
 import model.*;
 import javax.swing.*;
 import java.awt.*;
@@ -46,31 +46,12 @@ import java.awt.*;
 public class GameListSubPanle extends Panle {
 
     /**
-     * Main method for testing
-     */
-    public static void main(String[] args) {
-        Screen screen = new Screen();
-        screen.showPanle("sticky");
-        screen.showPanle("dashboard");
-        DashboardPanle dash = (DashboardPanle) screen.getPanle("dashboard");
-        GameListSubPanle right = dash.right;
-        GameListSubPanle left = dash.left;
-        for (int i = 0; i < 100; i++) {
-            right.games.addGame(new Game());
-            left.games.addGame(new Game());
-            
-        }
-        right.updateGames();
-        left.updateGames();
-    }
-
-    
-    /**
      * Creates a GameListSubPanle to display the inputted Games
-     * @param GameList games The games to display
+     * @param View The view that owns this panle
+     * @param GameList The games to display
      */
-    public GameListSubPanle(GameList games) {
-        super("gamelist");
+    public GameListSubPanle(View view, GameList games) {
+        super("gamelist", view);
 
         // Setting up the internal container and title
         this.setLayout(new BorderLayout());
@@ -104,9 +85,10 @@ public class GameListSubPanle extends Panle {
 
     /**
      * Creates a blank GameListSubPanle to be populated with games later
+     * @param View The view that owns this subpanle
      */
-    public GameListSubPanle() {
-        super("gamelist");
+    public GameListSubPanle(View view) {
+        super("gamelist", view);
         
         // Initializing the layout and internal container
         this.setLayout(new BorderLayout());
@@ -158,7 +140,7 @@ public class GameListSubPanle extends Panle {
         for (Game game : games) {
 
             // The new panle that we will be adding to the list
-            RoundedPanle toAdd = new Panle("gamePanle");
+            RoundedPanle toAdd = new Panle("gamePanle", view);
 
             // Using GridBag again so that I can have a 25/75 split for the name and the description
             toAdd.setLayout(new GridBagLayout());
@@ -234,7 +216,7 @@ public class GameListSubPanle extends Panle {
         if (gamePanles.size() == 0) {
 
             // The new panle that we will be adding to the list
-            RoundedPanle toAdd = new Panle("gamePanle");
+            RoundedPanle toAdd = new Panle("gamePanle", view);
 
             // Using GridBag again so that I can have a 25/75 split for the name and the description
             toAdd.setLayout(new GridBagLayout());

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.border.Border;
 
+import view.*;
 import view.panle.*;
 
 /**
@@ -19,19 +20,13 @@ import view.panle.*;
 public class Screen {
 
     /**
-     * Simple tester for the visuals
-     */
-    public static void main(String[] args) {
-        System.out.println("Running screen testing function.");
-        Screen screen = new Screen();
-        screen.showPanle("sticky");
-        screen.showPanle("dashboard");
-    }
-    
-    /**
      * Simple contructor that initializes all of the panle and opens the login panle
+     * @param View The view that owns this Screen, to allow for communication upwards
      */
-    public Screen() {
+    public Screen(View view) {
+
+        // Saving the view
+        this.view = view;
         
         // Creating the frame that will actually be displayed
         frame = new JFrame("Amazing Board Game App - Now with API (soon we promise) -");
@@ -41,11 +36,11 @@ public class Screen {
         panles = new ArrayList<>();
 
         // Creating all of the Panles that we can show
-        this.panles.add(new LoginPanle());
-        this.panles.add(new StickySubPanle());
-        this.panles.add(new DashboardPanle());
-        this.panles.add(new SettingsPanle());
-        this.panles.add(new SearchResultsPanle());
+        this.panles.add(new LoginPanle(view));
+        this.panles.add(new StickySubPanle(view));
+        this.panles.add(new DashboardPanle(view));
+        this.panles.add(new SettingsPanle(view));
+        this.panles.add(new SearchResultsPanle(view));
 
 
         // Some eye candy 
@@ -118,30 +113,6 @@ public class Screen {
         frame.remove(this.getPanle(name));
         // getPanle(name).hidePanle();
     }
-
-    /**
-     * A login function. Presents the user with the login panle and returns the User that gets logged in.
-     * Takes the user to the dashboard after they have signed in.
-     * @param ArrayList<User> users The possible user that they may sign into
-     * @return user The User that logged in
-     */
-    // public User login(ArrayList<User> users) {
-
-    //     // Showing the login screen
-    //     showPanle("login");
-
-    //     //! This will likely be moved to the View object?
-    //     // Getting the login 
-
-
-    //     // Showing the dashboard
-    //     frame.add(this.getPanle("sticky"), BorderLayout.NORTH);
-    //     showPanle("dashboard");
-
-    //     return null; // Unfinished
-
-    // }
-    
     
     // Getters and setters 
 
@@ -162,13 +133,25 @@ public class Screen {
         assert name.equals("alwaysError") : String.format("ERROR: Bad input; getPanle(%s)", name);
         return null;
     }
+
+    /**
+     * Gets the frame that this screen is using
+     * @return JFrame 
+     */
+    public JFrame getFrame() { return frame; }
     
 
     // Constants (generally for consistent visuals)
     public static final Color SCREEN_BACKGROUND_COLOR = new Color(17, 17, 27);
-
     
+    // The frame that everything is in
     private JFrame frame;
+
+    // The View that owns this Screen
+    private View view;
+
+
+    // The panles that are going to be displayed
     private ArrayList<Panle> panles;
     
 }

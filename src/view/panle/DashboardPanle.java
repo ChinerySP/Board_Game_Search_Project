@@ -5,6 +5,7 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import view.*;
+import model.*;
 import view.panle.customComponents.RoundedPanle;
 
 
@@ -15,41 +16,51 @@ import view.panle.customComponents.RoundedPanle;
 public class DashboardPanle extends Panle {
 
     /**
-     * Testing main method 
-     */
-    public static void main(String[] args) {
-        Screen screen = new Screen();
-        screen.showPanle("sticky");
-        screen.showPanle("dashboard");
-    }
-
-    /**
      * Creates a new instance of the StickySubPanle
+     * @param View The view that owns this Panle
      */
-    public DashboardPanle() {
-        super("dashboard");
-        
+    public DashboardPanle(View view) {
+        super("dashboard", view);
+
         // This panle also use a Box layout so that we can use each side to house either the GameDetails panle or collections
         this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
-        
+
         // Regions for the left and the right of the screen
         // These by default hold the user's favorite games and a collection of their games 
-        left = new GameListSubPanle();
-        right = new GameListSubPanle();
+        left = new GameListSubPanle(view);
+        right = new GameListSubPanle(view);
 
         // Actually showing them on the screen
         this.add(left);
-        this.add( Box.createHorizontalStrut(DISTANCE_BETWEEN_COMPONENTS) );
+        this.add(Box.createHorizontalStrut(DISTANCE_BETWEEN_COMPONENTS));
         this.add(right);
 
-
         // Just a bit of eye candy
-
-
 
     }
 
 
+    // Getters and setters
+    /**
+     * Returns the user that is being displayed
+     * @return User
+     */
+    public User getUser() {
+        return user;
+    }
+    
+    /**
+     * Sets the user that is being displayed
+     * @param User newUser The new user to display
+     */
+    public void setUser(User newUser) {
+        user = newUser;
+    }
+    
+
+
+    // The user that is currently being displayed
+    private User user;
 
     // TODO change to private
     public GameListSubPanle left;

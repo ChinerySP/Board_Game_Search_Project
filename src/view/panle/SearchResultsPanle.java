@@ -19,25 +19,11 @@ import view.*;
 public class SearchResultsPanle extends Panle {
 
     /**
-     * Testing runner function
-     */
-    public static void main(String[] args) {
-        Screen screen = new Screen();
-        screen.showPanle("sticky");
-        screen.showPanle("searchresults");
-        SearchResultsPanle search =  (SearchResultsPanle) screen.getPanle("searchresults");
-        GameListSubPanle results = search.resultsPanle;
-        for (int i = 0; i < 100; i++) {
-            results.games.addGame(new Game());
-        }
-        results.updateGames();
-    }
-
-    /**
      * Creates a new instance of the StickySubPanle
+     * @param View The view that owns this panle
      */
-    public SearchResultsPanle() {
-        super("searchresults");
+    public SearchResultsPanle(View view) {
+        super("searchresults", view);
 
         // This Panle will use a gridbag because it is my ✨favorite✨ (also so that the sizing works out but whatever)
         this.setLayout(new GridBagLayout());
@@ -50,8 +36,7 @@ public class SearchResultsPanle extends Panle {
 
         // Creating a left and a right. The right side will not always be shown, but the left side will
         // The left will show the games returned by the search and the right will show details of a game once one is clicked
-        resultsPanle = new GameListSubPanle();
-        gameDetailsPanle = new GameDetailsSubPanle();
+        resultsPanle = new GameListSubPanle(view);
 
         // Defining what the results panle should do if a game is clicked
         resultsPanle.setOnGameClicked(clickedGame -> {
@@ -72,6 +57,22 @@ public class SearchResultsPanle extends Panle {
             // If we got here, we need to set the game and open the game details
             gameDetailsPanle.setGame(clickedGame);
             showGameDetails(clickedGame);
+        });
+
+        // The right side, which holds the game details (obviously)
+        gameDetailsPanle = new GameDetailsSubPanle(view);
+
+        // Setting what happens when a user wants to add a game to the list
+        gameDetailsPanle.setOnNewListCreated(listName -> {
+
+            // Creating a new list that we can add to the User
+            GameList toAdd = new GameList(listName);
+
+            // Adding it to the user's list
+            // TODO Add in when .addList exists (or a .getGameLists)
+            // view.getUser().addList(toAdd);
+            System.out.println(String.format("Added in new list %s", listName));
+
         });
 
         // Only adding the left right now because it is the only thing that we are currently worried about

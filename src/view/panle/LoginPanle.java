@@ -15,8 +15,8 @@ import javax.swing.SwingConstants;
 
 import view.panle.customComponents.PrettyButton;
 import view.panle.customComponents.PrettyTextInput;
-// For testing
-import view.Screen;
+// TODO prune
+import view.*;
 
 /**
  * The panle that allows the user to sign in.
@@ -25,19 +25,11 @@ import view.Screen;
 public class LoginPanle extends Panle {
 
     /**
-     * A method simply for testing the login panle
-     */
-    public static void main(String[] args) {
-        Screen screen = new Screen();
-        screen.showPanle("login");
-    }
-
-
-    /**
      * Creates a new instance of the LoginPanle
+     * @param View The view that owns this panle
      */
-    public LoginPanle() {
-        super("login");
+    public LoginPanle(View view) {
+        super("login", view);
 
         // The login panle will a gridbag layout to center everything, then a Box to hold the components in the center
         this.setLayout(new GridBagLayout());
@@ -120,6 +112,7 @@ public class LoginPanle extends Panle {
 
         // Making the buttons call their specific functions
         forgotPasswordButton.addActionListener(e -> this.forgotPassword());
+        loginButton.addActionListener(e -> this.login());
 
     }
     
@@ -144,7 +137,7 @@ public class LoginPanle extends Panle {
      * Logs in the user that currently has their username in the username slot
      */
     public void login() {
-
+        view.submitLogin(usernameInput.getText(), passwordInput.getText());
     }
     
     

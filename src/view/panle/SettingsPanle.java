@@ -10,16 +10,18 @@ import java.awt.Insets;
 
 import javax.swing.Box;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 
-import view.Screen;
+
+// TODO prune
+import view.*;
+import view.panle.customComponents.*;
 
 
-// For testing specifically
 
 
 /**
@@ -28,22 +30,13 @@ import view.Screen;
  */
 public class SettingsPanle extends Panle {
 
-    
-    /**
-     * Simple tester for the visuals of the settings panle
-     */
-    public static void main(String[] args) {
-        System.out.println("Running Settings Panle testing function.");
-        Screen screen = new Screen();
-        screen.showPanle("sticky");
-        screen.showPanle("settings");
-    }
    
     /**
      * Creates a new settings panle
+     * @param View The view that owns this panle
      */
-    public SettingsPanle() {
-        super("settings");
+    public SettingsPanle(View view) {
+        super("settings", view);
         user = null;
 
         // The settings panle holds everything in a gridbag layout 
@@ -60,7 +53,7 @@ public class SettingsPanle extends Panle {
         constraints.weightx = 0.0;
 
         // Giving them some padding between each other
-        constraints.ipadx = 40; 
+        constraints.ipadx = 40;
         constraints.ipady = 10;
 
         // Giving everything an external margin
@@ -68,19 +61,21 @@ public class SettingsPanle extends Panle {
 
         // The right side, which currently just holds our mascot
         // The image is not scaled at all to retain aspect ratio, which is for two reasons: one, it is easier, and two, it is funny.
-        right = new Panle("rightSettings");
+        right = new Panle("rightSettings", view);
         right.setLayout(new GridLayout());
         ImageIcon tjs = new ImageIcon("resources/TJS.png");
         Image scaled = tjs.getImage().getScaledInstance(250, -1, Image.SCALE_SMOOTH);
         right.add(new JLabel(new ImageIcon(scaled)), constraints);
-       
+
         // The left side, which holds the different options
-        apiToggleButton = new JToggleButton("API On");
-        deleteAccount = new JButton("Delete Account");
+        apiToggleButton = new PrettyToggleButton("API On");
+        apiToggleButton.addActionListener(e -> this.toggleApi());
+        deleteAccount = new PrettyButton("Delete Account");
         darkModeLabel = new JLabel("Dark Mode");
         darkModeCheckBox = new JCheckBox();
-        resetPasswordButton = new JButton("Reset Password");
-        left = new Panle("leftSettings");
+        resetPasswordButton = new PrettyButton("Reset Password");
+        resetPasswordButton.addActionListener(e -> this.resetPassword());
+        left = new Panle("leftSettings", view);
         left.setLayout(new GridBagLayout());
         constraints.gridy = 0;
         left.add(apiToggleButton, constraints);
@@ -102,7 +97,7 @@ public class SettingsPanle extends Panle {
         // Adding in the left with a weight of 0.5
         outerConstraints.weightx = 0.5;
         outerConstraints.gridx = 0;
-        left.setPreferredSize(new Dimension(0, 0)); 
+        left.setPreferredSize(new Dimension(0, 0));
         this.add(left, outerConstraints);
 
         // Adding in the spacer with a weight of 0.0 (to use the preferredSize)
@@ -121,6 +116,46 @@ public class SettingsPanle extends Panle {
         // Making sure everything is visible
         this.setVisible(true);
         this.setOpaque(true);
+
+    }
+    
+    /**
+     * Internal function to toggle the API, called whenever the API toggle button has been clicked
+     */
+    private void toggleApi() {
+
+        if (apiToggleButton.isSelected()) {
+
+            // Updating the text to say on
+            apiToggleButton.setText("API on");
+
+            // Telling the rest of the system to turn off the API
+            view.setAPI(true);
+
+        } else {
+
+            // Updating the text to say off
+            apiToggleButton.setText("API off");
+
+            // Telling the rest of the system to turn on the API            
+            view.setAPI(false);
+
+        }
+
+    }
+    
+    /**
+     * Internal function that allows the user to change their password
+     */
+    private void resetPassword() {
+
+        view.getUser().resetPassword(
+            JOptionPane.showInputDialog(
+                this,
+                "Enter your new password:",
+                "Reset Password",
+                JOptionPane.PLAIN_MESSAGE
+        ));
 
     }
 
@@ -147,12 +182,10 @@ public class SettingsPanle extends Panle {
     // Display elements
     private JPanel left;
     private JPanel right;
-    private JButton resetPasswordButton;
+    private PrettyButton resetPasswordButton;
     private JLabel darkModeLabel;
-    private JButton deleteAccount;
+    private PrettyButton deleteAccount;
     private JCheckBox darkModeCheckBox;
-    private JToggleButton apiToggleButton;
-
-
+    private PrettyToggleButton apiToggleButton;
 
 }
