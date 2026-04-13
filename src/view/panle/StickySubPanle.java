@@ -27,7 +27,7 @@ public class StickySubPanle extends Panle {
      */
     public StickySubPanle(View view) {
         super("sticky", view);
-      
+
         // The sticky subpanle will use the box layout to hold all components horizontally
         componentBox = Box.createHorizontalBox();
 
@@ -51,7 +51,7 @@ public class StickySubPanle extends Panle {
         settingsButton.setBorder(new EmptyBorder(10, 5, 10, 10));
         homeButton.setFocusable(false);
         settingsButton.setFocusable(false);
-        
+
         // Making teh buttons actually do stuff
         settingsButton.addActionListener(e -> {
             view.showPanle("settings");
@@ -61,19 +61,7 @@ public class StickySubPanle extends Panle {
         });
 
         // Making the search input actually search stuff when they hit enter
-        searchInput.addActionListener(e -> {
-            // Grab the text they typed
-            String query = searchInput.getText();
-            
-            // Prevent empty searches
-            if (!query.trim().isEmpty()) {
-                // view.searchForGame(query); 
-                view.showPanle("searchresults");
-                System.out.println("Searching for: " + query);
-            }
-        });
-
-
+        searchInput.addActionListener(e -> this.search());
 
         // Adding everything to the component box
         componentBox.add(homeButton);
@@ -82,9 +70,32 @@ public class StickySubPanle extends Panle {
 
         // Adding in the actual box
         this.add(componentBox);
-         
+
         // Some simple changes to ensure that the panle looks nice
         this.setMaximumSize(new Dimension(this.getMaximumSize().width, 30));
+
+    }
+    
+
+    /**
+     * An internal function that searches for whatever the user requests,
+     * then switches to the searchresults subpanle
+     */
+    private void search() {
+
+            // Getting and splitting their query by spaces
+            String[] query = searchInput.getText().trim().split(" ");
+
+            // Prevent empty searches
+            if (query.length != 0) {
+                view.search(query); 
+                view.showPanle("searchresults");
+                System.out.print("Searching for: ");
+                for (String element : query) {
+                    System.out.print(element + " ");
+                }
+                System.out.println();
+            }
 
     }
 

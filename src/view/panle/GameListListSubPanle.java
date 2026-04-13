@@ -211,7 +211,9 @@ public class GameListListSubPanle extends Panle {
 
         }
 
-        // If there aren't any games, then we need to have a fake game that lets them know that
+        // If there aren't any lists, then we need to have a fake list that lets them know that
+        // This should never happen in the usual flow of the program right now, because there will always be the favorites lists
+        // This panle could be reused later, though, and then it would be wanted.
         if (listPanles.size() == 0) {
 
             // The new panle that we will be adding to the list

@@ -93,6 +93,47 @@ public class View {
         controller.setAPI(state);
     }
 
+    /**
+     * Tells the controller that the User wants to search for specific keywords
+     * @param String[] The keywords to search for
+     * @return GameList The list of Games that the User requested
+     */
+    public GameList search(String[] keywords) {
+        return controller.search(keywords);
+    }
+
+    /**
+     * Tells the controller that that User needs to be logged in
+     * @param String The username of the user to be logged in
+     */
+    public User forgotPassword(String username) {
+
+        // Requesting the user
+        User toLogin = controller.forgotPassword(username);
+
+        if (toLogin == null) {
+
+            // Tell them that they couldn't find the user with that username
+            JOptionPane.showMessageDialog(
+                screen.getFrame(),
+                "A user with that username could not be found",
+                "User Not Found",
+                JOptionPane.ERROR_MESSAGE
+            );
+
+        } else {
+
+            // Showing the dashboard
+            showPanle("dashboard");
+            showPanle("sticky");
+
+            // Updating the stored information
+            activeUser = toLogin;
+            return toLogin;
+        }
+        return null;
+    }
+
     
    
     // The user that is actively logged in 

@@ -89,6 +89,12 @@ public class SettingsPanle extends Panle {
         constraints.gridy = 3;
         left.add(resetPasswordButton, constraints);
 
+        // Setting up the darkmode panel to look reasonable
+        darkModePanel.setBackground(BACKGROUND_COLOR);
+        darkModeLabel.setForeground(TEXT_COLOR);
+        darkModeCheckBox.setForeground(TEXT_COLOR);
+        darkModeCheckBox.setOpaque(false);
+
         // Adding everything in
         GridBagConstraints outerConstraints = new GridBagConstraints();
         outerConstraints.weighty = 1.0;
@@ -148,7 +154,9 @@ public class SettingsPanle extends Panle {
      * Internal function that allows the user to change their password
      */
     private void resetPassword() {
-
+        // Extra checking to ensure there are no null pointer exceptions
+        if (view.getUser() == null) return;
+        
         view.getUser().resetPassword(
             JOptionPane.showInputDialog(
                 this,

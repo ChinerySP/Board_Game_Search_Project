@@ -1,10 +1,16 @@
 package view.panle;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.util.concurrent.ConcurrentHashMap;
+
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import view.*;
+import view.panle.*;
 import model.*;
 import view.panle.customComponents.RoundedPanle;
 
@@ -22,20 +28,67 @@ public class DashboardPanle extends Panle {
     public DashboardPanle(View view) {
         super("dashboard", view);
 
-        // This panle also use a Box layout so that we can use each side to house either the GameDetails panle or collections
-        this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+        // This panle will use a gridbag so that we can vary the size of each panle 
+        this.setLayout(new GridBagLayout());
 
-        // Regions for the left and the right of the screen
-        // These by default hold the user's favorite games and a collection of their games 
-        left = new GameListSubPanle(view);
-        right = new GameListSubPanle(view);
+        // The Panles that this screen will show
+        gameListPanle = new GameListSubPanle(view);
+        gameListListPanle = new GameListListSubPanle(view);
+        gameDetailsPanle = new GameDetailsSubPanle(view);
+
+        // Setting up the right side, one that holds all of the lists that the user owns
+        gameListListPanle.setTitle("Your Lists");
 
         // Actually showing them on the screen
-        this.add(left);
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.weightx = 0.5;
+        this.add(gameListPanle, gbc);
+        gbc.gridx = 1;
         this.add(Box.createHorizontalStrut(DISTANCE_BETWEEN_COMPONENTS));
-        this.add(right);
+        gbc.gridx = 2;
+        this.add(gameListListPanle);
 
-        // Just a bit of eye candy
+        // We aren't currently showing details, so we can set the flag to false
+        isShowingDetails = false;
+
+        // Making them all have a preffered size of 0, leaving it to gridbaglayout to set the sizing
+        gameListPanle.setPreferredSize(new Dimension(0, gameListPanle.getHeight()));
+        gameListListPanle.setPreferredSize(new Dimension(0, gameListListPanle.getHeight()));
+        gameDetailsPanle.setPreferredSize(new Dimension(0, gameDetailsPanle.getHeight()));
+
+        // Make clicking on a game in the left panle open the gameDetailsSubPanle
+        // gameListPanle.setOnGameClicked(game ->);
+
+        
+
+    }
+
+    /**
+     * Shows the details of a game on the gameDetailsSubpanle
+     * @param Game The game to show
+     */
+    public void showGameDetails(Game game) {
+
+        // Regardless of whether we are showing the panle already, we need to update the game it is holding
+        gameDetailsPanle.setGame(game);
+
+        // If we aren't showing the gameDetails, we need to 
+        if (!isShowingDetails) {
+            
+            // Hiding the collections display
+            this.remove(gameListListPanle);
+
+            // Showing the gameDetails
+            GridBagConstraints gbc = new GridBagConstraints();
+            gbc.gridx = 2;
+            gbc.weightx = 0.5;
+            this.add(gameDetailsPanle, gbc);
+
+        }
+        
+        // Making sure everything is updated
+        gameDetailsPanle.update();
 
     }
 
@@ -62,9 +115,13 @@ public class DashboardPanle extends Panle {
     // The user that is currently being displayed
     private User user;
 
-    // TODO change to private
-    public GameListSubPanle left;
-    public GameListSubPanle right;
+    // Whether or not we are displaying game details at the moment
+    private boolean isShowingDetails;       
+
+    // The Panles that will be shown on this screen
+    private GameListSubPanle gameListPanle;
+    private GameListListSubPanle gameListListPanle;
+    private GameDetailsSubPanle gameDetailsPanle;
 
 
 }

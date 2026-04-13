@@ -40,7 +40,7 @@ public class SearchResultsPanle extends Panle {
 
         // Defining what the results panle should do if a game is clicked
         resultsPanle.setOnGameClicked(clickedGame -> {
-
+            
             if (isShowingDetails) {
 
                 // If we are showing the details and the game is the same one, then we need to close it

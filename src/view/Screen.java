@@ -111,7 +111,6 @@ public class Screen {
      */
     public void hidePanle(String name) {
         frame.remove(this.getPanle(name));
-        // getPanle(name).hidePanle();
     }
     
     // Getters and setters 

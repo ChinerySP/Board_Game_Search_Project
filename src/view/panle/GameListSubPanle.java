@@ -193,7 +193,7 @@ public class GameListSubPanle extends Panle {
                 /**
                  * Overrideing the mouseClicked event for this eventListener
                  */
-                // @Override
+                @Override
                 public void mouseClicked(MouseEvent e) {
                     // If someone gave us an action to run, run it and pass the clicked game!
                     if (onGameClicked != null) {

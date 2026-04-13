@@ -34,3 +34,6 @@ bin/
 
 ### Syncthing Conflicts ###
 **sync-conflict**
+
+### Ignoring the nix-jdk created by the flake ###
+.nix-jdk

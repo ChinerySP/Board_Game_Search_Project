@@ -125,10 +125,12 @@ public class LoginPanle extends Panle {
         // Pulling who they said that they were
         String name = usernameInput.getText();
 
-        // JOptionPane.showMessageDialog(parent,
-        //     "",
-        //     "So, you are ",
-        //     JOptionPane.ERROR_MESSAGE);
+        view.forgotPassword(JOptionPane.showInputDialog(
+                this,
+                "Please input your username: ",
+                "Forgot Password",
+                JOptionPane.PLAIN_MESSAGE
+            ));
 
     }
     
