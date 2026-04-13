@@ -15,6 +15,14 @@ public class Rating {
         review = r;
     }
 
+
+    /**
+     * Getters for the varables within Rating
+     */
+    public double getScore(){return score;}
+    public String getReview(){return review;}
+    public boolean getRecommended(){return recommended;}
+
     /**
      * Setters for the varables within Rating
      */

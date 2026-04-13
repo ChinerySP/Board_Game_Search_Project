@@ -80,11 +80,11 @@ public class Game implements Comparable<Game>, Iterable<Rating>{
      * the get raiting returns an avrage of all the ratings stored in the array list.
      * @return mean value of all the raitings
      */
-    public int getRating(){
-        int avgScore = 0;
-        int count = 0;
+    public double getRating(){
+        double avgScore = 0;
+        double count = 0;
         for(Rating i : ratings){
-            avgScore += i.score;
+            avgScore += i.getScore();
             count++;
         }
         return avgScore/count;
