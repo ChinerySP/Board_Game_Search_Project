@@ -37,3 +37,7 @@ bin/
 
 ### Ignoring the nix-jdk created by the flake ###
 .nix-jdk
+
+### Keeping changes from spilling between computers ###
+Board Game Search Project.iml
+.idea/misc.xml
