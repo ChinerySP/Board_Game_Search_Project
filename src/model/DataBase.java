@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import model.*;
-import main.model.User;
+import model.User;
 import model.parser.XMLParser;
 
 public class DataBase {

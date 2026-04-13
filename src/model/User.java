@@ -1,5 +1,7 @@
 package model;
 import java.util.ArrayList;
+import model.*;
+
 
 public class User {
 
@@ -9,12 +11,12 @@ public class User {
         password = "password";
     }
 
-    public
+//    public
 
     /**
      * A collection of GameLists specific to the user
      */
-    public ArrayList<GameList> GameLists() {
+    public ArrayList<GameList> getGameLists() {
         return gameLists;
     }
 
@@ -34,9 +36,9 @@ public class User {
      */
     public boolean login(String guess) {
         if (guess.equals(password)) {
-            return True;
+            return true;
         }
-        else return False;
+        else return false;
     }
 
     /**
@@ -46,7 +48,7 @@ public class User {
      * True for save, False for not saved
      */
     public boolean logout() {
-        return True;
+        return true;
     }
 
     /**
@@ -54,7 +56,7 @@ public class User {
      * @return
      */
     public boolean loadUserData() {
-        return True;
+        return true;
     }
 
     /**
@@ -63,7 +65,7 @@ public class User {
      * @return True for save data and False for not saved
      */
     public boolean saveUserData() {
-        return True;
+        return true;
     }
 
     private ArrayList<GameList> gameLists;

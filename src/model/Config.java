@@ -13,5 +13,6 @@ public class Config {
      */
     public boolean setAPIActive(boolean apiActive) {
         //Online/offline mode toggled in settings?
+        return false; // TODO remove; Added for testing
     }
 }

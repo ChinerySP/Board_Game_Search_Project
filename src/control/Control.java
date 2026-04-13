@@ -38,7 +38,7 @@ public class Control {
     public User verifyLogin(String username, String password) {
         // Todo update this to actually match the model
         // return model.verifyLogin(username, password);
-        return null; // For testing 
+        return new User(); // For testing 
     }
 
     /**
@@ -48,7 +48,7 @@ public class Control {
     public User forgotPassword(String username) {
         // TODO update this to actually match the model
         // return model.getUser(username);
-        return null; // For testing 
+        return new User(); // For testing 
     }
 
     /**
@@ -56,8 +56,8 @@ public class Control {
      * @param String[] keywords The keywords that we are searching for
      * @return GameList A ordered GameList holding all of the results of the search
      */
-    public GameList Search(String[] keywords) {
-        // TODO 
+    public GameList search(String[] keywords) {
+        // TODO implement
         return null;
     }
 
