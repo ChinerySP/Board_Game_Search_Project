@@ -1,7 +1,11 @@
 package view.panle.customComponents;
 
 import javax.swing.*;
+
+import view.panle.Panle;
+
 import java.awt.*;
+import view.panle.colors.*;
 
 /**
  * A simple wrapper for the JToggleButton class that makes it match our theme
@@ -38,23 +42,24 @@ public class PrettyToggleButton extends JToggleButton {
         // Changing the color based on the current state of the toggle button
         if (getModel().isPressed()) {
             // Actively being clicked down
-            g2.setColor(PrettyToggleButton.BUTTON_PUSHED_COLOR);
+            g2.setColor(Panle.colors.getSurface2());
         } else if (getModel().isSelected()) {
             // Toggled ON state
-            g2.setColor(PrettyToggleButton.BUTTON_SELECTED_COLOR);
+            g2.setColor(Panle.colors.getSurface2());
         } else if (getModel().isRollover()) {
             // Hovering over it while it is OFF
-            g2.setColor(PrettyToggleButton.BUTTON_MOUSE_OVER_COLOR);
+            g2.setColor(Panle.colors.getSurface1());
         } else {
             // Default OFF state
-            g2.setColor(PrettyToggleButton.BUTTON_UNPUSHED_COLOR);
+            g2.setColor(Panle.colors.getSurface0());
         }
 
         // Drawing the actual button itself
-        g2.fillRoundRect(0, 0, getWidth(), getHeight(), PrettyToggleButton.BORDER_RADIUS, PrettyToggleButton.BORDER_RADIUS);
+        g2.fillRoundRect(0, 0, getWidth(), getHeight(), PrettyToggleButton.BORDER_RADIUS,
+                PrettyToggleButton.BORDER_RADIUS);
 
         // Drawing the text centered
-        g2.setColor(PrettyToggleButton.BUTTON_TEXT_COLOR);
+        g2.setColor(Panle.colors.getText());
         FontMetrics fm = g2.getFontMetrics();
         int x = (getWidth() - fm.stringWidth(getText())) / 2;
         int y = (getHeight() + fm.getAscent() - fm.getDescent()) / 2;
@@ -63,13 +68,7 @@ public class PrettyToggleButton extends JToggleButton {
 
     }
 
-    // Aesthetic constants
+    // Any specific constants
     public static final int BORDER_RADIUS = 15;
-    public static final Color BUTTON_UNPUSHED_COLOR = new Color(128, 135, 162);
-    public static final Color BUTTON_PUSHED_COLOR = new Color(73, 77, 100);
-    // Added a color specifically for the "ON" state 
-    public static final Color BUTTON_SELECTED_COLOR = new Color(95, 100, 125); 
-    public static final Color BUTTON_MOUSE_OVER_COLOR = new Color(165, 173, 203);
-    public static final Color BUTTON_TEXT_COLOR = new Color(202, 211, 245);
 
 }

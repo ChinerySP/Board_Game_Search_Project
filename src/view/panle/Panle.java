@@ -1,11 +1,12 @@
 package view.panle;
 
 import java.awt.Color;
+import java.util.concurrent.ThreadFactory;
 
 import javax.swing.*;
 
 import view.*;
-
+import view.panle.colors.*;
 import view.panle.customComponents.RoundedPanle;
 
 /**
@@ -36,7 +37,7 @@ public class Panle extends RoundedPanle { // Yes, I am sticking to the bit of pa
 
 
         // Setting up the colors
-        this.setBackground(BACKGROUND_COLOR);
+        this.setBackground(Panle.colors.getBase());
 
 
 
@@ -54,22 +55,32 @@ public class Panle extends RoundedPanle { // Yes, I am sticking to the bit of pa
     public boolean equals(Object other) {
 
         // Default simple cases
-        if (this == other) return true;
-        if (other == null) return false;
+        if (this == other)
+            return true;
+        if (other == null)
+            return false;
 
         // If it is a String, we compare it to the name
         if (other instanceof String) {
             return name.equals(other);
         }
-        
+
         // If it is a Panle, we want to compare names
         if (other instanceof Panle) {
-            return name.equals(((Panle)other).getName());
+            return name.equals(((Panle) other).getName());
         }
 
         // Anything else will be false
         return false;
+
+    }
     
+
+    /**
+     * Updates this panle's theme to match the global state
+     */
+    public void updateTheme() {
+        this.setBackground(Panle.colors.getBase());
     }
 
     /**
@@ -90,9 +101,7 @@ public class Panle extends RoundedPanle { // Yes, I am sticking to the bit of pa
     public static final int BORDER_WIDTH = 1;
 
 
-    // Some color constants 
-    public static final Color BACKGROUND_COLOR = new Color(30, 32, 48);
-    public static final Color TEXT_COLOR = new Color(205, 214, 244);
-    public static final Color BORDER_COLOR = new Color(183, 189, 248);
+    // The Panles will all reference this static color pallatte, so that we can change it easily
+    public static Colors colors = new DarkMode();
 
 }

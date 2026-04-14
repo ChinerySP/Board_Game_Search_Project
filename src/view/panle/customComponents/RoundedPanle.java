@@ -4,13 +4,14 @@ package view.panle.customComponents;
 import java.awt.*;
 import javax.swing.*;
 import view.panle.*;
+import view.panle.colors.*;
 
 // Yes I know this is very extra, but I have an idea of what I want in my mind and I think this could make it work nicely
 /**
  * An extension of JPanel that allows for rounded corners. There are no other differences, I just like how it looks more
  * @author Sam Whitlock
  */
-public class RoundedPanle extends JPanel {
+public class RoundedPanle extends JPanel implements Themeable {
 
     /**
      * Creates a rounded panle with specified radius
@@ -56,7 +57,7 @@ public class RoundedPanle extends JPanel {
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
         // Painting the border color
-        g2.setColor(Panle.BORDER_COLOR);
+        g2.setColor(Panle.colors.getBlue());
         g2.fillRoundRect(x - Panle.BORDER_WIDTH, y - Panle.BORDER_WIDTH,
                 getWidth() - insets.left - insets.right + 2 * Panle.BORDER_WIDTH,
                 getHeight() - insets.bottom - insets.top + 2 * Panle.BORDER_WIDTH,
@@ -67,6 +68,12 @@ public class RoundedPanle extends JPanel {
         g2.fillRoundRect(x, y, getWidth() - insets.left - insets.right, getHeight() - insets.bottom - insets.top,
                 radius, radius);
 
+    }
+
+    @Override
+    public void updateTheme() {
+        revalidate();
+        repaint();
     }
 
     private int radius;

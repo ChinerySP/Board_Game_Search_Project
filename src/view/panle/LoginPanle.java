@@ -103,11 +103,11 @@ public class LoginPanle extends Panle {
         forgotPasswordButton.setPreferredSize(new Dimension(100, 20));
 
         // Matching the color sceme
-        titleLabel.setForeground(Panle.TEXT_COLOR);
+        titleLabel.setForeground(Panle.colors.getText());
         titleLabel.setFont(new Font("Courier", Font.BOLD, 40));
-        userNameLabel.setForeground(Panle.TEXT_COLOR);
+        userNameLabel.setForeground(Panle.colors.getText());
         userNameLabel.setFont(new Font("Courier", Font.BOLD, 15));
-        passwordLabel.setForeground(Panle.TEXT_COLOR);
+        passwordLabel.setForeground(Panle.colors.getText());
         passwordLabel.setFont(new Font("Courier", Font.BOLD, 15));
 
         // Making the buttons call their specific functions
@@ -145,8 +145,8 @@ public class LoginPanle extends Panle {
     
 
     private JLabel titleLabel;
-    private JTextField usernameInput;
-    private JTextField passwordInput;
+    private PrettyTextInput usernameInput;
+    private PrettyTextInput passwordInput;
     private PrettyButton forgotPasswordButton;
     private PrettyButton loginButton;
 

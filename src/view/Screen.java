@@ -44,7 +44,7 @@ public class Screen {
 
 
         // Some eye candy 
-        frame.getContentPane().setBackground(SCREEN_BACKGROUND_COLOR);
+        frame.getContentPane().setBackground(Panle.colors.getCrust());
 
         // Final steps to make sure that the frame shows up
         frame.setSize(1000, 800);
@@ -134,15 +134,21 @@ public class Screen {
     }
 
     /**
+     * Redraws and revalidates all of the panles to fix any bugs or update everything
+     */
+    public void updateTheme() {
+        frame.getContentPane().setBackground(Panle.colors.getCrust());
+        for (Panle p : panles) {
+            p.updateTheme();
+        }
+    }
+
+    /**
      * Gets the frame that this screen is using
      * @return JFrame 
      */
     public JFrame getFrame() { return frame; }
-    
-
-    // Constants (generally for consistent visuals)
-    public static final Color SCREEN_BACKGROUND_COLOR = new Color(17, 17, 27);
-    
+        
     // The frame that everything is in
     private JFrame frame;
 

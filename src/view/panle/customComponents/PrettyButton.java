@@ -2,6 +2,10 @@ package view.panle.customComponents;
 
 // TODO prune
 import javax.swing.*;
+
+import view.panle.Panle;
+import view.panle.colors.*;
+
 import java.awt.*;
 
 
@@ -9,7 +13,7 @@ import java.awt.*;
  * A simple wrapper for the JButton class that makes it match our theme
  * @author Sam Whitlock
  */
-public class PrettyButton extends JButton {
+public class PrettyButton extends JButton implements Themeable {
 
     /**
      * A simple constructor creates a new PrettyButton with the inputted text on it
@@ -35,17 +39,17 @@ public class PrettyButton extends JButton {
 
         // Changing the color if it has been pressed
         if (getModel().isPressed()) {
-            g2.setColor(PrettyButton.BUTTON_PUSHED_COLOR);
+            g2.setColor(Panle.colors.getSurface2());
         } else if (getModel().isRollover()) {
-            g2.setColor(PrettyButton.BUTTON_MOUSE_OVER_COLOR);
+            g2.setColor(Panle.colors.getSurface1());
         } else {
-            g2.setColor(PrettyButton.BUTTON_UNPUSHED_COLOR);
+            g2.setColor(Panle.colors.getSurface0());
         }
 
         // Drawing the actual button itself
         g2.fillRoundRect(0, 0, getWidth(), getHeight(), PrettyButton.BORDER_RADIUS, PrettyButton.BORDER_RADIUS);
 
-        g2.setColor(PrettyButton.BUTTON_TEXT_COLOR);
+        g2.setColor(Panle.colors.getText());
         FontMetrics fm = g2.getFontMetrics();
         int x = (getWidth() - fm.stringWidth(getText())) / 2;
         int y = (getHeight() + fm.getAscent() - fm.getDescent()) / 2;
@@ -54,13 +58,23 @@ public class PrettyButton extends JButton {
 
     }
 
+    /**
+     * Implementation of updateTheme for pretty button
+     */
+    @Override
+    public void updateTheme() {
+        // Fetch the newest colors from the static variable
+        this.setBackground(Panle.colors.getSurface0());
+        this.setForeground(Panle.colors.getText());
+        
+        // Tell Swing this component needs to be redrawn
+        this.repaint();
+    }
+
 
     // Aestetic constants
     public static final int BORDER_RADIUS = 15;
-    public static final Color BUTTON_UNPUSHED_COLOR = new Color(128, 135, 162);
-    public static final Color BUTTON_PUSHED_COLOR = new Color(73, 77, 100);
-    public static final Color BUTTON_MOUSE_OVER_COLOR = new Color(165, 173, 203);
-    public static final Color BUTTON_TEXT_COLOR = new Color(202, 211, 245);
+
 
 
 }

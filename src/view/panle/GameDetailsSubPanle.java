@@ -62,15 +62,15 @@ public class GameDetailsSubPanle extends Panle {
 
         titleLabel = new JLabel("Game Name");
         titleLabel.setFont(new Font("Arial", Font.BOLD, 28));
-        titleLabel.setForeground(Panle.TEXT_COLOR);
+        titleLabel.setForeground(Panle.colors.getText());
 
         playersLabel = new JLabel("Number of Players: -");
         playersLabel.setFont(new Font("Arial", Font.PLAIN, 16));
-        playersLabel.setForeground(Panle.TEXT_COLOR);
+        playersLabel.setForeground(Panle.colors.getText());
 
         categoryLabel = new JLabel("Category: -");
         categoryLabel.setFont(new Font("Arial", Font.PLAIN, 16));
-        categoryLabel.setForeground(Panle.TEXT_COLOR);
+        categoryLabel.setForeground(Panle.colors.getText());
 
         addToListButton = new JButton("Add to List");
         addToListButton.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -165,7 +165,7 @@ public class GameDetailsSubPanle extends Panle {
         // Lastly, we have a description area at the bottom
         descriptionArea = new JTextArea("Game description will appear here...");
         descriptionArea.setFont(new Font("Arial", Font.PLAIN, 14));
-        descriptionArea.setForeground(Panle.TEXT_COLOR);
+        descriptionArea.setForeground(Panle.colors.getText());
         descriptionArea.setOpaque(false);
         descriptionArea.setEditable(false);
         descriptionArea.setLineWrap(true);
@@ -300,6 +300,7 @@ public class GameDetailsSubPanle extends Panle {
     public void setOnNewListCreated(Consumer<String> action) {
         this.onNewListCreated = action;
     }
+
 
     // Storing the lists that the user has so that we can add to them or remove from them
     private ArrayList<GameList> userLists;

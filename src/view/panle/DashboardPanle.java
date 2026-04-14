@@ -109,6 +109,14 @@ public class DashboardPanle extends Panle {
     public void setUser(User newUser) {
         user = newUser;
     }
+
+    @Override
+    public void updateTheme() {
+        super.updateTheme();
+        gameDetailsPanle.updateTheme();
+        gameListListPanle.updateTheme();
+        gameListPanle.updateTheme();
+    }
     
 
 

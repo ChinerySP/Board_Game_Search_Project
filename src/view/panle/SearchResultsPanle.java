@@ -120,7 +120,8 @@ public class SearchResultsPanle extends Panle {
     public void hideGameDetails() {
 
         // We can't do anything if it isn't being shown
-        if (!isShowingDetails) return;
+        if (!isShowingDetails)
+            return;
 
         // Getting rid of details
         this.remove(gameDetailsPanle);
@@ -130,12 +131,19 @@ public class SearchResultsPanle extends Panle {
         GridBagConstraints leftGbc = layout.getConstraints(resultsPanle);
         leftGbc.weightx = 1.0;
         layout.setConstraints(resultsPanle, leftGbc);
-        
+
         isShowingDetails = false;
 
         // Recalculate and redraw
         this.revalidate();
         this.repaint();
+    }
+    
+    @Override
+    public void updateTheme() {
+        super.updateTheme();
+        gameDetailsPanle.updateTheme();
+        resultsPanle.updateTheme();
     }
 
 

@@ -115,11 +115,10 @@ public class View {
 
             // Tell them that they couldn't find the user with that username
             JOptionPane.showMessageDialog(
-                screen.getFrame(),
-                "A user with that username could not be found",
-                "User Not Found",
-                JOptionPane.ERROR_MESSAGE
-            );
+                    screen.getFrame(),
+                    "A user with that username could not be found",
+                    "User Not Found",
+                    JOptionPane.ERROR_MESSAGE);
 
         } else {
 
@@ -132,6 +131,13 @@ public class View {
             return toLogin;
         }
         return null;
+    }
+    
+    /**
+     * Redraws and revalidates all of the panles to fix any bugs or update everything
+     */
+    public void updateTheme() {
+        screen.updateTheme();
     }
 
     

@@ -20,6 +20,7 @@ import javax.swing.JToggleButton;
 // TODO prune
 import view.*;
 import view.panle.customComponents.*;
+import view.panle.colors.*;
 
 
 
@@ -70,30 +71,21 @@ public class SettingsPanle extends Panle {
         // The left side, which holds the different options
         apiToggleButton = new PrettyToggleButton("API On");
         apiToggleButton.addActionListener(e -> this.toggleApi());
+        darkModeToggleButton = new PrettyToggleButton("Dark Mode On");
+        darkModeToggleButton.addActionListener(e -> this.toggleColorMode());
         deleteAccount = new PrettyButton("Delete Account");
-        darkModeLabel = new JLabel("Dark Mode");
-        darkModeCheckBox = new JCheckBox();
         resetPasswordButton = new PrettyButton("Reset Password");
         resetPasswordButton.addActionListener(e -> this.resetPassword());
-        left = new Panle("leftSettings", view);
+        left = new Panle("rightSettings", view);
         left.setLayout(new GridBagLayout());
         constraints.gridy = 0;
         left.add(apiToggleButton, constraints);
         constraints.gridy = 1;
         left.add(deleteAccount, constraints);
         constraints.gridy = 2;
-        JPanel darkModePanel = new JPanel();
-        darkModePanel.add(darkModeCheckBox);
-        darkModePanel.add(darkModeLabel);
-        left.add(darkModePanel, constraints);
+        left.add(darkModeToggleButton, constraints);
         constraints.gridy = 3;
         left.add(resetPasswordButton, constraints);
-
-        // Setting up the darkmode panel to look reasonable
-        darkModePanel.setBackground(BACKGROUND_COLOR);
-        darkModeLabel.setForeground(TEXT_COLOR);
-        darkModeCheckBox.setForeground(TEXT_COLOR);
-        darkModeCheckBox.setOpaque(false);
 
         // Adding everything in
         GridBagConstraints outerConstraints = new GridBagConstraints();
@@ -121,7 +113,7 @@ public class SettingsPanle extends Panle {
 
         // Making sure everything is visible
         this.setVisible(true);
-        this.setOpaque(true);
+        this.setOpaque(false);
 
     }
     
@@ -155,16 +147,52 @@ public class SettingsPanle extends Panle {
      */
     private void resetPassword() {
         // Extra checking to ensure there are no null pointer exceptions
-        if (view.getUser() == null) return;
-        
-        view.getUser().resetPassword(
-            JOptionPane.showInputDialog(
-                this,
-                "Enter your new password:",
-                "Reset Password",
-                JOptionPane.PLAIN_MESSAGE
-        ));
+        if (view.getUser() == null)
+            return;
 
+        view.getUser().resetPassword(
+                JOptionPane.showInputDialog(
+                        this,
+                        "Enter your new password:",
+                        "Reset Password",
+                        JOptionPane.PLAIN_MESSAGE));
+
+    }
+    
+    /**
+     * Changes the color mode of the display
+     * @param boolean Whether or not darkmode should be set (dark is default)
+     */
+    public void setColorMode(boolean isDarkMode) {
+        if (isDarkMode) {
+            Panle.colors = new DarkMode();
+        } else {
+            Panle.colors = new LightMode();
+        }
+        view.updateTheme();
+    }
+
+
+    /**
+     * Internal function to update the color mode when the toggle button is pressed
+     */
+    private void toggleColorMode() {
+        if (darkModeToggleButton.isSelected()) {
+            setColorMode(false);
+            darkModeToggleButton.setText("Dark Mode On");
+        } else {
+            setColorMode(true);
+            darkModeToggleButton.setText("Dark Mode Off");
+        }
+    }
+
+    @Override
+    public void updateTheme() {
+        super.updateTheme();
+        left.updateTheme();
+        right.updateTheme();
+        resetPasswordButton.updateTheme();
+        deleteAccount.updateTheme();
     }
 
 
@@ -188,12 +216,11 @@ public class SettingsPanle extends Panle {
     private User user;
 
     // Display elements
-    private JPanel left;
-    private JPanel right;
+    private Panle left;
+    private Panle right;
     private PrettyButton resetPasswordButton;
-    private JLabel darkModeLabel;
     private PrettyButton deleteAccount;
-    private JCheckBox darkModeCheckBox;
     private PrettyToggleButton apiToggleButton;
+    private PrettyToggleButton darkModeToggleButton;
 
 }

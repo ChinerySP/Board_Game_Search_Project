@@ -67,7 +67,7 @@ public class GameListSubPanle extends Panle {
         // Creating the title
         // title = new JLabel(games.getName, SwingConstants.CENTER); 
         title = new JLabel("FakeName", SwingConstants.CENTER); // Currently defaulting to a fake name because this function doesn't exist
-        title.setForeground(Panle.TEXT_COLOR);
+        title.setForeground(Panle.colors.getText());
         title.setFont(new Font("Courier", Font.BOLD, GameListSubPanle.TITLE_FONT_SIZE));
         this.add(title, BorderLayout.NORTH);
 
@@ -104,7 +104,7 @@ public class GameListSubPanle extends Panle {
         // Defauling to an unnamed list
         this.games = new GameList("Un-named List");
         title = new JLabel("Un-named List", SwingConstants.CENTER);
-        title.setForeground(Panle.TEXT_COLOR);
+        title.setForeground(Panle.colors.getText());
         title.setFont(new Font("Courier", Font.BOLD, GameListSubPanle.TITLE_FONT_SIZE));
         this.add(title, BorderLayout.NORTH);
 
@@ -151,18 +151,18 @@ public class GameListSubPanle extends Panle {
             JTextArea desc = new JTextArea(game.getDescription());
 
             // Styling the name and description
-            name.setForeground(Panle.TEXT_COLOR);
+            name.setForeground(Panle.colors.getText());
             name.setOpaque(false);
             name.setEditable(false);
             name.setLineWrap(true);
             name.setWrapStyleWord(true);
             name.setFont(new Font("Ariel", Font.BOLD, 17));
-            desc.setForeground(Panle.TEXT_COLOR);
+            desc.setForeground(Panle.colors.getText());
             desc.setOpaque(false);
             desc.setEditable(false);
             desc.setLineWrap(true);
             desc.setWrapStyleWord(true);
-            toAdd.setBackground(Panle.BACKGROUND_COLOR);
+            toAdd.setBackground(Panle.colors.getBase());
 
 
             // Adding in some spacing between them all 
@@ -227,18 +227,18 @@ public class GameListSubPanle extends Panle {
             JTextArea desc = new JTextArea("You can add some by clicking on a game and selecting \"Add to List\"!");
 
             // Styling the name and description
-            name.setForeground(Panle.TEXT_COLOR);
+            name.setForeground(Panle.colors.getText());
             name.setOpaque(false);
             name.setEditable(false);
             name.setLineWrap(true);
             name.setWrapStyleWord(true);
             name.setFont(new Font("Ariel", Font.BOLD, 17));
-            desc.setForeground(Panle.TEXT_COLOR);
+            desc.setForeground(Panle.colors.getText());
             desc.setOpaque(false);
             desc.setEditable(false);
             desc.setLineWrap(true);
             desc.setWrapStyleWord(true);
-            toAdd.setBackground(Panle.BACKGROUND_COLOR);
+            toAdd.setBackground(Panle.colors.getBase());
 
             // Adding in some spacing between them all 
             toAdd.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
@@ -364,6 +364,13 @@ public class GameListSubPanle extends Panle {
 
         // Updating the scroll path to be transparent 
         pane.getVerticalScrollBar().setOpaque(false);
+    }
+
+    @Override
+    public void updateTheme() {
+        super.updateTheme();
+        updateGames();
+        title.setForeground(Panle.colors.getText());
     }
     
     /**

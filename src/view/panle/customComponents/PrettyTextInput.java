@@ -6,12 +6,13 @@ import view.panle.*;
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
 import javax.swing.border.EmptyBorder;
+import view.panle.colors.*;
 
 /**
  * A simple wrapper for the JTextField that allows for better customization
  * @author Sam Whitlock
  */
-public class PrettyTextInput extends JTextField {
+public class PrettyTextInput extends JTextField implements Themeable {
 
     /**
      * Simple default constructor for the pretty text input
@@ -21,9 +22,9 @@ public class PrettyTextInput extends JTextField {
 
         // ✨Style✨
         this.setBorder(new EmptyBorder(0, 5, 0, 5));
-        this.setBackground(new Color(54, 58, 79));
-        this.setForeground(Panle.TEXT_COLOR);
-        this.setCaretColor(Panle.TEXT_COLOR);
+        this.setBackground(Panle.colors.getSurface0());
+        this.setForeground(Panle.colors.getText());
+        this.setCaretColor(Panle.colors.getText());
         this.setMaximumSize(new Dimension(Integer.MAX_VALUE, 28));
 
         // Setting to invisible so that we can actually see the background we draw
@@ -37,12 +38,26 @@ public class PrettyTextInput extends JTextField {
     protected void paintComponent(Graphics g) {
         Graphics2D g2 = (Graphics2D) g.create();
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        
+
         // Drawing the backgrounnd to be nice and rounded
         g2.setColor(getBackground());
         g2.fill(new RoundRectangle2D.Float(0, 0, getWidth(), getHeight(), 7, 7));
         g2.dispose();
         super.paintComponent(g);
+    }
+
+    /**
+     * Implementation of update theme for pretty button
+     */
+    @Override
+    public void updateTheme() {
+        // Fetch the newest colors from the static variable
+        this.setBackground(Panle.colors.getSurface0());
+        this.setForeground(Panle.colors.getText());
+        this.setCaretColor(Panle.colors.getText());
+        
+        // Tell Swing this component needs to be redrawn
+        this.repaint();
     }
 
 }
