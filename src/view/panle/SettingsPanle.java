@@ -74,6 +74,7 @@ public class SettingsPanle extends Panle {
         darkModeToggleButton = new PrettyToggleButton("Dark Mode On");
         darkModeToggleButton.addActionListener(e -> this.toggleColorMode());
         deleteAccount = new PrettyButton("Delete Account");
+        deleteAccount.addActionListener(e -> this.deleteAccount());
         resetPasswordButton = new PrettyButton("Reset Password");
         resetPasswordButton.addActionListener(e -> this.resetPassword());
         left = new Panle("rightSettings", view);
@@ -156,6 +157,31 @@ public class SettingsPanle extends Panle {
                         "Enter your new password:",
                         "Reset Password",
                         JOptionPane.PLAIN_MESSAGE));
+
+    }
+
+    /**
+     * Internal function to ensure that users want to delete their account before we actually do
+     */
+    private void deleteAccount() {
+
+        // First, we check to make sure that they want to delete their account for sure
+        String confirmation = JOptionPane.showInputDialog(
+                this,
+                "THIS WILL PERMANENTLY DELETE YOUR ACCOUNT.\nIf you are sure, then please type \"I understand\"",
+                "Delete Account",
+                JOptionPane.WARNING_MESSAGE);
+
+        // Checking their confirmation
+        if (confirmation.equals("I understand")) {
+
+            // Deleting the account
+            view.deleteAccount(user);
+
+            // Kicking the user back out to the login screen
+            view.promptLogin();
+            
+        }
 
     }
     

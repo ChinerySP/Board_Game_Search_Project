@@ -33,6 +33,7 @@ public class View {
      * Prompts the user for a login
      */
     public void promptLogin() {
+        screen.hidePanle("sticky");
         screen.showPanle("login");
     }
     
@@ -131,6 +132,14 @@ public class View {
             return toLogin;
         }
         return null;
+    }
+
+    /**
+     * Tells the controller to delete the specified user
+     * @param User The user to be deleted
+     */
+    public void deleteAccount(User toDelete) {
+        controller.deleteAccount(toDelete);
     }
     
     /**

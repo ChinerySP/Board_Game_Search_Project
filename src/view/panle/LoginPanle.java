@@ -68,7 +68,7 @@ public class LoginPanle extends Panle {
         constraints.gridwidth = 1;
         constraints.gridx = 0; // On the left
         constraints.anchor = GridBagConstraints.EAST; // Aligned to the right
-        JLabel userNameLabel = new JLabel("Username", SwingConstants.RIGHT);
+        userNameLabel = new JLabel("Username", SwingConstants.RIGHT);
         this.add(userNameLabel, constraints);
         constraints.gridx = 1; // On the right
         constraints.anchor = GridBagConstraints.WEST; // Aligned to the left
@@ -78,7 +78,7 @@ public class LoginPanle extends Panle {
         constraints.gridy = 2;
         constraints.gridx = 0; // On the left
         constraints.anchor = GridBagConstraints.EAST; // Aligned to the right
-        JLabel passwordLabel = new JLabel("Password", SwingConstants.RIGHT);
+        passwordLabel = new JLabel("Password", SwingConstants.RIGHT);
         this.add(passwordLabel, constraints);
         constraints.gridx = 1; // On the right
         constraints.anchor = GridBagConstraints.WEST; // Aligned to the left
@@ -129,9 +129,20 @@ public class LoginPanle extends Panle {
                 this,
                 "Please input your username: ",
                 "Forgot Password",
-                JOptionPane.PLAIN_MESSAGE
-            ));
+                JOptionPane.PLAIN_MESSAGE));
 
+    }
+    
+    @Override
+    public void updateTheme() {
+        super.updateTheme();
+        usernameInput.updateTheme();
+        passwordInput.updateTheme();
+        passwordLabel.setForeground(Panle.colors.getText());
+        userNameLabel.setForeground(Panle.colors.getText());
+        loginButton.updateTheme();
+        forgotPasswordButton.updateTheme();
+        titleLabel.setForeground(Panle.colors.getText());
     }
     
 
@@ -145,6 +156,8 @@ public class LoginPanle extends Panle {
     
 
     private JLabel titleLabel;
+    private JLabel passwordLabel;
+    private JLabel userNameLabel;
     private PrettyTextInput usernameInput;
     private PrettyTextInput passwordInput;
     private PrettyButton forgotPasswordButton;

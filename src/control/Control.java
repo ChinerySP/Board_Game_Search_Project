@@ -4,15 +4,6 @@ import view.*;
 import model.*;
 
 public class Control {
-
-
-    // Testing function for the controller
-    public static void main(String[] args) {
-
-        // Creating the controller
-        Control controller = new Control();
-
-    }
     
     /**
      * Constructor, begins the app itself
@@ -49,6 +40,14 @@ public class Control {
         // TODO update this to actually match the model
         // return model.getUser(username);
         return new User(); // For testing 
+    }
+
+    /**
+     * Tells the database to delete the inputted user
+     * @param User The user to delete
+     */
+    public void deleteAccount(User toDelete) {
+        // TODO make this actually delete things in the model
     }
 
     /**
