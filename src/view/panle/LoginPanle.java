@@ -8,6 +8,7 @@ import java.awt.Insets;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
+import model.*;
 import view.*;
 import view.panle.customComponents.*;
 
@@ -46,6 +47,7 @@ public class LoginPanle extends Panle {
         passwordInput = new PrettyTextInput();
         forgotPasswordButton = new PrettyButton("Forgot Password");
         loginButton = new PrettyButton("Login");
+        signUpButton = new PrettyButton("Sign Up");
         titleLabel = new JLabel("Welcome to TJS", SwingConstants.CENTER);
 
         // Putting it all together into a pretty layout (I'm using pretty pretty loosley here)
@@ -88,6 +90,10 @@ public class LoginPanle extends Panle {
         constraints.gridy = 4;
         this.add(forgotPasswordButton, constraints);
 
+        // A way to actually make a user when you first use the program
+        constraints.gridy = 5;
+        this.add(signUpButton, constraints);
+
         // Some simple changes to ensure that the panle looks nice
         titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
         usernameInput.setPreferredSize(new Dimension(150, 20));
@@ -106,6 +112,7 @@ public class LoginPanle extends Panle {
         // Making the buttons call their specific functions
         forgotPasswordButton.addActionListener(e -> this.forgotPassword());
         loginButton.addActionListener(e -> this.login());
+        signUpButton.addActionListener(e -> this.newUser());
 
     }
     
@@ -143,6 +150,30 @@ public class LoginPanle extends Panle {
                 JOptionPane.PLAIN_MESSAGE));
 
     }
+
+    /**
+     * Internal method to get username and password for a new user
+     */
+    private void newUser() {
+
+        // Getting their username
+        String username = JOptionPane.showInputDialog(
+                this,
+                "Please input your username:",
+                "Grabbing Information",
+                JOptionPane.PLAIN_MESSAGE);
+
+        // Getting their password
+        String password = JOptionPane.showInputDialog(
+                this,
+                "Please input your password: ",
+                "Grabbing Information",
+                JOptionPane.PLAIN_MESSAGE);
+
+        view.newUser(new User(username, password));
+
+    }
+
     
     @Override
     public void updateTheme() {
@@ -173,5 +204,6 @@ public class LoginPanle extends Panle {
     private PrettyTextInput passwordInput;
     private PrettyButton forgotPasswordButton;
     private PrettyButton loginButton;
+    private PrettyButton signUpButton;
 
 }

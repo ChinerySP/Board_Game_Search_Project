@@ -87,7 +87,7 @@
 
           # Create a stable symlink to the Nix JDK in the project root
           # This is the JDK that we want to be using for compilation
-          # it is Java 25 for
+          # it is Java 25 for those that don't use NixOS/Nix
           ln -sfn ${jdk.home} .nix-jdk
           
         '';

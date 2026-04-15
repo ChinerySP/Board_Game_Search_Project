@@ -154,6 +154,13 @@ public class View {
     public void logOut() {
         promptLogin();
     }
+
+    /**
+     * Tells the controller to make a new User in the database
+     */
+    public void newUser(User newUser) {
+        controller.newUser(newUser);
+    }
    
     // The user that is actively logged in 
     private User activeUser;

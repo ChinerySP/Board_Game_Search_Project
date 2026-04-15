@@ -12,7 +12,7 @@ public class Control {
 
         // Initializing the other two branches
         view = new View(this);
-        model = new Model();
+        model = new Model(this);
 
         // Beginning the view by asking for the login from the view
         view.promptLogin();
@@ -59,6 +59,15 @@ public class Control {
         // TODO implement
         return null;
     }
+
+    /**
+     * Tells the database to add a new user
+     * @param User The user to add 
+     */
+    public void newUser(User newUser) {
+        // TODO Make this actually save the new user
+    }
+
 
     /**
      * Tells the model to turn the API to a specified state

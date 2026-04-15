@@ -202,9 +202,11 @@ public class SettingsPanle extends Panle {
     private void toggleColorMode() {
         if (darkModeToggleButton.isSelected()) {
             setColorMode(false);
+            user.setDarkMode(false);
             darkModeToggleButton.setText("Dark Mode Off");
         } else {
             setColorMode(true);
+            user.setDarkMode(true);
             darkModeToggleButton.setText("Dark Mode On");
         }
     }

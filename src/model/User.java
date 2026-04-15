@@ -65,7 +65,6 @@ public class User {
     }
 
     private ArrayList<GameList> gameLists;
-    private ArrayList<>
     private String password;
     private Config config;
     private String userName;
