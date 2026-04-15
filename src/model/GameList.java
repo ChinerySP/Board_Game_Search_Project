@@ -49,6 +49,7 @@ public class GameList implements Iterable<Game> {
      */
     public void addGame(int id){
         //gameData.add(searchGames(id)); // not function yet, but should pull game from data base and add it
+
     }
     public void addGame(Game game){
         gameData.add(game); //used to add game to list via varable containing the game
