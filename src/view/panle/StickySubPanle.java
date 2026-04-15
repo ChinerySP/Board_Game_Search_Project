@@ -10,7 +10,9 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+
 import view.panle.customComponents.*;
+import view.panle.colors.*;
 
 // TODO prune
 import view.*;
@@ -83,20 +85,40 @@ public class StickySubPanle extends Panle {
      */
     private void search() {
 
-            // Getting and splitting their query by spaces
-            String[] query = searchInput.getText().trim().split(" ");
+        // Getting and splitting their query by spaces
+        String[] query = searchInput.getText().trim().split(" ");
 
-            // Prevent empty searches
-            if (query.length != 0) {
-                view.search(query); 
-                view.showPanle("searchresults");
-                System.out.print("Searching for: ");
-                for (String element : query) {
-                    System.out.print(element + " ");
-                }
-                System.out.println();
+        // Prevent empty searches
+        if (query.length != 0) {
+            view.search(query);
+            view.showPanle("searchresults");
+            System.out.print("Searching for: ");
+            for (String element : query) {
+                System.out.print(element + " ");
             }
+            System.out.println();
+        }
 
+    }
+    
+    @Override
+    public void updateTheme() {
+        searchInput.updateTheme();
+        
+        // Updating the image
+        if (Panle.colors instanceof LightMode) {
+            ImageIcon homeIcon = new ImageIcon("resources/HomeLight.png");
+            homeButton.setIcon(homeIcon);
+            ImageIcon settingsIcon = new ImageIcon("resources/SettingsLight.png");
+            settingsButton.setIcon(settingsIcon);
+        } else {
+            ImageIcon homeIcon = new ImageIcon("resources/Home.png");
+            homeButton.setIcon(homeIcon);
+            ImageIcon settingsIcon = new ImageIcon("resources/Settings.png");
+            settingsButton.setIcon(settingsIcon);
+        }
+
+        super.updateTheme();
     }
 
     // The components that we want on the screen

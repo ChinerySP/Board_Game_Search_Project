@@ -149,7 +149,12 @@ public class View {
         screen.updateTheme();
     }
 
-    
+    /**
+     * Logs the user out of the program
+     */
+    public void logOut() {
+        promptLogin();
+    }
    
     // The user that is actively logged in 
     private User activeUser;

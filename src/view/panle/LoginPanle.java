@@ -122,9 +122,27 @@ public class LoginPanle extends Panle {
      */
     private void forgotPassword() {
 
-        // Pulling who they said that they were
-        String name = usernameInput.getText();
+        // Adding in some security (that is totally what this is)
+        String[] options = { "Yes", "No" };
+        int selection = JOptionPane.showOptionDialog(
+            this,
+            "Do you pinky promise that you are who you say you are?",
+            "Account Ownership Verification",
+            0,               
+            3,
+            null,
+            options,
+                options[1]);
+            
+        // If they said no, then we mess with them
+        if (selection == 1) {
+            JOptionPane.showMessageDialog(this, "HOW DARE YOU??????!?!?!!?!?!", "ANGER", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Deleting System32...", "PUNISHMENT", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Just kidding.");
+            JOptionPane.showMessageDialog(this,  "I'll let you in anyways because I am such a nice program :)");
+        }
 
+        // Pulling who they said that they were
         view.forgotPassword(JOptionPane.showInputDialog(
                 this,
                 "Please input your username: ",

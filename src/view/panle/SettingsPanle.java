@@ -77,6 +77,8 @@ public class SettingsPanle extends Panle {
         deleteAccount.addActionListener(e -> this.deleteAccount());
         resetPasswordButton = new PrettyButton("Reset Password");
         resetPasswordButton.addActionListener(e -> this.resetPassword());
+        logOutButton = new PrettyButton("Log Out");
+        logOutButton.addActionListener(e -> this.logOut());
         left = new Panle("rightSettings", view);
         left.setLayout(new GridBagLayout());
         constraints.gridy = 0;
@@ -87,6 +89,8 @@ public class SettingsPanle extends Panle {
         left.add(darkModeToggleButton, constraints);
         constraints.gridy = 3;
         left.add(resetPasswordButton, constraints);
+        constraints.gridy = 4;
+        left.add(logOutButton, constraints);
 
         // Adding everything in
         GridBagConstraints outerConstraints = new GridBagConstraints();
@@ -180,7 +184,7 @@ public class SettingsPanle extends Panle {
 
             // Kicking the user back out to the login screen
             view.promptLogin();
-            
+
         }
 
     }
@@ -205,11 +209,18 @@ public class SettingsPanle extends Panle {
     private void toggleColorMode() {
         if (darkModeToggleButton.isSelected()) {
             setColorMode(false);
-            darkModeToggleButton.setText("Dark Mode On");
+            darkModeToggleButton.setText("Dark Mode Off");
         } else {
             setColorMode(true);
-            darkModeToggleButton.setText("Dark Mode Off");
+            darkModeToggleButton.setText("Dark Mode On");
         }
+    }
+
+    /**
+     * Internal function to log out of the program
+     */
+    private void logOut() {
+        view.logOut();
     }
 
     @Override
@@ -219,6 +230,7 @@ public class SettingsPanle extends Panle {
         right.updateTheme();
         resetPasswordButton.updateTheme();
         deleteAccount.updateTheme();
+        logOutButton.updateTheme();
     }
 
 
@@ -248,5 +260,6 @@ public class SettingsPanle extends Panle {
     private PrettyButton deleteAccount;
     private PrettyToggleButton apiToggleButton;
     private PrettyToggleButton darkModeToggleButton;
+    private PrettyButton logOutButton;
 
 }
