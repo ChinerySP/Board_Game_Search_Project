@@ -1,13 +1,7 @@
 package view.panle;
 
-import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.JPanel;
-
 import model.*;
 import view.*;
 
@@ -66,7 +60,7 @@ public class SearchResultsPanle extends Panle {
         gameDetailsPanle.setOnNewListCreated(listName -> {
 
             // Creating a new list that we can add to the User
-            GameList toAdd = new GameList(listName);
+            // GameList toAdd = new GameList(listName);
 
             // Adding it to the user's list
             // TODO Add in when .addList exists (or a .getGameLists)

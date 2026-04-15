@@ -1,18 +1,11 @@
 package view.panle;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.util.concurrent.ConcurrentHashMap;
-
 import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.JPanel;
 import view.*;
-import view.panle.*;
 import model.*;
-import view.panle.customComponents.RoundedPanle;
 
 
 /**

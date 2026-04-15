@@ -1,11 +1,10 @@
 package view.panle;
-
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagLayout;
 import java.util.ArrayList;
-
+import java.util.function.Consumer;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
@@ -14,30 +13,19 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
-
-import view.panle.customComponents.RoundedPanle;
-
+import javax.swing.JComponent;
 import javax.swing.plaf.basic.BasicScrollBarUI;
-
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.Rectangle;
 import java.awt.RenderingHints;
-import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
-
-import javax.swing.JComponent;
-import java.util.function.Consumer;
-
-// TODO prune
 import view.*;
 import model.*;
-import javax.swing.*;
-import java.awt.*;
-
+import view.panle.customComponents.*;
 
 /**
  * A panle that holds all of the GameLists of a User

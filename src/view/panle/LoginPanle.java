@@ -5,18 +5,11 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-
-import javax.swing.Box;
-
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 import javax.swing.SwingConstants;
-
-import view.panle.customComponents.PrettyButton;
-import view.panle.customComponents.PrettyTextInput;
-// TODO prune
 import view.*;
+import view.panle.customComponents.*;
 
 /**
  * The panle that allows the user to sign in.

@@ -1,11 +1,13 @@
 package view.panle.customComponents;
 
-// TODO prune
-import javax.swing.*;
-import view.panle.*;
-import java.awt.*;
-import java.awt.geom.RoundRectangle2D;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.Dimension;
+import java.awt.RenderingHints;
+import java.awt.geom.RoundRectangle2D;
+import view.panle.*;
 import view.panle.colors.*;
 
 /**

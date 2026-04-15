@@ -1,14 +1,10 @@
 package view;
 
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
 import java.util.ArrayList;
 import javax.swing.JFrame;
-import javax.swing.border.Border;
-
-import view.*;
 import view.panle.*;
 
 /**
@@ -25,9 +21,6 @@ public class Screen {
      */
     public Screen(View view) {
 
-        // Saving the view
-        this.view = view;
-        
         // Creating the frame that will actually be displayed
         frame = new JFrame("Amazing Board Game App - Now with API (soon we promise) -");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -151,10 +144,6 @@ public class Screen {
         
     // The frame that everything is in
     private JFrame frame;
-
-    // The View that owns this Screen
-    private View view;
-
 
     // The panles that are going to be displayed
     private ArrayList<Panle> panles;

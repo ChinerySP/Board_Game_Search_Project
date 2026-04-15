@@ -1,11 +1,13 @@
 package view.panle.customComponents;
 
-import javax.swing.*;
-
+import javax.swing.JToggleButton;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import java.awt.FontMetrics;
 import view.panle.Panle;
 
-import java.awt.*;
-import view.panle.colors.*;
+
 
 /**
  * A simple wrapper for the JToggleButton class that makes it match our theme

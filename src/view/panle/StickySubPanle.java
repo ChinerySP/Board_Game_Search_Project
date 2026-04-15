@@ -1,20 +1,12 @@
 package view.panle;
 
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Insets;
-
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-
-
 import view.panle.customComponents.*;
 import view.panle.colors.*;
-
-// TODO prune
 import view.*;
 
 /**

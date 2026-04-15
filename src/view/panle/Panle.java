@@ -1,10 +1,7 @@
 package view.panle;
 
-import java.awt.Color;
-import java.util.concurrent.ThreadFactory;
-
-import javax.swing.*;
-
+import javax.swing.BoxLayout;
+import javax.swing.BorderFactory;
 import view.*;
 import view.panle.colors.*;
 import view.panle.customComponents.RoundedPanle;

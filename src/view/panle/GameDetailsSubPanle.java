@@ -1,14 +1,11 @@
 package view.panle;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-
-import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
+import java.awt.Image;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -17,22 +14,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
-
-import java.net.URL;
-import javax.imageio.ImageIO;
-import java.awt.Image;
-import view.panle.*;
-
-import java.util.function.Consumer;
 import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
 import javax.swing.JMenuItem;
-
+import javax.imageio.ImageIO;
+import java.net.URI;
+import java.net.URL;
+import java.util.function.Consumer;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.function.BiConsumer;
-
-// TODO prune
 import model.*;
 import view.*;
 
@@ -225,10 +215,9 @@ public class GameDetailsSubPanle extends Panle {
         // Update description
         descriptionArea.setText(toDisplay.getDescription());
 
-        // TODO add a try catch to see if we can load the thumbnail
         try {
             // Getting the URL of the image from the game
-            URL imageUrl = new URL(toDisplay.getThumbnail());
+            URL imageUrl = new URI(toDisplay.getThumbnail()).toURL();
 
             // Trying to read the image over the network
             Image webImage = ImageIO.read(imageUrl);

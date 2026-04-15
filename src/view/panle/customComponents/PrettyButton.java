@@ -1,11 +1,8 @@
 package view.panle.customComponents;
 
-// TODO prune
-import javax.swing.*;
-
+import javax.swing.JButton;
 import view.panle.Panle;
 import view.panle.colors.*;
-
 import java.awt.*;
 
 
