@@ -13,30 +13,30 @@
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import model.Game;
+import model.parser.XMLParser;
 import org.w3c.dom.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class GameXMLTester {
-
     public static void main(String[] argv)  {
 
         String inputFileName = "c:\\temp\\simple1.xml";
 
-        /******* UNCOMMENT if you don't wish to use a hardcoded filename to test
         System.out.println("Enter the name of the test input file: ");
         Scanner keyboard = new Scanner(System.in);
         inputFileName = keyboard.next();
-        ************/
 
         try {
             /* This code segment sets up a new DOM parser, and makes sure the current
                 version of Java supports a DOM parser.
              */
-            XMLParserUtility myParser = new XMLParserUtility(inputFileName);
+            XMLParser myParser = new XMLParser(inputFileName);
             ArrayList<Game>  myGameList = myParser.retrieveGameList();
 
             if (myGameList != null) {
