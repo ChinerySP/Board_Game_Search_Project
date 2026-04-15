@@ -2,30 +2,43 @@ package model;
 import java.util.ArrayList;
 import model.*;
 
-
 public class User {
 
     public User() {
         gameLists = new ArrayList<GameList>();
         gameLists.add(new GameList("Favorites"));
-        password = "password";
+        this.password = "password";
+        this.userName = "TJS";
     }
 
-//    public
+    // Getters and setters for username and password
 
-    /**
-     * A collection of GameLists specific to the user
-     */
-    public ArrayList<GameList> getGameLists() {
-        return gameLists;
+    public String getUserName() {
+        return userName;
     }
 
-    /**
-     * Used to reset the current password for the user
-     * @param newPassword The new password chosen by the user
-     */
+    public void setUserName(String newName) {
+        userName = newName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
     public void resetPassword(String newPassword) {
         password = newPassword;
+    }
+
+    public void addGameList(String listName) {
+        gameLists.add(new GameList(listName));
+    }
+
+    public void setAPI(Boolean state) {
+        config.setAPIActive(state);
+    }
+
+    public ArrayList<GameList> getGameLists() {
+        return gameLists;
     }
 
     /**
@@ -35,40 +48,25 @@ public class User {
      * @return True if the password is correct, False if incorrect
      */
     public boolean login(String guess) {
-        if (guess.equals(password)) {
-            return true;
-        }
-        else return false;
+        return guess.equals(password);
     }
 
-    /**
-     * Uses View to prompt user if they would like to save data
-     * upon logout
-     * @return User either chooses to logout with our without saving data
-     * True for save, False for not saved
-     */
     public boolean logout() {
+
         return true;
     }
 
-    /**
-     * User data is loaded
-     * @return
-     */
     public boolean loadUserData() {
         return true;
     }
 
-    /**
-     * Used by logout() to save user data upon logout based
-     *  on user choice
-     * @return True for save data and False for not saved
-     */
     public boolean saveUserData() {
         return true;
     }
 
     private ArrayList<GameList> gameLists;
+    private ArrayList<>
     private String password;
     private Config config;
+    private String userName;
 }

@@ -19,8 +19,9 @@ public class Model {
 
     public User verifyLogin(String u, String p) {
         //needs getters and setters from user
-        // if (u == user.getName() && p == user.getPassword()){
-        //  return user;
+        if (u.equals(user.getUserName()) && p.equals(user.getPassword()) {
+            return user;
+        }
         return null; // if the user isn't verified
     }
     public User getUser(String u){
@@ -32,7 +33,7 @@ public class Model {
 
     public void setAPI(boolean s) {
         // needs a setter for API
-        // user.setAPI(s);
+        user.setAPI(s);
     }
 
     //public DataBase getDataBase(){return dataBase;}
