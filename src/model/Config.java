@@ -3,8 +3,6 @@ package model;
 import java.io.*;
 public class Config {
 
-    private boolean apiActive;
-
     /**
      * Sets the API status to determine if user is in offline or online mode
      * @param apiActive Used to determine if the API is used or not
@@ -13,6 +11,9 @@ public class Config {
      */
     public boolean setAPIActive(boolean apiActive) {
         //Online/offline mode toggled in settings?
-        return false; // TODO remove; Added for testing
+
+        return this.apiActive; // TODO remove; Added for testing
     }
+
+    private boolean apiActive;
 }
