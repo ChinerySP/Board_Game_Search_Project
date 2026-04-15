@@ -1,11 +1,18 @@
 package model;
+import control.Control;
 import model.*;
-
+import control.*;
+import view.*;
 public class Model {
     public User user = new User();
 
+    public Model(Control controller){
+        // Saving the controller
+        this.controller = controller;
+    }
+
     public String getUser() {
-        // Needs getter for the name
+        // User needs to store a profile name
         // return user.getName();
         return "temp"; // for testing
     }
@@ -16,12 +23,15 @@ public class Model {
         //  return user;
         return null; // if the user isn't verified
     }
-
+    public User getUser(String u){
+        //for(User i : )
+        return null; // working on it
+    }
 
     public void setAPI(boolean s) {
         // needs a setter for API
         // user.setAPI(s);
     }
 
-
+    private Control controller;
 }
