@@ -19,7 +19,7 @@ public class Model {
 
     public User verifyLogin(String u, String p) {
         //needs getters and setters from user
-        if (u.equals(user.getUserName()) && p.equals(user.getPassword()) {
+        if (u.equals(user.getUserName()) && p.equals(user.getPassword())) {
             return user;
         }
         return null; // if the user isn't verified

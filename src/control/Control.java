@@ -12,7 +12,7 @@ public class Control {
 
         // Initializing the other two branches
         view = new View(this);
-        model = new Model();
+        model = new Model(this);
 
         // Beginning the view by asking for the login from the view
         view.promptLogin();

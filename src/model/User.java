@@ -11,7 +11,13 @@ public class User {
         this.userName = "TJS";
     }
 
-    // Getters and setters for username and password
+    public User(String user, String password) {
+        gameLists = new ArrayList<GameList>();
+        gameLists.add(new GameList("Favorites"));
+        this.password = password;
+        this.userName = user;
+    }
+
 
     public String getUserName() {
         return userName;
@@ -51,21 +57,32 @@ public class User {
         return guess.equals(password);
     }
 
-    public boolean logout() {
+    public void setDarkMode(boolean state) {
+        config.setDarkMode(state);
+    }
 
+    public boolean getDarkMode() {
+        return config.isDarkMode();
+    }
+
+
+    @Deprecated
+    public boolean logout() {
         return true;
     }
 
+    // The following commands are way more databasey
+    @Deprecated
     public boolean loadUserData() {
         return true;
     }
 
+    @Deprecated
     public boolean saveUserData() {
         return true;
     }
 
     private ArrayList<GameList> gameLists;
-    private ArrayList<>
     private String password;
     private Config config;
     private String userName;
