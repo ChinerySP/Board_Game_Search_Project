@@ -11,7 +11,6 @@ import view.panle.DashboardPanle;
  * @author Sam Whitlock
  */
 public class View {
-    
 
     /**
      * The main constructor that starts up the view
