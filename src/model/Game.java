@@ -70,6 +70,10 @@ public class Game implements Comparable<Game>, Iterable<Rating>{
         this.maxPlayer = -1;
     }
 
+    public String toString() {
+        return "[" + name + ", BGG ID: " + id + "]";
+    }
+
     /**
      * adds to the arraylist of ratings stored with each game
      * @param newRating Takes in a raiting object to be stored
