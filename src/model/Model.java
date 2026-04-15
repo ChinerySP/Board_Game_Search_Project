@@ -5,7 +5,7 @@ import control.*;
 import view.*;
 public class Model {
     public User user = new User();
-
+    public DataBase dataBase = new DataBase();
     public Model(Control controller){
         // Saving the controller
         this.controller = controller;
@@ -24,13 +24,21 @@ public class Model {
         return null; // if the user isn't verified
     }
     public User getUser(String u){
-        //for(User i : )
-        return null; // working on it
+        for(User i : dataBase.userList){
+            //if(u == i.getName()){return i}
+        }
+        return null;
     }
 
     public void setAPI(boolean s) {
         // needs a setter for API
         // user.setAPI(s);
+    }
+
+    //public DataBase getDataBase(){return dataBase;}
+
+    public GameList search(String[] keywords){
+        return dataBase.searchGames(keywords);
     }
 
     private Control controller;
