@@ -12,23 +12,14 @@ public class Model {
     }
 
     public String getUser() {
-        // User needs to store a profile name
-        // return user.getName();
-        return "temp"; // for testing
+        return user.getUserName();
     }
 
     public User verifyLogin(String u, String p) {
-        //needs getters and setters from user
         if (u.equals(user.getUserName()) && p.equals(user.getPassword())) {
             return user;
         }
         return null; // if the user isn't verified
-    }
-    public User getUser(String u){
-        for(User i : dataBase.userList){
-            //if(u == i.getName()){return i}
-        }
-        return null;
     }
 
     public void setAPI(boolean s) {
@@ -36,10 +27,27 @@ public class Model {
         user.setAPI(s);
     }
 
-    //public DataBase getDataBase(){return dataBase;}
+    public DataBase getDataBase(){return dataBase;}
 
     public GameList search(String[] keywords){
         return dataBase.searchGames(keywords);
+    }
+
+    public User getUser(String u){
+        for(User i : dataBase.userList){
+            if(u.equals(i.getUserName())){return i;}
+        }
+        return null;
+    }
+
+    public void deleteAccount(User delete){
+        int count = 0;
+        for(User i : dataBase.userList) {
+            if (i == delete) {
+                dataBase.userList.remove(count);
+            }
+            count++;
+        }
     }
 
     private Control controller;
