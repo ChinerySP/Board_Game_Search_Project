@@ -28,8 +28,8 @@ public class Control {
      */
     public User verifyLogin(String username, String password) {
         // Todo update this to actually match the model
-        // return model.verifyLogin(username, password);
-        return new User(); // For testing 
+        return model.verifyLogin(username, password);
+        // return new User(); // For testing 
     }
 
     /**
@@ -56,8 +56,7 @@ public class Control {
      * @return GameList A ordered GameList holding all of the results of the search
      */
     public GameList search(String[] keywords) {
-        // TODO implement
-        return null;
+        return model.search(keywords);
     }
 
     /**
@@ -65,7 +64,7 @@ public class Control {
      * @param User The user to add 
      */
     public void newUser(User newUser) {
-        // TODO Make this actually save the new user
+        model.newUser(newUser);
     }
 
 

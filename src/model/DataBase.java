@@ -12,17 +12,33 @@ public class DataBase {
     public String gameXML = "resources/simple1.xml";
 
     /**
+     * Creates a blank database
+     */
+    public DataBase() {
+        try {
+            parser = new XMLParser(gameXML);
+        } catch (Exception e) {
+            // TODO handle this exception gracefully
+            System.out.println("Could not load testing xml");
+        }
+        games = new ArrayList<>();
+        userList = new ArrayList<>();
+    }
+
+    /**
      *
      * @param keywords list of keywords to look for within the game
      * @return
      */
     public GameList searchGames(String[] keywords) {
-        GameList results = null;
+        GameList results = new GameList("Search Results");
 
         games = parser.retrieveGameList();
         for (Game g : games) {
             for (String word : keywords) {
+                System.out.println(String.format("Comparing %s and %s", g.name, word));
                 if (g.name.contains(word)) {
+                    System.out.println("Found a match");
                     results.addGame(g);
                 }
             }

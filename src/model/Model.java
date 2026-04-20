@@ -16,8 +16,11 @@ public class Model {
     }
 
     public User verifyLogin(String u, String p) {
-        if (u.equals(user.getUserName()) && p.equals(user.getPassword())) {
-            return user;
+        for (User possibleMatch : dataBase.userList) {
+            System.out.println(String.format("Checking %s", possibleMatch.getUserName()));
+            if (u.equals(possibleMatch.getUserName()) && p.equals(possibleMatch.getPassword())) {
+                return possibleMatch;
+            }
         }
         return null; // if the user isn't verified
     }
