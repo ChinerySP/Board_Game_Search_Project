@@ -44,7 +44,7 @@ public class LoginPanle extends Panle {
 
         // The actual components
         usernameInput = new PrettyTextInput();
-        passwordInput = new PrettyTextInput();
+        passwordInput = new PrettyPasswordField();
         forgotPasswordButton = new PrettyButton("Forgot Password");
         loginButton = new PrettyButton("Login");
         signUpButton = new PrettyButton("Sign Up");
@@ -143,11 +143,15 @@ public class LoginPanle extends Panle {
         }
 
         // Pulling who they said that they were
-        view.forgotPassword(JOptionPane.showInputDialog(
+        String username = JOptionPane.showInputDialog(
                 this,
                 "Please input your username: ",
                 "Forgot Password",
-                JOptionPane.PLAIN_MESSAGE));
+                JOptionPane.PLAIN_MESSAGE);
+
+        // Actually putting in what they said (if they didn't hit cancel)
+        if (username == null) return;
+        view.forgotPassword(username);
 
     }
 
@@ -201,7 +205,7 @@ public class LoginPanle extends Panle {
     private JLabel passwordLabel;
     private JLabel userNameLabel;
     private PrettyTextInput usernameInput;
-    private PrettyTextInput passwordInput;
+    private PrettyPasswordField passwordInput;
     private PrettyButton forgotPasswordButton;
     private PrettyButton loginButton;
     private PrettyButton signUpButton;

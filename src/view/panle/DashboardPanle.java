@@ -4,7 +4,18 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import javax.swing.Box;
+import javax.swing.JMenuItem;
+import javax.swing.JLabel;
+import javax.swing.JPopupMenu;
+import java.awt.event.*;
+
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import javax.swing.JPopupMenu;
+
 import view.*;
+import view.panle.customComponents.RoundedPopupMenu;
 import model.*;
 
 
@@ -44,16 +55,19 @@ public class DashboardPanle extends Panle {
 
         // We aren't currently showing details, so we can set the flag to false
         isShowingDetails = false;
+        
+        // // An action listener that we can use to listen for mouse
+        // MouseListener popupListener = new PopupMenuListener();
+        // output.addMouseListener(popupListener);
+        // menuBar.addMouseListener(popupListener);
 
-        // Making them all have a preffered size of 0, leaving it to gridbaglayout to set the sizing
-        // gameListPanle.setPreferredSize(new Dimension(0, gameListPanle.getHeight()));
-        // gameListListPanle.setPreferredSize(new Dimension(0, gameListListPanle.getHeight()));
-        // gameDetailsPanle.setPreferredSize(new Dimension(0, gameDetailsPanle.getHeight()));
+        
+
 
         // Make clicking on a game in the left panle open the gameDetailsSubPanle
-        // gameListPanle.setOnGameClicked(game ->);
+        gameListPanle.setOnGameClicked(game -> toggleGameDetails(game));
 
-
+        
 
     }
 
@@ -61,7 +75,9 @@ public class DashboardPanle extends Panle {
      * Shows the details of a game on the gameDetailsSubpanle
      * @param Game The game to show
      */
-    public void showGameDetails(Game game) {
+    public void toggleGameDetails(Game game) {
+
+        // If we are already showing this game specifically, then 
 
         // Regardless of whether we are showing the panle already, we need to update the game it is holding
         gameDetailsPanle.setGame(game);
@@ -123,6 +139,7 @@ public class DashboardPanle extends Panle {
     private GameListSubPanle gameListPanle;
     private GameListListSubPanle gameListListPanle;
     private GameDetailsSubPanle gameDetailsPanle;
+
 
 
 }

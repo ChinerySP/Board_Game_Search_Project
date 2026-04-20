@@ -86,9 +86,10 @@ public class GameDetailsSubPanle extends Panle {
 
                 // If they typed something and didn't hit cancel, send it up the chain
                 if (listName != null && !listName.trim().isEmpty()) {
-                    if (onNewListCreated != null) {
-                        onNewListCreated.accept(listName.trim());
-                    }
+                    GameList toAdd = new GameList(listName);
+                    toAdd.addGame(toDisplay);
+                    view.getUser().addGameList(toAdd);
+                    System.out.println(String.format("Added to %s", view.getUser().getUserName()));
                 }
             });
             popupMenu.add(createNewListItem);

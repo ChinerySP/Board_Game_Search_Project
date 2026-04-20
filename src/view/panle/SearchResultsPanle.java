@@ -31,6 +31,7 @@ public class SearchResultsPanle extends Panle {
         // Creating a left and a right. The right side will not always be shown, but the left side will
         // The left will show the games returned by the search and the right will show details of a game once one is clicked
         resultsPanle = new GameListSubPanle(view);
+        // resultsPanle.set
 
         // Defining what the results panle should do if a game is clicked
         resultsPanle.setOnGameClicked(clickedGame -> {
@@ -131,6 +132,15 @@ public class SearchResultsPanle extends Panle {
         // Recalculate and redraw
         this.revalidate();
         this.repaint();
+    }
+
+    /**
+     * Updates the search results that are shown in this panle
+     * @param GameList The games to be shown
+     */
+    public void setGameList(GameList newGames) {
+        resultsPanle.setGameList(newGames);
+        resultsPanle.updateGames();
     }
     
     @Override

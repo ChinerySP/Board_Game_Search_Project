@@ -17,14 +17,17 @@ import java.util.function.Consumer;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
+import javax.swing.JMenuItem;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import javax.swing.JComponent;
 import view.panle.customComponents.RoundedPanle;
+import view.panle.customComponents.RoundedPopupMenu;
 import view.*;
 import model.*;
 
@@ -55,8 +58,8 @@ public class GameListSubPanle extends Panle {
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         
         // Creating the title
-        // title = new JLabel(games.getName, SwingConstants.CENTER); 
-        title = new JLabel("FakeName", SwingConstants.CENTER); // Currently defaulting to a fake name because this function doesn't exist
+        title = new JLabel(games.getName(), SwingConstants.CENTER); 
+        // title = new JLabel("FakeName", SwingConstants.CENTER); // Currently defaulting to a fake name because this function doesn't exist
         title.setForeground(Panle.colors.getText());
         title.setFont(new Font("Courier", Font.BOLD, GameListSubPanle.TITLE_FONT_SIZE));
         this.add(title, BorderLayout.NORTH);
@@ -65,6 +68,9 @@ public class GameListSubPanle extends Panle {
         scrollPane.setBorder(null);
         scrollPane.setOpaque(false);
         scrollPane.getViewport().setOpaque(false);
+
+        // A pop up menu that they can use to remove a game from a list
+        initPopupMenu();
 
         // Adding the scrollpane and updating everythign
         this.styleScrollBar(scrollPane);
@@ -102,6 +108,9 @@ public class GameListSubPanle extends Panle {
         scrollPane.setBorder(null);
         scrollPane.setOpaque(false);
         scrollPane.getViewport().setOpaque(false);
+
+        // A pop up menu that they can use to remove a game from a list
+        initPopupMenu();
 
         // Actually adding the scrollpane and then updating the display
         this.styleScrollBar(scrollPane);
@@ -185,9 +194,29 @@ public class GameListSubPanle extends Panle {
                  */
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    // If someone gave us an action to run, run it and pass the clicked game!
-                    if (onGameClicked != null) {
-                        onGameClicked.accept(game);
+                    System.out.println("MouseClicked detected!");
+                    // Only running if it was a left click, otherwise we do nothing (the other methods will catch it (hopefully))
+                    if (SwingUtilities.isLeftMouseButton(e) && onGameClicked != null) {
+                        if (onGameClicked != null) {
+                            onGameClicked.accept(game);
+                        }
+                    }
+                }
+                
+                @Override
+                public void mousePressed(MouseEvent e) { showPopup(e); }
+
+                @Override
+                public void mouseReleased(MouseEvent e) { showPopup(e); }
+
+                private void showPopup(MouseEvent e) {
+                    System.out.println("ShowPopup detected");
+                    if (e.isPopupTrigger()){
+                        // Setting eh currently clicked on game to be this one
+                        currentlyRightClickedGame = game; 
+                        
+                        // Showing the game that they want to show
+                        sharedPopupMenu.show(e.getComponent(), e.getX(), e.getY());
                     }
                 }
             };
@@ -356,6 +385,48 @@ public class GameListSubPanle extends Panle {
         pane.getVerticalScrollBar().setOpaque(false);
     }
 
+    /**
+     * Initializes the shared right-click popup menu.
+     * Meant to be called inside the constructor, and should not be called elsewhere
+     */
+    private void initPopupMenu() {
+        // Pretty pretty
+        sharedPopupMenu = new RoundedPopupMenu(10); 
+        sharedPopupMenu.setBackground(Panle.colors.getBase());
+
+        // The option to add to a list
+        JMenuItem addToListBtn = new JMenuItem("Add to List...");
+        addToListBtn.setForeground(Panle.colors.getText());
+        addToListBtn.setOpaque(false);
+        
+        // The option to add to a list
+        JMenuItem removeFromListBtn = new JMenuItem("Remove from this List");
+        addToListBtn.setForeground(Panle.colors.getText());
+        addToListBtn.setOpaque(false); 
+
+        // What actually runs when the add to list button is clicked
+        addToListBtn.addActionListener(e -> {
+            if (currentlyRightClickedGame != null) {
+                // TODO: Trigger your "Add to List" logic or popup here!
+                System.out.println("Opening list menu for: " + currentlyRightClickedGame.getName());
+            }
+        });
+
+        // What actually runs when the remove from list button is clicked
+        removeFromListBtn.addActionListener(e -> {
+            if (currentlyRightClickedGame != null) {
+
+
+
+                // TODO: Trigger your "Add to List" logic or popup here!
+                System.out.println("Opening list menu for: " + currentlyRightClickedGame.getName());
+            }
+        });
+
+        sharedPopupMenu.add(addToListBtn);
+        sharedPopupMenu.add(removeFromListBtn);
+    }
+
     @Override
     public void updateTheme() {
         super.updateTheme();
@@ -391,5 +462,8 @@ public class GameListSubPanle extends Panle {
     // Any visual constants
     public static final int PANLE_HEIGHT = 100;
     public static final int TITLE_FONT_SIZE = 30;
-    
+
+    // The popup menus for the lists and for the games
+    private RoundedPopupMenu sharedPopupMenu;
+    private Game currentlyRightClickedGame = null;
 }

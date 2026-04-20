@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 import control.*;
 import model.*;
 import view.panle.DashboardPanle;
+import view.panle.SearchResultsPanle;
 
 /**
  * The main class that interfaces with the rest of the view
@@ -46,21 +47,22 @@ public class View {
 
         // Trying to log in
         User loggingInUser = controller.verifyLogin(username, password);
+        System.out.println(String.format("Logged in %s", loggingInUser.getUserName()));
 
         if (loggingInUser == null) {
             // The login failed
 
             // Telling the user that the login failed
-            // JOptionPane.showMessageDialog(screen.getFrame(), "The username and password did not match, please try again.", "Login Failed", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(screen.getFrame(), "The username and password did not match, please try again.", "Login Failed", JOptionPane.WARNING_MESSAGE);
 
             // TODO revert this to actually check, right now it just tries skips to the dashboard for testing
             
-            ((DashboardPanle)screen.getPanle("dashboard")).setUser(new User());
+            // ((DashboardPanle)screen.getPanle("dashboard")).setUser(new User());
             
             // Updating everything to the new Panle
-            screen.hidePanle("login");
-            screen.showPanle("dashboard"); 
-            screen.showPanle("sticky");
+            // screen.hidePanle("login");
+            // screen.showPanle("dashboard"); 
+            // screen.showPanle("sticky");
         } else {
             // Login successful
 
@@ -95,11 +97,14 @@ public class View {
 
     /**
      * Tells the controller that the User wants to search for specific keywords
+     * Then shows those search results to the user in the search results panle
      * @param String[] The keywords to search for
-     * @return GameList The list of Games that the User requested
      */
-    public GameList search(String[] keywords) {
-        return controller.search(keywords);
+    public void search(String[] keywords) {
+
+        ( (SearchResultsPanle) screen.getPanle("searchresults") ).setGameList(controller.search(keywords));
+        showPanle("searchresults");            
+
     }
 
     /**
