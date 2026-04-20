@@ -50,5 +50,7 @@ public class Model {
         }
     }
 
+    public void newUser(User newUser){dataBase.userList.add(newUser);}
+
     private Control controller;
 }
