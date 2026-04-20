@@ -32,8 +32,9 @@ bin/
 ### direnv ###
 .direnv**
 
-### Syncthing Conflicts ###
+### Syncthing Stuff ###
 **sync-conflict**
+**.tmp
 
 ### Ignoring the nix-jdk created by the flake ###
 .nix-jdk
