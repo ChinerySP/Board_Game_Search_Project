@@ -34,26 +34,26 @@ public class DashboardPanle extends Panle {
 
         // Actually showing them on the screen
         GridBagConstraints gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.BOTH;
+        gbc.weighty = 1.0;
         gbc.gridx = 0;
         gbc.weightx = 0.5;
         this.add(gameListPanle, gbc);
         gbc.gridx = 1;
-        this.add(Box.createHorizontalStrut(DISTANCE_BETWEEN_COMPONENTS));
-        gbc.gridx = 2;
-        this.add(gameListListPanle);
+        this.add(gameListListPanle, gbc);
 
         // We aren't currently showing details, so we can set the flag to false
         isShowingDetails = false;
 
         // Making them all have a preffered size of 0, leaving it to gridbaglayout to set the sizing
-        gameListPanle.setPreferredSize(new Dimension(0, gameListPanle.getHeight()));
-        gameListListPanle.setPreferredSize(new Dimension(0, gameListListPanle.getHeight()));
-        gameDetailsPanle.setPreferredSize(new Dimension(0, gameDetailsPanle.getHeight()));
+        // gameListPanle.setPreferredSize(new Dimension(0, gameListPanle.getHeight()));
+        // gameListListPanle.setPreferredSize(new Dimension(0, gameListListPanle.getHeight()));
+        // gameDetailsPanle.setPreferredSize(new Dimension(0, gameDetailsPanle.getHeight()));
 
         // Make clicking on a game in the left panle open the gameDetailsSubPanle
         // gameListPanle.setOnGameClicked(game ->);
 
-        
+
 
     }
 
