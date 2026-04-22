@@ -10,20 +10,10 @@
  *
  */
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
 import model.DataBase;
 import model.Game;
 import model.parser.APIParser;
-import model.parser.XMLParser;
 import org.w3c.dom.*;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class GameXMLTester {
     public static void main(String[] argv)  {
@@ -31,7 +21,7 @@ public class GameXMLTester {
         DataBase db = new DataBase();
         APIParser parser = new APIParser(db);
 
-        parser.retrieveGame(25);
+        parser.retrieveGame(420);
 
         for (Game g : db.retrieveGames()) {
             System.out.println(g);

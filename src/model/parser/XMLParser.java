@@ -2,6 +2,7 @@ package model.parser;
 
 import model.DataBase;
 import model.Game;
+import model.GameList;
 import org.w3c.dom.*;
 import org.xml.sax.InputSource;
 
@@ -23,7 +24,7 @@ public class XMLParser extends Parser {
     }
 
     @Override
-    public ArrayList<Game> search(String toSearch) {
+    public GameList search(String toSearch) {
         return null;
     }
 
@@ -45,6 +46,13 @@ public class XMLParser extends Parser {
         return null;
     }
 
+    /**
+     * Constructor for the parser that loads in the XML from the save file
+     * @param inputFileName File path to the XML save which the constructor parses and initializes
+     * @param dataBase Reference to the database which created the parser. Stored and used to talk back to database.
+     * @throws FileNotFoundException Exception thrown when the input file is not found
+     * @throws IOException Exception thrown when XML file is malformed
+     */
     public XMLParser(String inputFileName, DataBase dataBase) throws FileNotFoundException, IOException {
         this.dataBase = dataBase;
         fileLocation = inputFileName;
@@ -74,17 +82,20 @@ public class XMLParser extends Parser {
         // variable "xmlDocumentTree" has all nodes found in the XML file
     }
 
+    /**
+     * Adds and saves an XML string to the file and updates the game list
+     * @param xmlContent the raw XML as a string which we will save
+     * @throws IOException Exception thrown when XML string is bad
+     */
     public void addGameToList(String xmlContent) throws IOException {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         dbf.setNamespaceAware(true);
         dbf.setExpandEntityReferences(false);
 
-        // if the file exists, open it, and retrieve the XML doc
-        // if the XML is bad, throw an exception
+        //creates a document to parse using the xml string
         try {
             DocumentBuilder db = dbf.newDocumentBuilder();
             InputSource is = new InputSource(new StringReader(xmlContent));
-
             xmlDocumentTree = db.parse(is);
         } catch (Exception ex) {
             throw new IOException("Unable to parse XML string");
@@ -99,7 +110,7 @@ public class XMLParser extends Parser {
             Node currentGame = xmlGameList.item(gameNumber);
             // convert the current game into a game object, add it to list
             Game ng = parseNextGame(currentGame);
-            retrieveGameList().add(ng);
+            retrieveGameList().addGame(ng);
             dataBase.saveGames();
         }
     }
@@ -108,10 +119,10 @@ public class XMLParser extends Parser {
      * Retrieves the entire game list from the XML object
      * @return an array list of game objects, in the order they were found in the file
      */
-    public ArrayList<Game> retrieveGameList() {
+    public GameList retrieveGameList() {
         // only need to create the game list if needed
         if (currentGameList == null) {
-            currentGameList = new ArrayList<Game>();
+            currentGameList = new GameList("list");
 
             // retrieve the top level node in the tree, would be boardgames
             Element items = xmlDocumentTree.getDocumentElement();
@@ -122,7 +133,7 @@ public class XMLParser extends Parser {
             for (int gameNumber = 0; gameNumber < xmlGameList.getLength(); gameNumber++) {
                 Node currentGame = xmlGameList.item(gameNumber);
                 // convert the current game into a game object, add it to list
-                currentGameList.add(parseNextGame(currentGame));
+                currentGameList.addGame(parseNextGame(currentGame));
             }
         }
         return currentGameList;
@@ -210,5 +221,5 @@ public class XMLParser extends Parser {
     }
 
     private Document xmlDocumentTree; // this is the object tree parsed from the given XML File
-    private ArrayList<Game> currentGameList; // current game list, may be null
+    private GameList currentGameList; // current game list, may be null
 }

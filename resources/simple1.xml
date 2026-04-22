@@ -1381,4 +1381,367 @@ Reimplemented by:
 
 </boardgame>
 
+</boardgames><boardgames termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+			<boardgame objectid="69">
+   <yearpublished>1999</yearpublished>
+   <minplayers>2</minplayers>
+   <maxplayers>2</maxplayers>
+   <playingtime>20</playingtime>
+   <minplaytime>20</minplaytime>
+   <maxplaytime>20</maxplaytime>
+   <age>10</age>
+
+   	   <name sortindex="1">Bōku</name>
+   	   <name sortindex="1">Bolix</name>
+   	   <name sortindex="1">Bollox</name>
+   	   <name primary="true" sortindex="1">Culls</name>
+   	   <name sortindex="5">The Game of CULLS</name>
+   
+   <description>To win The Game of CULLS &amp;mdash; which has also appeared in print as Bollox, Bolix, and Bōku &amp;mdash; you need to get five of your pieces in a row.
+
+To set up, one player places two chips lobster-side down on empty spaces on the game board, then the other player does the same, after which players take turns placing one chip lobster-side down.
+
+If by placing a chip, you sandwich exactly two of the opponent's chips, turn one of those chips lobster-side up. On that player's turn, they must cull their lobster, picking up the piece and placing it elsewhere lobster-side down as their entire turn. Continue until someone wins.
+
+</description>
+
+   	   <thumbnail>https://cf.geekdo-images.com/c7dlN5VsbZtGHjUA62tr7w__small/img/_hGkPBPxVsVgslNa_wJAtSCjqa8=/fit-in/200x150/filters:strip_icc()/pic9434990.png</thumbnail>
+	   <image>https://cf.geekdo-images.com/c7dlN5VsbZtGHjUA62tr7w__original/img/ZqW8UArLFnGm3hWmNjiIAm3VxLU=/0x0/filters:format(png)/pic9434990.png</image>
+   
+   	   		   <boardgamehonor objectid="12337">1999 Mensa Select Winner</boardgamehonor>
+      	   		   <boardgamesubdomain objectid="4666">Abstract Games</boardgamesubdomain>
+      	   		   <boardgamecategory objectid="1009">Abstract Strategy</boardgamecategory>
+      	   		   <boardgamepublisher objectid="553">Cadaco</boardgamepublisher>
+      	   		   <boardgameversion objectid="162445">Cadaco first edition</boardgameversion>
+      	   		   <boardgameversion objectid="78846">Cadaco second edition</boardgameversion>
+      	   		   <boardgamefamily objectid="26432">Category: Combinatorial</boardgamefamily>
+      	   		   <boardgamefamily objectid="4220">Category: n in a row</boardgamefamily>
+      	   		   <boardgamefamily objectid="5902">Components: Marbles</boardgamefamily>
+      	   		   <boardgameversion objectid="780386">CULLS Games English edition</boardgameversion>
+      	   		   <boardgamepublisher objectid="61143">CULLS Games, LLC</boardgamepublisher>
+      	   		   <boardgamemechanic objectid="2026">Hexagon Grid</boardgamemechanic>
+      	   		   <boardgamepublisher objectid="1536">The London Game Company LTD</boardgamepublisher>
+      	   		   <boardgameversion objectid="263084">London Game executive edition</boardgameversion>
+      	   		   <boardgameversion objectid="162446">London Game first edition</boardgameversion>
+      	   		   <boardgameversion objectid="670146">London Game green cover edition</boardgameversion>
+      	   		   <boardgamefamily objectid="6485">Misc: Mensa Select</boardgamefamily>
+      	   		   <boardgamedesigner objectid="2354">Rob Nelson (II)</boardgamedesigner>
+      	   		   <boardgamepublisher objectid="634">The Op Games</boardgamepublisher>
+      	   		   <boardgameversion objectid="792775">Op Games English edition</boardgameversion>
+      	   		   <boardgamemechanic objectid="2048">Pattern Building</boardgamemechanic>
+      	   		   <boardgamefamily objectid="61979">Players: Two-Player Only Games</boardgamefamily>
+      	      	      
+   <poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="3">
+			
+		<results numplayers="1">		
+					<result numvotes="0" value="Best"/>
+					<result numvotes="0" value="Recommended"/>
+					<result numvotes="3" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="2">		
+					<result numvotes="3" value="Best"/>
+					<result numvotes="0" value="Recommended"/>
+					<result numvotes="0" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="2+">		
+					<result numvotes="0" value="Best"/>
+					<result numvotes="1" value="Recommended"/>
+					<result numvotes="2" value="Not Recommended"/>
+				</results>					
+	</poll>
+<poll-summary name="suggested_numplayers" title="User Suggested Number of Players">
+  <result name="bestwith" value="Best with 2 players"/>
+  <result name="recommmendedwith" value="Recommended with 2 players"/>
+</poll-summary>
+
+   <poll name="language_dependence" title="Language Dependence" totalvotes="1">
+			
+		<results>		
+					<result level="1" numvotes="1" value="No necessary in-game text"/>
+					<result level="2" numvotes="0" value="Some necessary text - easily memorized or small crib sheet"/>
+					<result level="3" numvotes="0" value="Moderate in-game text - needs crib sheet or paste ups"/>
+					<result level="4" numvotes="0" value="Extensive use of text - massive conversion needed to be playable"/>
+					<result level="5" numvotes="0" value="Unplayable in another language"/>
+				</results>					
+	</poll>
+
+   <poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="2">
+			<results>		
+					<result numvotes="0" value="2"/>
+					<result numvotes="0" value="3"/>
+					<result numvotes="0" value="4"/>
+					<result numvotes="0" value="5"/>
+					<result numvotes="0" value="6"/>
+					<result numvotes="2" value="8"/>
+					<result numvotes="0" value="10"/>
+					<result numvotes="0" value="12"/>
+					<result numvotes="0" value="14"/>
+					<result numvotes="0" value="16"/>
+					<result numvotes="0" value="18"/>
+					<result numvotes="0" value="21 and up"/>
+				</results>					
+	</poll>
+
+
+   
+
+   
+
+</boardgame>
+
+</boardgames><boardgames termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+			<boardgame objectid="67">
+   <yearpublished>1974</yearpublished>
+   <minplayers>2</minplayers>
+   <maxplayers>4</maxplayers>
+   <playingtime>120</playingtime>
+   <minplaytime>120</minplaytime>
+   <maxplaytime>120</maxplaytime>
+   <age>10</age>
+
+   	   <name primary="true" sortindex="1">Conquest</name>
+   	   <name sortindex="1">Conquest+</name>
+   
+   <description>Conquest was designed to be a diceless wargame.  Its latest version updates the original with plastic units and a colorful map.  Set in ancient times, Conquest has players utilizing troops, cavalry, chariots, elephants and ships to try to capture their opponents' fortifications or occupy the "quest" locations.  The map is designed for point-to-point movement, and play hinges on a pool of action points that each side uses to move its different units.  Conquest comes in two versions, one designed for four players and one designed exclusively for two.
+
+</description>
+
+   	   <thumbnail>https://cf.geekdo-images.com/q_Smtd-fGvpxqWIZB8-_wA__small/img/QtBRAyRc75PXNayGWreyYvn6ckE=/fit-in/200x150/filters:strip_icc()/pic940999.jpg</thumbnail>
+	   <image>https://cf.geekdo-images.com/q_Smtd-fGvpxqWIZB8-_wA__original/img/YO5AvueF8DJ015euZ90wweHSdxQ=/0x0/filters:format(jpeg)/pic940999.jpg</image>
+   
+   	   		   <boardgamepublisher objectid="4">(Self-Published)</boardgamepublisher>
+      	   		   <boardgamecategory objectid="1009">Abstract Strategy</boardgamecategory>
+      	   		   <boardgamemechanic objectid="2001">Action Points</boardgamemechanic>
+      	   		   <boardgamecategory objectid="1050">Ancient</boardgamecategory>
+      	   		   <boardgamedesigner objectid="55">Donald Benge</boardgamedesigner>
+      	   		   <boardgameartist objectid="55">Donald Benge</boardgameartist>
+      	   		   <boardgamepublisher objectid="1531">Bütehorn Spiele (Buchholz Verlag)</boardgamepublisher>
+      	   		   <boardgamefamily objectid="26432">Category: Combinatorial</boardgamefamily>
+      	      	   		   <boardgamefamily objectid="81575">Digital Implementations: VASSAL</boardgamefamily>
+      	   		   <boardgamefamily objectid="66186">Game: Conquest (Donald Benge)</boardgamefamily>
+      	      	      	      	   		   <boardgameimplementation objectid="28678">Grand Conquest</boardgameimplementation>
+      	   		   <boardgamepublisher objectid="62">Hexagames (I)</boardgamepublisher>
+      	   		   <boardgameversion objectid="168158">Hexagames Danish edition</boardgameversion>
+      	   		   <boardgameversion objectid="109053">Hexagames German 4-Player edition</boardgameversion>
+      	   		   <boardgameversion objectid="119100">Hexagames German edition</boardgameversion>
+      	   		   <boardgamepublisher objectid="8722">Numbskull Games</boardgamepublisher>
+      	   		   <boardgamemechanic objectid="2078">Point to Point Movement</boardgamemechanic>
+      	   		   <boardgameversion objectid="27439">Quest  English 4-player edition</boardgameversion>
+      	   		   <boardgameversion objectid="169963">Quest  English 4-player edition</boardgameversion>
+      	   		   <boardgamepublisher objectid="6695">Quest Games</boardgamepublisher>
+      	      	      	      	   		   <boardgameversion objectid="471287">Self-published English deluxe edition 1984</boardgameversion>
+      	   		   <boardgamecategory objectid="1019">Wargame</boardgamecategory>
+      	   		   <boardgamesubdomain objectid="4664">Wargames</boardgamesubdomain>
+      	   		   <boardgameimplementation inbound="true" objectid="20467">Conquest</boardgameimplementation>
+      
+   <poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="9">
+			
+		<results numplayers="1">		
+					<result numvotes="0" value="Best"/>
+					<result numvotes="1" value="Recommended"/>
+					<result numvotes="7" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="2">		
+					<result numvotes="5" value="Best"/>
+					<result numvotes="4" value="Recommended"/>
+					<result numvotes="0" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="3">		
+					<result numvotes="0" value="Best"/>
+					<result numvotes="1" value="Recommended"/>
+					<result numvotes="6" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="4">		
+					<result numvotes="4" value="Best"/>
+					<result numvotes="3" value="Recommended"/>
+					<result numvotes="2" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="4+">		
+					<result numvotes="0" value="Best"/>
+					<result numvotes="1" value="Recommended"/>
+					<result numvotes="6" value="Not Recommended"/>
+				</results>					
+	</poll>
+<poll-summary name="suggested_numplayers" title="User Suggested Number of Players">
+  <result name="bestwith" value="Best with 2 players"/>
+  <result name="recommmendedwith" value="Recommended with 2, 4 players"/>
+</poll-summary>
+
+   <poll name="language_dependence" title="Language Dependence" totalvotes="4">
+			
+		<results>		
+					<result level="1" numvotes="2" value="No necessary in-game text"/>
+					<result level="2" numvotes="0" value="Some necessary text - easily memorized or small crib sheet"/>
+					<result level="3" numvotes="2" value="Moderate in-game text - needs crib sheet or paste ups"/>
+					<result level="4" numvotes="0" value="Extensive use of text - massive conversion needed to be playable"/>
+					<result level="5" numvotes="0" value="Unplayable in another language"/>
+				</results>					
+	</poll>
+
+   <poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="3">
+			<results>		
+					<result numvotes="0" value="2"/>
+					<result numvotes="0" value="3"/>
+					<result numvotes="0" value="4"/>
+					<result numvotes="0" value="5"/>
+					<result numvotes="0" value="6"/>
+					<result numvotes="0" value="8"/>
+					<result numvotes="0" value="10"/>
+					<result numvotes="2" value="12"/>
+					<result numvotes="0" value="14"/>
+					<result numvotes="1" value="16"/>
+					<result numvotes="0" value="18"/>
+					<result numvotes="0" value="21 and up"/>
+				</results>					
+	</poll>
+
+
+   
+
+   
+
+</boardgame>
+
+</boardgames><boardgames termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+			<boardgame objectid="420">
+   <yearpublished>1977</yearpublished>
+   <minplayers>3</minplayers>
+   <maxplayers>6</maxplayers>
+   <playingtime>240</playingtime>
+   <minplaytime>180</minplaytime>
+   <maxplaytime>240</maxplaytime>
+   <age>10</age>
+
+   	   <name primary="true" sortindex="1">Rail Baron</name>
+   
+   <description>Rail Baron is one of the earlier train games - boardgames with a railroad theme.
+
+Players move trains along historical USA railroad lines and collect delivery payoffs. They compete to purchase the railroads in order to assemble a network that gives access to important map destinations while simultaneously trying to prevent their opponents from doing so.
+
+From the Box (Avalon Hill Bookshelf Game)
+Only in America!
+
+You are living in the heyday of the locomotive. You are Jay Gould. And you have just added another railroad to your vast railroad empire. Flushed with success, you now retire to the sartorial splendor of your very own Pullman Palace Car. The dream ends. You awaken to reality with the thought... "just another fantasy." Ahh, but for the grace of Avalon Hill, you dream continues.
+
+Here, in Rail Baron, you become a latter day Gould, or a Cornelius Vanderbilt, or any of those menacingly infamous moguls whose wizardry and acumen established the criteria for which business success was to be judged in decades to come.
+
+Rail Baron is played on a large board of the United States RR network. in fact, it comes in three separate boards. Laid end to end, it spell out America and portrays the 28 major rail lines and major cities they connected during the halcyon days of railroading.
+
+You start with $20,000 - and a train. You make money on trips from city to city. Pretty soon you've got enough money to build up your empire (you can buy the B&amp;O and C&amp;O for just $44,000). More holdings bring more money your way (track rental) from your opponents.
+
+With many new nuances of strategy, it becomes a game where fortunes see-saw until the last rail baron is bankrupt - or has accumulated the $200,000 needed to win.
+
+All of this may take 3 to 4 hours. But it's great fun for 3 to 6 people, ages 10 &amp; up.
+
+</description>
+
+   	   <thumbnail>https://cf.geekdo-images.com/cKhELVLlWPp7FU4mOQx2SA__small/img/cQNPUgn6TM5RGdCKEdE4c0hDPp0=/fit-in/200x150/filters:strip_icc()/pic292230.jpg</thumbnail>
+	   <image>https://cf.geekdo-images.com/cKhELVLlWPp7FU4mOQx2SA__original/img/hEtqk-JyDHjSTs3hUY_XBzzBaAQ=/0x0/filters:format(jpeg)/pic292230.jpg</image>
+   
+   	   		   <cardset objectid="92157"/>
+      	   		   <boardgamepublisher objectid="5">The Avalon Hill Game Co</boardgamepublisher>
+      	      	   		   <boardgamecategory objectid="1021">Economic</boardgamecategory>
+      	      	   		   <boardgamepodcastepisode objectid="298086">Episode 22: Behavioral Economics in Games with a Special Guest</boardgamepodcastepisode>
+      	   		   <boardgamedesigner objectid="203">R. S. Erickson</boardgamedesigner>
+      	   		   <boardgamedesigner objectid="204">Thomas F. Erickson, Jr.</boardgamedesigner>
+      	   		   <boardgameversion objectid="29073">First edition</boardgameversion>
+      	      	   		   <boardgamepodcastepisode objectid="113937">Ludology Episode 74 - Boardgame Wonderland</boardgamepodcastepisode>
+      	      	      	   		   <boardgamemechanic objectid="2035">Roll / Spin and Move</boardgamemechanic>
+      	      	   		   <boardgameversion objectid="29074">Second edition</boardgameversion>
+      	   		   <boardgamesubdomain objectid="5497">Strategy Games</boardgamesubdomain>
+      	      	   		   <boardgamecategory objectid="1034">Trains</boardgamecategory>
+      	   		   <boardgamecategory objectid="1011">Transportation</boardgamecategory>
+      	   		   <boardgamedeveloper objectid="667">Mick Uhl</boardgamedeveloper>
+      	      	      	   		   <boardgameimplementation inbound="true" objectid="24225">Boxcars</boardgameimplementation>
+      
+   <poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="26">
+			
+		<results numplayers="1">		
+					<result numvotes="0" value="Best"/>
+					<result numvotes="0" value="Recommended"/>
+					<result numvotes="12" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="2">		
+					<result numvotes="1" value="Best"/>
+					<result numvotes="3" value="Recommended"/>
+					<result numvotes="10" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="3">		
+					<result numvotes="11" value="Best"/>
+					<result numvotes="6" value="Recommended"/>
+					<result numvotes="2" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="4">		
+					<result numvotes="17" value="Best"/>
+					<result numvotes="4" value="Recommended"/>
+					<result numvotes="2" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="5">		
+					<result numvotes="4" value="Best"/>
+					<result numvotes="11" value="Recommended"/>
+					<result numvotes="2" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="6">		
+					<result numvotes="4" value="Best"/>
+					<result numvotes="6" value="Recommended"/>
+					<result numvotes="3" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="6+">		
+					<result numvotes="1" value="Best"/>
+					<result numvotes="1" value="Recommended"/>
+					<result numvotes="9" value="Not Recommended"/>
+				</results>					
+	</poll>
+<poll-summary name="suggested_numplayers" title="User Suggested Number of Players">
+  <result name="bestwith" value="Best with 3–4 players"/>
+  <result name="recommmendedwith" value="Recommended with 3–6 players"/>
+</poll-summary>
+
+   <poll name="language_dependence" title="Language Dependence" totalvotes="7">
+			
+		<results>		
+					<result level="1" numvotes="0" value="No necessary in-game text"/>
+					<result level="2" numvotes="1" value="Some necessary text - easily memorized or small crib sheet"/>
+					<result level="3" numvotes="5" value="Moderate in-game text - needs crib sheet or paste ups"/>
+					<result level="4" numvotes="0" value="Extensive use of text - massive conversion needed to be playable"/>
+					<result level="5" numvotes="1" value="Unplayable in another language"/>
+				</results>					
+	</poll>
+
+   <poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="11">
+			<results>		
+					<result numvotes="1" value="2"/>
+					<result numvotes="0" value="3"/>
+					<result numvotes="0" value="4"/>
+					<result numvotes="0" value="5"/>
+					<result numvotes="1" value="6"/>
+					<result numvotes="2" value="8"/>
+					<result numvotes="3" value="10"/>
+					<result numvotes="2" value="12"/>
+					<result numvotes="1" value="14"/>
+					<result numvotes="1" value="16"/>
+					<result numvotes="0" value="18"/>
+					<result numvotes="0" value="21 and up"/>
+				</results>					
+	</poll>
+
+
+   
+
+   
+
+</boardgame>
+
 </boardgames></boardgames>

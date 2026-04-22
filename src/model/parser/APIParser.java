@@ -1,6 +1,5 @@
 package model.parser;
 
-import jdk.jfr.DataAmount;
 import model.*;
 import model.Game;
 import java.io.IOException;
@@ -14,12 +13,19 @@ public class APIParser extends Parser {
     private String apiKey = "bb3c4d44-93a4-4a7e-80ce-4c0c226caa98";
     private DataBase dataBase;
 
+    /**
+     * Constructor. Just saves the database reference when initialized
+     * @param db datbase reference
+     */
     public APIParser(DataBase db) {
         dataBase = db;
     }
 
-    //Still not 100% sure how to use the API, but I think this should return a string of the game(?)
-    //I think in XML format
+    /**
+     * Retrieves a game from the API given an ID.
+     * @param gameID ID of the game you want to retrieve
+     * @return The game object found of the given ID 'gameID' parameter
+     */
     @Override
     public Game retrieveGame(int gameID) {
         HttpClient client = HttpClient.newHttpClient();
@@ -48,7 +54,7 @@ public class APIParser extends Parser {
     }
 
     @Override
-    public ArrayList<Game> retrieveGameList() {
+    public GameList retrieveGameList() {
         return null;
     }
 
@@ -57,9 +63,13 @@ public class APIParser extends Parser {
         return null;
     }
 
-    //I think this also should return an XML of the search results(?)
+    /**
+     * Returns a game list given the string to search
+     * @param toSearch What you want to search
+     * @return game list object with a list of the games found in a search.
+     */
     @Override
-    public ArrayList<Game> search (String toSearch) {
+    public GameList search (String toSearch) {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://boardgamegeek.com/xmlapi/search?search=" + toSearch))

@@ -59,6 +59,7 @@ public class GameList implements Iterable<Game> {
         }
     }
     public GameList(String name){listName = name;}
+
     /**
      * gets the size of the game list
      * @return size of the array list
