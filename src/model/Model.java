@@ -1,5 +1,6 @@
 package model;
-import control.Control;
+import java.io.FileWriter;
+import java.io.IOException;
 import model.*;
 import control.*;
 import view.*;
@@ -94,7 +95,18 @@ public class Model {
      * addes the new user to the database of users
      * @param newUser
      */
-    public void newUser(User newUser){dataBase.userList.add(newUser);}
+    public void newUser(User newUser){
+        dataBase.userList.add(newUser);
+        try {
+            FileWriter myWriter = new FileWriter("resources/userData.txt");
+            myWriter.append(newUser.getUserName() + " " + newUser.getPassword() + "\n");
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+    }
 
     private Control controller;
 }

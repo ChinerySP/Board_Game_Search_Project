@@ -5,9 +5,11 @@ import org.w3c.dom.Node;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
+import java.util.Scanner;
 //import org.json.simple.JSONArray;
 //import org.json.simple.JSONObject;
 import model.parser.APIParser;
@@ -43,6 +45,17 @@ public class DataBase {
         }
         games = retrieveGames();
         userList = new ArrayList<>();
+        File myObj = new File("resources/userData.txt");
+        // try-with-resources: Scanner will be closed automatically
+        try (Scanner myReader = new Scanner(myObj)) {
+            while (myReader.hasNextLine()) {
+                String[] data = myReader.nextLine().split(" ");
+                User oldUser = new User(data[0], data[1]);
+                userList.add(oldUser);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+        }
     }
 
     /**
