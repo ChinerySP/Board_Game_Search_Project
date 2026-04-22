@@ -37,9 +37,7 @@ public class Control {
      * @param 
      */
     public User forgotPassword(String username) {
-        // TODO update this to actually match the model
-        // return model.getUser(username);
-        return new User(); // For testing 
+        return model.getUser(username);
     }
 
     /**
