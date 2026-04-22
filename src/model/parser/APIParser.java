@@ -39,6 +39,7 @@ public class APIParser extends Parser {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        //System.out.println(response.body());
         return dataBase.XMLparser.retrieveGame(gameID);
     }
 

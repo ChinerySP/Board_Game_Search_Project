@@ -45,7 +45,6 @@ public class XMLParser extends Parser {
         return null;
     }
 
-
     public XMLParser(String inputFileName, DataBase dataBase) throws FileNotFoundException, IOException {
         this.dataBase = dataBase;
         fileLocation = inputFileName;
@@ -116,8 +115,9 @@ public class XMLParser extends Parser {
 
             // retrieve the top level node in the tree, would be boardgames
             Element items = xmlDocumentTree.getDocumentElement();
-            NodeList xmlGameList = items.getElementsByTagName("item");
+            NodeList xmlGameList = items.getElementsByTagName("boardgame");
 
+            //System.out.println(xmlGameList.getLength());
             // loop for each item node within the XML
             for (int gameNumber = 0; gameNumber < xmlGameList.getLength(); gameNumber++) {
                 Node currentGame = xmlGameList.item(gameNumber);
@@ -127,8 +127,6 @@ public class XMLParser extends Parser {
         }
         return currentGameList;
     }
-
-
 
     /**
      * Each child node of the main root node is an "item" node in the file. (Tagged with <item )

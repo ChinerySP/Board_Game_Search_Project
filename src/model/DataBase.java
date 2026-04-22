@@ -13,7 +13,7 @@ import java.nio.file.Path;
 public class DataBase {
     public XMLParser XMLparser;
     public APIParser APIparser;
-    public ArrayList<Game> games;
+    private ArrayList<Game> games;
     public ArrayList<User> userList;
     public String gameXML = "resources/simple1.xml";
 
@@ -28,7 +28,7 @@ public class DataBase {
             // TODO handle this exception gracefully
             System.out.println("Could not load testing xml");
         }
-        games = new ArrayList<>();
+        games = retrieveGames();
         userList = new ArrayList<>();
     }
 
@@ -40,12 +40,12 @@ public class DataBase {
     public GameList searchGames(String[] keywords) {
         GameList results = new GameList("Search Results");
 
-        games = XMLparser.retrieveGameList();
+        saveGames();
         for (Game g : games) {
             for (String word : keywords) {
-                System.out.println(String.format("Comparing %s and %s", g.name, word));
+                System.out.println(String.format("Comparing \"%s\" and \"%s\"...", g.name, word));
                 if (g.name.contains(word)) {
-                    System.out.println("Found a match");
+                    System.out.println("Match found!");
                     results.addGame(g);
                 }
             }
@@ -56,6 +56,11 @@ public class DataBase {
 
     public void saveGames() {
         games = XMLparser.retrieveGameList();
+    }
+
+    public ArrayList<Game> retrieveGames() {
+        saveGames();
+        return games;
     }
 }
 

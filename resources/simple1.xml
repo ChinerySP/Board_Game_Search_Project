@@ -1,12 +1,882 @@
-<items termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
-<item id="379005" rank="1">
-<thumbnail value="https://cf.geekdo-images.com/cFHnRZtfgB9XNWaw46bQ4Q__thumb/img/tPedQESQaqWqwZakkmsBMx0YIZI=/fit-in/200x150/filters:strip_icc()/pic7302419.png"/>
-<name value="The Lord of the Rings Adventure Book Game"/>
-<yearpublished value="2023"/>
-</item>
-<item id="358661" rank="2">
-<thumbnail value="https://cf.geekdo-images.com/vmFLMcfXt-c4sd8y6-579g__thumb/img/-m1uihAm8wcfhpITYpN3DmXBV9s=/fit-in/200x150/filters:strip_icc()/pic6738525.jpg"/>
-<name value="Andromeda's Edge"/>
-<yearpublished value="2024"/>
-</item>
-</items>
+<boardgames termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+	<boardgame objectid="1">
+		<yearpublished>1986</yearpublished>
+		<minplayers>3</minplayers>
+		<maxplayers>5</maxplayers>
+		<playingtime>240</playingtime>
+		<minplaytime>240</minplaytime>
+		<maxplaytime>240</maxplaytime>
+		<age>14</age>
+
+		<name primary="true" sortindex="5">Die Macher</name>
+		<name  sortindex="1">德国大选</name>
+		<name  sortindex="1">디 마허</name>
+
+		<description>
+			Die Macher is a game about seven sequential political races in different regions of Germany. Players are in charge of national political parties, and must manage limited resources to help their party to victory. The winning party will have the most victory points after all the regional elections. There are four different ways of scoring victory points. First, each regional election can supply one to eighty victory points, depending on the size of the region and how well your party does in it. Second, if a party wins a regional election and has some media influence in the region, then the party will receive some media-control victory points. Third, each party has a national party membership which will grow as the game progresses and this will supply a fair number of victory points. Lastly, in some editions, parties score some victory points if their party platform matches the national opinions at the end of the game.
+
+
+			The 1986 edition (Hans im Gl&amp;uuml;ck) featured four parties from the old West Germany and supported 3-4 players
+			The 1997 edition (Moskito Spiele) supports up to five players in the re-united Germany and updated several features of the rules as well
+			The 2006 edition (Valley Games) also supports up to five players and adds a shorter five-round variant and additional rules updates by the original designer
+			The 2019 edition (Indie Game Studios/Spielworxx Kickstarter) simplified the game and adds a four-round option
+
+
+		</description>
+
+		<thumbnail>https://cf.geekdo-images.com/rpwCZAjYLD940NWwP3SRoA__small/img/YT6svCVsWqLrDitcMEtyazVktbQ=/fit-in/200x150/filters:strip_icc()/pic4718279.jpg</thumbnail>
+		<image>https://cf.geekdo-images.com/rpwCZAjYLD940NWwP3SRoA__original/img/yR0aoBVKNrAmmCuBeSzQnMflLYg=/0x0/filters:format(jpeg)/pic4718279.jpg</image>
+
+		<boardgamepublisher objectid="133">Hans im Glück</boardgamepublisher>
+		<boardgamepublisher objectid="2">Moskito Spiele</boardgamepublisher>
+		<boardgamepodcastepisode objectid="448728">[T’as joué à quoi au Week-End Proxi-Jeux ?] Édition 2022</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="543360">#30 live from SaltCON, Con-Maxing</boardgamepodcastepisode>
+		<boardgamehonor objectid="107544">1997 Meeples Choice Award Nominee</boardgamehonor>
+		<boardgamehonor objectid="19702">1998 Essener Feder Best Written Rules Winner</boardgamehonor>
+		<boardgamehonor objectid="8673">1998 Spiel des Jahres Recommended</boardgamehonor>
+		<boardgamehonor objectid="18935">2008 JoTa Best Monster Board Game Nominee</boardgamehonor>
+		<boardgamehonor objectid="18936">2008 JoTa Best Monster Board Game Winner</boardgamehonor>
+		<boardgamemechanic objectid="2916">Alliances</boardgamemechanic>
+		<boardgamemechanic objectid="2080">Area Majority / Influence</boardgamemechanic>
+		<boardgamemechanic objectid="2012">Auction / Bidding</boardgamemechanic>
+		<boardgamepodcastepisode objectid="177525">BGA Episode 100 - Top 100 Games of All Time</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="86194">BGTG 112 - Five-Player Games (with Dave O&#039;Connor)</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="101144">BGTG 136 - 100 Great Games, part 3 (with Stephen Glenn and Mark Jackson)</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="3361">BGWS 024 – Die Macher</boardgamepodcastepisode>
+		<boardgameartist objectid="928">Bernd Brunnhofer</boardgameartist>
+		<boardgameversion objectid="456543">Chinese edition</boardgameversion>
+		<boardgamefamily objectid="10643">Country: Germany</boardgamefamily>
+		<boardgamemechanic objectid="2072">Dice Rolling</boardgamemechanic>
+		<boardgamefamily objectid="81575">Digital Implementations: VASSAL</boardgamefamily>
+		<boardgamecategory objectid="1021">Economic</boardgamecategory>
+		<boardgamepublisher objectid="24883">Ediciones MasQueOca</boardgamepublisher>
+		<boardgamepodcastepisode objectid="350891">Ep 24- Top 3 Games From The 20th Century</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="219134">Episode 135 The Good, the Board, and the Old : Games released pre-1990</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="299861">Episode 23 – Jaws, Everdell, Kickstarters, News, and more</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="370133">Episode 28 - Negotiation Games</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="175510">Episode 31 - Top 50, Picks 40-31</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="104630">Episodio 11 – Especial verano 2013: Juegos no jugados</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="61407">Episodio 3 – Homínidos 2011 y entrevista a Pol Cors</boardgamepodcastepisode>
+		<boardgameversion objectid="25164">German first edition</boardgameversion>
+		<boardgameversion objectid="24939">German second edition</boardgameversion>
+		<boardgameartist objectid="12517">Marcus Gschwendtner</boardgameartist>
+		<boardgamemechanic objectid="2040">Hand Management</boardgamemechanic>
+		<cardset objectid="89777">Hans im Glück German first (1986) and second (1997) editions; Valley Games English third edition (2006)</cardset>
+		<boardgamepodcastepisode objectid="123206">Heavy Cardboard Episode 3 – Die Macher</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="170757">Heavy Cardboard Episode 39 – Top 50 Favorite Games of Right Now</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="187729">Heavy Cardboard Episode 52 &amp;ndash; Amanda&amp;rsquo;s Top 50 &amp;amp; Edward&amp;rsquo;s Top 50</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="194403">Heavy Cardboard Episode 59 – December (2016) Briefing</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="204382">HLG 20: Dilemma&#039;s &amp;amp; Path</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="177491">HLG 3: Explosief Materiaal</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="76638">House Rules 30: Die Macher, Die!</boardgamepodcastepisode>
+		<boardgameversion objectid="493943">Korean edition</boardgameversion>
+		<boardgameartist objectid="4959">Harald Lieske</boardgameartist>
+		<boardgamepodcastepisode objectid="115513">Ludology Episode 76 - I Like Dice To Roll</boardgamepodcastepisode>
+		<boardgameversion objectid="24534">Multilingual edition 2006</boardgameversion>
+		<boardgamepodcastepisode objectid="328918">N°112 – Chroniques</boardgamepodcastepisode>
+		<boardgamecategory objectid="1026">Negotiation</boardgamecategory>
+		<boardgameversion objectid="502544">Polish edition</boardgameversion>
+		<boardgamecategory objectid="1001">Political</boardgamecategory>
+		<boardgamefamily objectid="34116">Political: Elections</boardgamefamily>
+		<boardgamepublisher objectid="2726">Portal Games</boardgamepublisher>
+		<boardgamepodcastepisode objectid="342182">Round 6, Turn 7: &quot;Die Macher&quot; with Jesse</boardgamepodcastepisode>
+		<boardgamedesigner objectid="1">Karl-Heinz Schmiel</boardgamedesigner>
+		<boardgamefamily objectid="91">Series: Classic Line (Valley Games)</boardgamefamily>
+		<boardgamemechanic objectid="2020">Simultaneous Action Selection</boardgamemechanic>
+		<boardgameversion objectid="620076">Spanish edition</boardgameversion>
+		<boardgamepodcastepisode objectid="101519">Spiel des Jahres 2013</boardgamepodcastepisode>
+		<boardgamepublisher objectid="15108">Spielworxx</boardgamepublisher>
+		<cardset objectid="110688">Spielworxx and Stronghold Games English and German editions (2019, 2025)</cardset>
+		<boardgameversion objectid="455802">Spielworxx English/German edition</boardgameversion>
+		<boardgameversion objectid="744081">Spielworxx English/German edition 2025</boardgameversion>
+		<boardgamepublisher objectid="39249">sternenschimmermeer</boardgamepublisher>
+		<boardgamesubdomain objectid="5497">Strategy Games</boardgamesubdomain>
+		<boardgameversion objectid="459325">Stronghold English/German edition</boardgameversion>
+		<boardgamepublisher objectid="11652">Stronghold Games</boardgamepublisher>
+		<boardgamepodcastepisode objectid="152647">The Good, The Board, and the Ugly Behaviors: Episode 20 “Dealing with Bad Players”</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="7430">The Messy Game Room Episode 3</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="5619">The Spiel #28 - Listener&#039;s Choice</boardgamepodcastepisode>
+		<boardgamepublisher objectid="5382">Valley Games, Inc.</boardgamepublisher>
+		<boardgamepublisher objectid="8147">YOKA Games</boardgamepublisher>
+
+		<poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="145">
+
+			<results numplayers="1">
+				<result value="Best" numvotes="0" />
+				<result value="Recommended" numvotes="1" />
+				<result value="Not Recommended" numvotes="90" />
+			</results>
+
+			<results numplayers="2">
+				<result value="Best" numvotes="0" />
+				<result value="Recommended" numvotes="1" />
+				<result value="Not Recommended" numvotes="95" />
+			</results>
+
+			<results numplayers="3">
+				<result value="Best" numvotes="3" />
+				<result value="Recommended" numvotes="28" />
+				<result value="Not Recommended" numvotes="80" />
+			</results>
+
+			<results numplayers="4">
+				<result value="Best" numvotes="28" />
+				<result value="Recommended" numvotes="91" />
+				<result value="Not Recommended" numvotes="10" />
+			</results>
+
+			<results numplayers="5">
+				<result value="Best" numvotes="121" />
+				<result value="Recommended" numvotes="13" />
+				<result value="Not Recommended" numvotes="3" />
+			</results>
+
+			<results numplayers="5+">
+				<result value="Best" numvotes="2" />
+				<result value="Recommended" numvotes="0" />
+				<result value="Not Recommended" numvotes="64" />
+			</results>
+		</poll>
+		<poll-summary name="suggested_numplayers"  title="User Suggested Number of Players">
+			<result name="bestwith" value="Best with 5 players" />
+			<result name="recommmendedwith" value="Recommended with 4–5 players" />
+		</poll-summary>
+
+		<poll name="language_dependence" title="Language Dependence" totalvotes="50">
+
+			<results>
+				<result level="1" value="No necessary in-game text" numvotes="38" />
+				<result level="2" value="Some necessary text - easily memorized or small crib sheet" numvotes="5" />
+				<result level="3" value="Moderate in-game text - needs crib sheet or paste ups" numvotes="7" />
+				<result level="4" value="Extensive use of text - massive conversion needed to be playable" numvotes="0" />
+				<result level="5" value="Unplayable in another language" numvotes="0" />
+			</results>
+		</poll>
+
+		<poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="34">
+			<results>
+				<result value="2" numvotes="0" />
+				<result value="3" numvotes="0" />
+				<result value="4" numvotes="0" />
+				<result value="5" numvotes="0" />
+				<result value="6" numvotes="0" />
+				<result value="8" numvotes="0" />
+				<result value="10" numvotes="1" />
+				<result value="12" numvotes="6" />
+				<result value="14" numvotes="19" />
+				<result value="16" numvotes="5" />
+				<result value="18" numvotes="2" />
+				<result value="21 and up" numvotes="1" />
+			</results>
+		</poll>
+
+
+
+
+
+
+	</boardgame>
+
+	<boardgame objectid="2">
+		<yearpublished>1981</yearpublished>
+		<minplayers>3</minplayers>
+		<maxplayers>4</maxplayers>
+		<playingtime>30</playingtime>
+		<minplaytime>30</minplaytime>
+		<maxplaytime>30</maxplaytime>
+		<age>12</age>
+
+		<name primary="true" sortindex="1">Dragonmaster</name>
+
+		<description>
+			Dragonmaster is a trick-taking card game based on an older game called Coup d'État. Each player is given a supply of plastic gems, which represent points. Each player will get to be the dealer for five different hands, with slightly different goals for each hand. After all cards have been dealt out, the dealer decides which hand best suits his or her current cards, and the other players are penalized points (in the form of crystals) for taking certain tricks or cards. For instance, if "first" or "last" is called, then a player is penalized for taking the first or last tricks. All players will get a chance to be dealer for five hands, but other players can steal this opportunity by taking all of the tricks during certain hands. At the end, the biggest pile of gems wins the game.
+
+			Jewel contents:
+
+			10 clear (2 extra)
+			14 green (2 extra)
+			22 red (2 extra)
+			22 blue (2 extra)
+
+		</description>
+
+		<thumbnail>https://cf.geekdo-images.com/oQYhaJx5Lg3KcGis2reuWQ__small/img/3bIZnNfVM1viwH9A9d2Rrip1Y80=/fit-in/200x150/filters:strip_icc()/pic4001505.jpg</thumbnail>
+		<image>https://cf.geekdo-images.com/oQYhaJx5Lg3KcGis2reuWQ__original/img/owag4VgJDPyPt2ciYB9Hc5l4GnQ=/0x0/filters:format(jpeg)/pic4001505.jpg</image>
+
+		<cardset objectid="85950"></cardset>
+		<boardgamecategory objectid="1002">Card Game</boardgamecategory>
+		<boardgamefamily objectid="113741">Card Games: Compendium</boardgamefamily>
+		<boardgamefamily objectid="73592">Components: Gems/Crystals</boardgamefamily>
+		<boardgamefamily objectid="7005">Creatures: Dragons</boardgamefamily>
+		<boardgamedesigner objectid="8384">G. W. &quot;Jerry&quot; D&#039;Arcey</boardgamedesigner>
+		<boardgamepublisher objectid="64">E. S. Lowe Company Inc.</boardgamepublisher>
+		<boardgameversion objectid="102406">English edition</boardgameversion>
+		<boardgamecategory objectid="1010">Fantasy</boardgamecategory>
+		<boardgameimplementation objectid="215308">Indulgence</boardgameimplementation>
+		<boardgamepublisher objectid="20">Milton Bradley</boardgamepublisher>
+		<boardgameartist objectid="12424">Bob Pepper</boardgameartist>
+		<boardgamesubdomain objectid="5497">Strategy Games</boardgamesubdomain>
+		<boardgamefamily objectid="75454">Theme: Art style – Art Nouveau</boardgamefamily>
+		<boardgamemechanic objectid="2009">Trick-taking</boardgamemechanic>
+		<boardgameimplementation objectid="2174" inbound="true">Coup d&#039;État</boardgameimplementation>
+
+		<poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="3">
+
+			<results numplayers="1">
+				<result value="Best" numvotes="0" />
+				<result value="Recommended" numvotes="0" />
+				<result value="Not Recommended" numvotes="2" />
+			</results>
+
+			<results numplayers="2">
+				<result value="Best" numvotes="0" />
+				<result value="Recommended" numvotes="0" />
+				<result value="Not Recommended" numvotes="2" />
+			</results>
+
+			<results numplayers="3">
+				<result value="Best" numvotes="0" />
+				<result value="Recommended" numvotes="1" />
+				<result value="Not Recommended" numvotes="1" />
+			</results>
+
+			<results numplayers="4">
+				<result value="Best" numvotes="3" />
+				<result value="Recommended" numvotes="0" />
+				<result value="Not Recommended" numvotes="0" />
+			</results>
+
+			<results numplayers="4+">
+				<result value="Best" numvotes="0" />
+				<result value="Recommended" numvotes="0" />
+				<result value="Not Recommended" numvotes="2" />
+			</results>
+		</poll>
+		<poll-summary name="suggested_numplayers"  title="User Suggested Number of Players">
+			<result name="bestwith" value="Best with 4 players" />
+			<result name="recommmendedwith" value="Recommended with 4 players" />
+		</poll-summary>
+
+		<poll name="language_dependence" title="Language Dependence" totalvotes="1">
+
+			<results>
+				<result level="1" value="No necessary in-game text" numvotes="0" />
+				<result level="2" value="Some necessary text - easily memorized or small crib sheet" numvotes="1" />
+				<result level="3" value="Moderate in-game text - needs crib sheet or paste ups" numvotes="0" />
+				<result level="4" value="Extensive use of text - massive conversion needed to be playable" numvotes="0" />
+				<result level="5" value="Unplayable in another language" numvotes="0" />
+			</results>
+		</poll>
+
+		<poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="0">
+			<results>
+				<result value="2" numvotes="0" />
+				<result value="3" numvotes="0" />
+				<result value="4" numvotes="0" />
+				<result value="5" numvotes="0" />
+				<result value="6" numvotes="0" />
+				<result value="8" numvotes="0" />
+				<result value="10" numvotes="0" />
+				<result value="12" numvotes="0" />
+				<result value="14" numvotes="0" />
+				<result value="16" numvotes="0" />
+				<result value="18" numvotes="0" />
+				<result value="21 and up" numvotes="0" />
+			</results>
+		</poll>
+
+
+
+
+
+
+	</boardgame>
+
+	<boardgame objectid="3">
+		<yearpublished>1998</yearpublished>
+		<minplayers>2</minplayers>
+		<maxplayers>4</maxplayers>
+		<playingtime>60</playingtime>
+		<minplaytime>30</minplaytime>
+		<maxplaytime>60</maxplaytime>
+		<age>10</age>
+
+		<name  sortindex="11">仙岛侠踪 (The Legend of Xiandao)</name>
+		<name  sortindex="1">Samouraï</name>
+		<name primary="true" sortindex="1">Samurai</name>
+		<name  sortindex="1">Samurái</name>
+		<name  sortindex="1">Samuraj</name>
+		<name  sortindex="1">Самурай</name>
+		<name  sortindex="1">サムライ・ボードゲーム</name>
+		<name  sortindex="1">侍</name>
+		<name  sortindex="1">사무라이</name>
+
+		<description>
+			Samurai is set in medieval Japan. Players compete to gain the favor of three factions: samurai, peasants, and priests, which are represented by helmet, rice paddy, and Buddha figures scattered about the board, which features the islands of Japan. The competition is waged through the use of hexagonal tiles, each of which help curry favor of one of the three factions &amp;mdash; or all three at once! Players can make lightning-quick strikes with horseback ronin and ships or approach their conquests more methodically. As each figure (helmets, rice paddies, and Buddhas) is surrounded, it is awarded to the player who has gained the most favor with the corresponding group.
+
+			Gameplay continues until all the symbols of one type have been removed from the board or four figures have been removed from play due to a tie for influence.
+
+			At the end of the game, players compare captured symbols of each type, competing for majorities in each of the three types. Ties are not uncommon and are broken based on the number of other, "non-majority" symbols each player has collected.
+
+			The game is part of what is sometimes called the Knizia tile-laying trilogy.
+
+		</description>
+
+		<thumbnail>https://cf.geekdo-images.com/o9-sNXmFS_TLAb7ZlZ4dRA__small/img/22MSUC0-ZWgwzhi_VKIbENJik1w=/fit-in/200x150/filters:strip_icc()/pic3211873.jpg</thumbnail>
+		<image>https://cf.geekdo-images.com/o9-sNXmFS_TLAb7ZlZ4dRA__original/img/TPKZgpNxB_C73RNbhKyP6UR76X0=/0x0/filters:format(jpeg)/pic3211873.jpg</image>
+
+		<boardgamepublisher objectid="17">Fantasy Flight Games</boardgamepublisher>
+		<boardgamepublisher objectid="133">Hans im Glück</boardgamepublisher>
+		<boardgamepodcastepisode objectid="544393">#32 The Benefits of a Gamer Lifestyle</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="541022">#8: Samurai (Modern Classics 7)</boardgamepodcastepisode>
+		<boardgamehonor objectid="107545">1998 Meeples Choice Award Nominee</boardgamehonor>
+		<boardgamehonor objectid="13414">1998 Meeples Choice Award Winner</boardgamehonor>
+		<boardgamehonor objectid="18927">2008 JoTa Best Game Released in Brazil Nominee</boardgamehonor>
+		<boardgamehonor objectid="18779">2011 JoTa Best Game Released in Brazil Audience Award</boardgamehonor>
+		<boardgamehonor objectid="18777">2011 JoTa Best Game Released in Brazil Nominee</boardgamehonor>
+		<boardgamehonor objectid="65377">2017 Juego del Año Finalist</boardgamehonor>
+		<boardgamepublisher objectid="267">999 Games</boardgamepublisher>
+		<boardgameversion objectid="129449">999 Games Dutch edition</boardgameversion>
+		<boardgamepublisher objectid="29">ABACUSSPIELE</boardgamepublisher>
+		<boardgamecategory objectid="1009">Abstract Strategy</boardgamecategory>
+		<boardgamemechanic objectid="2080">Area Majority / Influence</boardgamemechanic>
+		<boardgamepublisher objectid="7340">Astrel Games</boardgamepublisher>
+		<boardgamewriter objectid="141662">Adam Baker</boardgamewriter>
+		<boardgameartist objectid="131833">Miguel Valenzuela Beltrán</boardgameartist>
+		<boardgamepodcastepisode objectid="162971">BGA Ep 90 - Essen Acquisition Disorder</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="542173">Boxfart! Episode 10</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="542886">Boxfart! Episode 12</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="579317">Boxfart! Episode 36</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="541673">Boxfart! Episode 9</boardgamepodcastepisode>
+		<boardgamepublisher objectid="7335">Ceilikan Jogos</boardgamepublisher>
+		<boardgameversion objectid="53176">Ceilikan Jogos Brazilian edition 2010</boardgameversion>
+		<boardgameversion objectid="39008">Ceilikan Jogos Brazilian first edition</boardgameversion>
+		<boardgamefamily objectid="64960">Components: Map (Continental / National scale)</boardgamefamily>
+		<boardgamefamily objectid="104481">Components: Player Screens</boardgamefamily>
+		<boardgamefamily objectid="10634">Country: Japan</boardgamefamily>
+		<boardgamepodcastepisode objectid="188794">Cult of the New Board Game Podcast Episode 000 (2016) – Top 25 Games</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="169610">Cult of the New Board Game Podcast Episode 008 – T.I.M.E Stories vs Sherlock Holmes Consulting Detective</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="170157">Cult of the New Board Game Podcast Episode 009 – Top 10 Games of 2015</boardgamepodcastepisode>
+		<boardgameversion objectid="224180">Danish edition</boardgameversion>
+		<boardgamepublisher objectid="41">Descartes Editeur</boardgamepublisher>
+		<boardgameversion objectid="73663">Descartes French first edition</boardgameversion>
+		<boardgamepodcastepisode objectid="162997">Dukes of Dice - Ep. 60 - La Strong-ja</boardgamepodcastepisode>
+		<boardgamepublisher objectid="2973">Edge Entertainment</boardgamepublisher>
+		<boardgameversion objectid="368413">Edge French second edition</boardgameversion>
+		<boardgameversion objectid="345992">Edge Spanish edition</boardgameversion>
+		<boardgamemechanic objectid="2043">Enclosure</boardgamemechanic>
+		<boardgamepodcastepisode objectid="164168">Episode 11 - Packing Our Bags Full of Games</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="391320">Episode 145 :: Joy of the Stick</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="159222">Episode 19: Samurai, Artifacts Inc. &amp;amp; Mission Red Planet</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="233667">Episode 26 - Board Game Debates</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="205774">Episode 27 - Reiner Knizia, designer of ALL THE GAMES</boardgamepodcastepisode>
+		<boardgameversion objectid="277841">Fantasy Flight English edition</boardgameversion>
+		<boardgamepublisher objectid="4617">Galakta</boardgamepublisher>
+		<boardgameversion objectid="344641">Galakta Polish edition</boardgameversion>
+		<boardgameimplementation objectid="450860">Hanami</boardgameimplementation>
+		<boardgamemechanic objectid="2040">Hand Management</boardgamemechanic>
+		<boardgameversion objectid="24198">Hans im Glück-only German edition 1998</boardgameversion>
+		<boardgameversion objectid="25339">Hans im Glück/Rio Grande English edition 1998</boardgameversion>
+		<boardgameversion objectid="205908">Hans im Glück/Rio Grande German edition 1998</boardgameversion>
+		<boardgamegraphicdesigner objectid="128613">Monica Helland</boardgamegraphicdesigner>
+		<boardgamemechanic objectid="2026">Hexagon Grid</boardgamemechanic>
+		<boardgamemechanic objectid="2987">Hidden Victory Points</boardgamemechanic>
+		<boardgamepublisher objectid="1391">Hobby Japan</boardgamepublisher>
+		<boardgameversion objectid="183751">Japanese edition</boardgameversion>
+		<boardgamedesigner objectid="2">Reiner Knizia</boardgamedesigner>
+		<boardgamepublisher objectid="8291">Korea Boardgames</boardgamepublisher>
+		<boardgameversion objectid="387091">Korean edition</boardgameversion>
+		<boardgamepublisher objectid="5812">Lacerta</boardgamepublisher>
+		<boardgameversion objectid="31147">Lacerta Polish edition</boardgameversion>
+		<boardgamepublisher objectid="36210">Lanlalen</boardgamepublisher>
+		<boardgamepublisher objectid="3218">Lautapelit.fi</boardgamepublisher>
+		<boardgameversion objectid="27566">Lautapelit.fi Nordic edition 2006</boardgameversion>
+		<boardgamepublisher objectid="47575">Lighthouse Games</boardgamepublisher>
+		<boardgamecategory objectid="1035">Medieval</boardgamecategory>
+		<boardgameversion objectid="734143">Mexican edition</boardgameversion>
+		<boardgamepodcastepisode objectid="161339">MN 0073 Colour Blind Gaming</boardgamepodcastepisode>
+		<boardgamemechanic objectid="2846">Once-Per-Game Abilities</boardgamemechanic>
+		<videogamebg objectid="80750">Reiner Knizia&#039;s Samurai</videogamebg>
+		<videogamebg objectid="146164">Reiner Knizia&#039;s Samurai</videogamebg>
+		<boardgamepublisher objectid="3">Rio Grande Games</boardgamepublisher>
+		<boardgameversion objectid="74707">Rio Grande-only English edition 1998</boardgameversion>
+		<boardgamepodcastepisode objectid="62259">RSOG Podcast Episode 6: Essen Preview</boardgamepodcastepisode>
+		<boardgameversion objectid="360413">Russian edition</boardgameversion>
+		<videogamebg objectid="451815">Samurai by Reiner Knizia</videogamebg>
+		<boardgameimplementation objectid="35634">Samurai: The Card Game</boardgameimplementation>
+		<boardgamefamily objectid="60111">Series: Euro Classics (Reiner Knizia)</boardgamefamily>
+		<boardgamefamily objectid="42">Series: Tile-Laying Trilogy (Reiner Knizia)</boardgamefamily>
+		<boardgamemechanic objectid="2004">Set Collection</boardgamemechanic>
+		<videogamebg objectid="146617">Shogun Hex</videogamebg>
+		<boardgamepublisher objectid="3954">Skandinavisk  Spil Kompagni</boardgamepublisher>
+		<boardgamepublisher objectid="8313">Smart Ltd</boardgamepublisher>
+		<boardgamesubdomain objectid="5497">Strategy Games</boardgamesubdomain>
+		<boardgameversion objectid="759737">Thai edition</boardgameversion>
+		<boardgamepodcastepisode objectid="234234">The Good, the Board, and the Great Gambino Episode 157 Geof Gambill&#039;s Top Ten Games</boardgamepodcastepisode>
+		<boardgamefamily objectid="28732">Theme: Samurai</boardgamefamily>
+		<boardgamemechanic objectid="2002">Tile Placement</boardgamemechanic>
+		<boardgamemechanic objectid="2897">Variable Set-up</boardgamemechanic>
+		<boardgameartist objectid="11883">Franz Vohwinkel</boardgameartist>
+		<boardgamedeveloper objectid="111355">Jason Walden</boardgamedeveloper>
+		<boardgameversion objectid="185136">Wargames Club Chinese edition</boardgameversion>
+		<boardgamepublisher objectid="8759">Wargames Club Publishing</boardgamepublisher>
+		<boardgameversion objectid="723994">Yaofish Chinese edition</boardgameversion>
+		<boardgamepublisher objectid="54519">Yaofish Games</boardgamepublisher>
+		<boardgameartist objectid="110401">徐昀享 (Xu Yunxiang)</boardgameartist>
+		<boardgameartist objectid="158240">李小娜 (LI Xiaona)</boardgameartist>
+		<boardgameartist objectid="158239">杨静雯 (Yang Jingwen)</boardgameartist>
+		<boardgameartist objectid="158242">谢有鑫 (Xie Youxin)</boardgameartist>
+		<boardgameartist objectid="158505">郭紫颖 (Guo Ziying)</boardgameartist>
+		<boardgameartist objectid="158244">陈杰 (Chen Jie)</boardgameartist>
+
+		<poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="368">
+
+			<results numplayers="1">
+				<result value="Best" numvotes="0" />
+				<result value="Recommended" numvotes="0" />
+				<result value="Not Recommended" numvotes="176" />
+			</results>
+
+			<results numplayers="2">
+				<result value="Best" numvotes="115" />
+				<result value="Recommended" numvotes="181" />
+				<result value="Not Recommended" numvotes="24" />
+			</results>
+
+			<results numplayers="3">
+				<result value="Best" numvotes="211" />
+				<result value="Recommended" numvotes="108" />
+				<result value="Not Recommended" numvotes="3" />
+			</results>
+
+			<results numplayers="4">
+				<result value="Best" numvotes="94" />
+				<result value="Recommended" numvotes="166" />
+				<result value="Not Recommended" numvotes="36" />
+			</results>
+
+			<results numplayers="4+">
+				<result value="Best" numvotes="0" />
+				<result value="Recommended" numvotes="1" />
+				<result value="Not Recommended" numvotes="152" />
+			</results>
+		</poll>
+		<poll-summary name="suggested_numplayers"  title="User Suggested Number of Players">
+			<result name="bestwith" value="Best with 3 players" />
+			<result name="recommmendedwith" value="Recommended with 2–4 players" />
+		</poll-summary>
+
+		<poll name="language_dependence" title="Language Dependence" totalvotes="79">
+
+			<results>
+				<result level="1" value="No necessary in-game text" numvotes="77" />
+				<result level="2" value="Some necessary text - easily memorized or small crib sheet" numvotes="0" />
+				<result level="3" value="Moderate in-game text - needs crib sheet or paste ups" numvotes="2" />
+				<result level="4" value="Extensive use of text - massive conversion needed to be playable" numvotes="0" />
+				<result level="5" value="Unplayable in another language" numvotes="0" />
+			</results>
+		</poll>
+
+		<poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="60">
+			<results>
+				<result value="2" numvotes="0" />
+				<result value="3" numvotes="0" />
+				<result value="4" numvotes="0" />
+				<result value="5" numvotes="0" />
+				<result value="6" numvotes="5" />
+				<result value="8" numvotes="16" />
+				<result value="10" numvotes="34" />
+				<result value="12" numvotes="5" />
+				<result value="14" numvotes="0" />
+				<result value="16" numvotes="0" />
+				<result value="18" numvotes="0" />
+				<result value="21 and up" numvotes="0" />
+			</results>
+		</poll>
+
+
+
+
+
+
+	</boardgame>
+
+	<boardgame objectid="4">
+		<yearpublished>1992</yearpublished>
+		<minplayers>2</minplayers>
+		<maxplayers>4</maxplayers>
+		<playingtime>60</playingtime>
+		<minplaytime>60</minplaytime>
+		<maxplaytime>60</maxplaytime>
+		<age>12</age>
+
+		<name primary="true" sortindex="1">Tal der Könige</name>
+
+		<description>
+			When you see the triangular box and the luxurious, large blocks of Tal der K&amp;ouml;nige (German: "Valley of the Kings"), you can tell this game was designed to be beautiful as well as functional.  The object of the game is to build pyramids out of the different colored blocks.  A pyramid scores more points when it's made from a few colors, but it's much harder to consistently outbid the other players for the necessary blocks.  The game is over when the Pharoah's Pyramid in the center is completed, which is built using all the blocks that the players don't use during the course of the game.
+
+			Final round 1990 Hippodice Spieleautorenwettbewerb.
+
+		</description>
+
+		<thumbnail>https://cf.geekdo-images.com/nYiYhUlatT2DpyXaJqXK3w__small/img/igbXSLFwM7XAz78r1FeVVVe6gJk=/fit-in/200x150/filters:strip_icc()/pic285299.jpg</thumbnail>
+		<image>https://cf.geekdo-images.com/nYiYhUlatT2DpyXaJqXK3w__original/img/2NNluROL0K_q4H8yMxIyoiHXnxc=/0x0/filters:format(jpeg)/pic285299.jpg</image>
+
+		<boardgamemechanic objectid="2001">Action Points</boardgamemechanic>
+		<boardgamecategory objectid="1050">Ancient</boardgamecategory>
+		<boardgamefamily objectid="72535">Ancient: Egypt</boardgamefamily>
+		<boardgamemechanic objectid="2080">Area Majority / Influence</boardgamemechanic>
+		<boardgamemechanic objectid="2012">Auction / Bidding</boardgamemechanic>
+		<boardgamedesigner objectid="8008">Christian Beierer</boardgamedesigner>
+		<boardgamefamily objectid="65597">Cities: Luxor (Egypt)</boardgamefamily>
+		<boardgamefamily objectid="77012">Constructions: Pyramids</boardgamefamily>
+		<boardgamefamily objectid="64229">Containers: Triangular Boxes</boardgamefamily>
+		<boardgameartist objectid="2277">Thomas di Paolo</boardgameartist>
+		<boardgamepodcastepisode objectid="227762">Ep. 15: ConQuest Avalon 2016 Convention Coverage</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="227761">Ep. 16: Vox Populi #1</boardgamepodcastepisode>
+		<boardgameversion objectid="76384">German edition</boardgameversion>
+		<boardgamepodcastepisode objectid="227730">It&#039;s Our Turn! Episode #45: Ancient Era Games</boardgamepodcastepisode>
+		<boardgamepublisher objectid="37">KOSMOS</boardgamepublisher>
+		<boardgameversion objectid="136158">Kosmos Allianz edition</boardgameversion>
+		<boardgamefamily objectid="11505">Promotional: Board Games</boardgamefamily>
+		<boardgamemechanic objectid="2004">Set Collection</boardgamemechanic>
+		<boardgamesubdomain objectid="5497">Strategy Games</boardgamesubdomain>
+
+		<poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="9">
+
+			<results numplayers="1">
+				<result value="Best" numvotes="0" />
+				<result value="Recommended" numvotes="0" />
+				<result value="Not Recommended" numvotes="4" />
+			</results>
+
+			<results numplayers="2">
+				<result value="Best" numvotes="1" />
+				<result value="Recommended" numvotes="3" />
+				<result value="Not Recommended" numvotes="2" />
+			</results>
+
+			<results numplayers="3">
+				<result value="Best" numvotes="6" />
+				<result value="Recommended" numvotes="2" />
+				<result value="Not Recommended" numvotes="0" />
+			</results>
+
+			<results numplayers="4">
+				<result value="Best" numvotes="4" />
+				<result value="Recommended" numvotes="4" />
+				<result value="Not Recommended" numvotes="0" />
+			</results>
+
+			<results numplayers="4+">
+				<result value="Best" numvotes="0" />
+				<result value="Recommended" numvotes="0" />
+				<result value="Not Recommended" numvotes="3" />
+			</results>
+		</poll>
+		<poll-summary name="suggested_numplayers"  title="User Suggested Number of Players">
+			<result name="bestwith" value="Best with 3 players" />
+			<result name="recommmendedwith" value="Recommended with 2–4 players" />
+		</poll-summary>
+
+		<poll name="language_dependence" title="Language Dependence" totalvotes="3">
+
+			<results>
+				<result level="1" value="No necessary in-game text" numvotes="3" />
+				<result level="2" value="Some necessary text - easily memorized or small crib sheet" numvotes="0" />
+				<result level="3" value="Moderate in-game text - needs crib sheet or paste ups" numvotes="0" />
+				<result level="4" value="Extensive use of text - massive conversion needed to be playable" numvotes="0" />
+				<result level="5" value="Unplayable in another language" numvotes="0" />
+			</results>
+		</poll>
+
+		<poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="3">
+			<results>
+				<result value="2" numvotes="0" />
+				<result value="3" numvotes="0" />
+				<result value="4" numvotes="0" />
+				<result value="5" numvotes="0" />
+				<result value="6" numvotes="0" />
+				<result value="8" numvotes="0" />
+				<result value="10" numvotes="0" />
+				<result value="12" numvotes="2" />
+				<result value="14" numvotes="1" />
+				<result value="16" numvotes="0" />
+				<result value="18" numvotes="0" />
+				<result value="21 and up" numvotes="0" />
+			</results>
+		</poll>
+
+
+
+
+
+
+	</boardgame>
+
+	<boardgame objectid="5">
+		<yearpublished>1963</yearpublished>
+		<minplayers>2</minplayers>
+		<maxplayers>6</maxplayers>
+		<playingtime>90</playingtime>
+		<minplaytime>90</minplaytime>
+		<maxplaytime>90</maxplaytime>
+		<age>12</age>
+
+		<name primary="true" sortindex="1">Acquire</name>
+		<name  sortindex="1">Acquire: 60th Anniversary Edition</name>
+		<name  sortindex="1">Cartel</name>
+		<name  sortindex="1">Grand Hôtel</name>
+		<name  sortindex="1">Hotel-Haie</name>
+		<name  sortindex="1">Hotel-König</name>
+		<name  sortindex="1">Investor</name>
+		<name  sortindex="1">Trust</name>
+		<name  sortindex="1">アクワイア</name>
+		<name  sortindex="1">併購風雲</name>
+		<name  sortindex="1">并购</name>
+		<name  sortindex="1">并购风云：60周年纪念版</name>
+		<name  sortindex="1">어콰이어</name>
+
+		<description>
+			In Acquire, each player strategically invests in businesses, trying to retain a majority of stock.  As the businesses grow with tile placements, they also start merging, giving the majority stockholders of the acquired business sizable bonuses, which can then be used to reinvest into other chains.  All of the investors in the acquired company can then cash in their stocks for current value or trade them 2-for-1 for shares of the newer, larger business.  The game is a race to acquire the greatest wealth.
+
+			History of Acquire: This Sid Sackson classic has taken many different forms over the years depending on the publisher, yet the rules and game play have stayed the same. The 1966 version of the 3M bookshelf edition included rules for a 2-player variant. The original version is part of the 3M Bookshelf Series.
+
+			Many books and websites incorrectly list this as a 1962 publication as the 3M Company used previously copyrighted artwork when they released the game in 1964. 3M actually received the idea for the game of "Vacations" from Sid Sackson in May of 1963 and decided to take his idea and put it into artwork they had developed the year before for a game called "ACQUIRE." 3M's original game idea for a game called ACQUIRE must not have been very good so they decided to take Sid's idea of Vacations and put it into their concept of ACQUIRE. They released some limited test market games in 8 Midwestern U.S. cities in December of 1963 with a box that had a 1963 copyright. These games had Sid's original rules. When 3M released the mass market games in 1964, they had developed some of Sid's original ideas and changed some rules and game play to match their production desires. They released them with outer boxes that were copyrighted 1962 and inner boxes with rules that were dated 1963.
+
+			December 1963 - Test Market World Map Wood Tile Edition
+			1964 - Dated 1962/63 wood tiles, chipboard with plastic overlay &amp; stocks with printed backs
+			1965 - Dated 1962/63 plastic tiles, chipboard with plastic overlay &amp; stocks with printed backs (last edition made with printed backs until 1999)
+			1966 - Dated 1962/66 plastic tiles, chipboard with plastic overlay &amp; non-wax coated stocks (Only edition with these stocks)
+			1968 - Dated 1968/66 plastic tiles, clear plastic board with paper underlay (Both 1966 inner box games have a lot of mixed parts)
+			1971 - Dated 1968/71 plastic tiles, yellow hard plastic board
+			1975 - 3M sells rights for game of ACQUIRE to the Avalon Hill Company
+			1976 - Dated 1976 plastic tiles, yellow hard plastic board, redesigned money, no inner box (This edition was also produced in 1977, 79, 81, 82,       &amp; 86)
+			1989 - Dated 1976 Gray box edition with new box artwork same contents as regular 1976 editions (This edition was also produced in 1992)
+			1995 - Dated 1995 Large box cardboard edition with chipboard board and tiles, Special Powers Variant Tiles inspired by German editions
+			1997 - Avalon Hill sells the rights to the game of ACQUIRE to Hasbro
+			1999 - Dated 1999 Large box with large plastic board and tiles, 3D company buildings, redesigned stocks &amp; money, large info cards
+			2006 - Hasbro assigns rights for the game of ACQUIRE to their subsidiary, Wizards of the Coast
+			2006 - Lloyd's (private) Rules of ACQUIRE are made public, two major rule changes that help to bring the balance of the game of ACQUIRE back to the  intentions of Sid Sackson's original ideas. Lloyd Solon's Rules help players to correct poor strategy during the beginning of the game that can been seen with new and unexperienced players (running out of money soon is the main mistake that must be omitted!).
+			2008 - Dated 2008 cardboard edition with chipboard board &amp; tiles, redesigned stocks &amp; money
+			2016 - Dated 2016 The current affordable mass-market edition. It looks at first sight to be similar to previous modern editions, but has been criticised for the use of inferior design choices such as hard-to-read grey-on-grey embossed slots and the unusual tile fonts. It contains modified rules and a slightly smaller playing grid. Although these changes have been criticised for not ultimately improving upon Sackson's original design, they are generally regarded as not being too damaging to it.
+			2023 - Renegade Game Studio partners with Hasbro, and releases their new version, with Classic Mode or Tycoon Mode &amp;mdash; play with or without tertiary stockholder merger bonus.
+			2024 - The Renegade 60th Anniversary edition includes a set of plastic weighted poker chips, and Special Powers Variant cards.
+
+		</description>
+
+		<thumbnail>https://cf.geekdo-images.com/gIQlWhlaqjPiunZjjwz_XA__small/img/f06arYYwY_QZmOnAbQhhg-6mIUo=/fit-in/200x150/filters:strip_icc()/pic8483227.jpg</thumbnail>
+		<image>https://cf.geekdo-images.com/gIQlWhlaqjPiunZjjwz_XA__original/img/ZRnstiRspAWMorOn6UKoKx9ibwI=/0x0/filters:format(jpeg)/pic8483227.jpg</image>
+
+		<boardgamepublisher objectid="92">3M</boardgamepublisher>
+		<boardgamepublisher objectid="5">The Avalon Hill Game Co</boardgamepublisher>
+		<boardgamepodcastepisode objectid="568527">#68 Characteristics of Games Pt. 2</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="518244">122 Devon Dice Podcast March News and Boardgames</boardgamepodcastepisode>
+		<boardgameexpansion objectid="324384">1963 World Map Conversion Kit for the Game of Acquire</boardgameexpansion>
+		<boardgamehonor objectid="8792">1979 Spiel des Jahres Recommended</boardgamehonor>
+		<boardgamehonor objectid="19708">1993 Essener Feder Best Written Rules Winner</boardgamehonor>
+		<boardgamehonor objectid="107331">2000 Meeples Choice Award Nominee</boardgamehonor>
+		<boardgamehonor objectid="109049">2025 BoardGameGeek Hall of Fame Inductee</boardgamehonor>
+		<boardgamepodcastepisode objectid="192077">21. Devon Dice Explores Clank! Oceanos and the North sea</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="192588">22 Devon Dice podcast Another VAST episode controlled by Turtles and Mechs</boardgamepodcastepisode>
+		<boardgameversion objectid="24861">3M Bookshelf edition</boardgameversion>
+		<boardgameversion objectid="66425">3M English edition</boardgameversion>
+		<boardgameversion objectid="21257">3M English plastic-tile  yellow-board edition</boardgameversion>
+		<boardgameversion objectid="23712">3M English plastic-tile green-board edition</boardgameversion>
+		<cardset objectid="82136">3M English plastic-tile yellow-board ed (1966)</cardset>
+		<boardgameversion objectid="23706">3M English wooden tile edition</boardgameversion>
+		<boardgameversion objectid="504581">3M English wooden-tile world-map edition</boardgameversion>
+		<boardgameversion objectid="20446">3M English World-Map edition</boardgameversion>
+		<boardgameversion objectid="45882">3M German bookcase edition</boardgameversion>
+		<boardgamepodcastepisode objectid="543100">73. Extended Banter: Board Game Retreat 2025, Part 2</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="467846">Acquire</boardgamepodcastepisode>
+		<boardgameaccessory objectid="272805">Acquire: Insert Here Insert</boardgameaccessory>
+		<boardgamepublisher objectid="3475">Arclight Games</boardgamepublisher>
+		<boardgamepublisher objectid="4871">Avalon Hill</boardgamepublisher>
+		<cardset objectid="82139">Avalon Hill (Hasbro) ed (2008)</cardset>
+		<boardgameversion objectid="23828">Avalon Hill (Hasbro) edition</boardgameversion>
+		<boardgameversion objectid="20508">Avalon Hill (Hasbro) English large box edition</boardgameversion>
+		<boardgameversion objectid="20468">Avalon Hill (Hasbro) German large box edition</boardgameversion>
+		<cardset objectid="82138">Avalon Hill big-box ed (1999)</cardset>
+		<cardset objectid="82137">Avalon Hill Bookshelf ed 1976</cardset>
+		<boardgameversion objectid="23721">Avalon Hill bookshelf edition</boardgameversion>
+		<cardset objectid="82140">Avalon Hill English ed (2016)</cardset>
+		<boardgameversion objectid="313191">Avalon Hill English edition 2016</boardgameversion>
+		<boardgameversion objectid="23702">Avalon Hill Flat Box Edition with special powers tiles 1995</boardgameversion>
+		<boardgameversion objectid="23725">Avalon Hill Grey box edition 1989-1992</boardgameversion>
+		<boardgamepublisher objectid="35928">Banana Games</boardgamepublisher>
+		<boardgamepodcastepisode objectid="177525">BGA Episode 100 - Top 100 Games of All Time</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="21487">BGWS 070: Breaking Up the Monopoly</boardgamepodcastepisode>
+		<boardgamepublisher objectid="9068">Broadway Toys LTD</boardgamepublisher>
+		<boardgameversion objectid="765910">Chinese edition</boardgameversion>
+		<boardgamefamily objectid="5607">Components: 3-Dimensional (3D)</boardgamefamily>
+		<boardgamefamily objectid="78494">Components: 9 x 12 Grids</boardgamefamily>
+		<videogamebg objectid="91564">Computer Acquire</videogamebg>
+		<boardgamemechanic objectid="2883">Connections</boardgamemechanic>
+		<boardgamepodcastepisode objectid="472058">DDP. 94 Tops 3 Board Games from 2013 and 2018... worst.</boardgamepodcastepisode>
+		<boardgamefamily objectid="73596">Digital Implementations: TableTop Simulator Mod (TTS)</boardgamefamily>
+		<boardgamefamily objectid="81575">Digital Implementations: VASSAL</boardgamefamily>
+		<boardgamepodcastepisode objectid="124306">DTN Game of the Month July 2014 - Acquire</boardgamepodcastepisode>
+		<boardgamepublisher objectid="3082">Dujardin</boardgamepublisher>
+		<boardgameversion objectid="140413">Dujardin French edition</boardgameversion>
+		<boardgameversion objectid="148120">Dutch edition</boardgameversion>
+		<boardgamecategory objectid="1021">Economic</boardgamecategory>
+		<boardgamemechanic objectid="2875">End Game Bonuses</boardgamemechanic>
+		<boardgameversion objectid="730399">English edition</boardgameversion>
+		<boardgameversion objectid="651390">English edition 2023</boardgameversion>
+		<boardgamepodcastepisode objectid="436119">Episode 0: Introduction &amp;amp; Top 5 Games That Influenced Us</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="371997">EPISODE 100!! Carcassonne, Scotland Yard, Risk: Godstorm, Cosmic Encounter, Acquire, Ticket to Ride, Arkham Horror, Catan, Lords of Waterdeep</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="219134">Episode 135 The Good, the Board, and the Old : Games released pre-1990</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="448674">Episode 14: Origins Recap</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="400802">Episode 20</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="169879">Episode 22 - Christmas Spectacular!</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="170091">Episode 23 - Acquire</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="464535">Episode 27: Top 30 Countdown, Part II (20-11)</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="65668">Episode 28 – Acquire</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="176593">Episode 33 - Top 50, Picks 20-11</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="271004">Episode 44 - Well That Escalated Quickly</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="500286">Episode 49: Games Into Horror Movies</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="389691">Episode 9 - Top Ten Lists! pt.1</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="362657">Episode 94: Council of 4, Terraforming Mars, The Search for Planet X, Acquire, The Networks</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="547402">Et188 - Surcando el mar de las novedades, y solo hay microplasticos y basura</boardgamepodcastepisode>
+		<boardgameversion objectid="151143">First edition</boardgameversion>
+		<boardgameversion objectid="27378">French edition</boardgameversion>
+		<boardgamepublisher objectid="858">Grow Jogos e Brinquedos</boardgamepublisher>
+		<boardgamemechanic objectid="2040">Hand Management</boardgamemechanic>
+		<boardgamedeveloper objectid="81328">Nate Heiss</boardgamedeveloper>
+		<boardgameartist objectid="107207">Eric Hibbeler</boardgameartist>
+		<boardgamemechanic objectid="2987">Hidden Victory Points</boardgamemechanic>
+		<boardgamepodcastepisode objectid="97373">House Rules 56: Mini-Reviews</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="297113">HSG79: Acquire: A Board Game for Capitalists</boardgamepodcastepisode>
+		<boardgamemechanic objectid="2902">Income</boardgamemechanic>
+		<boardgamemechanic objectid="2910">Investment</boardgamemechanic>
+		<boardgameversion objectid="706602">Japanese edition</boardgameversion>
+		<boardgamepublisher objectid="8291">Korea Boardgames</boardgamepublisher>
+		<boardgameversion objectid="713341">Korean edition</boardgameversion>
+		<boardgamepodcastepisode objectid="110249">Ludology Episode 72 - Under The Influence Part 1</boardgamepodcastepisode>
+		<boardgamemechanic objectid="2900">Market</boardgamemechanic>
+		<boardgamefamily objectid="109134">Misc: BGG Hall of Fame</boardgamefamily>
+		<boardgamefamily objectid="105030">Misc: Dice Tower Hall of Fame</boardgamefamily>
+		<boardgameartist objectid="132062">Scott O&#039;Gara</boardgameartist>
+		<boardgamepodcastepisode objectid="76790">OBG 78: The Summerer of Games</boardgamepodcastepisode>
+		<boardgameartist objectid="12658">Scott Okumura</boardgameartist>
+		<boardgameartist objectid="96753">Anita Osburn</boardgameartist>
+		<boardgamemechanic objectid="2048">Pattern Building</boardgamemechanic>
+		<boardgamepublisher objectid="2962">PS-Games</boardgamepublisher>
+		<boardgamepodcastepisode objectid="507934">RDTN Episode 312: Warhammer – The Old World, Coffee Rush Sorcerer’s Arena, Acquire, 18xx Talk, Prime Minister Again</boardgamepodcastepisode>
+		<boardgamepublisher objectid="28072">Renegade Game Studios</boardgamepublisher>
+		<cardset objectid="82141">Renegade Game Studios English ed (2023)</cardset>
+		<boardgamedesigner objectid="4">Sid Sackson</boardgamedesigner>
+		<boardgameversion objectid="65604">Schmidt Dutch edition</boardgameversion>
+		<boardgamepublisher objectid="5392">Schmidt France</boardgamepublisher>
+		<boardgameversion objectid="36899">Schmidt German edition</boardgameversion>
+		<boardgameversion objectid="124834">Schmidt German edition</boardgameversion>
+		<boardgameversion objectid="426713">Schmidt German edition</boardgameversion>
+		<boardgamepublisher objectid="4668">Schmidt International</boardgamepublisher>
+		<boardgameversion objectid="721681">Schmidt multilingual edition</boardgameversion>
+		<boardgameversion objectid="72147">Schmidt multilingual first edition</boardgameversion>
+		<boardgamepublisher objectid="38">Schmidt Spiele</boardgamepublisher>
+		<boardgameversion objectid="72142">Schmidt Spiele German edition in flat box</boardgameversion>
+		<boardgameversion objectid="158989">Selecta Dutch/French edition 1988</boardgameversion>
+		<boardgamepublisher objectid="4622">Selecta Spel en Hobby</boardgamepublisher>
+		<boardgamefamily objectid="4891">Series: 3M Bookshelf Series</boardgamefamily>
+		<boardgameversion objectid="679643">Simplified Chinese edition</boardgameversion>
+		<boardgamepublisher objectid="7107">Smart Games, Inc.</boardgamepublisher>
+		<boardgamemechanic objectid="2940">Square Grid</boardgamemechanic>
+		<boardgamemechanic objectid="2005">Stock Holding</boardgamemechanic>
+		<boardgamesubdomain objectid="5497">Strategy Games</boardgamesubdomain>
+		<boardgamecategory objectid="1086">Territory Building</boardgamecategory>
+		<boardgamepodcastepisode objectid="186361">The Long View - Acquire</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="6996">The Vintage Gamer #13: Acquire (BG)</boardgamepodcastepisode>
+		<boardgamemechanic objectid="2002">Tile Placement</boardgamemechanic>
+		<boardgameversion objectid="719762">Traditional Chinese edition</boardgameversion>
+		<boardgamemechanic objectid="2874">Victory Points as a Resource</boardgamemechanic>
+		<boardgameartist objectid="18317">Peter Whitley</boardgameartist>
+		<boardgameexpansion objectid="323173">Wild Tile Variant Kit for the Game of ACQUIRE</boardgameexpansion>
+		<boardgamepublisher objectid="42760">Yayoi The Dreamer</boardgamepublisher>
+
+		<poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="384">
+
+			<results numplayers="1">
+				<result value="Best" numvotes="0" />
+				<result value="Recommended" numvotes="0" />
+				<result value="Not Recommended" numvotes="228" />
+			</results>
+
+			<results numplayers="2">
+				<result value="Best" numvotes="4" />
+				<result value="Recommended" numvotes="49" />
+				<result value="Not Recommended" numvotes="222" />
+			</results>
+
+			<results numplayers="3">
+				<result value="Best" numvotes="80" />
+				<result value="Recommended" numvotes="188" />
+				<result value="Not Recommended" numvotes="49" />
+			</results>
+
+			<results numplayers="4">
+				<result value="Best" numvotes="255" />
+				<result value="Recommended" numvotes="98" />
+				<result value="Not Recommended" numvotes="3" />
+			</results>
+
+			<results numplayers="5">
+				<result value="Best" numvotes="97" />
+				<result value="Recommended" numvotes="177" />
+				<result value="Not Recommended" numvotes="36" />
+			</results>
+
+			<results numplayers="6">
+				<result value="Best" numvotes="38" />
+				<result value="Recommended" numvotes="133" />
+				<result value="Not Recommended" numvotes="110" />
+			</results>
+
+			<results numplayers="6+">
+				<result value="Best" numvotes="1" />
+				<result value="Recommended" numvotes="5" />
+				<result value="Not Recommended" numvotes="185" />
+			</results>
+		</poll>
+		<poll-summary name="suggested_numplayers"  title="User Suggested Number of Players">
+			<result name="bestwith" value="Best with 4 players" />
+			<result name="recommmendedwith" value="Recommended with 3–6 players" />
+		</poll-summary>
+
+		<poll name="language_dependence" title="Language Dependence" totalvotes="91">
+
+			<results>
+				<result level="1" value="No necessary in-game text" numvotes="77" />
+				<result level="2" value="Some necessary text - easily memorized or small crib sheet" numvotes="13" />
+				<result level="3" value="Moderate in-game text - needs crib sheet or paste ups" numvotes="1" />
+				<result level="4" value="Extensive use of text - massive conversion needed to be playable" numvotes="0" />
+				<result level="5" value="Unplayable in another language" numvotes="0" />
+			</results>
+		</poll>
+
+		<poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="88">
+			<results>
+				<result value="2" numvotes="0" />
+				<result value="3" numvotes="0" />
+				<result value="4" numvotes="0" />
+				<result value="5" numvotes="0" />
+				<result value="6" numvotes="0" />
+				<result value="8" numvotes="7" />
+				<result value="10" numvotes="30" />
+				<result value="12" numvotes="38" />
+				<result value="14" numvotes="12" />
+				<result value="16" numvotes="1" />
+				<result value="18" numvotes="0" />
+				<result value="21 and up" numvotes="0" />
+			</results>
+		</poll>
+
+
+
+
+
+
+	</boardgame>
+
+</boardgames>
