@@ -1,12 +1,18 @@
 package model;
 
+import java.io.IOException;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 //import org.json.simple.JSONArray;
 //import org.json.simple.JSONObject;
+import model.parser.APIParser;
 import model.parser.XMLParser;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class DataBase {
-    public XMLParser parser;
+    public XMLParser XMLparser;
+    public APIParser APIparser;
     public ArrayList<Game> games;
     public ArrayList<User> userList;
     public String gameXML = "resources/simple1.xml";
@@ -16,7 +22,8 @@ public class DataBase {
      */
     public DataBase() {
         try {
-            parser = new XMLParser(gameXML);
+            XMLparser = new XMLParser(gameXML, this);
+            APIparser = new APIParser(this);
         } catch (Exception e) {
             // TODO handle this exception gracefully
             System.out.println("Could not load testing xml");
@@ -33,7 +40,7 @@ public class DataBase {
     public GameList searchGames(String[] keywords) {
         GameList results = new GameList("Search Results");
 
-        games = parser.retrieveGameList();
+        games = XMLparser.retrieveGameList();
         for (Game g : games) {
             for (String word : keywords) {
                 System.out.println(String.format("Comparing %s and %s", g.name, word));
@@ -47,8 +54,8 @@ public class DataBase {
         return results;
     }
 
-    public void writeToFile() {
-
+    public void saveGames() {
+        games = XMLparser.retrieveGameList();
     }
 }
 

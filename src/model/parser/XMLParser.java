@@ -1,17 +1,21 @@
 package model.parser;
 
+import model.DataBase;
 import model.Game;
 import org.w3c.dom.*;
+import org.xml.sax.InputSource;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.StringReader;
 import java.util.ArrayList;
 
 public class XMLParser extends Parser {
     public String fileLocation;
+    private DataBase dataBase;
 
     @Override
     public ArrayList<Game> getBoardGames(int numGames) {
@@ -23,6 +27,11 @@ public class XMLParser extends Parser {
         return null;
     }
 
+    /**
+     * Finds and returns a game with the corresponding ID
+     * @param gameID the ID of the game we want to find
+     * @return returns the gaame (g) which was located using the gameID
+     */
     @Override
     public Game retrieveGame(int gameID) {
         for (Game g : retrieveGameList()) {
@@ -36,7 +45,9 @@ public class XMLParser extends Parser {
         return null;
     }
 
-    public XMLParser(String inputFileName) throws FileNotFoundException, IOException {
+
+    public XMLParser(String inputFileName, DataBase dataBase) throws FileNotFoundException, IOException {
+        this.dataBase = dataBase;
         fileLocation = inputFileName;
         File inputFileTest = new File(inputFileName);
         // check to verify the file location is valid
@@ -64,6 +75,36 @@ public class XMLParser extends Parser {
         // variable "xmlDocumentTree" has all nodes found in the XML file
     }
 
+    public void addGameToList(String xmlContent) throws IOException {
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        dbf.setNamespaceAware(true);
+        dbf.setExpandEntityReferences(false);
+
+        // if the file exists, open it, and retrieve the XML doc
+        // if the XML is bad, throw an exception
+        try {
+            DocumentBuilder db = dbf.newDocumentBuilder();
+            InputSource is = new InputSource(new StringReader(xmlContent));
+
+            xmlDocumentTree = db.parse(is);
+        } catch (Exception ex) {
+            throw new IOException("Unable to parse XML string");
+        }
+
+        // retrieve the top level node in the tree, would be items
+        Element items = xmlDocumentTree.getDocumentElement();
+        NodeList xmlGameList = items.getElementsByTagName("boardgame");
+
+        // loop for each item node within the XML
+        for (int gameNumber = 0; gameNumber < xmlGameList.getLength(); gameNumber++) {
+            Node currentGame = xmlGameList.item(gameNumber);
+            // convert the current game into a game object, add it to list
+            Game ng = parseNextGame(currentGame);
+            retrieveGameList().add(ng);
+            dataBase.saveGames();
+        }
+    }
+
     /**
      * Retrieves the entire game list from the XML object
      * @return an array list of game objects, in the order they were found in the file
@@ -73,7 +114,7 @@ public class XMLParser extends Parser {
         if (currentGameList == null) {
             currentGameList = new ArrayList<Game>();
 
-            // retrieve the top level node in the tree, would be items
+            // retrieve the top level node in the tree, would be boardgames
             Element items = xmlDocumentTree.getDocumentElement();
             NodeList xmlGameList = items.getElementsByTagName("item");
 
@@ -87,6 +128,8 @@ public class XMLParser extends Parser {
         return currentGameList;
     }
 
+
+
     /**
      * Each child node of the main root node is an "item" node in the file. (Tagged with <item )
      * Parse all of the game attributes and fields out of the item.
@@ -95,31 +138,32 @@ public class XMLParser extends Parser {
      * @return a Game object containing the parsed attributes
      */
     private Game parseNextGame(Node xmlGameNode) {
-        String bgg_id;
-        Integer bgg_rank = 0;
-        String thumburi = "tbd";
-        String title = "tbd";
-        Integer year = 0;
-        NamedNodeMap attributes = xmlGameNode.getAttributes(); // for this item, get its attributes
-        bgg_id = attributes.getNamedItem("id").getNodeValue();
-        try {
-            bgg_rank = Integer.parseInt(attributes.getNamedItem("rank").getNodeValue());
-        } catch (NumberFormatException e) {
-            bgg_rank = 0; // let's use a default value if the data in the file is bad
+        NamedNodeMap attributes = xmlGameNode.getAttributes();
+
+        String bgg_id = "0";
+        int bgg_rank = 0;
+        String thumburi = "";
+        String title = "";
+        int year = 0;
+        String desc = "";
+
+        // ID
+        Node idNode = attributes.getNamedItem("objectid");
+        if (idNode != null) {
+            bgg_id = idNode.getNodeValue();
         }
 
         title = parseTextField(xmlGameNode, "name");
         thumburi = parseTextField(xmlGameNode, "thumbnail");
-        year = parseIntegerField(xmlGameNode, "yearpublished");
+        desc = parseTextField(xmlGameNode, "description");
 
         Game createdGame = new Game();
         createdGame.setName(title);
+        createdGame.setDescription(desc);
         createdGame.setThumbnail(thumburi);
         createdGame.setId(Integer.parseInt(bgg_id));
 
         return createdGame;
-
-        //return new Game(title, thumburi, year, bgg_rank, bgg_id);
     }
 
     /**
@@ -131,15 +175,15 @@ public class XMLParser extends Parser {
      */
     private String parseTextField(Node xmlGameNode, String fieldname) {
         NodeList fields = xmlGameNode.getChildNodes();
-        String fieldText = "unknown";
+
         for (int i = 0; i < fields.getLength(); i++) {
             Node field = fields.item(i);
-            if (field.getNodeName().equals(fieldname)) {
-                NamedNodeMap attributes = field.getAttributes();
-                fieldText = attributes.getNamedItem("value").getNodeValue();
+            if (field.getNodeType() == Node.ELEMENT_NODE && field.getNodeName().equals(fieldname)) {
+                return field.getTextContent().trim();
             }
         }
-        return fieldText;
+
+        return "unknown";
     }
 
     /**
