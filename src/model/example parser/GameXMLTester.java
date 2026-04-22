@@ -10,30 +10,21 @@
  *
  */
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
 import model.DataBase;
+import model.Game;
 import model.parser.APIParser;
-import model.parser.XMLParser;
 import org.w3c.dom.*;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class GameXMLTester {
     public static void main(String[] argv)  {
+
         DataBase db = new DataBase();
         APIParser parser = new APIParser(db);
-        //runs through the first 5 games and retrieves them.
-        //prints out game aswell
-        for (int i = 1; i < 6; i++) {
-            System.out.println(parser.retrieveGame(i).toString());
-        }
 
-        //System.out.println(db.games);
+        parser.retrieveGame(420);
+
+        for (Game g : db.retrieveGames()) {
+            System.out.println(g);
+        }
     }
 }

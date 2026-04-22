@@ -1,41 +1,69 @@
 package model;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.file.StandardOpenOption;
+import java.io.StringReader;
 import java.util.ArrayList;
+import java.util.Scanner;
 //import org.json.simple.JSONArray;
 //import org.json.simple.JSONObject;
 import model.parser.APIParser;
 import model.parser.XMLParser;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 public class DataBase {
     public XMLParser XMLparser;
     public APIParser APIparser;
-    public ArrayList<Game> games;
+    private GameList games;
     public ArrayList<User> userList;
     public String gameXML = "resources/simple1.xml";
 
     /**
-     * Creates a blank database
+     * Constructor which creates a blank database.
+     * Initializes the parsers and passes a reference to the database
      */
     public DataBase() {
         try {
             XMLparser = new XMLParser(gameXML, this);
         } catch (Exception e) {
             // TODO handle this exception gracefully
-            System.out.println("Could not load testing xml");
+            System.out.println("Could not load testing xml.");
         }
         APIparser = new APIParser(this);
         games = new ArrayList<>();
+        games = retrieveGames();
         userList = new ArrayList<>();
+        File myObj = new File("resources/userData.txt");
+        // try-with-resources: Scanner will be closed automatically
+        try (Scanner myReader = new Scanner(myObj)) {
+            while (myReader.hasNextLine()) {
+                String[] data = myReader.nextLine().split(" ");
+                User oldUser = new User(data[0], data[1]);
+                userList.add(oldUser);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+        }
     }
 
     /**
-     *
+     * Searches the current game list using a list of keywords.
      * @param keywords list of keywords to look for within the game
-     * @return
+     * @return A game list containing the games which match the results
      */
     public GameList searchGames(String[] keywords) {
         GameList results = new GameList("Search Results");
@@ -50,11 +78,12 @@ public class DataBase {
             System.out.println("Got a null");
             return null;
         }
+        saveGames();
         for (Game g : games) {
             for (String word : keywords) {
-                System.out.println(String.format("Comparing %s and %s", g.name, word));
-                if (g.name.contains(word)) {
-                    System.out.println("Found a match");
+                System.out.println(String.format("Comparing \"%s\" and \"%s\"...", g.name, word));
+                if (g.name.toLowerCase().contains(word.toLowerCase())) {
+                    System.out.println("Match found!");
                     results.addGame(g);
                 }
             }
@@ -63,8 +92,96 @@ public class DataBase {
         return results;
     }
 
+    /**
+     * Grabs the game list from XMLParser, and saves it to the games list
+     */
     public void saveGames() {
         games = XMLparser.retrieveGameList();
+    }
+
+    /**
+     * This method takes in the XML as a raw string and saves it to the savefile
+     * This function is exclusively used by the API parser, which is what retrieves the XML from online
+     * The ID is also retrieved by the API parser, and is retrieved before the data is saved
+     * @param str The string of the XML we want to add to the XML
+     * @param ID The ID of the game we are adding
+     * @param filepath file (location) of where we want to store the data.
+     */
+    public boolean saveXMLStringToFile(String str, int ID, String filepath) {
+        for (Game g : retrieveGames()) {
+            if (ID == g.getId()) {
+                System.out.println("Board game: \"" + g.getName() + "\" of ID: " + g.getId() + " already saved!");
+                return false;
+            }
+        }
+        System.out.println("Saving XML string to " + filepath);
+        System.out.println("ID: " + ID);
+
+        //create a file with the filepath
+        File saveFile = new File(filepath);
+
+        //create the document builder stuff
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        DocumentBuilder db;
+        try {
+            db = dbf.newDocumentBuilder();
+        } catch (ParserConfigurationException e) {
+            throw new RuntimeException(e);
+        }
+
+        //create the document with the saveFile we are creating/updating
+        Document doc = null;
+        try {
+            doc = db.parse(saveFile);
+        } catch (SAXException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        //create a new document with our str we want to add to the file
+        Document newDoc = null;
+        try {
+            newDoc = db.parse(new InputSource(new StringReader(str)));
+        } catch (SAXException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        //import the new document as another node on the doc we want to save to
+        Node newNode = doc.importNode(newDoc.getDocumentElement(), true);
+        doc.getDocumentElement().appendChild(newNode);
+
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        Transformer transformer = null;
+        try {
+            transformer = transformerFactory.newTransformer();
+        } catch (TransformerConfigurationException e) {
+            throw new RuntimeException(e);
+        }
+
+        //saves the file
+        DOMSource source = new DOMSource(doc);
+        StreamResult result = new StreamResult(saveFile);
+        try {
+            transformer.transform(source, result);
+        } catch (TransformerException e) {
+            throw new RuntimeException(e);
+        }
+
+        //if its successful
+        return true;
+    }
+
+    /**
+     * This methods function is to simply return the games List.
+     * But it must save the games which the XML Parser hasn't stored yet.
+     * @return returns the current game list as an array list of games
+     */
+    public GameList retrieveGames() {
+        saveGames();
+        return games;
     }
 }
 
