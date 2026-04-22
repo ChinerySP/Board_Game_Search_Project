@@ -27,9 +27,7 @@ public class Control {
      * @return User The user that logged in; null if there was no match
      */
     public User verifyLogin(String username, String password) {
-        // Todo update this to actually match the model
         return model.verifyLogin(username, password);
-        // return new User(); // For testing 
     }
 
     /**
@@ -45,7 +43,7 @@ public class Control {
      * @param User The user to delete
      */
     public void deleteAccount(User toDelete) {
-        // TODO make this actually delete things in the model
+        model.deleteAccount(toDelete);
     }
 
     /**
@@ -71,8 +69,7 @@ public class Control {
      * @param boolean The state to set the API to
      */
     public void setAPI(boolean state) {
-        // TODO implement setAPI function for model
-        // model.setAPI(state);
+        model.setAPI(state);
     }
 
     // The view and the model, so that we can interface with them

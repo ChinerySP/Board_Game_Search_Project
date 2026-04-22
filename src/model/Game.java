@@ -71,7 +71,7 @@ public class Game implements Comparable<Game>, Iterable<Rating>{
     }
 
     public String toString() {
-        return "[" + name + ", BGG ID: " + id + "]";
+        return "[" + name + ", BGG ID: " + id + ", Description: " + description + ", Thumbnail: " + thumbnail + "]";
     }
 
     /**
