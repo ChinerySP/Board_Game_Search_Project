@@ -44,11 +44,10 @@ public class GameList implements Iterable<Game> {
     }
 
     /**
-     * add game should be able to find a game from the database based off an id
-     * @param id Interder value for the Id of the game
+     * add game should be able to find a game from the database based
+     * @param game takes a game object ad adds it
      */
-
-    public void addGame(Game game){
+    public void addGame(Game game) {
         gameData.add(game); //used to add game to list via varable containing the game
     }
     /**
