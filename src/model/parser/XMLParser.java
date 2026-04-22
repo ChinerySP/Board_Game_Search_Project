@@ -90,7 +90,7 @@ public class XMLParser extends Parser {
             throw new IOException("Unable to parse XML string");
         }
 
-        // retrieve the top level node in the tree, would be items
+        // retrieve the top level node in the tree, would be boardgame
         Element items = xmlDocumentTree.getDocumentElement();
         NodeList xmlGameList = items.getElementsByTagName("boardgame");
 

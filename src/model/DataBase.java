@@ -1,14 +1,27 @@
 package model;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.File;
 import java.io.IOException;
-import java.nio.file.StandardOpenOption;
+import java.io.StringReader;
 import java.util.ArrayList;
 //import org.json.simple.JSONArray;
 //import org.json.simple.JSONObject;
 import model.parser.APIParser;
 import model.parser.XMLParser;
-import java.nio.file.Files;
-import java.nio.file.Path;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 
 public class DataBase {
     public XMLParser XMLparser;
@@ -56,6 +69,71 @@ public class DataBase {
 
     public void saveGames() {
         games = XMLparser.retrieveGameList();
+    }
+
+    /**
+     *
+     * @param str The string of the XML we want to add to the XML
+     * @param ID The ID of the game we are adding. This should be handeled by the API/XML parser to get
+     * @param filename file name of where we want to store the data.
+     */
+    public boolean saveXMLStringToFile(String str, int ID, String filename) {
+        for (Game g : retrieveGames()) {
+            if (ID == g.getId()) {
+                System.out.println("Board game: \"" + g.getName() + "\" of ID: " + g.getId() + " already saved!");
+                return false;
+            }
+        }
+        System.out.println("Saving XML string to " + filename);
+        System.out.println("ID: " + ID);
+        File saveFile = new File(filename);
+
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        DocumentBuilder db;
+        try {
+            db = dbf.newDocumentBuilder();
+        } catch (ParserConfigurationException e) {
+            throw new RuntimeException(e);
+        }
+
+        Document doc = null;
+        try {
+            doc = db.parse(saveFile);
+        } catch (SAXException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        Document newDoc = null;
+        try {
+            newDoc = db.parse(new InputSource(new StringReader(str)));
+        } catch (SAXException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        Node newNode = doc.importNode(newDoc.getDocumentElement(), true);
+        doc.getDocumentElement().appendChild(newNode);
+
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
+        Transformer transformer = null;
+        try {
+            transformer = transformerFactory.newTransformer();
+        } catch (TransformerConfigurationException e) {
+            throw new RuntimeException(e);
+        }
+
+        DOMSource source = new DOMSource(doc);
+        StreamResult result = new StreamResult(saveFile);
+        try {
+            transformer.transform(source, result);
+        } catch (TransformerException e) {
+            throw new RuntimeException(e);
+        }
+
+        return true;
     }
 
     public ArrayList<Game> retrieveGames() {

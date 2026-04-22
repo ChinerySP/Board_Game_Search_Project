@@ -34,12 +34,16 @@ public class APIParser extends Parser {
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
-        try {
-            dataBase.XMLparser.addGameToList(response.body());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        if (dataBase.saveXMLStringToFile(response.body(), gameID, dataBase.gameXML)) {
+            try {
+                dataBase.XMLparser.addGameToList(response.body());
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         }
+
         //System.out.println(response.body());
+
         return dataBase.XMLparser.retrieveGame(gameID);
     }
 

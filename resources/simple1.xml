@@ -1,4 +1,4 @@
-<boardgames termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><boardgames termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
 	<boardgame objectid="1">
 		<yearpublished>1986</yearpublished>
 		<minplayers>3</minplayers>
@@ -9,8 +9,8 @@
 		<age>14</age>
 
 		<name primary="true" sortindex="5">Die Macher</name>
-		<name  sortindex="1">德国大选</name>
-		<name  sortindex="1">디 마허</name>
+		<name sortindex="1">德国大选</name>
+		<name sortindex="1">디 마허</name>
 
 		<description>
 			Die Macher is a game about seven sequential political races in different regions of Germany. Players are in charge of national political parties, and must manage limited resources to help their party to victory. The winning party will have the most victory points after all the regional elections. There are four different ways of scoring victory points. First, each regional election can supply one to eighty victory points, depending on the size of the region and how well your party does in it. Second, if a party wins a regional election and has some media influence in the region, then the party will receive some media-control victory points. Third, each party has a national party membership which will grow as the game progresses and this will supply a fair number of victory points. Lastly, in some editions, parties score some victory points if their party platform matches the national opinions at the end of the game.
@@ -40,7 +40,7 @@
 		<boardgamemechanic objectid="2080">Area Majority / Influence</boardgamemechanic>
 		<boardgamemechanic objectid="2012">Auction / Bidding</boardgamemechanic>
 		<boardgamepodcastepisode objectid="177525">BGA Episode 100 - Top 100 Games of All Time</boardgamepodcastepisode>
-		<boardgamepodcastepisode objectid="86194">BGTG 112 - Five-Player Games (with Dave O&#039;Connor)</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="86194">BGTG 112 - Five-Player Games (with Dave O'Connor)</boardgamepodcastepisode>
 		<boardgamepodcastepisode objectid="101144">BGTG 136 - 100 Great Games, part 3 (with Stephen Glenn and Mark Jackson)</boardgamepodcastepisode>
 		<boardgamepodcastepisode objectid="3361">BGWS 024 – Die Macher</boardgamepodcastepisode>
 		<boardgameartist objectid="928">Bernd Brunnhofer</boardgameartist>
@@ -66,7 +66,7 @@
 		<boardgamepodcastepisode objectid="170757">Heavy Cardboard Episode 39 – Top 50 Favorite Games of Right Now</boardgamepodcastepisode>
 		<boardgamepodcastepisode objectid="187729">Heavy Cardboard Episode 52 &amp;ndash; Amanda&amp;rsquo;s Top 50 &amp;amp; Edward&amp;rsquo;s Top 50</boardgamepodcastepisode>
 		<boardgamepodcastepisode objectid="194403">Heavy Cardboard Episode 59 – December (2016) Briefing</boardgamepodcastepisode>
-		<boardgamepodcastepisode objectid="204382">HLG 20: Dilemma&#039;s &amp;amp; Path</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="204382">HLG 20: Dilemma's &amp;amp; Path</boardgamepodcastepisode>
 		<boardgamepodcastepisode objectid="177491">HLG 3: Explosief Materiaal</boardgamepodcastepisode>
 		<boardgamepodcastepisode objectid="76638">House Rules 30: Die Macher, Die!</boardgamepodcastepisode>
 		<boardgameversion objectid="493943">Korean edition</boardgameversion>
@@ -79,7 +79,7 @@
 		<boardgamecategory objectid="1001">Political</boardgamecategory>
 		<boardgamefamily objectid="34116">Political: Elections</boardgamefamily>
 		<boardgamepublisher objectid="2726">Portal Games</boardgamepublisher>
-		<boardgamepodcastepisode objectid="342182">Round 6, Turn 7: &quot;Die Macher&quot; with Jesse</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="342182">Round 6, Turn 7: "Die Macher" with Jesse</boardgamepodcastepisode>
 		<boardgamedesigner objectid="1">Karl-Heinz Schmiel</boardgamedesigner>
 		<boardgamefamily objectid="91">Series: Classic Line (Valley Games)</boardgamefamily>
 		<boardgamemechanic objectid="2020">Simultaneous Action Selection</boardgamemechanic>
@@ -95,78 +95,78 @@
 		<boardgamepublisher objectid="11652">Stronghold Games</boardgamepublisher>
 		<boardgamepodcastepisode objectid="152647">The Good, The Board, and the Ugly Behaviors: Episode 20 “Dealing with Bad Players”</boardgamepodcastepisode>
 		<boardgamepodcastepisode objectid="7430">The Messy Game Room Episode 3</boardgamepodcastepisode>
-		<boardgamepodcastepisode objectid="5619">The Spiel #28 - Listener&#039;s Choice</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="5619">The Spiel #28 - Listener's Choice</boardgamepodcastepisode>
 		<boardgamepublisher objectid="5382">Valley Games, Inc.</boardgamepublisher>
 		<boardgamepublisher objectid="8147">YOKA Games</boardgamepublisher>
 
 		<poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="145">
 
 			<results numplayers="1">
-				<result value="Best" numvotes="0" />
-				<result value="Recommended" numvotes="1" />
-				<result value="Not Recommended" numvotes="90" />
+				<result numvotes="0" value="Best"/>
+				<result numvotes="1" value="Recommended"/>
+				<result numvotes="90" value="Not Recommended"/>
 			</results>
 
 			<results numplayers="2">
-				<result value="Best" numvotes="0" />
-				<result value="Recommended" numvotes="1" />
-				<result value="Not Recommended" numvotes="95" />
+				<result numvotes="0" value="Best"/>
+				<result numvotes="1" value="Recommended"/>
+				<result numvotes="95" value="Not Recommended"/>
 			</results>
 
 			<results numplayers="3">
-				<result value="Best" numvotes="3" />
-				<result value="Recommended" numvotes="28" />
-				<result value="Not Recommended" numvotes="80" />
+				<result numvotes="3" value="Best"/>
+				<result numvotes="28" value="Recommended"/>
+				<result numvotes="80" value="Not Recommended"/>
 			</results>
 
 			<results numplayers="4">
-				<result value="Best" numvotes="28" />
-				<result value="Recommended" numvotes="91" />
-				<result value="Not Recommended" numvotes="10" />
+				<result numvotes="28" value="Best"/>
+				<result numvotes="91" value="Recommended"/>
+				<result numvotes="10" value="Not Recommended"/>
 			</results>
 
 			<results numplayers="5">
-				<result value="Best" numvotes="121" />
-				<result value="Recommended" numvotes="13" />
-				<result value="Not Recommended" numvotes="3" />
+				<result numvotes="121" value="Best"/>
+				<result numvotes="13" value="Recommended"/>
+				<result numvotes="3" value="Not Recommended"/>
 			</results>
 
 			<results numplayers="5+">
-				<result value="Best" numvotes="2" />
-				<result value="Recommended" numvotes="0" />
-				<result value="Not Recommended" numvotes="64" />
+				<result numvotes="2" value="Best"/>
+				<result numvotes="0" value="Recommended"/>
+				<result numvotes="64" value="Not Recommended"/>
 			</results>
 		</poll>
-		<poll-summary name="suggested_numplayers"  title="User Suggested Number of Players">
-			<result name="bestwith" value="Best with 5 players" />
-			<result name="recommmendedwith" value="Recommended with 4–5 players" />
+		<poll-summary name="suggested_numplayers" title="User Suggested Number of Players">
+			<result name="bestwith" value="Best with 5 players"/>
+			<result name="recommmendedwith" value="Recommended with 4–5 players"/>
 		</poll-summary>
 
 		<poll name="language_dependence" title="Language Dependence" totalvotes="50">
 
 			<results>
-				<result level="1" value="No necessary in-game text" numvotes="38" />
-				<result level="2" value="Some necessary text - easily memorized or small crib sheet" numvotes="5" />
-				<result level="3" value="Moderate in-game text - needs crib sheet or paste ups" numvotes="7" />
-				<result level="4" value="Extensive use of text - massive conversion needed to be playable" numvotes="0" />
-				<result level="5" value="Unplayable in another language" numvotes="0" />
+				<result level="1" numvotes="38" value="No necessary in-game text"/>
+				<result level="2" numvotes="5" value="Some necessary text - easily memorized or small crib sheet"/>
+				<result level="3" numvotes="7" value="Moderate in-game text - needs crib sheet or paste ups"/>
+				<result level="4" numvotes="0" value="Extensive use of text - massive conversion needed to be playable"/>
+				<result level="5" numvotes="0" value="Unplayable in another language"/>
 			</results>
 		</poll>
 
 		<poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="34">
 			<results>
-				<result value="2" numvotes="0" />
-				<result value="3" numvotes="0" />
-				<result value="4" numvotes="0" />
-				<result value="5" numvotes="0" />
-				<result value="6" numvotes="0" />
-				<result value="8" numvotes="0" />
-				<result value="10" numvotes="1" />
-				<result value="12" numvotes="6" />
-				<result value="14" numvotes="19" />
-				<result value="16" numvotes="5" />
-				<result value="18" numvotes="2" />
-				<result value="21 and up" numvotes="1" />
+				<result numvotes="0" value="2"/>
+				<result numvotes="0" value="3"/>
+				<result numvotes="0" value="4"/>
+				<result numvotes="0" value="5"/>
+				<result numvotes="0" value="6"/>
+				<result numvotes="0" value="8"/>
+				<result numvotes="1" value="10"/>
+				<result numvotes="6" value="12"/>
+				<result numvotes="19" value="14"/>
+				<result numvotes="5" value="16"/>
+				<result numvotes="2" value="18"/>
+				<result numvotes="1" value="21 and up"/>
 			</results>
 		</poll>
 
@@ -203,12 +203,12 @@
 		<thumbnail>https://cf.geekdo-images.com/oQYhaJx5Lg3KcGis2reuWQ__small/img/3bIZnNfVM1viwH9A9d2Rrip1Y80=/fit-in/200x150/filters:strip_icc()/pic4001505.jpg</thumbnail>
 		<image>https://cf.geekdo-images.com/oQYhaJx5Lg3KcGis2reuWQ__original/img/owag4VgJDPyPt2ciYB9Hc5l4GnQ=/0x0/filters:format(jpeg)/pic4001505.jpg</image>
 
-		<cardset objectid="85950"></cardset>
+		<cardset objectid="85950"/>
 		<boardgamecategory objectid="1002">Card Game</boardgamecategory>
 		<boardgamefamily objectid="113741">Card Games: Compendium</boardgamefamily>
 		<boardgamefamily objectid="73592">Components: Gems/Crystals</boardgamefamily>
 		<boardgamefamily objectid="7005">Creatures: Dragons</boardgamefamily>
-		<boardgamedesigner objectid="8384">G. W. &quot;Jerry&quot; D&#039;Arcey</boardgamedesigner>
+		<boardgamedesigner objectid="8384">G. W. "Jerry" D'Arcey</boardgamedesigner>
 		<boardgamepublisher objectid="64">E. S. Lowe Company Inc.</boardgamepublisher>
 		<boardgameversion objectid="102406">English edition</boardgameversion>
 		<boardgamecategory objectid="1010">Fantasy</boardgamecategory>
@@ -218,70 +218,70 @@
 		<boardgamesubdomain objectid="5497">Strategy Games</boardgamesubdomain>
 		<boardgamefamily objectid="75454">Theme: Art style – Art Nouveau</boardgamefamily>
 		<boardgamemechanic objectid="2009">Trick-taking</boardgamemechanic>
-		<boardgameimplementation objectid="2174" inbound="true">Coup d&#039;État</boardgameimplementation>
+		<boardgameimplementation inbound="true" objectid="2174">Coup d'État</boardgameimplementation>
 
 		<poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="3">
 
 			<results numplayers="1">
-				<result value="Best" numvotes="0" />
-				<result value="Recommended" numvotes="0" />
-				<result value="Not Recommended" numvotes="2" />
+				<result numvotes="0" value="Best"/>
+				<result numvotes="0" value="Recommended"/>
+				<result numvotes="2" value="Not Recommended"/>
 			</results>
 
 			<results numplayers="2">
-				<result value="Best" numvotes="0" />
-				<result value="Recommended" numvotes="0" />
-				<result value="Not Recommended" numvotes="2" />
+				<result numvotes="0" value="Best"/>
+				<result numvotes="0" value="Recommended"/>
+				<result numvotes="2" value="Not Recommended"/>
 			</results>
 
 			<results numplayers="3">
-				<result value="Best" numvotes="0" />
-				<result value="Recommended" numvotes="1" />
-				<result value="Not Recommended" numvotes="1" />
+				<result numvotes="0" value="Best"/>
+				<result numvotes="1" value="Recommended"/>
+				<result numvotes="1" value="Not Recommended"/>
 			</results>
 
 			<results numplayers="4">
-				<result value="Best" numvotes="3" />
-				<result value="Recommended" numvotes="0" />
-				<result value="Not Recommended" numvotes="0" />
+				<result numvotes="3" value="Best"/>
+				<result numvotes="0" value="Recommended"/>
+				<result numvotes="0" value="Not Recommended"/>
 			</results>
 
 			<results numplayers="4+">
-				<result value="Best" numvotes="0" />
-				<result value="Recommended" numvotes="0" />
-				<result value="Not Recommended" numvotes="2" />
+				<result numvotes="0" value="Best"/>
+				<result numvotes="0" value="Recommended"/>
+				<result numvotes="2" value="Not Recommended"/>
 			</results>
 		</poll>
-		<poll-summary name="suggested_numplayers"  title="User Suggested Number of Players">
-			<result name="bestwith" value="Best with 4 players" />
-			<result name="recommmendedwith" value="Recommended with 4 players" />
+		<poll-summary name="suggested_numplayers" title="User Suggested Number of Players">
+			<result name="bestwith" value="Best with 4 players"/>
+			<result name="recommmendedwith" value="Recommended with 4 players"/>
 		</poll-summary>
 
 		<poll name="language_dependence" title="Language Dependence" totalvotes="1">
 
 			<results>
-				<result level="1" value="No necessary in-game text" numvotes="0" />
-				<result level="2" value="Some necessary text - easily memorized or small crib sheet" numvotes="1" />
-				<result level="3" value="Moderate in-game text - needs crib sheet or paste ups" numvotes="0" />
-				<result level="4" value="Extensive use of text - massive conversion needed to be playable" numvotes="0" />
-				<result level="5" value="Unplayable in another language" numvotes="0" />
+				<result level="1" numvotes="0" value="No necessary in-game text"/>
+				<result level="2" numvotes="1" value="Some necessary text - easily memorized or small crib sheet"/>
+				<result level="3" numvotes="0" value="Moderate in-game text - needs crib sheet or paste ups"/>
+				<result level="4" numvotes="0" value="Extensive use of text - massive conversion needed to be playable"/>
+				<result level="5" numvotes="0" value="Unplayable in another language"/>
 			</results>
 		</poll>
 
 		<poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="0">
 			<results>
-				<result value="2" numvotes="0" />
-				<result value="3" numvotes="0" />
-				<result value="4" numvotes="0" />
-				<result value="5" numvotes="0" />
-				<result value="6" numvotes="0" />
-				<result value="8" numvotes="0" />
-				<result value="10" numvotes="0" />
-				<result value="12" numvotes="0" />
-				<result value="14" numvotes="0" />
-				<result value="16" numvotes="0" />
-				<result value="18" numvotes="0" />
-				<result value="21 and up" numvotes="0" />
+				<result numvotes="0" value="2"/>
+				<result numvotes="0" value="3"/>
+				<result numvotes="0" value="4"/>
+				<result numvotes="0" value="5"/>
+				<result numvotes="0" value="6"/>
+				<result numvotes="0" value="8"/>
+				<result numvotes="0" value="10"/>
+				<result numvotes="0" value="12"/>
+				<result numvotes="0" value="14"/>
+				<result numvotes="0" value="16"/>
+				<result numvotes="0" value="18"/>
+				<result numvotes="0" value="21 and up"/>
 			</results>
 		</poll>
 
@@ -301,15 +301,15 @@
 		<maxplaytime>60</maxplaytime>
 		<age>10</age>
 
-		<name  sortindex="11">仙岛侠踪 (The Legend of Xiandao)</name>
-		<name  sortindex="1">Samouraï</name>
+		<name sortindex="11">仙岛侠踪 (The Legend of Xiandao)</name>
+		<name sortindex="1">Samouraï</name>
 		<name primary="true" sortindex="1">Samurai</name>
-		<name  sortindex="1">Samurái</name>
-		<name  sortindex="1">Samuraj</name>
-		<name  sortindex="1">Самурай</name>
-		<name  sortindex="1">サムライ・ボードゲーム</name>
-		<name  sortindex="1">侍</name>
-		<name  sortindex="1">사무라이</name>
+		<name sortindex="1">Samurái</name>
+		<name sortindex="1">Samuraj</name>
+		<name sortindex="1">Самурай</name>
+		<name sortindex="1">サムライ・ボードゲーム</name>
+		<name sortindex="1">侍</name>
+		<name sortindex="1">사무라이</name>
 
 		<description>
 			Samurai is set in medieval Japan. Players compete to gain the favor of three factions: samurai, peasants, and priests, which are represented by helmet, rice paddy, and Buddha figures scattered about the board, which features the islands of Japan. The competition is waged through the use of hexagonal tiles, each of which help curry favor of one of the three factions &amp;mdash; or all three at once! Players can make lightning-quick strikes with horseback ronin and ships or approach their conquests more methodically. As each figure (helmets, rice paddies, and Buddhas) is surrounded, it is awarded to the player who has gained the most favor with the corresponding group.
@@ -396,8 +396,8 @@
 		<boardgameversion objectid="734143">Mexican edition</boardgameversion>
 		<boardgamepodcastepisode objectid="161339">MN 0073 Colour Blind Gaming</boardgamepodcastepisode>
 		<boardgamemechanic objectid="2846">Once-Per-Game Abilities</boardgamemechanic>
-		<videogamebg objectid="80750">Reiner Knizia&#039;s Samurai</videogamebg>
-		<videogamebg objectid="146164">Reiner Knizia&#039;s Samurai</videogamebg>
+		<videogamebg objectid="80750">Reiner Knizia's Samurai</videogamebg>
+		<videogamebg objectid="146164">Reiner Knizia's Samurai</videogamebg>
 		<boardgamepublisher objectid="3">Rio Grande Games</boardgamepublisher>
 		<boardgameversion objectid="74707">Rio Grande-only English edition 1998</boardgameversion>
 		<boardgamepodcastepisode objectid="62259">RSOG Podcast Episode 6: Essen Preview</boardgamepodcastepisode>
@@ -412,7 +412,7 @@
 		<boardgamepublisher objectid="8313">Smart Ltd</boardgamepublisher>
 		<boardgamesubdomain objectid="5497">Strategy Games</boardgamesubdomain>
 		<boardgameversion objectid="759737">Thai edition</boardgameversion>
-		<boardgamepodcastepisode objectid="234234">The Good, the Board, and the Great Gambino Episode 157 Geof Gambill&#039;s Top Ten Games</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="234234">The Good, the Board, and the Great Gambino Episode 157 Geof Gambill's Top Ten Games</boardgamepodcastepisode>
 		<boardgamefamily objectid="28732">Theme: Samurai</boardgamefamily>
 		<boardgamemechanic objectid="2002">Tile Placement</boardgamemechanic>
 		<boardgamemechanic objectid="2897">Variable Set-up</boardgamemechanic>
@@ -432,65 +432,65 @@
 		<poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="368">
 
 			<results numplayers="1">
-				<result value="Best" numvotes="0" />
-				<result value="Recommended" numvotes="0" />
-				<result value="Not Recommended" numvotes="176" />
+				<result numvotes="0" value="Best"/>
+				<result numvotes="0" value="Recommended"/>
+				<result numvotes="176" value="Not Recommended"/>
 			</results>
 
 			<results numplayers="2">
-				<result value="Best" numvotes="115" />
-				<result value="Recommended" numvotes="181" />
-				<result value="Not Recommended" numvotes="24" />
+				<result numvotes="115" value="Best"/>
+				<result numvotes="181" value="Recommended"/>
+				<result numvotes="24" value="Not Recommended"/>
 			</results>
 
 			<results numplayers="3">
-				<result value="Best" numvotes="211" />
-				<result value="Recommended" numvotes="108" />
-				<result value="Not Recommended" numvotes="3" />
+				<result numvotes="211" value="Best"/>
+				<result numvotes="108" value="Recommended"/>
+				<result numvotes="3" value="Not Recommended"/>
 			</results>
 
 			<results numplayers="4">
-				<result value="Best" numvotes="94" />
-				<result value="Recommended" numvotes="166" />
-				<result value="Not Recommended" numvotes="36" />
+				<result numvotes="94" value="Best"/>
+				<result numvotes="166" value="Recommended"/>
+				<result numvotes="36" value="Not Recommended"/>
 			</results>
 
 			<results numplayers="4+">
-				<result value="Best" numvotes="0" />
-				<result value="Recommended" numvotes="1" />
-				<result value="Not Recommended" numvotes="152" />
+				<result numvotes="0" value="Best"/>
+				<result numvotes="1" value="Recommended"/>
+				<result numvotes="152" value="Not Recommended"/>
 			</results>
 		</poll>
-		<poll-summary name="suggested_numplayers"  title="User Suggested Number of Players">
-			<result name="bestwith" value="Best with 3 players" />
-			<result name="recommmendedwith" value="Recommended with 2–4 players" />
+		<poll-summary name="suggested_numplayers" title="User Suggested Number of Players">
+			<result name="bestwith" value="Best with 3 players"/>
+			<result name="recommmendedwith" value="Recommended with 2–4 players"/>
 		</poll-summary>
 
 		<poll name="language_dependence" title="Language Dependence" totalvotes="79">
 
 			<results>
-				<result level="1" value="No necessary in-game text" numvotes="77" />
-				<result level="2" value="Some necessary text - easily memorized or small crib sheet" numvotes="0" />
-				<result level="3" value="Moderate in-game text - needs crib sheet or paste ups" numvotes="2" />
-				<result level="4" value="Extensive use of text - massive conversion needed to be playable" numvotes="0" />
-				<result level="5" value="Unplayable in another language" numvotes="0" />
+				<result level="1" numvotes="77" value="No necessary in-game text"/>
+				<result level="2" numvotes="0" value="Some necessary text - easily memorized or small crib sheet"/>
+				<result level="3" numvotes="2" value="Moderate in-game text - needs crib sheet or paste ups"/>
+				<result level="4" numvotes="0" value="Extensive use of text - massive conversion needed to be playable"/>
+				<result level="5" numvotes="0" value="Unplayable in another language"/>
 			</results>
 		</poll>
 
 		<poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="60">
 			<results>
-				<result value="2" numvotes="0" />
-				<result value="3" numvotes="0" />
-				<result value="4" numvotes="0" />
-				<result value="5" numvotes="0" />
-				<result value="6" numvotes="5" />
-				<result value="8" numvotes="16" />
-				<result value="10" numvotes="34" />
-				<result value="12" numvotes="5" />
-				<result value="14" numvotes="0" />
-				<result value="16" numvotes="0" />
-				<result value="18" numvotes="0" />
-				<result value="21 and up" numvotes="0" />
+				<result numvotes="0" value="2"/>
+				<result numvotes="0" value="3"/>
+				<result numvotes="0" value="4"/>
+				<result numvotes="0" value="5"/>
+				<result numvotes="5" value="6"/>
+				<result numvotes="16" value="8"/>
+				<result numvotes="34" value="10"/>
+				<result numvotes="5" value="12"/>
+				<result numvotes="0" value="14"/>
+				<result numvotes="0" value="16"/>
+				<result numvotes="0" value="18"/>
+				<result numvotes="0" value="21 and up"/>
 			</results>
 		</poll>
 
@@ -535,7 +535,7 @@
 		<boardgamepodcastepisode objectid="227762">Ep. 15: ConQuest Avalon 2016 Convention Coverage</boardgamepodcastepisode>
 		<boardgamepodcastepisode objectid="227761">Ep. 16: Vox Populi #1</boardgamepodcastepisode>
 		<boardgameversion objectid="76384">German edition</boardgameversion>
-		<boardgamepodcastepisode objectid="227730">It&#039;s Our Turn! Episode #45: Ancient Era Games</boardgamepodcastepisode>
+		<boardgamepodcastepisode objectid="227730">It's Our Turn! Episode #45: Ancient Era Games</boardgamepodcastepisode>
 		<boardgamepublisher objectid="37">KOSMOS</boardgamepublisher>
 		<boardgameversion objectid="136158">Kosmos Allianz edition</boardgameversion>
 		<boardgamefamily objectid="11505">Promotional: Board Games</boardgamefamily>
@@ -545,65 +545,65 @@
 		<poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="9">
 
 			<results numplayers="1">
-				<result value="Best" numvotes="0" />
-				<result value="Recommended" numvotes="0" />
-				<result value="Not Recommended" numvotes="4" />
+				<result numvotes="0" value="Best"/>
+				<result numvotes="0" value="Recommended"/>
+				<result numvotes="4" value="Not Recommended"/>
 			</results>
 
 			<results numplayers="2">
-				<result value="Best" numvotes="1" />
-				<result value="Recommended" numvotes="3" />
-				<result value="Not Recommended" numvotes="2" />
+				<result numvotes="1" value="Best"/>
+				<result numvotes="3" value="Recommended"/>
+				<result numvotes="2" value="Not Recommended"/>
 			</results>
 
 			<results numplayers="3">
-				<result value="Best" numvotes="6" />
-				<result value="Recommended" numvotes="2" />
-				<result value="Not Recommended" numvotes="0" />
+				<result numvotes="6" value="Best"/>
+				<result numvotes="2" value="Recommended"/>
+				<result numvotes="0" value="Not Recommended"/>
 			</results>
 
 			<results numplayers="4">
-				<result value="Best" numvotes="4" />
-				<result value="Recommended" numvotes="4" />
-				<result value="Not Recommended" numvotes="0" />
+				<result numvotes="4" value="Best"/>
+				<result numvotes="4" value="Recommended"/>
+				<result numvotes="0" value="Not Recommended"/>
 			</results>
 
 			<results numplayers="4+">
-				<result value="Best" numvotes="0" />
-				<result value="Recommended" numvotes="0" />
-				<result value="Not Recommended" numvotes="3" />
+				<result numvotes="0" value="Best"/>
+				<result numvotes="0" value="Recommended"/>
+				<result numvotes="3" value="Not Recommended"/>
 			</results>
 		</poll>
-		<poll-summary name="suggested_numplayers"  title="User Suggested Number of Players">
-			<result name="bestwith" value="Best with 3 players" />
-			<result name="recommmendedwith" value="Recommended with 2–4 players" />
+		<poll-summary name="suggested_numplayers" title="User Suggested Number of Players">
+			<result name="bestwith" value="Best with 3 players"/>
+			<result name="recommmendedwith" value="Recommended with 2–4 players"/>
 		</poll-summary>
 
 		<poll name="language_dependence" title="Language Dependence" totalvotes="3">
 
 			<results>
-				<result level="1" value="No necessary in-game text" numvotes="3" />
-				<result level="2" value="Some necessary text - easily memorized or small crib sheet" numvotes="0" />
-				<result level="3" value="Moderate in-game text - needs crib sheet or paste ups" numvotes="0" />
-				<result level="4" value="Extensive use of text - massive conversion needed to be playable" numvotes="0" />
-				<result level="5" value="Unplayable in another language" numvotes="0" />
+				<result level="1" numvotes="3" value="No necessary in-game text"/>
+				<result level="2" numvotes="0" value="Some necessary text - easily memorized or small crib sheet"/>
+				<result level="3" numvotes="0" value="Moderate in-game text - needs crib sheet or paste ups"/>
+				<result level="4" numvotes="0" value="Extensive use of text - massive conversion needed to be playable"/>
+				<result level="5" numvotes="0" value="Unplayable in another language"/>
 			</results>
 		</poll>
 
 		<poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="3">
 			<results>
-				<result value="2" numvotes="0" />
-				<result value="3" numvotes="0" />
-				<result value="4" numvotes="0" />
-				<result value="5" numvotes="0" />
-				<result value="6" numvotes="0" />
-				<result value="8" numvotes="0" />
-				<result value="10" numvotes="0" />
-				<result value="12" numvotes="2" />
-				<result value="14" numvotes="1" />
-				<result value="16" numvotes="0" />
-				<result value="18" numvotes="0" />
-				<result value="21 and up" numvotes="0" />
+				<result numvotes="0" value="2"/>
+				<result numvotes="0" value="3"/>
+				<result numvotes="0" value="4"/>
+				<result numvotes="0" value="5"/>
+				<result numvotes="0" value="6"/>
+				<result numvotes="0" value="8"/>
+				<result numvotes="0" value="10"/>
+				<result numvotes="2" value="12"/>
+				<result numvotes="1" value="14"/>
+				<result numvotes="0" value="16"/>
+				<result numvotes="0" value="18"/>
+				<result numvotes="0" value="21 and up"/>
 			</results>
 		</poll>
 
@@ -624,18 +624,18 @@
 		<age>12</age>
 
 		<name primary="true" sortindex="1">Acquire</name>
-		<name  sortindex="1">Acquire: 60th Anniversary Edition</name>
-		<name  sortindex="1">Cartel</name>
-		<name  sortindex="1">Grand Hôtel</name>
-		<name  sortindex="1">Hotel-Haie</name>
-		<name  sortindex="1">Hotel-König</name>
-		<name  sortindex="1">Investor</name>
-		<name  sortindex="1">Trust</name>
-		<name  sortindex="1">アクワイア</name>
-		<name  sortindex="1">併購風雲</name>
-		<name  sortindex="1">并购</name>
-		<name  sortindex="1">并购风云：60周年纪念版</name>
-		<name  sortindex="1">어콰이어</name>
+		<name sortindex="1">Acquire: 60th Anniversary Edition</name>
+		<name sortindex="1">Cartel</name>
+		<name sortindex="1">Grand Hôtel</name>
+		<name sortindex="1">Hotel-Haie</name>
+		<name sortindex="1">Hotel-König</name>
+		<name sortindex="1">Investor</name>
+		<name sortindex="1">Trust</name>
+		<name sortindex="1">アクワイア</name>
+		<name sortindex="1">併購風雲</name>
+		<name sortindex="1">并购</name>
+		<name sortindex="1">并购风云：60周年纪念版</name>
+		<name sortindex="1">어콰이어</name>
 
 		<description>
 			In Acquire, each player strategically invests in businesses, trying to retain a majority of stock.  As the businesses grow with tile placements, they also start merging, giving the majority stockholders of the acquired business sizable bonuses, which can then be used to reinvest into other chains.  All of the investors in the acquired company can then cash in their stocks for current value or trade them 2-for-1 for shares of the newer, larger business.  The game is a race to acquire the greatest wealth.
@@ -757,7 +757,7 @@
 		<boardgamemechanic objectid="2900">Market</boardgamemechanic>
 		<boardgamefamily objectid="109134">Misc: BGG Hall of Fame</boardgamefamily>
 		<boardgamefamily objectid="105030">Misc: Dice Tower Hall of Fame</boardgamefamily>
-		<boardgameartist objectid="132062">Scott O&#039;Gara</boardgameartist>
+		<boardgameartist objectid="132062">Scott O'Gara</boardgameartist>
 		<boardgamepodcastepisode objectid="76790">OBG 78: The Summerer of Games</boardgamepodcastepisode>
 		<boardgameartist objectid="12658">Scott Okumura</boardgameartist>
 		<boardgameartist objectid="96753">Anita Osburn</boardgameartist>
@@ -798,77 +798,77 @@
 		<poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="384">
 
 			<results numplayers="1">
-				<result value="Best" numvotes="0" />
-				<result value="Recommended" numvotes="0" />
-				<result value="Not Recommended" numvotes="228" />
+				<result numvotes="0" value="Best"/>
+				<result numvotes="0" value="Recommended"/>
+				<result numvotes="228" value="Not Recommended"/>
 			</results>
 
 			<results numplayers="2">
-				<result value="Best" numvotes="4" />
-				<result value="Recommended" numvotes="49" />
-				<result value="Not Recommended" numvotes="222" />
+				<result numvotes="4" value="Best"/>
+				<result numvotes="49" value="Recommended"/>
+				<result numvotes="222" value="Not Recommended"/>
 			</results>
 
 			<results numplayers="3">
-				<result value="Best" numvotes="80" />
-				<result value="Recommended" numvotes="188" />
-				<result value="Not Recommended" numvotes="49" />
+				<result numvotes="80" value="Best"/>
+				<result numvotes="188" value="Recommended"/>
+				<result numvotes="49" value="Not Recommended"/>
 			</results>
 
 			<results numplayers="4">
-				<result value="Best" numvotes="255" />
-				<result value="Recommended" numvotes="98" />
-				<result value="Not Recommended" numvotes="3" />
+				<result numvotes="255" value="Best"/>
+				<result numvotes="98" value="Recommended"/>
+				<result numvotes="3" value="Not Recommended"/>
 			</results>
 
 			<results numplayers="5">
-				<result value="Best" numvotes="97" />
-				<result value="Recommended" numvotes="177" />
-				<result value="Not Recommended" numvotes="36" />
+				<result numvotes="97" value="Best"/>
+				<result numvotes="177" value="Recommended"/>
+				<result numvotes="36" value="Not Recommended"/>
 			</results>
 
 			<results numplayers="6">
-				<result value="Best" numvotes="38" />
-				<result value="Recommended" numvotes="133" />
-				<result value="Not Recommended" numvotes="110" />
+				<result numvotes="38" value="Best"/>
+				<result numvotes="133" value="Recommended"/>
+				<result numvotes="110" value="Not Recommended"/>
 			</results>
 
 			<results numplayers="6+">
-				<result value="Best" numvotes="1" />
-				<result value="Recommended" numvotes="5" />
-				<result value="Not Recommended" numvotes="185" />
+				<result numvotes="1" value="Best"/>
+				<result numvotes="5" value="Recommended"/>
+				<result numvotes="185" value="Not Recommended"/>
 			</results>
 		</poll>
-		<poll-summary name="suggested_numplayers"  title="User Suggested Number of Players">
-			<result name="bestwith" value="Best with 4 players" />
-			<result name="recommmendedwith" value="Recommended with 3–6 players" />
+		<poll-summary name="suggested_numplayers" title="User Suggested Number of Players">
+			<result name="bestwith" value="Best with 4 players"/>
+			<result name="recommmendedwith" value="Recommended with 3–6 players"/>
 		</poll-summary>
 
 		<poll name="language_dependence" title="Language Dependence" totalvotes="91">
 
 			<results>
-				<result level="1" value="No necessary in-game text" numvotes="77" />
-				<result level="2" value="Some necessary text - easily memorized or small crib sheet" numvotes="13" />
-				<result level="3" value="Moderate in-game text - needs crib sheet or paste ups" numvotes="1" />
-				<result level="4" value="Extensive use of text - massive conversion needed to be playable" numvotes="0" />
-				<result level="5" value="Unplayable in another language" numvotes="0" />
+				<result level="1" numvotes="77" value="No necessary in-game text"/>
+				<result level="2" numvotes="13" value="Some necessary text - easily memorized or small crib sheet"/>
+				<result level="3" numvotes="1" value="Moderate in-game text - needs crib sheet or paste ups"/>
+				<result level="4" numvotes="0" value="Extensive use of text - massive conversion needed to be playable"/>
+				<result level="5" numvotes="0" value="Unplayable in another language"/>
 			</results>
 		</poll>
 
 		<poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="88">
 			<results>
-				<result value="2" numvotes="0" />
-				<result value="3" numvotes="0" />
-				<result value="4" numvotes="0" />
-				<result value="5" numvotes="0" />
-				<result value="6" numvotes="0" />
-				<result value="8" numvotes="7" />
-				<result value="10" numvotes="30" />
-				<result value="12" numvotes="38" />
-				<result value="14" numvotes="12" />
-				<result value="16" numvotes="1" />
-				<result value="18" numvotes="0" />
-				<result value="21 and up" numvotes="0" />
+				<result numvotes="0" value="2"/>
+				<result numvotes="0" value="3"/>
+				<result numvotes="0" value="4"/>
+				<result numvotes="0" value="5"/>
+				<result numvotes="0" value="6"/>
+				<result numvotes="7" value="8"/>
+				<result numvotes="30" value="10"/>
+				<result numvotes="38" value="12"/>
+				<result numvotes="12" value="14"/>
+				<result numvotes="1" value="16"/>
+				<result numvotes="0" value="18"/>
+				<result numvotes="0" value="21 and up"/>
 			</results>
 		</poll>
 
@@ -879,4 +879,506 @@
 
 	</boardgame>
 
-</boardgames>
+<boardgames termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+			<boardgame objectid="10">
+   <yearpublished>1998</yearpublished>
+   <minplayers>2</minplayers>
+   <maxplayers>6</maxplayers>
+   <playingtime>60</playingtime>
+   <minplaytime>60</minplaytime>
+   <maxplaytime>60</maxplaytime>
+   <age>10</age>
+
+   	   <name primary="true" sortindex="1">Elfenland</name>
+   	   <name sortindex="1">Elfenland (Волшебное Путешествие)</name>
+   	   <name sortindex="1">精灵国度</name>
+   
+   <description>Elfenland is a redesign of the original White Wind game Elfenroads.  The game is set in the mythical world of the elves.  A group of fledgling elves (the players) are charged with visiting as many of the twenty Elfencities as they can over the course of 4 rounds.  To accomplish the task they will use various forms of transportation such as Giant Pigs, Elfcarts, Unicorns, Rafts, Magic Clouds, Trollwagons, and Dragons.
+
+Gameplay:  Players begin in the Elf capitol, draw one face down movement tile, and are dealt eight transport cards and a secret 'home' city card that they must reach at the end of the 4th round or lose points for each city space away from 'home' they are at the end of the game. Markers of each player's color are placed in each city on the board and are collected when the player visits that city (each counts as 1 point).
+  
+     The round proceeds in 2 stages.  The first part of the round consists of the drawing of Tiles showing the differing types of transport (except rafts) from a combination of face up and face down tiles (if a player doesn't like the 5 tiles that are face up; they can always draw blind from the face down tiles and hope to get one they need).  These transport tiles need to match the Transportation cards in your hand to use them most effectively.  After each player has a total of 4 tiles they take turns placing a tile on any one of the roads that run between the elf cities.  Only one transport tile may be placed on each road; so players may use other players tiles to travel if they have the matching cards in their hand.  This frequently causes a readjustment of planned travel routes as other players tiles can allow you to move farther or shorter than you had first thought.  Players can play their tiles to help themselves or hinder others by playing a slow mode of transport on another players (perceived) path.
+
+Each mode of transport has certain terrain it can travel through quickly or slowly, and those that it cannot. These are listed on the top of each transportation card by the number terrain symbols.  The number of terrain symbols equals how many matching cards you must play to move across a given tile in a given terrain.  For example, a Magic Cloud tile placed in a mountain would take one Magic cloud card to travel across (1 mountain symbol on card means Magic clouds are fast in mountains). If the same tile was placed on a road in forest terrain it would require 2 Magic Cloud cards to travel that route (2 Forest symbols on card means Magic Clouds are slow in Forest).  Magic Clouds cannot travel in desert terrain at all (no desert symbols on card). All modes of transport are different and Rafts can be used on rivers or lakes without needing tiles. Rafts go slow upstream (2 raft cards needed) and fast downstream (1 card needed).  The small lake requires 1 raft card to travel across and the larger lake requires 2 cards to travel across.  Players may keep one unused transport counter and up to 4 Transportation cards from one round to the next.
+
+The second part of the round begins after all players have finished placing their transportation tiles for the round.  Each player plays his cards and moves his elf-boot around the board collecting his tokens from the cities visited.  If there is a Transport tile on a route and a player has no matching Transportation card he may 'Caravan' across it by playing any 3 Transportation cards from his hand.
+
+As a bit of 'take that' each player has a trouble tile which can be placed next to any transportation tile during the first part of the round.  This counter means that in order to travel that path an additional card of the transport type must be played or 4 cards to 'Caravan'.
+
+Victory: if at the end of round 3 a player has visited all 20 cities he is the winner.  If not the game ends after round 4 when 'Home' cities are revealed and each player subtracts points for each city he is away from his 'home' subtracting that from his collected city tokens.  The person with the highest score wins.
+
+</description>
+
+   	   <thumbnail>https://cf.geekdo-images.com/Ea4jN5Ko5bPrXrU_AYhhzg__small/img/f4FrKXF0HKlPS2jH1AW4_-7Hek8=/fit-in/200x150/filters:strip_icc()/pic1798136.jpg</thumbnail>
+	   <image>https://cf.geekdo-images.com/Ea4jN5Ko5bPrXrU_AYhhzg__original/img/DEi0SFU6mAMZYycGTEJAV4ZBRVw=/0x0/filters:format(jpeg)/pic1798136.jpg</image>
+   
+   	   		   <boardgamepublisher objectid="8">AMIGO</boardgamepublisher>
+      	   		   <cardset objectid="86373"/>
+      	   		   <boardgamehonor objectid="19883">1998  Deutscher Spiele Preis Best Family/Adult Game 3rd Place</boardgamehonor>
+      	   		   <boardgamehonor objectid="107545">1998 Meeples Choice Award Nominee</boardgamehonor>
+      	   		   <boardgamehonor objectid="13414">1998 Meeples Choice Award Winner</boardgamehonor>
+      	   		   <boardgamehonor objectid="8672">1998 Spiel des Jahres Winner</boardgamehonor>
+      	   		   <boardgamehonor objectid="26391">2014 Hungarian Board Game Award Nominee</boardgamehonor>
+      	   		   <boardgamepublisher objectid="267">999 Games</boardgamepublisher>
+      	      	   		   <boardgamepublisher objectid="4304">Albi</boardgamepublisher>
+      	   		   <boardgamefamily objectid="110270">Animals: Wild boar</boardgamefamily>
+      	      	   		   <boardgamepodcastepisode objectid="92980">BGTG 131 - 100 Great Games, part 1 (with Stephen Glenn &amp;amp; Mark Jackson)</boardgamepodcastepisode>
+      	   		   <boardgameexpansion objectid="256951">Brettspiel Adventskalender 2018</boardgameexpansion>
+      	   		   <boardgamepodcastepisode objectid="380664">Cardboard Time Episode 7: Downforce, Elfenland, Caylus, Saying Goodbye to Your Old Games</boardgamepodcastepisode>
+      	      	   		   <boardgamepublisher objectid="6818">Corfix</boardgamepublisher>
+      	   		   <boardgamefamily objectid="7005">Creatures: Dragons</boardgamefamily>
+      	   		   <boardgamefamily objectid="19299">Creatures: Fairies / Elves / Pixies</boardgamefamily>
+      	   		   <boardgamefamily objectid="68281">Creatures: Trolls</boardgamefamily>
+      	   		   <boardgamefamily objectid="42078">Creatures: Unicorns</boardgamefamily>
+      	   		   <boardgamepodcastepisode objectid="85912">Cubepushers - Episode 4: Let the Nerd-Rage Flow</boardgamepodcastepisode>
+      	   		   <boardgameversion objectid="564005">Czech edition</boardgameversion>
+      	      	      	   		   <boardgamefamily objectid="70360">Digital Implementations: Board Game Arena</boardgamefamily>
+      	   		   <boardgamepodcastepisode objectid="99106">Durchgespielt – Spiel des Jahres 1998: Elfenland</boardgamepodcastepisode>
+      	   		   <boardgameversion objectid="24585">Dutch edition</boardgameversion>
+      	      	      	      	      	      	      	      	      	      	      	   		   <boardgameexpansion objectid="158">Elfengold</boardgameexpansion>
+      	      	      	      	      	      	      	      	      	   		   <boardgameexpansion objectid="147542">Elfenland: Back to the Roads</boardgameexpansion>
+      	   		   <boardgameexpansion objectid="122213">Elfenland: Der Elfen-Zauberer</boardgameexpansion>
+      	   		   <boardgameexpansion objectid="264237">Elfenland: Favor of the Towns</boardgameexpansion>
+      	   		   <boardgameimplementation objectid="180325">Elfenroads</boardgameimplementation>
+      	   		   <boardgameversion objectid="23895">English edition</boardgameversion>
+      	      	      	      	      	   		   <boardgameversion objectid="213604">English/German edition</boardgameversion>
+      	   		   <boardgamepodcastepisode objectid="252168">Ep 070 &amp;ndash; 3rd Anniversary Special &amp;amp; Tournament to the Death!!!</boardgamepodcastepisode>
+      	   		   <boardgamepodcastepisode objectid="129478">ET80: La Revolución mas corta, y rápida, jamás contada</boardgamepodcastepisode>
+      	   		   <boardgamesubdomain objectid="5499">Family Games</boardgamesubdomain>
+      	   		   <boardgamecategory objectid="1010">Fantasy</boardgamecategory>
+      	      	      	      	   		   <boardgamefamily objectid="34380">Game: Elfenroads</boardgamefamily>
+      	      	   		   <boardgameversion objectid="760854">German edition 1998 with SdJ candidate logo</boardgameversion>
+      	   		   <boardgameversion objectid="25193">German first edition</boardgameversion>
+      	      	      	      	      	      	      	      	      	      	      	      	      	      	      	   		   <boardgameversion objectid="24185">German second edition</boardgameversion>
+      	      	   		   <boardgamemechanic objectid="2040">Hand Management</boardgamemechanic>
+      	   		   <boardgamepublisher objectid="18852">Hobby World</boardgamepublisher>
+      	      	      	      	   		   <boardgameimplementation objectid="229">King of the Elves</boardgameimplementation>
+      	      	   		   <boardgameartist objectid="74">Doris Matthäus</boardgameartist>
+      	   		   <boardgamepublisher objectid="3395">Midgaard Games</boardgamepublisher>
+      	   		   <boardgamedesigner objectid="9">Alan R. Moon</boardgamedesigner>
+      	   		   <boardgameartist objectid="9">Alan R. Moon</boardgameartist>
+      	   		   <boardgameversion objectid="24388">Multilingual edition 2008</boardgameversion>
+      	   		   <boardgameversion objectid="72206">Multilingual edition 2009</boardgameversion>
+      	   		   <boardgameversion objectid="459712">Multilingual edition 2018</boardgameversion>
+      	   		   <boardgamemechanic objectid="2081">Network and Route Building</boardgamemechanic>
+      	      	   		   <boardgamemechanic objectid="2041">Open Drafting</boardgamemechanic>
+      	   		   <boardgamemechanic objectid="2078">Point to Point Movement</boardgamemechanic>
+      	   		   <boardgamemechanic objectid="2953">Programmed Movement</boardgamemechanic>
+      	      	      	      	   		   <boardgamepublisher objectid="3">Rio Grande Games</boardgamepublisher>
+      	   		   <boardgamepodcastepisode objectid="353761">Round 7, Turn 5: "Elfenland" with Jake and Dmitry</boardgamepodcastepisode>
+      	      	      	   		   <boardgameversion objectid="251848">Russian edition</boardgameversion>
+      	      	   		   <boardgameversion objectid="30565">Scandinavian edition</boardgameversion>
+      	   		   <boardgameexpansion objectid="225880">Stadt Land Spielt Limitierte Sonderdrucke 2013</boardgameexpansion>
+      	   		   <boardgamepodcastepisode objectid="188997">The Game Pit: Episode 68 - Picking Over the Bones</boardgamepodcastepisode>
+      	   		   <boardgamecategory objectid="1097">Travel</boardgamecategory>
+      	   		   <boardgamemechanic objectid="2828">Turn Order: Progressive</boardgamemechanic>
+      	      	   		   <boardgameimplementation inbound="true" objectid="711">Elfenroads</boardgameimplementation>
+      
+   <poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="122">
+			
+		<results numplayers="1">		
+					<result numvotes="0" value="Best"/>
+					<result numvotes="0" value="Recommended"/>
+					<result numvotes="77" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="2">		
+					<result numvotes="2" value="Best"/>
+					<result numvotes="26" value="Recommended"/>
+					<result numvotes="66" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="3">		
+					<result numvotes="15" value="Best"/>
+					<result numvotes="55" value="Recommended"/>
+					<result numvotes="22" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="4">		
+					<result numvotes="63" value="Best"/>
+					<result numvotes="42" value="Recommended"/>
+					<result numvotes="2" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="5">		
+					<result numvotes="46" value="Best"/>
+					<result numvotes="52" value="Recommended"/>
+					<result numvotes="4" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="6">		
+					<result numvotes="26" value="Best"/>
+					<result numvotes="58" value="Recommended"/>
+					<result numvotes="19" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="6+">		
+					<result numvotes="0" value="Best"/>
+					<result numvotes="2" value="Recommended"/>
+					<result numvotes="59" value="Not Recommended"/>
+				</results>					
+	</poll>
+<poll-summary name="suggested_numplayers" title="User Suggested Number of Players">
+  <result name="bestwith" value="Best with 4 players"/>
+  <result name="recommmendedwith" value="Recommended with 3–6 players"/>
+</poll-summary>
+
+   <poll name="language_dependence" title="Language Dependence" totalvotes="34">
+			
+		<results>		
+					<result level="1" numvotes="34" value="No necessary in-game text"/>
+					<result level="2" numvotes="0" value="Some necessary text - easily memorized or small crib sheet"/>
+					<result level="3" numvotes="0" value="Moderate in-game text - needs crib sheet or paste ups"/>
+					<result level="4" numvotes="0" value="Extensive use of text - massive conversion needed to be playable"/>
+					<result level="5" numvotes="0" value="Unplayable in another language"/>
+				</results>					
+	</poll>
+
+   <poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="41">
+			<results>		
+					<result numvotes="0" value="2"/>
+					<result numvotes="0" value="3"/>
+					<result numvotes="0" value="4"/>
+					<result numvotes="1" value="5"/>
+					<result numvotes="7" value="6"/>
+					<result numvotes="21" value="8"/>
+					<result numvotes="12" value="10"/>
+					<result numvotes="0" value="12"/>
+					<result numvotes="0" value="14"/>
+					<result numvotes="0" value="16"/>
+					<result numvotes="0" value="18"/>
+					<result numvotes="0" value="21 and up"/>
+				</results>					
+	</poll>
+
+
+   
+
+   
+
+</boardgame>
+
+</boardgames><boardgames termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+			<boardgame objectid="257">
+   <yearpublished>1996</yearpublished>
+   <minplayers>3</minplayers>
+   <maxplayers>8</maxplayers>
+   <playingtime>45</playingtime>
+   <minplaytime>45</minplaytime>
+   <maxplaytime>45</maxplaytime>
+   <age>12</age>
+
+   	   <name primary="true" sortindex="1">Kill Doctor Lucky</name>
+   	   <name sortindex="1">Kill Doctor Lucky: Director's Cut</name>
+   	   <name sortindex="1">Kill Doktor Lucky</name>
+   	   <name sortindex="1">特選ゲーム　Dr.ラッキーを殺せ</name>
+   
+   <description>In this notorious game, an inversion of Clue, you hate Doctor Lucky. Maybe he left you out of his will. Maybe he killed your pet rock. Whatever the reason, you want him dead. Unfortunately, so do the other players. Since you don't want to go to jail, you need to make your attempt in secret; if anybody can see you, whistle nonchalantly, and let the Doctor live ... until next time.
+
+Players move around the mansion, collecting murder weapons (to make the murder attempt stronger - doubly so if the weapon is used in an appropriate location); failure cards (to thwart opponents' plans); and movement cards (to try to get together with Doctor Lucky in a secluded location for his inevitable demise). Players try to convince others to use up their failure cards first, the better for when their own attempts come.
+
+</description>
+
+   	   <thumbnail>https://cf.geekdo-images.com/HzSvdAtAiktVmdTfDEIayA__small/img/fIMPwA6ZEVr9bSf7QFrsezXjafg=/fit-in/200x150/filters:strip_icc()/pic2923257.jpg</thumbnail>
+	   <image>https://cf.geekdo-images.com/HzSvdAtAiktVmdTfDEIayA__original/img/hdvDZLMGdx5EDOQFlKj8GcZkTp8=/0x0/filters:format(jpeg)/pic2923257.jpg</image>
+   
+   	   		   <boardgamepublisher objectid="12">Cheapass Games</boardgamepublisher>
+      	      	   		   <boardgamepodcastepisode objectid="93306">+1 Downtime, December 2012: Games I don't want for Christmas</boardgamepodcastepisode>
+      	   		   <boardgamehonor objectid="107543">1996 Meeples Choice Award Nominee</boardgamehonor>
+      	   		   <boardgamehonor objectid="13009">1997 Origins Awards Best Abstract Board Game Winner</boardgamehonor>
+      	   		   <boardgameartist objectid="148568">BJ Becker</boardgameartist>
+      	      	   		   <boardgameversion objectid="28629">Cheapass boxed edition, sixth printing</boardgameversion>
+      	   		   <boardgameversion objectid="342532">Cheapass English 19.5th Anniversary edition</boardgameversion>
+      	   		   <boardgameversion objectid="302015">Cheapass English/German 19.5th Anniversary edition</boardgameversion>
+      	   		   <boardgameversion objectid="24741">Cheapass envelope edition, first printing</boardgameversion>
+      	   		   <boardgameversion objectid="261344">Cheapass envelope edition, fourth printing</boardgameversion>
+      	   		   <boardgameversion objectid="520364">Cheapass envelope edition, second printing</boardgameversion>
+      	   		   <cardset objectid="88955">Cheapass Games 19.5th Anniversary English/German ed</cardset>
+      	      	   		   <boardgameversion objectid="133486">Cheapass print &amp; play edition 2011</boardgameversion>
+      	   		   <boardgameversion objectid="24760">Cheapass special edition, eighth printing</boardgameversion>
+      	   		   <boardgamepublisher objectid="24504">cosaic</boardgamepublisher>
+      	   		   <boardgamepodcastepisode objectid="164014">Cult of the New Board Game Podcast 004 – Essen 2015 Diary!</boardgamepodcastepisode>
+      	      	   		   <boardgameversion objectid="575306">Deluxe 24 and 3/4th Anniversary Edition</boardgameversion>
+      	      	   		   <boardgamefamily objectid="73596">Digital Implementations: TableTop Simulator Mod (TTS)</boardgamefamily>
+      	   		   <boardgameexpansion objectid="21818">The Doctor Lucky Ambivalence Pack</boardgameexpansion>
+      	      	   		   <boardgamepodcastepisode objectid="164281">Dukes of Dice - Ep. 63 - The Space Between</boardgamepodcastepisode>
+      	      	      	      	   		   <boardgamepodcastepisode objectid="388295">Episode 127 - Savor the Flavor</boardgamepodcastepisode>
+      	   		   <boardgamepodcastepisode objectid="164166">Episode 20: TatterCon 2015!</boardgamepodcastepisode>
+      	   		   <boardgamepodcastepisode objectid="15860">Episode 23: Kill Doctor Lucky</boardgamepodcastepisode>
+      	   		   <boardgamedesigner objectid="61">James Ernest</boardgamedesigner>
+      	   		   <boardgameartist objectid="61">James Ernest</boardgameartist>
+      	   		   <boardgameartist objectid="79325">Israel Evans</boardgameartist>
+      	   		   <boardgamesubdomain objectid="5499">Family Games</boardgamesubdomain>
+      	   		   <boardgamefamily objectid="11404">Game: Doctor Lucky</boardgamefamily>
+      	   		   <boardgamepodcastepisode objectid="10857">GameBreak Audio: Episode #001</boardgamepodcastepisode>
+      	   		   <boardgamepodcastepisode objectid="21704">GameBreak: Episode #001</boardgamepodcastepisode>
+      	      	   		   <boardgamepodcastepisode objectid="157336">GenCon 2015 - James Ernest</boardgamepodcastepisode>
+      	      	      	      	      	      	   		   <boardgameimplementation objectid="120447">Get Lucky</boardgameimplementation>
+      	      	   		   <boardgamepublisher objectid="5530">Giochi Uniti</boardgamepublisher>
+      	   		   <boardgamepublisher objectid="17543">Greater Than Games, LLC</boardgamepublisher>
+      	   		   <boardgamemechanic objectid="2040">Hand Management</boardgamemechanic>
+      	   		   <boardgamecategory objectid="1079">Humor</boardgamecategory>
+      	      	   		   <boardgameimplementation objectid="250963">The Island of Doctor Lucky</boardgameimplementation>
+      	      	   		   <boardgameversion objectid="403823">Italian 19.5th anniversary edition</boardgameversion>
+      	   		   <boardgameversion objectid="374997">Japanese 19.5th Anniversary edition</boardgameversion>
+      	      	   		   <boardgamepodcastepisode objectid="297145">Kill Doctor Lucky | 18Lilliput | The Perfect 10</boardgamepodcastepisode>
+      	      	      	   		   <boardgameaccessory objectid="253395">Kill Doctor Lucky: Character Meeples</boardgameaccessory>
+      	   		   <boardgameexpansion objectid="2204">Kill Doctor Lucky: Craigdarroch</boardgameexpansion>
+      	      	   		   <boardgameexpansion objectid="233067">Kill Doctor Lucky: Doctor Lucky's Mansion That is Haunted</boardgameexpansion>
+      	   		   <boardgameexpansion objectid="214745">Kill Doctor Lucky: Ebenezer Lucky Promo Card</boardgameexpansion>
+      	      	   		   <boardgameexpansion objectid="201927">Kill Doctor Lucky: The Secret Lair of Doctor Lucky</boardgameexpansion>
+      	   		   <boardgameexpansion objectid="29492">Kill Doctor Lucky... and His Little Dog, Too!</boardgameexpansion>
+      	      	   		   <boardgamemechanic objectid="2975">Line of Sight</boardgamemechanic>
+      	   		   <boardgamepodcastepisode objectid="116605">Ludology Episode 78 - Here We Are Now, Entertain Us</boardgamepodcastepisode>
+      	   		   <boardgameversion objectid="38676">Mario Truant Verlag black edition 2000</boardgameversion>
+      	   		   <boardgameversion objectid="31891">Mario Truant Verlag blue edition 2000</boardgameversion>
+      	   		   <boardgameversion objectid="309698">Mario Truant Verlag grey blue edition 2003</boardgameversion>
+      	   		   <boardgamefamily objectid="105030">Misc: Dice Tower Hall of Fame</boardgamefamily>
+      	   		   <boardgamepodcastepisode objectid="164234">MOBG 40 7th Scythe 24-10-15</boardgamepodcastepisode>
+      	   		   <boardgamecategory objectid="1040">Murder / Mystery</boardgamecategory>
+      	   		   <boardgamepodcastepisode objectid="2394">NvP 2x05 - Kill Doctor Lucky with James Ernest</boardgamepodcastepisode>
+      	      	   		   <boardgamemechanic objectid="2041">Open Drafting</boardgamemechanic>
+      	   		   <boardgameversion objectid="25635">Paizo edition 2009 with dog</boardgameversion>
+      	   		   <boardgamepublisher objectid="4238">Paizo Publishing</boardgamepublisher>
+      	   		   <cardset objectid="88954">Paizo Publishing English ed (2009)</cardset>
+      	   		   <boardgameversion objectid="599644">Pegasus German edition</boardgameversion>
+      	   		   <boardgamepublisher objectid="39">Pegasus Spiele</boardgamepublisher>
+      	   		   <boardgamemechanic objectid="2078">Point to Point Movement</boardgamemechanic>
+      	      	      	      	      	      	      	      	      	      	      	      	      	      	   		   <boardgameartist objectid="16872">James Ryman</boardgameartist>
+      	   		   <boardgamepodcastepisode objectid="9283">Show #6.5 Session Report: Dungeon Quest and TempleCon 2010</boardgamepodcastepisode>
+      	      	   		   <boardgamefamily objectid="14661">Theme: Mystery / Crime</boardgamefamily>
+      	   		   <boardgamepublisher objectid="4713">Titanic Games</boardgamepublisher>
+      	   		   <boardgameversion objectid="24788">Titanic Games edition 2006</boardgameversion>
+      	   		   <boardgameversion objectid="321881">Truant German 19.5th anniversary edition</boardgameversion>
+      	   		   <boardgamepublisher objectid="89">Truant Spiele</boardgamepublisher>
+      	   		   <cardset objectid="88953">Unknown ed</cardset>
+      	      	      
+   <poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="83">
+			
+		<results numplayers="1">		
+					<result numvotes="0" value="Best"/>
+					<result numvotes="0" value="Recommended"/>
+					<result numvotes="49" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="2">		
+					<result numvotes="0" value="Best"/>
+					<result numvotes="5" value="Recommended"/>
+					<result numvotes="48" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="3">		
+					<result numvotes="4" value="Best"/>
+					<result numvotes="36" value="Recommended"/>
+					<result numvotes="20" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="4">		
+					<result numvotes="30" value="Best"/>
+					<result numvotes="35" value="Recommended"/>
+					<result numvotes="2" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="5">		
+					<result numvotes="38" value="Best"/>
+					<result numvotes="27" value="Recommended"/>
+					<result numvotes="4" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="6">		
+					<result numvotes="24" value="Best"/>
+					<result numvotes="29" value="Recommended"/>
+					<result numvotes="11" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="7">		
+					<result numvotes="3" value="Best"/>
+					<result numvotes="22" value="Recommended"/>
+					<result numvotes="35" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="8">		
+					<result numvotes="1" value="Best"/>
+					<result numvotes="11" value="Recommended"/>
+					<result numvotes="36" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="8+">		
+					<result numvotes="0" value="Best"/>
+					<result numvotes="0" value="Recommended"/>
+					<result numvotes="20" value="Not Recommended"/>
+				</results>					
+	</poll>
+<poll-summary name="suggested_numplayers" title="User Suggested Number of Players">
+  <result name="bestwith" value="Best with 5 players"/>
+  <result name="recommmendedwith" value="Recommended with 3–6 players"/>
+</poll-summary>
+
+   <poll name="language_dependence" title="Language Dependence" totalvotes="15">
+			
+		<results>		
+					<result level="1" numvotes="0" value="No necessary in-game text"/>
+					<result level="2" numvotes="13" value="Some necessary text - easily memorized or small crib sheet"/>
+					<result level="3" numvotes="2" value="Moderate in-game text - needs crib sheet or paste ups"/>
+					<result level="4" numvotes="0" value="Extensive use of text - massive conversion needed to be playable"/>
+					<result level="5" numvotes="0" value="Unplayable in another language"/>
+				</results>					
+	</poll>
+
+   <poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="17">
+			<results>		
+					<result numvotes="0" value="2"/>
+					<result numvotes="0" value="3"/>
+					<result numvotes="0" value="4"/>
+					<result numvotes="0" value="5"/>
+					<result numvotes="0" value="6"/>
+					<result numvotes="5" value="8"/>
+					<result numvotes="10" value="10"/>
+					<result numvotes="1" value="12"/>
+					<result numvotes="1" value="14"/>
+					<result numvotes="0" value="16"/>
+					<result numvotes="0" value="18"/>
+					<result numvotes="0" value="21 and up"/>
+				</results>					
+	</poll>
+
+
+   
+
+   
+
+</boardgame>
+
+</boardgames><boardgames termsofuse="https://boardgamegeek.com/xmlapi/termsofuse">
+			<boardgame objectid="25">
+   <yearpublished>1998</yearpublished>
+   <minplayers>2</minplayers>
+   <maxplayers>6</maxplayers>
+   <playingtime>200</playingtime>
+   <minplaytime>200</minplaytime>
+   <maxplaytime>200</maxplaytime>
+   <age>12</age>
+
+   	   <name primary="true" sortindex="1">Battlemist</name>
+   
+   <description>In this fantasy relative to Twilight Imperium, players control races that must juggle military and economic concerns with a quest to gather the magical stars spread across the land.  The game board is made up of hex tiles and players use a resource system that has similarities to The Settlers of Catan.  A card driven system resolves players' quests.
+
+Expanded by:
+
+    Battlemist: The Sails of War
+
+
+Reimplemented by:
+
+    Runewars
+
+
+</description>
+
+   	   <thumbnail>https://cf.geekdo-images.com/2ouk0jwg4T38K_PrALpSjQ__small/img/ve8_jlJFKfckhH08TOZpzjE9AyA=/fit-in/200x150/filters:strip_icc()/pic4222282.jpg</thumbnail>
+	   <image>https://cf.geekdo-images.com/2ouk0jwg4T38K_PrALpSjQ__original/img/DQFxuBlKb-ExHmLljfuF8wYWjII=/0x0/filters:format(jpeg)/pic4222282.jpg</image>
+   
+   	   		   <cardset objectid="83329"/>
+      	   		   <boardgameexpansion objectid="4350">Battlemist: The Sails of War</boardgameexpansion>
+      	   		   <boardgamemechanic objectid="2072">Dice Rolling</boardgamemechanic>
+      	   		   <boardgameversion objectid="70314">English edition</boardgameversion>
+      	   		   <boardgamepodcastepisode objectid="293778">Episode 11 - 4x Games</boardgamepodcastepisode>
+      	   		   <boardgamecategory objectid="1020">Exploration</boardgamecategory>
+      	   		   <boardgamecategory objectid="1010">Fantasy</boardgamecategory>
+      	   		   <boardgamepublisher objectid="17">Fantasy Flight Games</boardgamepublisher>
+      	   		   <boardgameartist objectid="18088">Bill Heagy</boardgameartist>
+      	   		   <boardgamemechanic objectid="2026">Hexagon Grid</boardgamemechanic>
+      	   		   <boardgamefamily objectid="12210">Mechanism: 4X</boardgamefamily>
+      	   		   <boardgamedesigner objectid="21">Christian T. Petersen</boardgamedesigner>
+      	   		   <boardgameartist objectid="21">Christian T. Petersen</boardgameartist>
+      	   		   <boardgameimplementation objectid="59294">Runewars</boardgameimplementation>
+      	   		   <boardgamefamily objectid="5137">Setting: The Realms of Terrinoth</boardgamefamily>
+      	   		   <boardgamesubdomain objectid="5496">Thematic Games</boardgamesubdomain>
+      	   		   <boardgamecategory objectid="1019">Wargame</boardgamecategory>
+      	   		   <boardgamesubdomain objectid="4664">Wargames</boardgamesubdomain>
+      	      
+   <poll name="suggested_numplayers" title="User Suggested Number of Players" totalvotes="9">
+			
+		<results numplayers="1">		
+					<result numvotes="0" value="Best"/>
+					<result numvotes="1" value="Recommended"/>
+					<result numvotes="6" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="2">		
+					<result numvotes="0" value="Best"/>
+					<result numvotes="3" value="Recommended"/>
+					<result numvotes="5" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="3">		
+					<result numvotes="0" value="Best"/>
+					<result numvotes="6" value="Recommended"/>
+					<result numvotes="1" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="4">		
+					<result numvotes="4" value="Best"/>
+					<result numvotes="3" value="Recommended"/>
+					<result numvotes="1" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="5">		
+					<result numvotes="2" value="Best"/>
+					<result numvotes="3" value="Recommended"/>
+					<result numvotes="1" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="6">		
+					<result numvotes="2" value="Best"/>
+					<result numvotes="0" value="Recommended"/>
+					<result numvotes="3" value="Not Recommended"/>
+				</results>					
+			
+		<results numplayers="6+">		
+					<result numvotes="1" value="Best"/>
+					<result numvotes="0" value="Recommended"/>
+					<result numvotes="3" value="Not Recommended"/>
+				</results>					
+	</poll>
+<poll-summary name="suggested_numplayers" title="User Suggested Number of Players">
+  <result name="bestwith" value="Best with 4 players"/>
+  <result name="recommmendedwith" value="Recommended with 3–5 players"/>
+</poll-summary>
+
+   <poll name="language_dependence" title="Language Dependence" totalvotes="2">
+			
+		<results>		
+					<result level="1" numvotes="0" value="No necessary in-game text"/>
+					<result level="2" numvotes="0" value="Some necessary text - easily memorized or small crib sheet"/>
+					<result level="3" numvotes="0" value="Moderate in-game text - needs crib sheet or paste ups"/>
+					<result level="4" numvotes="2" value="Extensive use of text - massive conversion needed to be playable"/>
+					<result level="5" numvotes="0" value="Unplayable in another language"/>
+				</results>					
+	</poll>
+
+   <poll name="suggested_playerage" title="User Suggested Player Age" totalvotes="2">
+			<results>		
+					<result numvotes="0" value="2"/>
+					<result numvotes="0" value="3"/>
+					<result numvotes="0" value="4"/>
+					<result numvotes="0" value="5"/>
+					<result numvotes="0" value="6"/>
+					<result numvotes="0" value="8"/>
+					<result numvotes="0" value="10"/>
+					<result numvotes="1" value="12"/>
+					<result numvotes="0" value="14"/>
+					<result numvotes="1" value="16"/>
+					<result numvotes="0" value="18"/>
+					<result numvotes="0" value="21 and up"/>
+				</results>					
+	</poll>
+
+
+   
+
+   
+
+</boardgame>
+
+</boardgames></boardgames>

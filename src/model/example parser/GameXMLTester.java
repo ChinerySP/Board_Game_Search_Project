@@ -31,12 +31,8 @@ public class GameXMLTester {
         DataBase db = new DataBase();
         APIParser parser = new APIParser(db);
 
-        System.out.println("\n");
-        for (int i = 10; i < 14; i++) {
-            parser.retrieveGame(i);
-        }
+        parser.retrieveGame(25);
 
-        System.out.println("\n");
         for (Game g : db.retrieveGames()) {
             System.out.println(g);
         }
