@@ -56,14 +56,6 @@ public class DashboardPanle extends Panle {
         // We aren't currently showing details, so we can set the flag to false
         isShowingDetails = false;
         
-        // // An action listener that we can use to listen for mouse
-        // MouseListener popupListener = new PopupMenuListener();
-        // output.addMouseListener(popupListener);
-        // menuBar.addMouseListener(popupListener);
-
-        
-
-
         // Make clicking on a game in the left panle open the gameDetailsSubPanle
         gameListPanle.setOnGameClicked(game -> toggleGameDetails(game));
 
@@ -117,6 +109,22 @@ public class DashboardPanle extends Panle {
      */
     public void setUser(User newUser) {
         user = newUser;
+
+        // Updating (as long as the user actually exists)
+        if (this.user != null) {
+            // Showing the user's favorites (or whatever the default is if they deleted it)
+            // This could go out of bounds, but that is so unlikely that I haven't added anythign about it right now
+            gameListPanle.setGameList(this.user.getGameLists().get(0)); 
+            gameListPanle.updateGames();
+
+            // Setting the lists that are displayed
+            // gameListListPanle.setLists(this.user.getGameLists()); 
+            // gameListListPanle.updateLists(); // Or whatever your update method is called
+
+            // 3. Force the dashboard to redraw
+            this.revalidate();
+            this.repaint();
+        }
     }
 
     @Override

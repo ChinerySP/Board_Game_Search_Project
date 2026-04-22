@@ -262,6 +262,18 @@ public class GameDetailsSubPanle extends Panle {
     }
 
     /**
+     * Updates the theme of this panle
+     */
+    @Override
+    public void updateTheme() {
+        super.updateTheme();
+        titleLabel.setForeground(Panle.colors.getText());
+        playersLabel.setForeground(Panle.colors.getText());
+        categoryLabel.setForeground(Panle.colors.getText());
+        descriptionArea.setForeground(Panle.colors.getText());
+    }
+
+    /**
      * Returns the game that is currently being displayed
      * @return Game The Game that is currently being displayed
      */
@@ -291,6 +303,10 @@ public class GameDetailsSubPanle extends Panle {
         this.onNewListCreated = action;
     }
 
+    //TODO make something that hides the
+    /**
+     * Hides the
+     */
 
     // Storing the lists that the user has so that we can add to them or remove from them
     private ArrayList<GameList> userLists;

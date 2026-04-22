@@ -364,10 +364,15 @@ public class GameListListSubPanle extends Panle {
 
     @Override
     public void updateTheme() {
-        System.out.println("Updated gamelistlist");
+        title.setForeground(Panle.colors.getText());
         super.updateTheme();
         updateLists();
     }
+
+    /**
+     * Updates the lists that are being displayed on this Panle to match the inputted user's gamelists
+     */
+    // public
 
 
     /**

@@ -31,7 +31,7 @@ public class SearchResultsPanle extends Panle {
         // Creating a left and a right. The right side will not always be shown, but the left side will
         // The left will show the games returned by the search and the right will show details of a game once one is clicked
         resultsPanle = new GameListSubPanle(view);
-        // resultsPanle.set
+        resultsPanle.setName("Results");
 
         // Defining what the results panle should do if a game is clicked
         resultsPanle.setOnGameClicked(clickedGame -> {
@@ -41,6 +41,7 @@ public class SearchResultsPanle extends Panle {
                 // If we are showing the details and the game is the same one, then we need to close it
                 if (gameDetailsPanle.getGame().equals(clickedGame)) {
                     hideGameDetails();
+                    resultsPanle.showDescriptions();
                     return;
                 }
 
@@ -51,6 +52,7 @@ public class SearchResultsPanle extends Panle {
 
             // If we got here, we need to set the game and open the game details
             gameDetailsPanle.setGame(clickedGame);
+            resultsPanle.hideDescriptions();
             showGameDetails(clickedGame);
         });
 
@@ -61,12 +63,10 @@ public class SearchResultsPanle extends Panle {
         gameDetailsPanle.setOnNewListCreated(listName -> {
 
             // Creating a new list that we can add to the User
-            // GameList toAdd = new GameList(listName);
+            GameList toAdd = new GameList(listName);
 
             // Adding it to the user's list
-            // TODO Add in when .addList exists (or a .getGameLists)
-            // view.getUser().addList(toAdd);
-            System.out.println(String.format("Added in new list %s", listName));
+            view.getUser().addGameList(toAdd);
 
         });
 
@@ -130,6 +130,7 @@ public class SearchResultsPanle extends Panle {
         isShowingDetails = false;
 
         // Recalculate and redraw
+        gameDetailsPanle.updateTheme();
         this.revalidate();
         this.repaint();
     }

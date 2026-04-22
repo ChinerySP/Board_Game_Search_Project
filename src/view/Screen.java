@@ -61,8 +61,9 @@ public class Screen {
             Component current = layout.getLayoutComponent(BorderLayout.NORTH);
 
             // Skipping it if already is there
-            if (current != null) return;
-           
+            if (current != null)
+                return;
+
             // Adding it in because it isn't there
             contentPane.add(getPanle("sticky"), BorderLayout.NORTH);
             return;

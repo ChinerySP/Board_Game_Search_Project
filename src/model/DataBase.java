@@ -23,11 +23,11 @@ public class DataBase {
     public DataBase() {
         try {
             XMLparser = new XMLParser(gameXML, this);
-            APIparser = new APIParser(this);
         } catch (Exception e) {
             // TODO handle this exception gracefully
             System.out.println("Could not load testing xml");
         }
+        APIparser = new APIParser(this);
         games = new ArrayList<>();
         userList = new ArrayList<>();
     }
@@ -40,7 +40,16 @@ public class DataBase {
     public GameList searchGames(String[] keywords) {
         GameList results = new GameList("Search Results");
 
-        games = XMLparser.retrieveGameList();
+        games = new ArrayList<Game>();
+
+        for (int i = 10; i < 15; i++) {
+            games.add(APIparser.retrieveGame(i));
+        }
+
+        if (games == null) {
+            System.out.println("Got a null");
+            return null;
+        }
         for (Game g : games) {
             for (String word : keywords) {
                 System.out.println(String.format("Comparing %s and %s", g.name, word));

@@ -47,22 +47,15 @@ public class View {
 
         // Trying to log in
         User loggingInUser = controller.verifyLogin(username, password);
-        System.out.println(String.format("Logged in %s", loggingInUser.getUserName()));
 
         if (loggingInUser == null) {
             // The login failed
 
             // Telling the user that the login failed
-            JOptionPane.showMessageDialog(screen.getFrame(), "The username and password did not match, please try again.", "Login Failed", JOptionPane.WARNING_MESSAGE);
-
-            // TODO revert this to actually check, right now it just tries skips to the dashboard for testing
+            JOptionPane.showMessageDialog(screen.getFrame(),
+                    "The username and password did not match, please try again.", "Login Failed",
+                    JOptionPane.WARNING_MESSAGE);
             
-            // ((DashboardPanle)screen.getPanle("dashboard")).setUser(new User());
-            
-            // Updating everything to the new Panle
-            // screen.hidePanle("login");
-            // screen.showPanle("dashboard"); 
-            // screen.showPanle("sticky");
         } else {
             // Login successful
 
@@ -167,14 +160,22 @@ public class View {
         controller.newUser(newUser);
     }
    
-    // The user that is actively logged in 
-    private User activeUser;
+    /** 
+     * @return User
+     */
     public User getUser() {
         return activeUser;
     }
+    /** 
+     * @param newUser
+     */
     public void setUser(User newUser) {
         activeUser = newUser;
     }
+
+    // The user that is actively logged in 
+    private User activeUser;
+    
 
     // The screen that actually displays stuff
     private Screen screen;
