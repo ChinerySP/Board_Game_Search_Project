@@ -1,9 +1,12 @@
 package model;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import model.*;
+import java.util.Scanner;
+
 import control.*;
-import view.*;
+
 public class Model {
     public User user = null;
     public DataBase dataBase = new DataBase();
@@ -28,6 +31,7 @@ public class Model {
             System.out.println(String.format("Checking %s", possibleMatch.getUserName()));
             if (u.equals(possibleMatch.getUserName()) && p.equals(possibleMatch.getPassword())) {
                 setUser(possibleMatch);
+                restoreUserData();
                 return possibleMatch;
             }
         }
@@ -101,20 +105,64 @@ public class Model {
      * @param newUser
      */
     public void newUser(User newUser){
+        System.out.println("making a new user.");
+        newUser.addGameList(new GameList("Favorites"));
         dataBase.userList.add(newUser);
     }
 
     public void saveData(){
-        // todo also save game lists
         try {
-            FileWriter myWriter = new FileWriter("resources/userData.txt");
+            FileWriter myWriterUser = new FileWriter("resources/userData.txt");
+            FileWriter myWriterData = new FileWriter("resources/userList.txt");
             for(User u : dataBase.userList) {
-                myWriter.write(u.getUserName() + " " + u.getPassword() + " " + u.getDarkMode() + " " + u.getAPI() + "\n");
+                myWriterUser.write(u.getUserName() + " " + u.getPassword() + " " + u.getDarkMode() + " " + u.getAPI() + "\n");
             }
-            myWriter.close();
+            for(User u : dataBase.userList) {
+                myWriterData.write(u.getUserName());
+                myWriterData.write("~");
+                for(GameList g : u.getGameLists()){
+                    myWriterData.write(g.getName());
+                    for(Game game : g){
+                        myWriterData.write(" " + game.getId());
+                    }
+                    myWriterData.write("~");
+                }
+                myWriterData.write("\n");
+            }
+            myWriterUser.close();
+            myWriterData.close();
         } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
+        }
+    }
+
+    public void restoreUserData(){
+        System.out.println("1");
+        File myObj = new File("resources/userList.txt");
+        // try-with-resources: Scanner will be closed automatically
+        try (Scanner myReader = new Scanner(myObj)) {
+            System.out.println("2");
+            while (myReader.hasNextLine()) {
+                System.out.println("3");
+                String[] data = myReader.nextLine().split("~");
+                System.out.println(data[0]);
+                if(data[0].equals(user.getUserName())){
+                    System.out.println("4");
+                    for(int i = 1; i < data.length; i++ ){
+                         String[] splitData = data[i].split(" ");
+                        GameList oldList = new GameList(splitData[0]);
+                        for(int j = 1; j < splitData.length; j++ ){
+                            System.out.println(splitData[j]);
+                            int currentID = Integer.parseInt(splitData[j]);
+                            oldList.addGame(dataBase.APIparser.retrieveGame(currentID));
+                        }
+                        user.addGameList(oldList);
+                    }
+                }
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
         }
     }
 

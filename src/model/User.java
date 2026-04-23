@@ -6,7 +6,6 @@ public class User {
 
     public User() {
         gameLists = new ArrayList<GameList>();
-        gameLists.add(new GameList("Favorites"));
         this.config = new Config();
         this.password = "password";
         this.userName = "TJS";
@@ -14,7 +13,6 @@ public class User {
 
     public User(String user, String password) {
         gameLists = new ArrayList<GameList>();
-        gameLists.add(new GameList("Favorites"));
         this.config = new Config();
         this.password = password;
         this.userName = user;
