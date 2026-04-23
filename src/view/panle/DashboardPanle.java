@@ -76,7 +76,7 @@ public class DashboardPanle extends Panle {
 
         // If we are already showing this game specifically, then 
         // If we clicked on the same game then we need to hide the panle
-        if (gameDetailsPanle.getGame() == game) { // == is okay because they will always be the exact same object
+        if (gameDetailsPanle.getGame() == game && isShowingDetails) { // == is okay because they will always be the exact same object
             hideGameDetails();
             System.out.println("We got the thing to do the thing");
             return;
@@ -85,12 +85,8 @@ public class DashboardPanle extends Panle {
         // Regardless of whether we are showing the panle already, we need to update the game it is holding
         gameDetailsPanle.setGame(game);
 
-        // Toggling
-        if (!isShowingDetails) {
-            showGameDetails();
-        } else {
-            hideGameDetails();
-        }
+        // If it wasn't the same game, then we always will want to show it
+        showGameDetails();
 
         // Making sure everything is updated
         gameDetailsPanle.update();
@@ -112,8 +108,10 @@ public class DashboardPanle extends Panle {
         gbc.weightx = 0.5;
         this.add(gameListListPanle, gbc);
         this.revalidate();
+        this.repaint();
 
         isShowingDetails = false;
+        System.out.println("IT has been removed and should not be showing the gamedetailspanle");
     }
 
     /**
@@ -131,6 +129,7 @@ public class DashboardPanle extends Panle {
         gbc.weightx = 0.5;
         this.add(gameDetailsPanle, gbc);
         this.revalidate();
+        this.repaint();
 
         isShowingDetails = true;
     }

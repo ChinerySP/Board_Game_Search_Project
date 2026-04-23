@@ -504,14 +504,12 @@ public class GameListSubPanle extends Panle {
      */
     public void setGameList(GameList newList) {
         games = newList;
-        updateGames();
-    }
         if (showTitle) {
             title.setText(newList.getName());
         }
         updateGames();
     }
-    
+
 
     /**
      * Tells the list to hide the title

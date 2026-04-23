@@ -46,13 +46,30 @@ public class DataBase {
         }
         APIparser = new APIParser(this);
         games = new GameList("games");
+        games = retrieveGames();
+        userList = new ArrayList<>();
+        File myObj = new File("resources/userData.txt");
+        // try-with-resources: Scanner will be closed automatically
+        try (Scanner myReader = new Scanner(myObj)) {
+            while (myReader.hasNextLine()) {
+                String[] data = myReader.nextLine().split(" ");
+                User oldUser = new User(data[0], data[1]);
+                userList.add(oldUser);
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+        }
+    }
+
+    /**
+     * Searches the current game list using a list of keywords.
      * @param keywords list of keywords to look for within the game
      * @return A game list containing the games which match the results
      */
     public GameList searchGames(String[] keywords) {
         GameList results = new GameList("Search Results");
 
-        games = new GameList("Games");
+        games = new GameList("games");
 
         for (int i = 10; i < 15; i++) {
             games.addGame(APIparser.retrieveGame(i));
