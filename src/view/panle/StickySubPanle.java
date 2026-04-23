@@ -85,6 +85,8 @@ public class StickySubPanle extends Panle {
             view.search(query);
         }
 
+        view.refreshPanles();
+
     }
     
     @Override
