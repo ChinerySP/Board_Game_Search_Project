@@ -96,23 +96,26 @@ public class GameDetailsSubPanle extends Panle {
             popupMenu.addSeparator();
 
             // Making sure not to do anything weird if they don't have any lists
-            if (userLists == null || userLists.isEmpty()) {
-                JMenuItem emptyItem = new JMenuItem("No lists created yet!");
-                emptyItem.setEnabled(false);
-                popupMenu.add(emptyItem);
-            } else {
+            if (user != null && !user.getGameLists().isEmpty()) {
+                System.out.println("You exist");
+
                 // Loop through their lists and add them to the dropdown
-                for (GameList list : userLists) {
+                for (GameList list : user.getGameLists()) {
                     JMenuItem item = new JMenuItem(list.getName());
 
                     // When a specific list is clicked, trigger the callback
                     item.addActionListener(event -> {
-                        if (onGameAddedToList != null) {
-                            onGameAddedToList.accept(toDisplay, list);
-                        }
+                        if (toDisplay != null) {
+                            list.addGame(toDisplay);
+                            view.refreshPanles();
+                            System.out.println("Added game and refreshed panles");
+                        } 
                     });
                     popupMenu.add(item);
                 }
+
+            } else {
+                System.out.println("You do not in fact exist");
             }
 
             // Show the menu exactly positioned underneath the button
@@ -282,16 +285,17 @@ public class GameDetailsSubPanle extends Panle {
     }
 
     /**
-     * Sets the userLists that can be updated from the game details subpanle
-     * @param ArrayList<GameList> lists The lists that this panle can access
+     * Sets the User that is currently using this panle
+     * @param User The user that will be displayed
      */
-    public void setUserLists(ArrayList<GameList> lists) {
-        userLists = lists;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     /**
      * Sets the action to perform when a dropdown item is clicked
      */
+    @Deprecated
     public void setOnGameAddedToList(BiConsumer<Game, GameList> action) {
         this.onGameAddedToList = action;
     }
@@ -303,13 +307,8 @@ public class GameDetailsSubPanle extends Panle {
         this.onNewListCreated = action;
     }
 
-    //TODO make something that hides the
-    /**
-     * Hides the
-     */
-
     // Storing the lists that the user has so that we can add to them or remove from them
-    private ArrayList<GameList> userLists;
+    private User user;
 
     // A consumer (function) to call when we click add to list in this panle
     private BiConsumer<Game, GameList> onGameAddedToList;

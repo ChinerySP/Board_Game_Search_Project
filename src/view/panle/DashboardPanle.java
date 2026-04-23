@@ -64,7 +64,19 @@ public class DashboardPanle extends Panle {
         // Make clicking on a game in the left panle open the gameDetailsSubPanle
         gameListPanle.setOnGameClicked(game -> toggleGameDetails(game));
 
-        
+        // Setting what happens when a user wants to add a game to the list
+        gameDetailsPanle.setOnNewListCreated(listName -> {
+
+            // Creating a new list that we can add to the User
+            GameList toAdd = new GameList(listName);
+
+            // Adding it to the user's list
+            view.getUser().addGameList(toAdd);
+
+        });
+
+        // Making it switch the list on the left to match whetever is clicked
+        gameListListPanle.setOnListClicked(list -> setListToDisplay(list));
 
     }
 
@@ -151,6 +163,10 @@ public class DashboardPanle extends Panle {
     @Override
     public void getSet() {
 
+        // Making sure that the gamedetailssubpanle has the user to display their info
+        gameDetailsPanle.setUser(user);
+
+        // Updating everything appropriatly 
         gameListListPanle.updateLists();
         gameListPanle.updateGames();
     }
@@ -166,17 +182,26 @@ public class DashboardPanle extends Panle {
         if (this.user != null) {
             // Showing the user's favorites (or whatever the default is if they deleted it)
             // This could go out of bounds, but that is so unlikely that I haven't added anythign about it right now
-            gameListPanle.setGameList(user.getGameLists().get(0)); 
+            gameListPanle.setGameList(user.getGameLists().get(0));
             gameListPanle.updateGames();
 
             // Setting the lists that are displayed
-            gameListListPanle.setGameListList(user.getGameLists()); 
+            gameListListPanle.setGameListList(user.getGameLists());
             gameListListPanle.updateLists(); // Or whatever your update method is called
 
             // 3. Force the dashboard to redraw
             this.revalidate();
             this.repaint();
         }
+    }
+    
+    /**
+     * Updates the list that will be displayed on the GameListSubPanle on the left
+     * @param GameList The gamelist to display
+     */
+    public void setListToDisplay(GameList toDisplay) {
+        gameListPanle.setGameList(toDisplay);
+        getSet();
     }
 
     @Override
