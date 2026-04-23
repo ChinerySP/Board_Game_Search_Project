@@ -42,3 +42,6 @@ bin/
 ### Keeping changes from spilling between computers ###
 Board Game Search Project.iml
 .idea/misc.xml
+
+### Ignoring Javadoc ###
+**update/**
