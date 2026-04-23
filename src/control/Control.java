@@ -67,8 +67,9 @@ public class Control {
      * Tells the database to save the data that has been changed since it was last saved
      */
     public void saveData() {
-        // TODO Make this actually do something in the model
-        System.out.println("Saving is not implemented yet, but the Controller did try to save it.");
+        // TODO Make this actually do something in the modelsaveData
+        model.saveData();
+        System.out.println("full saving is not implemented yet, but the Controller did save the userlist.");
     }
 
 

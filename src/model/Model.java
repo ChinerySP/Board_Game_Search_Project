@@ -81,14 +81,18 @@ public class Model {
      * removes that account from the database
      * @param delete the user to be killed
      */
+
+
     public void deleteAccount(User delete){
         int count = 0;
+        System.out.println(delete.getUserName());
         for(User i : dataBase.userList) {
             if (i == delete) {
                 dataBase.userList.remove(count);
             }
             count++;
         }
+        System.out.println("No user deleted.");
     }
 
     /**
@@ -97,11 +101,15 @@ public class Model {
      */
     public void newUser(User newUser){
         dataBase.userList.add(newUser);
+    }
+
+    public void saveData(){
         try {
             FileWriter myWriter = new FileWriter("resources/userData.txt");
-            myWriter.append(newUser.getUserName() + " " + newUser.getPassword() + "\n");
+            for(User u : dataBase.userList) {
+                myWriter.write(u.getUserName() + " " + u.getPassword() + "\n");
+            }
             myWriter.close();
-            System.out.println("Successfully wrote to the file.");
         } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
