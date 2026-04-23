@@ -180,10 +180,15 @@ public class DashboardPanle extends Panle {
 
         // Updating (as long as the user actually exists)
         if (this.user != null) {
-            // Showing the user's favorites (or whatever the default is if they deleted it)
-            // This could go out of bounds, but that is so unlikely that I haven't added anythign about it right now
-            gameListPanle.setGameList(user.getGameLists().get(0));
-            gameListPanle.updateGames();
+
+            // Making sure that they have a list 
+            if (user.getGameLists().size() != 0) {
+                // Showing the user's favorites (or whatever the default is if they deleted it)
+                gameListPanle.setGameList(user.getGameLists().get(0));
+                gameListPanle.updateGames();
+            } else {
+                
+            }
 
             // Setting the lists that are displayed
             gameListListPanle.setGameListList(user.getGameLists());

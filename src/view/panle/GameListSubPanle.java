@@ -58,10 +58,11 @@ public class GameListSubPanle extends Panle {
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         
-        // Creating the title
-        title.setForeground(Panle.colors.getText());
-        title.setFont(new Font("Courier", Font.BOLD, GameListSubPanle.TITLE_FONT_SIZE));
-        this.add(title, BorderLayout.NORTH);
+        // Creating the title panel with an edit button 
+        // TODO (WHERE I LEFT OFF) I was working on adding in a create title method that would create a border layout at the top of the list (that could be 0)
+        // title.setForeground(Panle.colors.getText());
+        // title.setFont(new Font("Courier", Font.BOLD, GameListSubPanle.TITLE_FONT_SIZE));
+        // this.add(title, BorderLayout.NORTH);
 
         // Making the scrollpane look a bit better
         scrollPane.setBorder(null);
@@ -121,6 +122,27 @@ public class GameListSubPanle extends Panle {
      * Updates the visual game panel elements to reflect the GameList associated with this panle
      */
     public void updateGames() {
+
+        // TODO make sure that this works
+        // If there aren't any games, then we can default to a simple title saying No Lists
+        if (games == null) {
+            title.setText("No Lists");
+
+            // A fake game giving them instructions on how to create a list
+            RoundedPanle toAdd = new Panle("fakeGame", view);
+
+            JTextArea desc = new JTextArea("You don't have any lists! To create one, you can click the plus sign above your collections on the right.");
+            desc.setForeground(Panle.colors.getText());
+            desc.setOpaque(false);
+            desc.setEditable(false);
+            desc.setLineWrap(true);
+            desc.setWrapStyleWord(true);
+
+            this.add(toAdd);
+
+
+        }
+
 
         // Clearing the current visuals
         listContainer.removeAll();
