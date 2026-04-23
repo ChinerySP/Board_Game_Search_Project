@@ -59,7 +59,6 @@ public class GameListSubPanle extends Panle {
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         
         // Creating the title
-        title = new JLabel(games.getName(), SwingConstants.CENTER); 
         title.setForeground(Panle.colors.getText());
         title.setFont(new Font("Courier", Font.BOLD, GameListSubPanle.TITLE_FONT_SIZE));
         this.add(title, BorderLayout.NORTH);
@@ -505,6 +504,8 @@ public class GameListSubPanle extends Panle {
      */
     public void setGameList(GameList newList) {
         games = newList;
+        updateGames();
+    }
         if (showTitle) {
             title.setText(newList.getName());
         }

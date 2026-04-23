@@ -55,7 +55,7 @@ public class View {
             JOptionPane.showMessageDialog(screen.getFrame(),
                     "The username and password did not match, please try again.", "Login Failed",
                     JOptionPane.WARNING_MESSAGE);
-
+            
         } else {
             // Login successful
 

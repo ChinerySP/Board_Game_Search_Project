@@ -74,6 +74,7 @@ public class DashboardPanle extends Panle {
      */
     public void toggleGameDetails(Game game) {
 
+        // If we are already showing this game specifically, then 
         // If we clicked on the same game then we need to hide the panle
         if (gameDetailsPanle.getGame() == game) { // == is okay because they will always be the exact same object
             hideGameDetails();
