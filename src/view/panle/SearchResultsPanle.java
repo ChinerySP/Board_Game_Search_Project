@@ -1,5 +1,6 @@
 package view.panle;
 
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import model.*;
@@ -25,12 +26,14 @@ public class SearchResultsPanle extends Panle {
         constraints.gridx = 0;
         constraints.gridy = 0;
         constraints.fill = GridBagConstraints.BOTH;
-        constraints.weightx = 1.0;
+        constraints.weightx = 0.3;
         constraints.weighty = 1.0;
 
         // Creating a left and a right. The right side will not always be shown, but the left side will
         // The left will show the games returned by the search and the right will show details of a game once one is clicked
         resultsPanle = new GameListSubPanle(view);
+        resultsPanle.hideTitle();
+        resultsPanle.setName("Results"); // It's hidden, but *I* know it's there
 
         // Defining what the results panle should do if a game is clicked
         resultsPanle.setOnGameClicked(clickedGame -> {
@@ -40,6 +43,7 @@ public class SearchResultsPanle extends Panle {
                 // If we are showing the details and the game is the same one, then we need to close it
                 if (gameDetailsPanle.getGame().equals(clickedGame)) {
                     hideGameDetails();
+                    resultsPanle.showDescriptions();
                     return;
                 }
 
@@ -50,6 +54,7 @@ public class SearchResultsPanle extends Panle {
 
             // If we got here, we need to set the game and open the game details
             gameDetailsPanle.setGame(clickedGame);
+            resultsPanle.hideDescriptions();
             showGameDetails(clickedGame);
         });
 
@@ -60,15 +65,17 @@ public class SearchResultsPanle extends Panle {
         gameDetailsPanle.setOnNewListCreated(listName -> {
 
             // Creating a new list that we can add to the User
-            // GameList toAdd = new GameList(listName);
+            GameList toAdd = new GameList(listName);
 
             // Adding it to the user's list
-            // TODO Add in when .addList exists (or a .getGameLists)
-            // view.getUser().addList(toAdd);
-            System.out.println(String.format("Added in new list %s", listName));
+            view.getUser().addGameList(toAdd);
 
         });
 
+        // Setting the widths to something that allows us to control the width
+        gameDetailsPanle.setPreferredSize(new Dimension(0, gameDetailsPanle.getPreferredSize().height));
+        resultsPanle.setPreferredSize(new Dimension(0, resultsPanle.getPreferredSize().height));
+        
         // Only adding the left right now because it is the only thing that we are currently worried about
         this.add(resultsPanle, constraints);
 
@@ -129,8 +136,18 @@ public class SearchResultsPanle extends Panle {
         isShowingDetails = false;
 
         // Recalculate and redraw
+        gameDetailsPanle.updateTheme();
         this.revalidate();
         this.repaint();
+    }
+
+    /**
+     * Updates the search results that are shown in this panle
+     * @param GameList The games to be shown
+     */
+    public void setGameList(GameList newGames) {
+        resultsPanle.setGameList(newGames);
+        resultsPanle.updateGames();
     }
     
     @Override
@@ -140,12 +157,8 @@ public class SearchResultsPanle extends Panle {
         resultsPanle.updateTheme();
     }
 
-
-
-
     private GameDetailsSubPanle gameDetailsPanle;
-    // TODO make private
-    public GameListSubPanle resultsPanle;
+    private GameListSubPanle resultsPanle;
     private boolean isShowingDetails;
 
 

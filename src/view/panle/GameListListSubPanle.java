@@ -67,7 +67,7 @@ public class GameListListSubPanle extends Panle {
         this.styleScrollBar(scrollPane);
         this.add(scrollPane, BorderLayout.CENTER);
         this.lists = lists;
-        updateGames();
+        updateLists();
     }
 
     /**
@@ -103,7 +103,7 @@ public class GameListListSubPanle extends Panle {
         // Actually adding the scrollpane and then updating the display
         this.styleScrollBar(scrollPane);
         this.add(scrollPane, BorderLayout.CENTER);
-        updateGames();
+        updateTheme();
     }
 
     /**
@@ -117,7 +117,7 @@ public class GameListListSubPanle extends Panle {
     /**
      * Updates the visual game panel elements to reflect the GameList associated with this panle
      */
-    public void updateGames() {
+    public void updateLists() {
 
         // Clearing the current visuals
         listContainer.removeAll();
@@ -150,7 +150,6 @@ public class GameListListSubPanle extends Panle {
             desc.setLineWrap(true);
             desc.setWrapStyleWord(true);
             toAdd.setBackground(Panle.colors.getBase());
-
 
             // Adding in some spacing between them all 
             toAdd.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
@@ -216,13 +215,13 @@ public class GameListListSubPanle extends Panle {
             JTextArea desc = new JTextArea("You can add some by clicking on a game and selecting \"Create new List\"!");
 
             // Styling the name and description
-            name.setForeground(Panle.colors.getBase());
+            name.setForeground(Panle.colors.getText());
             name.setOpaque(false);
             name.setEditable(false);
             name.setLineWrap(true);
             name.setWrapStyleWord(true);
             name.setFont(new Font("Ariel", Font.BOLD, 17));
-            desc.setForeground(Panle.colors.getBase());
+            desc.setForeground(Panle.colors.getText());
             desc.setOpaque(false);
             desc.setEditable(false);
             desc.setLineWrap(true);
@@ -365,8 +364,15 @@ public class GameListListSubPanle extends Panle {
 
     @Override
     public void updateTheme() {
-        updateGames();
+        title.setForeground(Panle.colors.getText());
+        super.updateTheme();
+        updateLists();
     }
+
+    /**
+     * Updates the lists that are being displayed on this Panle to match the inputted user's gamelists
+     */
+    // public
 
 
     /**

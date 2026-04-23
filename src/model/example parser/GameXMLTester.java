@@ -10,57 +10,21 @@
  *
  */
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
+import model.DataBase;
 import model.Game;
-import model.parser.XMLParser;
+import model.parser.APIParser;
 import org.w3c.dom.*;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class GameXMLTester {
     public static void main(String[] argv)  {
 
-        String inputFileName = "c:\\temp\\simple1.xml";
+        DataBase db = new DataBase();
+        APIParser parser = new APIParser(db);
 
-        System.out.println("Enter the name of the test input file: ");
-        Scanner keyboard = new Scanner(System.in);
-        inputFileName = keyboard.next();
+        parser.retrieveGame(420);
 
-        try {
-            /* This code segment sets up a new DOM parser, and makes sure the current
-                version of Java supports a DOM parser.
-             */
-            XMLParser myParser = new XMLParser(inputFileName);
-            ArrayList<Game>  myGameList = myParser.retrieveGameList();
-
-            if (myGameList != null) {
-                System.out.println("\nThere were " + myGameList.size() + " game objects found in the file.");
-                for (Game g : myGameList) {
-                    System.out.println(g.toString());
-                }
-            }
-            else {
-                System.out.println("Nothing was retrieved from the file.");
-            }
-            System.out.println("\nExiting Test program.");
-
-        } catch (FileNotFoundException e1) {
-            System.err.println("Unable to open file: " + inputFileName);
-            System.err.println("Exiting program.");
-            System.exit(1);
-        } catch (IOException e2) {
-            System.err.println("Unable to parse the XML document contained in: " + inputFileName);
-            System.err.println("Exiting program.");
-            System.exit(2);
+        for (Game g : db.retrieveGames()) {
+            System.out.println(g);
         }
-
     }
-
-
 }

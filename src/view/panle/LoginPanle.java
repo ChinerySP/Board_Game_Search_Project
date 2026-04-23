@@ -44,7 +44,7 @@ public class LoginPanle extends Panle {
 
         // The actual components
         usernameInput = new PrettyTextInput();
-        passwordInput = new PrettyTextInput();
+        passwordInput = new PrettyPasswordField();
         forgotPasswordButton = new PrettyButton("Forgot Password");
         loginButton = new PrettyButton("Login");
         signUpButton = new PrettyButton("Sign Up");
@@ -78,6 +78,16 @@ public class LoginPanle extends Panle {
         constraints.gridx = 1; // On the right
         constraints.anchor = GridBagConstraints.WEST; // Aligned to the left
         this.add(passwordInput, constraints);
+
+        // If they hit enter on the username input, they likely want to go down to password
+        usernameInput.addActionListener(e -> {
+            passwordInput.requestFocus();
+        });
+
+        // If they hit enter on the password input, they probably want to try to hit enter
+        passwordInput.addActionListener(e -> {
+            login();
+        });
 
         // Login button (centered)
         constraints.gridy = 3;
@@ -143,11 +153,15 @@ public class LoginPanle extends Panle {
         }
 
         // Pulling who they said that they were
-        view.forgotPassword(JOptionPane.showInputDialog(
+        String username = JOptionPane.showInputDialog(
                 this,
                 "Please input your username: ",
                 "Forgot Password",
-                JOptionPane.PLAIN_MESSAGE));
+                JOptionPane.PLAIN_MESSAGE);
+
+        // Actually putting in what they said (if they didn't hit cancel)
+        if (username == null) return;
+        view.forgotPassword(username);
 
     }
 
@@ -201,7 +215,7 @@ public class LoginPanle extends Panle {
     private JLabel passwordLabel;
     private JLabel userNameLabel;
     private PrettyTextInput usernameInput;
-    private PrettyTextInput passwordInput;
+    private PrettyPasswordField passwordInput;
     private PrettyButton forgotPasswordButton;
     private PrettyButton loginButton;
     private PrettyButton signUpButton;

@@ -5,6 +5,7 @@ import javax.swing.JOptionPane;
 import control.*;
 import model.*;
 import view.panle.DashboardPanle;
+import view.panle.SearchResultsPanle;
 
 /**
  * The main class that interfaces with the rest of the view
@@ -51,16 +52,10 @@ public class View {
             // The login failed
 
             // Telling the user that the login failed
-            // JOptionPane.showMessageDialog(screen.getFrame(), "The username and password did not match, please try again.", "Login Failed", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(screen.getFrame(),
+                    "The username and password did not match, please try again.", "Login Failed",
+                    JOptionPane.WARNING_MESSAGE);
 
-            // TODO revert this to actually check, right now it just tries skips to the dashboard for testing
-            
-            ((DashboardPanle)screen.getPanle("dashboard")).setUser(new User());
-            
-            // Updating everything to the new Panle
-            screen.hidePanle("login");
-            screen.showPanle("dashboard"); 
-            screen.showPanle("sticky");
         } else {
             // Login successful
 
@@ -74,9 +69,17 @@ public class View {
             screen.showPanle("dashboard");
             screen.showPanle("sticky");
         }
-        
+
     }
 
+    /**
+     * Tells the controller to write the data to the file
+     */
+    public void saveData() {
+        controller.saveData();
+    }
+
+    
     /**
      * A wrapper function that tells the Screen this View is holding to show a panle
      * @param String The name of the panle to show
@@ -95,11 +98,14 @@ public class View {
 
     /**
      * Tells the controller that the User wants to search for specific keywords
+     * Then shows those search results to the user in the search results panle
      * @param String[] The keywords to search for
-     * @return GameList The list of Games that the User requested
      */
-    public GameList search(String[] keywords) {
-        return controller.search(keywords);
+    public void search(String[] keywords) {
+
+        ( (SearchResultsPanle) screen.getPanle("searchresults") ).setGameList(controller.search(keywords));
+        showPanle("searchresults");            
+
     }
 
     /**
@@ -156,20 +162,47 @@ public class View {
     }
 
     /**
+     * A simple way to ensure that everything being shwon to the user is updated
+     * Keep in mind that this is not the most efficient, but it will work for this use case
+     */
+    public void refreshPanles() {
+        screen.refreshPanles();
+    }
+
+    /**
      * Tells the controller to make a new User in the database
      */
     public void newUser(User newUser) {
         controller.newUser(newUser);
     }
+
+    /**
+     * Returns the frame that is being shown
+     * @return Screen The screen that is being shown
+     */
+    public Screen getScreen() {
+        return screen;
+    }
    
-    // The user that is actively logged in 
-    private User activeUser;
+    /** 
+     * Returns the user that is currently logged in
+     * @return User
+     */
     public User getUser() {
         return activeUser;
     }
+
+    /** 
+     * Changes the user that is currently logged in
+     * @param newUser The new user to show info for
+     */
     public void setUser(User newUser) {
         activeUser = newUser;
     }
+
+    // The user that is actively logged in 
+    private User activeUser;
+    
 
     // The screen that actually displays stuff
     private Screen screen;

@@ -81,6 +81,15 @@ public class Panle extends RoundedPanle { // Yes, I am sticking to the bit of pa
     }
 
     /**
+     * Gets this panle ready to be displayed. Intented to be overriden by specific Panles to allow them to get prepared when opening
+     */
+    public void getSet() {
+        // Do nothing :)
+        // God I love programmign
+        // Almost as much as I lvoe spelling
+    }
+
+    /**
      * Gets the name of the class as a String
      */
     public String getName() {

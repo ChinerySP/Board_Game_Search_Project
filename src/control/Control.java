@@ -27,9 +27,7 @@ public class Control {
      * @return User The user that logged in; null if there was no match
      */
     public User verifyLogin(String username, String password) {
-        // Todo update this to actually match the model
-        // return model.verifyLogin(username, password);
-        return new User(); // For testing 
+        return model.verifyLogin(username, password);
     }
 
     /**
@@ -37,9 +35,7 @@ public class Control {
      * @param 
      */
     public User forgotPassword(String username) {
-        // TODO update this to actually match the model
-        // return model.getUser(username);
-        return new User(); // For testing 
+        return model.getUser(username);
     }
 
     /**
@@ -47,7 +43,7 @@ public class Control {
      * @param User The user to delete
      */
     public void deleteAccount(User toDelete) {
-        // TODO make this actually delete things in the model
+        model.deleteAccount(toDelete);
     }
 
     /**
@@ -56,8 +52,7 @@ public class Control {
      * @return GameList A ordered GameList holding all of the results of the search
      */
     public GameList search(String[] keywords) {
-        // TODO implement
-        return null;
+        return model.search(keywords);
     }
 
     /**
@@ -65,7 +60,15 @@ public class Control {
      * @param User The user to add 
      */
     public void newUser(User newUser) {
-        // TODO Make this actually save the new user
+        model.newUser(newUser);
+    }
+
+    /**
+     * Tells the database to save the data that has been changed since it was last saved
+     */
+    public void saveData() {
+        // TODO Make this actually do something in the model
+        System.out.println("Saving is not implemented yet, but the Controller did try to save it.");
     }
 
 
@@ -74,8 +77,7 @@ public class Control {
      * @param boolean The state to set the API to
      */
     public void setAPI(boolean state) {
-        // TODO implement setAPI function for model
-        // model.setAPI(state);
+        model.setAPI(state);
     }
 
     // The view and the model, so that we can interface with them

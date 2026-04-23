@@ -5,6 +5,8 @@ import java.awt.Component;
 import java.awt.Container;
 import java.util.ArrayList;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import view.panle.*;
 
 /**
@@ -22,8 +24,30 @@ public class Screen {
     public Screen(View view) {
 
         // Creating the frame that will actually be displayed
-        frame = new JFrame("Amazing Board Game App - Now with API (soon we promise) -");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame = new JFrame("Amazing Board Game App - Now with API (soon we promise) -") ;
+
+        // We don't want it to close, actually, because we want to check to see if they want to save
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        // frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // We add a windowListener so that we can run stuff instead
+        frame.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent e) {
+                
+                // Asking the user if they want to save
+                if (JOptionPane.showConfirmDialog(frame, "Would you like to save your data?", "Save Data?",
+                        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                    
+                    // They want to save, so we tell the model
+                    view.saveData();
+
+                }
+                
+                // Finally, exiting
+                System.exit(0);
+            }
+        });
+
 
         // Making sure we actually have a place to put our panles
         panles = new ArrayList<>();
@@ -61,8 +85,9 @@ public class Screen {
             Component current = layout.getLayoutComponent(BorderLayout.NORTH);
 
             // Skipping it if already is there
-            if (current != null) return;
-           
+            if (current != null)
+                return;
+
             // Adding it in because it isn't there
             contentPane.add(getPanle("sticky"), BorderLayout.NORTH);
             return;
@@ -79,16 +104,21 @@ public class Screen {
         }
 
         // If the right one is in the center, we don't have to do anything (makes sure there isn't a flash of nothing)
-        if (current != null && current.equals(name)) return; 
+        if (current != null && current.equals(name))
+            return;
         
         // Grabbing the target
         Panle target = getPanle(name);
-        if (target == null) return;
-        
+        if (target == null)
+            return;
+
         // Making sure that the settings panle is only shown when there is a User defined
         if (target instanceof SettingsPanle && !((SettingsPanle) target).hasUser()) {
             return;
         }
+
+        // Telling the target to hold on to it's socks because it's about to be displayed
+        target.getSet();
         
         // Showing the panle
         contentPane.add(target, BorderLayout.CENTER);
@@ -104,6 +134,16 @@ public class Screen {
      */
     public void hidePanle(String name) {
         frame.remove(this.getPanle(name));
+    }
+
+    /**
+     * A simple way to ensure that everything being shwon to the user is updated
+     * Keep in mind that this is not the most efficient, but it will work for this use case
+     */
+    public void refreshPanles() {
+        for (Panle p : panles) {
+            p.getSet();
+        }
     }
     
     // Getters and setters 

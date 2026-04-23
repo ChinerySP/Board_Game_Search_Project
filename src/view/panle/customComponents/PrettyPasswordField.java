@@ -1,6 +1,6 @@
 package view.panle.customComponents;
 
-import javax.swing.JTextField;
+import javax.swing.JPasswordField;
 import javax.swing.border.EmptyBorder;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -11,15 +11,15 @@ import view.panle.*;
 import view.panle.colors.*;
 
 /**
- * A simple wrapper for the JTextField that allows for better customization
+ * A simple wrapper for the JPasswordField that matches the themeing (I am way too extra, I apologize)
  * @author Sam Whitlock
  */
-public class PrettyTextInput extends JTextField implements Themeable {
+public class PrettyPasswordField extends JPasswordField implements Themeable {
 
     /**
-     * Simple default constructor for the pretty text input
+     * Simple default constructor
      */
-    public PrettyTextInput() {
+    public PrettyPasswordField() {
         super();
 
         // ✨Style✨
@@ -41,15 +41,16 @@ public class PrettyTextInput extends JTextField implements Themeable {
         Graphics2D g2 = (Graphics2D) g.create();
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        // Drawing the backgrounnd to be nice and rounded
+        // Drawing the background to be nice and rounded
         g2.setColor(getBackground());
         g2.fill(new RoundRectangle2D.Float(0, 0, getWidth(), getHeight(), 7, 7));
         g2.dispose();
+        
         super.paintComponent(g);
     }
 
     /**
-     * Implementation of update theme for pretty button
+     * Implementation of update theme for pretty password input
      */
     @Override
     public void updateTheme() {

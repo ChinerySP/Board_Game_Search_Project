@@ -17,14 +17,18 @@ import java.util.function.Consumer;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import javax.swing.JComponent;
 import view.panle.customComponents.RoundedPanle;
+import view.panle.customComponents.RoundedPopupMenu;
 import view.*;
 import model.*;
 
@@ -55,8 +59,7 @@ public class GameListSubPanle extends Panle {
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         
         // Creating the title
-        // title = new JLabel(games.getName, SwingConstants.CENTER); 
-        title = new JLabel("FakeName", SwingConstants.CENTER); // Currently defaulting to a fake name because this function doesn't exist
+        title = new JLabel(games.getName(), SwingConstants.CENTER); 
         title.setForeground(Panle.colors.getText());
         title.setFont(new Font("Courier", Font.BOLD, GameListSubPanle.TITLE_FONT_SIZE));
         this.add(title, BorderLayout.NORTH);
@@ -65,6 +68,9 @@ public class GameListSubPanle extends Panle {
         scrollPane.setBorder(null);
         scrollPane.setOpaque(false);
         scrollPane.getViewport().setOpaque(false);
+
+        // A pop up menu that they can use to remove a game from a list
+        initPopupMenu();
 
         // Adding the scrollpane and updating everythign
         this.styleScrollBar(scrollPane);
@@ -103,18 +109,13 @@ public class GameListSubPanle extends Panle {
         scrollPane.setOpaque(false);
         scrollPane.getViewport().setOpaque(false);
 
+        // A pop up menu that they can use to remove a game from a list
+        initPopupMenu();
+
         // Actually adding the scrollpane and then updating the display
         this.styleScrollBar(scrollPane);
         this.add(scrollPane, BorderLayout.CENTER);
         updateGames();
-    }
-
-    /**
-     * Changes the GameList that is being displayed
-     * @param GameList newList The new GameList to show
-     */
-    public void setGameList(GameList newList) {
-        this.games = newList;
     }
 
     /**
@@ -125,6 +126,7 @@ public class GameListSubPanle extends Panle {
         // Clearing the current visuals
         listContainer.removeAll();
         gamePanles = new ArrayList<>();
+
 
         // Iterating over the game panels and recreating them
         for (Game game : games) {
@@ -168,7 +170,9 @@ public class GameListSubPanle extends Panle {
             constraints.gridx = 1;
             constraints.weightx = 0.75;
             constraints.insets = new java.awt.Insets(5, 7, 5, 7);
-            toAdd.add(desc, constraints);
+            if (isDescShowing) { // Making it only show if it is toggled
+                toAdd.add(desc, constraints);
+            }
 
             // Because these are generally so small, I am manually decreasing the radius to make it fit nicely
             toAdd.setRadius(toAdd.getRadius() - 5);
@@ -185,9 +189,27 @@ public class GameListSubPanle extends Panle {
                  */
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    // If someone gave us an action to run, run it and pass the clicked game!
-                    if (onGameClicked != null) {
-                        onGameClicked.accept(game);
+                    // Only running if it was a left click, otherwise we do nothing (the other methods will catch it (hopefully))
+                    if (SwingUtilities.isLeftMouseButton(e) && onGameClicked != null) {
+                        if (onGameClicked != null) {
+                            onGameClicked.accept(game);
+                        }
+                    }
+                }
+                
+                @Override
+                public void mousePressed(MouseEvent e) { showPopup(e); }
+
+                @Override
+                public void mouseReleased(MouseEvent e) { showPopup(e); }
+
+                private void showPopup(MouseEvent e) {
+                    if (e.isPopupTrigger()){
+                        // Setting eh currently clicked on game to be this one
+                        currentlyRightClickedGame = game; 
+                        
+                        // Showing the game that they want to show
+                        sharedPopupMenu.show(e.getComponent(), e.getX(), e.getY());
                     }
                 }
             };
@@ -243,7 +265,9 @@ public class GameListSubPanle extends Panle {
             constraints.gridx = 1;
             constraints.weightx = 0.75;
             constraints.insets = new java.awt.Insets(5, 7, 5, 7);
-            toAdd.add(desc, constraints);
+            if (isDescShowing) { // Making it only show if it is toggled
+                toAdd.add(desc, constraints);
+            }
 
             // Because these are generally so small, I am manually decreasing the radius to make it fit nicely
             toAdd.setRadius(toAdd.getRadius() - 5);
@@ -356,13 +380,156 @@ public class GameListSubPanle extends Panle {
         pane.getVerticalScrollBar().setOpaque(false);
     }
 
+    /**
+     * Initializes the shared right-click popup menu.
+     * Meant to be called inside the constructor, and should not be called elsewhere
+     */
+    private void initPopupMenu() {
+        // Pretty pretty
+        sharedPopupMenu = new RoundedPopupMenu(10);
+        sharedPopupMenu.setBackground(Panle.colors.getBase());
+
+        // The option to add to a list
+        JMenuItem addToListBtn = new JMenuItem("Add to List...");
+        addToListBtn.setForeground(Panle.colors.getText());
+        addToListBtn.setOpaque(false);
+
+        // The option to add to a list
+        JMenuItem removeFromListBtn = new JMenuItem("Remove from this List");
+        removeFromListBtn.setForeground(Panle.colors.getText());
+        removeFromListBtn.setOpaque(false);
+
+        // What actually runs when the add to list button is clicked
+        addToListBtn.addActionListener(e -> {
+            if (currentlyRightClickedGame != null) {
+
+                // Fetching all of the lists that the user can access
+                ArrayList<GameList> lists = view.getUser().getGameLists();
+
+                // Creating a list of names that they can pick from
+                ArrayList<String> names = new ArrayList<String>();
+                for (GameList l : lists) {
+                    names.add(l.getName());
+                }
+
+                // Adding the option to create a list
+                names.add("Create New List");
+
+                // Asking them which one they would like to add it to
+                String selection = JOptionPane.showInputDialog(this, "Add to List",
+                        "Which list would you like to add " + currentlyRightClickedGame.getName() + " to?",
+                        JOptionPane.PLAIN_MESSAGE, null, names.toArray(), names).toString();
+
+                // If they hit cancel, then we get null, so we can just exit
+                if (selection == null) {
+                    return;
+                }
+
+                // Handling the chance that they want to create a new list
+                if (selection.equals("Create New List")) {
+                    // Pop open a tiny window asking for the name
+                    String listName = JOptionPane.showInputDialog(
+                            this,
+                            "Enter a name for your new list:",
+                            "Create New List",
+                            JOptionPane.PLAIN_MESSAGE);
+
+                    // If they typed something and didn't hit cancel, send it up the chain
+                    if (listName != null && !listName.trim().isEmpty()) {
+                        GameList toAdd = new GameList(listName);
+                        toAdd.addGame(currentlyRightClickedGame);
+                        view.getUser().addGameList(toAdd);
+                        System.out.println(String.format("Added to %s", view.getUser().getUserName()));
+                    }
+
+                    // Making sure everything updates
+                    view.refreshPanles();
+
+                    return;
+                }
+
+                // Using the name that they picked to find what they want to do
+                for (GameList l : lists) {
+                    // This could cause a clash, but it won't happen often and would be an issue anyways because this is the only way we are identifying the lists
+                    // Plus, this is a beta, so we roll
+                    if (l.getName().equals(selection)) {
+                        l.addGame(currentlyRightClickedGame);
+
+                        // Making sure everything shows
+                        view.refreshPanles();
+                        return;
+                    }
+                }
+
+            }
+        });
+
+        // What actually runs when the remove from list button is clicked
+        removeFromListBtn.addActionListener(e -> {
+            if (currentlyRightClickedGame != null) {
+                games.deleteGame(currentlyRightClickedGame.getId());
+                view.refreshPanles();
+            }
+        });
+
+        sharedPopupMenu.add(addToListBtn);
+        sharedPopupMenu.add(removeFromListBtn);
+    }
+
+    /**
+     * Hides the descriptions of all of the games and then refreshes them so that the description is updated
+     */
+    public void hideDescriptions() {
+        isDescShowing = false;
+        updateGames();
+    }
+
+     /**
+     * Hides the descriptions of all of the games and then refreshes them so that the description is updated
+     */
+    public void showDescriptions() {
+        isDescShowing = true;
+        updateGames();
+    }
+
     @Override
     public void updateTheme() {
         super.updateTheme();
         updateGames();
         title.setForeground(Panle.colors.getText());
     }
+
+    /**
+     * Sets the gamelist that is being displayed
+     * @param GameList The new GameList to display
+     */
+    public void setGameList(GameList newList) {
+        games = newList;
+        if (showTitle) {
+            title.setText(newList.getName());
+        }
+        updateGames();
+    }
     
+
+    /**
+     * Tells the list to hide the title
+     * By detault, the title is shown on all GameListSubPanles
+     */
+    public void hideTitle() {
+        showTitle = false;
+        title.setText("");
+    }
+    
+    /**
+     * Tells the list to show the title
+     * By detault, the title is shown on all GameListSubPanles
+     */
+    public void showTitle() {
+        showTitle = true;
+        title.setText(games.getName());
+    }
+
     /**
      * Sets the action to be performed when a game panel is clicked.
      * @param Consumer<Game> action The action to perform when the game is clicked on 
@@ -372,8 +539,7 @@ public class GameListSubPanle extends Panle {
     }
 
     // The games that will be displayed here
-    // TODO change to pivate
-    public GameList games;
+    private GameList games;
 
     // An arraylist that holds the visual elements for each game
     private ArrayList<RoundedPanle> gamePanles;
@@ -388,8 +554,17 @@ public class GameListSubPanle extends Panle {
     // The action to run when a game is clicked
     private Consumer<Game> onGameClicked;
 
+    // Whether or not to show the description of the game (to make the collapsed view look nicer)
+    private boolean isDescShowing = true;
+
+    // Whether or not to show the title
+    private boolean showTitle = true;
+
     // Any visual constants
     public static final int PANLE_HEIGHT = 100;
     public static final int TITLE_FONT_SIZE = 30;
-    
+
+    // The popup menus for the lists and for the games
+    private RoundedPopupMenu sharedPopupMenu;
+    private Game currentlyRightClickedGame = null;
 }

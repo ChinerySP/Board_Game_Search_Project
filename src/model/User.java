@@ -39,6 +39,10 @@ public class User {
         gameLists.add(new GameList(listName));
     }
 
+    public void addGameList(GameList toAdd) {
+        gameLists.add(toAdd);
+    }
+
     public void setAPI(Boolean state) {
         config.setAPIActive(state);
     }
