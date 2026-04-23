@@ -108,6 +108,7 @@ public class GameListSubPanle extends Panle {
         scrollPane.setBorder(null);
         scrollPane.setOpaque(false);
         scrollPane.getViewport().setOpaque(false);
+        scrollPane.getVerticalScrollBar().setUnitIncrement(16);
 
         // A pop up menu that they can use to remove a game from a list
         initPopupMenu();

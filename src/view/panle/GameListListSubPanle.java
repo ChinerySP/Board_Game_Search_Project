@@ -99,6 +99,7 @@ public class GameListListSubPanle extends Panle {
         scrollPane.setBorder(null);
         scrollPane.setOpaque(false);
         scrollPane.getViewport().setOpaque(false);
+        scrollPane.getVerticalScrollBar().setUnitIncrement(16);
 
         // Actually adding the scrollpane and then updating the display
         this.styleScrollBar(scrollPane);

@@ -62,7 +62,7 @@ public class SettingsPanle extends Panle {
         right.add(new JLabel(new ImageIcon(scaled)), constraints);
 
         // The left side, which holds the different options
-        apiToggleButton = new PrettyToggleButton("API On");
+        apiToggleButton = new PrettyToggleButton("API off");
         apiToggleButton.addActionListener(e -> this.toggleApi());
         darkModeToggleButton = new PrettyToggleButton("Dark Mode On");
         darkModeToggleButton.addActionListener(e -> this.toggleColorMode());
