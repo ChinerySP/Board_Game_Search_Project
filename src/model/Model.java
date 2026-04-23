@@ -89,6 +89,7 @@ public class Model {
         for(User i : dataBase.userList) {
             if (i == delete) {
                 dataBase.userList.remove(count);
+                break;
             }
             count++;
         }
