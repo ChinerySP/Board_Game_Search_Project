@@ -2,7 +2,10 @@ package model;
 
 import java.io.*;
 public class Config {
-
+    public Config(){
+        apiActive = true;
+        isDark = true;
+    }
     /**
      * Sets the API status to determine if user is in offline or online mode
      * @param state Used to determine if the API is used or not

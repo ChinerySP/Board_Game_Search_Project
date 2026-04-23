@@ -54,6 +54,10 @@ public class DataBase {
             while (myReader.hasNextLine()) {
                 String[] data = myReader.nextLine().split(" ");
                 User oldUser = new User(data[0], data[1]);
+                if(data[2].equals("false"))
+                    oldUser.setDarkMode(false);
+                if(data[3].equals("false"))
+                    oldUser.setAPI(false);
                 userList.add(oldUser);
             }
         } catch (FileNotFoundException e) {

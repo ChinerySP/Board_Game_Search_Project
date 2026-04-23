@@ -69,7 +69,7 @@ public class Control {
     public void saveData() {
         // TODO Make this actually do something in the modelsaveData
         model.saveData();
-        System.out.println("full saving is not implemented yet, but the Controller did save the userlist.");
+        System.out.println("full saving is not implemented yet, but the Controller did save all user settings.");
     }
 
 

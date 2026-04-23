@@ -105,10 +105,11 @@ public class Model {
     }
 
     public void saveData(){
+        // todo also save game lists
         try {
             FileWriter myWriter = new FileWriter("resources/userData.txt");
             for(User u : dataBase.userList) {
-                myWriter.write(u.getUserName() + " " + u.getPassword() + "\n");
+                myWriter.write(u.getUserName() + " " + u.getPassword() + " " + u.getDarkMode() + " " + u.getAPI() + "\n");
             }
             myWriter.close();
         } catch (IOException e) {
