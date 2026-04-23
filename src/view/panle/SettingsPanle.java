@@ -234,7 +234,7 @@ public class SettingsPanle extends Panle {
      * @return boolean Whether or not this panle has a user set 
      */
     public boolean hasUser() {
-        return this.user == null;
+        return this.user != null;
     }
 
     /**
