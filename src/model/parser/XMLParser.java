@@ -139,6 +139,12 @@ public class XMLParser extends Parser {
         return currentGameList;
     }
 
+
+    public GameList parseSearch(String xmlSearchContent) {
+        DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+        return null;
+    }
+
     /**
      * Each child node of the main root node is an "item" node in the file. (Tagged with <item )
      * Parse all of the game attributes and fields out of the item.

@@ -21,10 +21,8 @@ public class GameXMLTester {
         DataBase db = new DataBase();
         APIParser parser = new APIParser(db);
 
-        parser.retrieveGame(420);
+        String[] test = {"catan"};
+        db.searchGames(test);
 
-        for (Game g : db.retrieveGames()) {
-            System.out.println(g);
-        }
     }
 }
