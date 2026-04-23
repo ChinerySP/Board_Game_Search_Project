@@ -2,22 +2,23 @@ package model;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.StringReader;
+
 import java.util.ArrayList;
 import java.util.Scanner;
-//import org.json.simple.JSONArray;
-//import org.json.simple.JSONObject;
-import model.Game;
+
 import model.parser.APIParser;
 import model.parser.XMLParser;
+
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
@@ -32,6 +33,7 @@ public class DataBase {
     private GameList games;
     public ArrayList<User> userList;
     public String gameXML = "resources/simple1.xml";
+    public String userdata = "resources/userData.txt";
 
     /**
      * Constructor which creates a blank database.
@@ -48,7 +50,8 @@ public class DataBase {
         games = new GameList("games");
         games = retrieveGames();
         userList = new ArrayList<>();
-        File myObj = new File("resources/userData.txt");
+
+        File myObj = new File(userdata);
         // try-with-resources: Scanner will be closed automatically
         try (Scanner myReader = new Scanner(myObj)) {
             while (myReader.hasNextLine()) {
@@ -61,7 +64,7 @@ public class DataBase {
                 userList.add(oldUser);
             }
         } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
+            System.out.println("*** ERROR: Could not find user data file. ***");
         }
     }
 
@@ -73,20 +76,10 @@ public class DataBase {
     public GameList searchGames(String[] keywords) {
         GameList results = new GameList("Search Results");
 
-        games = new GameList("games");
-
-        for (int i = 10; i < 15; i++) {
-            games.addGame(APIparser.retrieveGame(i));
-        }
-
-        if (games == null) {
-            System.out.println("Got a null");
-            return null;
-        }
         saveGames();
         for (Game g : games) {
             for (String word : keywords) {
-                System.out.println(String.format("Comparing \"%s\" and \"%s\"...", g.name, word));
+                System.out.printf("Comparing \"%s\" and \"%s\"...%n", g.getName(), word);
                 if (g.name.toLowerCase().contains(word.toLowerCase())) {
                     System.out.println("Match found!");
                     results.addGame(g);
@@ -138,9 +131,7 @@ public class DataBase {
         Document doc = null;
         try {
             doc = db.parse(saveFile);
-        } catch (SAXException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
+        } catch (SAXException | IOException e) {
             throw new RuntimeException(e);
         }
 
@@ -148,9 +139,7 @@ public class DataBase {
         Document newDoc = null;
         try {
             newDoc = db.parse(new InputSource(new StringReader(str)));
-        } catch (SAXException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
+        } catch (SAXException | IOException e) {
             throw new RuntimeException(e);
         }
 

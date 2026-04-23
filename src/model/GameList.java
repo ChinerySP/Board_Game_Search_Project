@@ -48,7 +48,7 @@ public class GameList implements Iterable<Game> {
      * @param game takes a game object ad adds it
      */
     public void addGame(Game game) {
-        gameData.add(game); //used to add game to list via varable containing the game
+        gameData.add(game); //used to add game to list via variable containing the game
     }
     /**
      * Delete list removes all the games from inside itself

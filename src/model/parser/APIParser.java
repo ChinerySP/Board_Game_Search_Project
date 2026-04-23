@@ -87,6 +87,8 @@ public class APIParser extends Parser {
 
         System.out.println(response.body());
 
+        dataBase.XMLparser.parseSearch(response.body());
+
         return null;
     }
 }
