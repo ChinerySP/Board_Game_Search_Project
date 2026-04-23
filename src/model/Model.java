@@ -31,7 +31,9 @@ public class Model {
             System.out.println(String.format("Checking %s", possibleMatch.getUserName()));
             if (u.equals(possibleMatch.getUserName()) && p.equals(possibleMatch.getPassword())) {
                 setUser(possibleMatch);
-                restoreUserData();
+                System.out.println(user.getGameLists());
+                if(user.getGameLists().isEmpty())
+                    restoreUserData();
                 return possibleMatch;
             }
         }
