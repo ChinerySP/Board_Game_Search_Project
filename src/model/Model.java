@@ -87,8 +87,6 @@ public class Model {
      * removes that account from the database
      * @param delete the user to be killed
      */
-
-
     public void deleteAccount(User delete){
         int count = 0;
         System.out.println(delete.getUserName());
@@ -112,6 +110,9 @@ public class Model {
         dataBase.userList.add(newUser);
     }
 
+    /**
+     * saves users information to be restored when the program is relaunched
+     */
     public void saveData(){
         try {
             FileWriter myWriterUser = new FileWriter("resources/userData.txt");
@@ -139,23 +140,20 @@ public class Model {
         }
     }
 
+    /**
+     * restores users information form a saved text document
+     */
     public void restoreUserData(){
-        System.out.println("1");
         File myObj = new File("resources/userList.txt");
         // try-with-resources: Scanner will be closed automatically
         try (Scanner myReader = new Scanner(myObj)) {
-            System.out.println("2");
             while (myReader.hasNextLine()) {
-                System.out.println("3");
                 String[] data = myReader.nextLine().split("~");
-                System.out.println(data[0]);
                 if(data[0].equals(user.getUserName())){
-                    System.out.println("4");
                     for(int i = 1; i < data.length; i++ ){
                          String[] splitData = data[i].split(" ");
                         GameList oldList = new GameList(splitData[0]);
                         for(int j = 1; j < splitData.length; j++ ){
-                            System.out.println(splitData[j]);
                             int currentID = Integer.parseInt(splitData[j]);
                             oldList.addGame(dataBase.APIparser.retrieveGame(currentID));
                         }
