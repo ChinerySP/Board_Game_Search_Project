@@ -23,6 +23,9 @@ public class Screen {
      */
     public Screen(View view) {
 
+        // Storing the view
+        this.view = view;
+
         // Creating the frame that will actually be displayed
         frame = new JFrame("Amazing Board Game App - Now with API (soon we promise) -") ;
 
@@ -113,10 +116,14 @@ public class Screen {
             return;
 
         // Making sure that the settings panle is only shown when there is a User defined
-        if (target instanceof SettingsPanle && !((SettingsPanle) target).hasUser()) {
-            return;
+        if (target instanceof SettingsPanle) {
+            
+            // Making sure that it has the user that we want
+            ((SettingsPanle) target).setUser(view.getUser());
+
         }
 
+       
         // Telling the target to hold on to it's socks because it's about to be displayed
         target.getSet();
         
@@ -180,7 +187,12 @@ public class Screen {
      * Gets the frame that this screen is using
      * @return JFrame 
      */
-    public JFrame getFrame() { return frame; }
+    public JFrame getFrame() {
+        return frame;
+    }
+    
+    // The view that owns this Screen
+    private View view;
         
     // The frame that everything is in
     private JFrame frame;

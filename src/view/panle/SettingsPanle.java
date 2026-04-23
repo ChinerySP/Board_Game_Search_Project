@@ -113,6 +113,8 @@ public class SettingsPanle extends Panle {
         this.setVisible(true);
         this.setOpaque(false);
 
+        System.out.println("A settings panle has been made");
+
     }
     
     /**
@@ -171,6 +173,10 @@ public class SettingsPanle extends Panle {
 
         // Checking their confirmation
         if (confirmation.equals("I understand")) {
+
+            if (user == null) {
+                System.out.println("Ayooo why is the user signed into the settings null?????");
+            }
 
             // Deleting the account
             view.deleteAccount(user);
@@ -242,7 +248,16 @@ public class SettingsPanle extends Panle {
      * @param User user The user to be stored in this settings panle
      */
     public void setUser(User user) {
+        System.out.println("Settings now has a user");
         this.user = user;
+    }
+
+    /**
+     * Gets the user that this settings panle is displaying
+     * @return User user The user to be stored in this settings panle
+     */
+    public User getUser() {
+        return user;
     }
     
     // The user to diplay
