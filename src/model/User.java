@@ -144,7 +144,6 @@ public class User {
      * @param newRating The new rating that will be assigned to "game"
      */
     public void setRating(Game game, Rating newRating) {
-        game.rate(newRating);
         userRatings.put(game.getId(), newRating);
     }
 
