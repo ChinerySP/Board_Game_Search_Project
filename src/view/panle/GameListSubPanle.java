@@ -58,8 +58,10 @@ public class GameListSubPanle extends Panle {
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         
-        // Creating the title panel with an edit button 
+        // Creating the title panel with an edit button `
         // TODO (WHERE I LEFT OFF) I was working on adding in a create title method that would create a border layout at the top of the list (that could be 0)
+        // titlePanle = new JPanel();
+        // titlePanle.setOpaque(false);
         // title.setForeground(Panle.colors.getText());
         // title.setFont(new Font("Courier", Font.BOLD, GameListSubPanle.TITLE_FONT_SIZE));
         // this.add(title, BorderLayout.NORTH);

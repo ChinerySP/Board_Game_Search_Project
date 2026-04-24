@@ -1,21 +1,30 @@
 package view.panle;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.Rectangle;
+import java.awt.RenderingHints;
 import java.awt.Image;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
+import javax.swing.plaf.basic.BasicScrollBarUI;
 import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
+import javax.swing.JScrollPane;
 import javax.swing.JMenuItem;
 import javax.imageio.ImageIO;
 import java.net.URI;
@@ -25,6 +34,7 @@ import java.util.ArrayList;
 import java.util.function.BiConsumer;
 import model.*;
 import view.*;
+import view.panle.customComponents.RoundedPanle;
 
 /**
  * A subpanle that shows the details of any arbitrary game.
@@ -40,8 +50,13 @@ public class GameDetailsSubPanle extends Panle {
     public GameDetailsSubPanle(View view) {
         super("gamedetails", view);
 
+        // Creating a simple internal content panle so that we can use a scorllbar
+        this.setLayout(new java.awt.BorderLayout());
+        contentPanel = new JPanel(new GridBagLayout());
+        contentPanel.setOpaque(false);
+
         // This panle will use GridBag so that we can make things spread across the screen or be split at our leisure
-        this.setLayout(new GridBagLayout());
+        contentPanel.setLayout(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.insets = new Insets(10, 10, 10, 10);
 
@@ -122,6 +137,9 @@ public class GameDetailsSubPanle extends Panle {
             popupMenu.show(addToListButton, 0, addToListButton.getHeight());
         });
 
+        // Adding in a scroll panle so that if it gets long you can see it
+        createScrollPane();
+
         // Add some vertical spacing between elements in the info panel
         infoPanle.add(titleLabel);
         infoPanle.add(Box.createRigidArea(new Dimension(0, 10)));
@@ -138,7 +156,7 @@ public class GameDetailsSubPanle extends Panle {
         constraints.weighty = 0.0;
         constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.anchor = GridBagConstraints.NORTHWEST;
-        this.add(infoPanle, constraints);
+        contentPanel.add(infoPanle, constraints);
 
         // In the top right, we will have whatever thumbnail the API gave us for the picture
         ImageIcon placeHolder = new ImageIcon("resources/ImageNotFound.png");
@@ -154,7 +172,7 @@ public class GameDetailsSubPanle extends Panle {
         constraints.weighty = 0.0;
         constraints.fill = GridBagConstraints.NONE;
         constraints.anchor = GridBagConstraints.NORTHEAST;
-        this.add(imagePlaceholder, constraints);
+        contentPanel.add(imagePlaceholder, constraints);
 
         // Lastly, we have a description area at the bottom
         descriptionArea = new JTextArea("Game description will appear here...");
@@ -172,7 +190,7 @@ public class GameDetailsSubPanle extends Panle {
         constraints.weightx = 1.0;
         constraints.weighty = 1.0;
         constraints.fill = GridBagConstraints.BOTH;
-        this.add(descriptionArea, constraints);
+        contentPanel.add(descriptionArea, constraints);
 
         // Actually displaying everything
         this.update();
@@ -193,6 +211,18 @@ public class GameDetailsSubPanle extends Panle {
             imagePlaceholder.setVisible(false);
             return;
         }
+
+        // Creating the review information
+        user.getRating(toDisplay);
+        GridBagConstraints constraints = new GridBagConstraints();
+        createRatingSection();
+        constraints.gridx = 0;
+        constraints.gridy = 2;
+        constraints.weightx = 1;
+        constraints.weighty = 1;
+        constraints.gridwidth = 2;
+        constraints.fill = GridBagConstraints.BOTH;
+        contentPanel.add(ratingPanle, constraints);
 
         // Show components in case they were hidden
         addToListButton.setVisible(true);
@@ -265,6 +295,109 @@ public class GameDetailsSubPanle extends Panle {
     }
 
     /**
+     * Creates and adds a scrollpane to this gamedetailssubpanle
+     * Intended as an internal function to only be called by the constructor.
+     */
+    private void createScrollPane() {
+
+        // Creating the thin
+        scrollPane = new JScrollPane(contentPanel);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPane.setBorder(null);
+        scrollPane.setOpaque(false);
+        scrollPane.getViewport().setOpaque(false);
+
+        // Styling it
+        scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
+
+                /**
+                 * Overrides the regular JScrollPane up button to not show up
+                 * @param int orientation Not used, left over from overriding
+                 */
+                @Override
+                protected JButton createDecreaseButton(int orientation) {
+                    return createZeroButton();
+                }
+
+                /**
+                 * Overrides the regular JScrollPane down button to not show up
+                 * @param int orientation Not used, left over from overriding
+                 */
+                @Override
+                protected JButton createIncreaseButton(int orientation) {
+                    return createZeroButton();
+                }
+
+                /**
+                 * Creates a fake button that doesn't show up
+                 */
+                private JButton createZeroButton() {
+                    JButton button = new JButton();
+                    Dimension zero = new Dimension(0, 0);
+                    button.setPreferredSize(zero);
+                    button.setMinimumSize(zero);
+                    button.setMaximumSize(zero);
+                    button.setOpaque(false);
+                    button.setContentAreaFilled(false);
+                    button.setBorderPainted(false);
+                    button.setFocusable(false);
+                    return button;
+                }
+
+                /**
+                 * Overrides the track to be clear
+                 * @param Graphics g Not used, left over from overriding
+                 * @param JComponent c Not used, left over from overriding
+                 * @param Rectangle trackBounds Not used, left over from overriding
+                 */
+                @Override
+                protected void paintTrack(Graphics g, JComponent c, Rectangle trackBounds) {
+                    // Setting a color with 0 alpha
+                    // c.setBackground(new Color(0, 0, 0, 0));
+                }
+
+                /**
+                 * Overrides the thumb (like, the button that goes up and down) to be fancy
+                 * @param Graphcis g The graphics object to draw on 
+                 * @param JComponent c The component to be drawing on 
+                 * @param Rectangle thumbBounds The size of the thumb
+                 */
+                @Override
+                protected void paintThumb(Graphics g, JComponent c, Rectangle thumbBounds) {
+                    // Normal stuff to make sure it should run and look right
+                    if (thumbBounds.isEmpty() || !scrollbar.isEnabled()) {
+                        return;
+                    }
+                    Graphics2D g2 = (Graphics2D) g.create();
+                    g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
+                    // Setting the color to be a semi-transparent grey
+                    g2.setColor(new Color(150, 150, 150, 100));
+
+                    // Making a nice little rounded rectangle
+                    g2.fillRoundRect(thumbBounds.x + 3, thumbBounds.y + 2, thumbBounds.width - 6, thumbBounds.height - 4,
+                            8, 8);
+                    g2.dispose();
+                }
+
+            });
+
+        // It kept duplicating the thing because it wasn't updating, so I went ahead and cretaed an eventListener
+        // That makes it repaint whenever it gets moved
+        scrollPane.getVerticalScrollBar().addAdjustmentListener(e -> scrollPane.repaint());
+
+        // Updating the scroll path to be transparent 
+        scrollPane.getVerticalScrollBar().setOpaque(false);
+
+        // Speed. I am speed
+        scrollPane.getVerticalScrollBar().setUnitIncrement(16);
+
+        // Making sure it actually exists
+        this.add(scrollPane, BorderLayout.CENTER);
+    }
+
+    /**
      * Updates the theme of this panle
      */
     @Override
@@ -274,6 +407,9 @@ public class GameDetailsSubPanle extends Panle {
         playersLabel.setForeground(Panle.colors.getText());
         categoryLabel.setForeground(Panle.colors.getText());
         descriptionArea.setForeground(Panle.colors.getText());
+
+        // Recreate the rating section to ensure colors match
+        createRatingSection();
     }
 
     /**
@@ -307,6 +443,132 @@ public class GameDetailsSubPanle extends Panle {
         this.onNewListCreated = action;
     }
 
+    /**
+     * Creates the review section of this game.
+     * To be called internally by the constructor
+     */
+    private void createRatingSection() {
+
+        // We can only actually create it if we have a user, so I'll check to make sure
+        if (user == null) {
+            return;
+        }
+
+        // Now making sure we have a rating to dhow
+        rating = user.getRating(toDisplay);
+
+        // Making sure we don't recreate stuff and make it weird
+        if (ratingPanle != null) contentPanel.remove(ratingPanle);
+        
+        // Using gridbag so that I can have different sizes and everything
+        ratingPanle = new RoundedPanle(CORNER_ROUNDING_RADIUS);
+        ratingPanle.setLayout(new GridBagLayout());
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.insets = new Insets(10, 10, 10, 10);
+
+        // The top left section, a small square that is whether or not they recommend the game
+        JButton recommendButton = new JButton(rating.getRecommended() ? "👍" : "👎" ); 
+        recommendButton.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 32));
+        recommendButton.setForeground(Panle.colors.getText());
+        recommendButton.setToolTipText("Do you recommend this game?");
+        recommendButton.setFocusPainted(false);
+        recommendButton.setContentAreaFilled(false);
+        recommendButton.setBorderPainted(false);
+
+        // Making the thumb update based on the user's touch
+        recommendButton.addActionListener(e -> {
+            if (recommendButton.getText().equals("👍")) {
+                recommendButton.setText("👎");
+                rating.setRecommended(false);
+            } else {
+                recommendButton.setText("👍");
+                rating.setRecommended(true);
+            }
+        });
+
+        // Adding it in 
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weightx = 0.0; 
+        gbc.weighty = 0.0;
+        gbc.fill = GridBagConstraints.NONE;
+        gbc.anchor = GridBagConstraints.WEST;
+        ratingPanle.add(recommendButton, gbc);
+
+        // The top right section, that has the number of stars out of five
+        JPanel starPanel = new JPanel();
+        starPanel.setOpaque(false);
+        starPanel.setLayout(new BoxLayout(starPanel, BoxLayout.X_AXIS));
+
+        // The stars themselves
+        JLabel[] stars = new JLabel[5];
+        for (int i = 0; i < 5; i++) {
+
+            // A final variable because it needs to be final to be used in the mouse listener
+            final int starValue = i;
+
+            // Starting out with only blank stars
+            stars[i] = new JLabel("☆");
+            stars[i].setFont(new Font("Segoe UI Emoji", Font.PLAIN, 36));
+            stars[i].setForeground(new Color(255, 215, 0));
+
+            // Add a click listener to each star
+            stars[i].addMouseListener(new java.awt.event.MouseAdapter() {
+                @Override
+                public void mouseClicked(java.awt.event.MouseEvent evt) {
+
+                    // Saving the one that they currently are so that they can use it to save later
+                    rating.setScore(starValue);
+
+                    // Looping through all of the stars
+                    for (int j = 0; j < 5; j++) {
+                        if (j <= rating.getScore()) {
+                            stars[j].setText("★");
+                        } else {
+                            stars[j].setText("☆");
+                        }
+                    }
+                }
+            });
+            starPanel.add(stars[i]);
+        }
+        
+        // Adding them in 
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.weightx = 1.0; 
+        gbc.weighty = 0.0;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.anchor = GridBagConstraints.WEST;
+        ratingPanle.add(starPanel, gbc);
+    
+        // Finally, the bottom section, that is just the review
+        JTextArea reviewTextArea = new JTextArea(rating.getReview());
+        reviewTextArea.setFont(new Font("Arial", Font.PLAIN, 14));
+        reviewTextArea.setForeground(Panle.colors.getText());
+        reviewTextArea.setLineWrap(true);
+        reviewTextArea.setWrapStyleWord(true);
+        reviewTextArea.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
+            public void insertUpdate(javax.swing.event.DocumentEvent e) { updateData(); }
+            public void removeUpdate(javax.swing.event.DocumentEvent e) { updateData(); }
+            public void changedUpdate(javax.swing.event.DocumentEvent e) { updateData(); }
+
+            private void updateData() {
+                rating.setReview(reviewTextArea.getText());
+            }
+        });
+
+        // Adding it in 
+        gbc.gridx = 0;
+        gbc.gridy = 1;
+        gbc.gridwidth = 2;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.BOTH;
+        ratingPanle.add(reviewTextArea, gbc);
+
+    }
+
     // Storing the lists that the user has so that we can add to them or remove from them
     private User user;
 
@@ -315,6 +577,16 @@ public class GameDetailsSubPanle extends Panle {
 
     // A consumer to call when the user wants to create a new list
     private Consumer<String> onNewListCreated;
+
+    // A scollpane. So you can... y'know... scroll
+    private JScrollPane scrollPane;
+
+    // The review that belongs to this game for this user
+    private Rating rating;
+    private RoundedPanle ratingPanle;
+
+    // A content panle that holds all of the content
+    private JPanel contentPanel;
 
     // Visual components
     private JLabel titleLabel;
@@ -326,5 +598,6 @@ public class GameDetailsSubPanle extends Panle {
 
     // The game that is going to be displayed
     private Game toDisplay;
+    
 
 }

@@ -133,8 +133,9 @@ public class User {
      * @param game The game that has been chosen to be rated
      * @return Returns the rating in form aof a double
      */
-    public double getRating(Game game) {
-        return game.getRating();
+    public Rating getRating(Game game) {
+        return new Rating(0, "nothing yet");
+        // return game.getRating();
     }
 
     /**
@@ -143,7 +144,7 @@ public class User {
      * @param newRating The new rating that will be used by the user
      */
     public void setRating(Game game, Rating newRating) {
-        game.rate(newRating);
+        // game.rate(newRating);
     }
 
 
