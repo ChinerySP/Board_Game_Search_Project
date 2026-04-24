@@ -71,7 +71,11 @@ public class Game implements Comparable<Game>, Iterable<Rating>{
     }
 
     public String toString() {
-        return "[" + name + ", BGG ID: " + id + ", Description: " + description.substring(0, 12) + "..." + " Thumbnail: " + thumbnail.substring(0, 10) + "..." + "]";
+        return "[" + name +
+                ", BGG ID: " + id +
+                ", Description: " + description.substring(0, Math.min(12, description.length())) + "..." +
+                " Thumbnail: " + thumbnail.substring(0, Math.min(10, thumbnail.length())) + "..." +
+                "]";
     }
 
     /**
