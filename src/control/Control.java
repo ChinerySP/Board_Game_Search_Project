@@ -71,13 +71,6 @@ public class Control {
         System.out.println("System saved");
     }
 
-    public Boolean checkInput(String checking){
-        // todo impliment input checking into account names, account passwords, & list names
-        if(checking.contains(" ") || checking.contains("~"))
-            return false;
-        return true;
-
-    }
     /**
      * Tells the model to turn the API to a specified state
      * @param boolean The state to set the API to

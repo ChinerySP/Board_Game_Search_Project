@@ -1,7 +1,7 @@
 package model;
 
 public class Rating {
-    double score;
+    int score;
     String review;
     boolean recommended;
 
@@ -10,7 +10,7 @@ public class Rating {
      * @param s The number raiting that the user gave
      * @param r The revirew the user wrote about the game
      */
-    public Rating(double s, String r){
+    public Rating(int s, String r){
         score = s;
         review = r;
     }
@@ -19,14 +19,14 @@ public class Rating {
     /**
      * Getters for the varables within Rating
      */
-    public double getScore(){return score;}
+    public int getScore(){return score;}
     public String getReview(){return review;}
     public boolean getRecommended(){return recommended;}
 
     /**
      * Setters for the varables within Rating
      */
-    public void setScore(double sc){score = sc;}
+    public void setScore(int sc){score = sc;}
     public void setReview(String rev){review = rev;}
     public void setRecommended(boolean rec){recommended = rec;}
 }
