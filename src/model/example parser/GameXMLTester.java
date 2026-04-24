@@ -21,8 +21,5 @@ public class GameXMLTester {
         DataBase db = new DataBase();
         APIParser parser = new APIParser(db);
 
-        String[] test = {"catan"};
-        db.searchGames(test);
-
     }
 }

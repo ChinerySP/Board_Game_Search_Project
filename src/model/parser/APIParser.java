@@ -85,10 +85,29 @@ public class APIParser extends Parser {
             throw new RuntimeException(e);
         }
 
-        System.out.println(response.body());
+        //System.out.println(response.body());
 
-        dataBase.XMLparser.parseSearch(response.body());
+        GameList results = new GameList("SearchResults");
+        ArrayList<Integer> idList = dataBase.XMLparser.parseAPISearch(response.body());
 
-        return null;
+        //go through the list and get search results
+        for (int i = 0; i < idList.size(); i++) {
+            boolean gameExists = false;
+
+            //first check if this game exists in our database
+            for (Game g : dataBase.retrieveGames()) {
+                if (g.getId() == idList.get(i)) {
+                    results.addGame(g);
+                    gameExists = true;
+                }
+            }
+
+            //if the game doesn't exist, use the APIParser to get it
+            if (!gameExists) {
+                results.addGame(retrieveGame(idList.get(i)));
+            }
+        }
+
+        return results;
     }
 }
