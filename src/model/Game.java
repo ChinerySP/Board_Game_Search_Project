@@ -68,6 +68,10 @@ public class Game implements Comparable<Game>{
         this.maxPlayer = -1;
     }
 
+    /**
+     * Prints out information about game objects for ease of debugging
+     * @return Game object information
+     */
     public String toString() {
         return "[" + name +
                 ", BGG ID: " + id +
