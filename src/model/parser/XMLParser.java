@@ -5,13 +5,13 @@ import model.Game;
 import model.GameList;
 import org.w3c.dom.*;
 import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.StringReader;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class XMLParser extends Parser {
@@ -37,12 +37,12 @@ public class XMLParser extends Parser {
     public Game retrieveGame(int gameID) {
         for (Game g : retrieveGameList()) {
             if (g.getId() == gameID) {
-                System.out.println("Matching game of ID: \"" + String.valueOf(gameID) + "\" found.");
+                //System.out.println("Matching game of ID: \"" + String.valueOf(gameID) + "\" found.");
                 return g;
             }
         }
 
-        System.out.println("No game with matching ID: \"" + String.valueOf(gameID) + "\" found in game list.");
+        //System.out.println("No game with matching ID: \"" + String.valueOf(gameID) + "\" found in game list.");
         return null;
     }
 
@@ -140,9 +140,43 @@ public class XMLParser extends Parser {
     }
 
 
-    public GameList parseSearch(String xmlSearchContent) {
+    public ArrayList<Integer> parseAPISearch(String xmlSearchContent) {
+        //create document builder stuff
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        return null;
+        dbf.setNamespaceAware(true);
+        dbf.setExpandEntityReferences(false);
+        DocumentBuilder db = null;
+        try {
+            db = dbf.newDocumentBuilder();
+        } catch (ParserConfigurationException e) {
+            throw new RuntimeException(e);
+        }
+
+        //turn the string into a file and parse it
+        Document doc = null;
+        try {
+            doc = db.parse(new ByteArrayInputStream(xmlSearchContent.getBytes()));
+        } catch (SAXException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        doc.getDocumentElement().normalize();
+
+        //seperate each boardgame using the tag
+        NodeList nl = doc.getElementsByTagName("boardgame");
+
+        //go through each element and grab its ID
+        //can use the ID to get the game itself from the API
+        //API search doesn't return the entire game
+        ArrayList<Integer> results = new ArrayList<>();
+        for (int i = 0; i < nl.getLength(); i++) {
+            Element element = (Element) nl.item(i);
+            int ID = Integer.parseInt(element.getAttribute("objectid"));
+            results.add(ID);
+        }
+
+        return results;
     }
 
     /**

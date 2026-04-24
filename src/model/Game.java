@@ -1,15 +1,13 @@
 package model;
 
-import model.Rating;
 import java.util.ArrayList;
 import java.util.Iterator;
-public class Game implements Comparable<Game>, Iterable<Rating>{
+public class Game implements Comparable<Game>{
     /**
      * Create varables for all the things that make up a game
     */
     String name, description, thumbnail, categories, mechanics, designer, artist;
     int id, numPlayer, agePlayer, playTime, minPlayer, maxPlayer;
-    ArrayList<Rating> ratings = new ArrayList<Rating>();
 
     /**
      * Getters and setters for every varable, allowing for easy access
@@ -71,34 +69,11 @@ public class Game implements Comparable<Game>, Iterable<Rating>{
     }
 
     public String toString() {
-        return "[" + name + ", BGG ID: " + id + ", Description: " + description.substring(0, 12) + "..." + " Thumbnail: " + thumbnail.substring(0, 10) + "..." + "]";
+        return "[" + name +
+                ", BGG ID: " + id +
+                ", Description: " + description.substring(0, Math.min(12, description.length())) + "..." +
+                " Thumbnail: " + thumbnail.substring(0, Math.min(10, thumbnail.length())) + "..." +
+                "]";
     }
 
-    /**
-     * adds to the arraylist of ratings stored with each game
-     * @param newRating Takes in a raiting object to be stored
-     */
-    public void rate(Rating newRating){ratings.add(newRating);}
-
-    /**
-     * the get raiting returns an avrage of all the ratings stored in the array list.
-     * @return mean value of all the raitings
-     */
-    public double getRating(){
-        double avgScore = 0;
-        double count = 0;
-        for(Rating i : ratings){
-            avgScore += i.getScore();
-            count++;
-        }
-        return avgScore/count;
-    }
-
-    /**
-     *Allowes the Raitings to be iterated through
-     *@return iterator of ratings
-     */
-    public Iterator<Rating> iterator() {
-        return ratings.iterator();
-    }
 }

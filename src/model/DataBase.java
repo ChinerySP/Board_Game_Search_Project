@@ -55,11 +55,15 @@ public class DataBase {
         // try-with-resources: Scanner will be closed automatically
         try (Scanner myReader = new Scanner(myObj)) {
             while (myReader.hasNextLine()) {
-                String[] data = myReader.nextLine().split(" ");
-                User oldUser = new User(data[0], data[1]);
-                if(data[2].equals("false"))
+                ArrayList<String> data = new ArrayList<String>();
+                for(int i = 0; i < 4; i++) {
+                    data.add(myReader.nextLine());
+                }
+                System.out.println(data.get(0) + data.get(1) + data.get(2) + data.get(3));
+                User oldUser = new User(data.get(0), data.get(1));
+                if(data.get(2).equals("false"))
                     oldUser.setDarkMode(false);
-                if(data[3].equals("false"))
+                if(data.get(3).equals("false"))
                     oldUser.setAPI(false);
                 userList.add(oldUser);
             }
