@@ -1,4 +1,5 @@
 package model;
+import java.util.HashMap;
 import java.util.ArrayList;
 import model.*;
 
@@ -10,7 +11,7 @@ public class User {
      */
     public User() {
         userLists = new ArrayList<GameList>();
-        userRatings = new ArrayList<Rating>();
+        userRatings = new HashMap<Integer, Rating>();
         this.config = new Config();
         this.password = "password";
         this.userName = "TJS";
@@ -23,7 +24,7 @@ public class User {
      */
     public User(String user, String password) {
         userLists = new ArrayList<GameList>();
-        userRatings = new ArrayList<Rating>();
+        userRatings = new HashMap<Integer, Rating>();
         this.config = new Config();
         this.password = password;
         this.userName = user;
@@ -129,24 +130,23 @@ public class User {
     }
 
     /**
-     * Gives the current rating for the specified game
-     * @param game The game that has been chosen to be rated
-     * @return Returns the rating in form aof a double
+     * Gives the rating for a game specified by input "game"
+     * @param game Game that is used to retrieve rating information from
+     * @return Returns the rating related to "game"
      */
     public Rating getRating(Game game) {
-        return new Rating(0, "nothing yet");
-        // return game.getRating();
+        return userRatings.get(game.getId());
     }
 
     /**
-     * Sets a new rating for a specified game
-     * @param game The game that will be rated by the user
-     * @param newRating The new rating that will be used by the user
+     * Sets a rating for a game specified by "game"
+     * @param game The game that a rating will be assigned to
+     * @param newRating The new rating that will be assigned to "game"
      */
     public void setRating(Game game, Rating newRating) {
-        // game.rate(newRating);
+        game.rate(newRating);
+        userRatings.put(game.getId(), newRating);
     }
-
 
     @Deprecated
     public boolean logout() {
@@ -164,7 +164,7 @@ public class User {
         return true;
     }
 
-    private ArrayList<Rating> userRatings;
+    private HashMap<Integer, Rating> userRatings;
     private ArrayList<GameList> userLists;
     private String password;
     private Config config;

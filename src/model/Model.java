@@ -115,25 +115,20 @@ public class Model {
      */
     public void saveData(){
         try {
-            for(User u : dataBase.userList)
-                if(u.getGameLists().isEmpty())
-                    restoreUserData(u);
             FileWriter myWriterUser = new FileWriter("resources/userData.txt");
             FileWriter myWriterData = new FileWriter("resources/userList.txt");
             for(User u : dataBase.userList) {
-                myWriterUser.write(u.getUserName() + "\n" + u.getPassword() + "\n" + u.getDarkMode() + "\n" + u.getAPI() + "\n");
+                myWriterUser.write(u.getUserName() + " " + u.getPassword() + " " + u.getDarkMode() + " " + u.getAPI() + "\n");
             }
             for(User u : dataBase.userList) {
-                myWriterData.write("\"");
                 myWriterData.write(u.getUserName());
-                myWriterData.write("\"");
-                myWriterData.write("}");
+                myWriterData.write("~");
                 for(GameList g : u.getGameLists()){
                     myWriterData.write(g.getName());
                     for(Game game : g){
-                        myWriterData.write("]" + game.getId());
+                        myWriterData.write(" " + game.getId());
                     }
-                    myWriterData.write("}");
+                    myWriterData.write("~");
                 }
                 myWriterData.write("\n");
             }
@@ -153,40 +148,16 @@ public class Model {
         // try-with-resources: Scanner will be closed automatically
         try (Scanner myReader = new Scanner(myObj)) {
             while (myReader.hasNextLine()) {
-                String[] data = myReader.nextLine().split("}");
-                if(data[0].equals("\"" + user.getUserName() + "\"")){
+                String[] data = myReader.nextLine().split("~");
+                if(data[0].equals(user.getUserName())){
                     for(int i = 1; i < data.length; i++ ){
-                        String[] splitData = data[i].split("]");
+                         String[] splitData = data[i].split(" ");
                         GameList oldList = new GameList(splitData[0]);
                         for(int j = 1; j < splitData.length; j++ ){
                             int currentID = Integer.parseInt(splitData[j]);
                             oldList.addGame(dataBase.APIparser.retrieveGame(currentID));
                         }
                         user.addGameList(oldList);
-                    }
-                }
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-        }
-    }
-
-    public void restoreUserData(User use){
-        File myObj = new File("resources/userList.txt");
-        // try-with-resources: Scanner will be closed automatically
-        try (Scanner myReader = new Scanner(myObj)) {
-            while (myReader.hasNextLine()) {
-                System.out.println("while open");
-                String[] data = myReader.nextLine().split("}");
-                if(data[0].equals("\"" + use.getUserName() + "\"")){
-                    for(int i = 1; i < data.length; i++ ){
-                        String[] splitData = data[i].split("]");
-                        GameList oldList = new GameList(splitData[0]);
-                        for(int j = 1; j < splitData.length; j++ ){
-                            int currentID = Integer.parseInt(splitData[j]);
-                            oldList.addGame(dataBase.APIparser.retrieveGame(currentID));
-                        }
-                        use.addGameList(oldList);
                     }
                 }
             }
