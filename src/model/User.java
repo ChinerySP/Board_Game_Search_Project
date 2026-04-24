@@ -29,6 +29,7 @@ public class User {
         this.password = password;
         this.userName = user;
     }
+    public HashMap getUserRatings(){return userRatings;}
 
     /**
      * Getter that returns the current username
@@ -163,7 +164,7 @@ public class User {
         return true;
     }
 
-    private HashMap<Integer, Rating> userRatings;
+    public HashMap<Integer, Rating> userRatings;
     private ArrayList<GameList> userLists;
     private String password;
     private Config config;

@@ -4,7 +4,8 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
-
+import java.util.Map;
+import java.util.HashMap;
 import control.*;
 
 public class Model {
@@ -120,13 +121,12 @@ public class Model {
                     restoreUserData(u);
             FileWriter myWriterUser = new FileWriter("resources/userData.txt");
             FileWriter myWriterData = new FileWriter("resources/userList.txt");
+            FileWriter myWriterRev = new FileWriter("resources/userRev.txt");
             for(User u : dataBase.userList) {
                 myWriterUser.write(u.getUserName() + "\n" + u.getPassword() + "\n" + u.getDarkMode() + "\n" + u.getAPI() + "\n");
             }
             for(User u : dataBase.userList) {
-                myWriterData.write("\"");
-                myWriterData.write(u.getUserName());
-                myWriterData.write("\"");
+                myWriterData.write("\""+ u.getUserName()+ "\"");
                 myWriterData.write("}");
                 for(GameList g : u.getGameLists()){
                     myWriterData.write(g.getName());
@@ -137,8 +137,18 @@ public class Model {
                 }
                 myWriterData.write("\n");
             }
+            for(User u : dataBase.userList) {
+                myWriterData.write("\""+ u.getUserName()+ "\"}");
+                Map<Integer, Rating> map = new HashMap<Integer, Rating>();
+                for (Map.Entry<Integer, Rating> entry : u.userRatings.entrySet()) {
+                    Integer key = entry.getKey();
+                    Rating value = entry.getValue();
+                    myWriterRev.write(key + "}" + value.getRecommended() + "}" + value.getScore() + "}" + value.getReview());
+                }
+            }
             myWriterUser.close();
             myWriterData.close();
+            myWriterRev.close();
         } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
