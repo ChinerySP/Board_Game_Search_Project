@@ -170,13 +170,14 @@ public class Model {
             System.out.println("An error occurred.");
         }
     }
-
+    /**
+     * restores users information form a saved text document
+     */
     public void restoreUserData(User use){
         File myObj = new File("resources/userList.txt");
         // try-with-resources: Scanner will be closed automatically
         try (Scanner myReader = new Scanner(myObj)) {
             while (myReader.hasNextLine()) {
-                System.out.println("while open");
                 String[] data = myReader.nextLine().split("}");
                 if(data[0].equals("\"" + use.getUserName() + "\"")){
                     for(int i = 1; i < data.length; i++ ){
