@@ -29,7 +29,6 @@ public class User {
         this.password = password;
         this.userName = user;
     }
-    public HashMap getUserRatings(){return userRatings;}
 
     /**
      * Getter that returns the current username
@@ -146,6 +145,10 @@ public class User {
      */
     public void setRating(Game game, Rating newRating) {
         userRatings.put(game.getId(), newRating);
+    }
+
+    public void setRating(int id, Rating newRating) {
+        userRatings.put(id, newRating);
     }
 
     @Deprecated

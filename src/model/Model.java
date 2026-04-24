@@ -143,7 +143,7 @@ public class Model {
                 for (Map.Entry<Integer, Rating> entry : u.userRatings.entrySet()) {
                     Integer key = entry.getKey();
                     Rating value = entry.getValue();
-                    myWriterRev.write(key + "}" + value.getRecommended() + "}" + value.getScore() + "}" + value.getReview());
+                    myWriterRev.write(key + "]" + value.getScore() + "]" + value.getReview() + "]" + value.getRecommended() +"}");
                 }
             }
             myWriterUser.close();
@@ -179,6 +179,25 @@ public class Model {
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
         }
+        File myObjRev = new File("resources/userRev.txt");
+        try (Scanner myReader = new Scanner(myObjRev)){
+            while (myReader.hasNextLine()){
+                String[] data = myReader.nextLine().split("}");
+                if(data[0].equals("\"" + user.getUserName() + "\"")){
+                    for(int i = 1; i < data.length; i++ ){
+                        String[] splitData = data[i].split("]");
+                        int keyInt = Integer.parseInt(splitData[0]);
+                        int scoreInt = Integer.parseInt(splitData[1]);
+                        Boolean recBool = Boolean.parseBoolean(splitData[3]);
+                        Rating oldRating = new Rating(scoreInt, splitData[2], recBool);
+                        user.setRating(keyInt, oldRating);
+                    }
+                }
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+        }
+
     }
     /**
      * restores users information form a saved text document
@@ -198,6 +217,24 @@ public class Model {
                             oldList.addGame(dataBase.APIparser.retrieveGame(currentID));
                         }
                         use.addGameList(oldList);
+                    }
+                }
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+        }
+        File myObjRev = new File("resources/userRev.txt");
+        try (Scanner myReader = new Scanner(myObjRev)){
+            while (myReader.hasNextLine()){
+                String[] data = myReader.nextLine().split("}");
+                if(data[0].equals("\"" + user.getUserName() + "\"")){
+                    for(int i = 1; i < data.length; i++ ){
+                        String[] splitData = data[i].split("]");
+                        int keyInt = Integer.parseInt(splitData[0]);
+                        int scoreInt = Integer.parseInt(splitData[1]);
+                        Boolean recBool = Boolean.parseBoolean(splitData[3]);
+                        Rating oldRating = new Rating(scoreInt, splitData[2], recBool);
+                        user.setRating(keyInt, oldRating);
                     }
                 }
             }
