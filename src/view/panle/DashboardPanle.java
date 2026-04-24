@@ -78,6 +78,10 @@ public class DashboardPanle extends Panle {
         // Making it switch the list on the left to match whetever is clicked
         gameListListPanle.setOnListClicked(list -> setListToDisplay(list));
 
+        // Refreshing everything to make it look right
+        gameListPanle.updateGames();
+        gameListListPanle.updateLists();
+        
     }
 
     /**

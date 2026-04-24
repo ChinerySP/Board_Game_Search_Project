@@ -135,6 +135,13 @@ public class User {
      * @return Returns the rating related to "game"
      */
     public Rating getRating(Game game) {
+
+        // If we have a rating, then we return it, otherwise, we create a new one and save it 
+        Rating toReturn = userRatings.get(game.getId());
+        if (toReturn == null) {
+            userRatings.put(game.getId(), new Rating(0, "", false));
+        }
+            
         return userRatings.get(game.getId());
     }
 

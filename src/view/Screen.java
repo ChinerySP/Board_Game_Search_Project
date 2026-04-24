@@ -122,16 +122,14 @@ public class Screen {
             ((SettingsPanle) target).setUser(view.getUser());
 
         }
-
-       
-        // Telling the target to hold on to it's socks because it's about to be displayed
-        target.getSet();
         
         // Showing the panle
         contentPane.add(target, BorderLayout.CENTER);
         contentPane.revalidate();
         contentPane.repaint();
 
+        // Telling the target to hold on to it's socks because it's about to be displayed
+        target.getSet();
     }
 
 

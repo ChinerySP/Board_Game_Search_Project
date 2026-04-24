@@ -130,7 +130,6 @@ public class SearchResultsPanle extends Panle {
         // Making the search results take up the whole space again
         GridBagLayout layout = (GridBagLayout) this.getLayout();
         GridBagConstraints leftGbc = layout.getConstraints(resultsPanle);
-        leftGbc.weightx = 1.0;
         layout.setConstraints(resultsPanle, leftGbc);
 
         isShowingDetails = false;

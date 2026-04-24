@@ -182,6 +182,7 @@ public class GameDetailsSubPanle extends Panle {
         descriptionArea.setEditable(false);
         descriptionArea.setLineWrap(true);
         descriptionArea.setWrapStyleWord(true);
+        descriptionArea.setMinimumSize(new Dimension(10, 10));
 
         // Add description to the main layout, spanning both columns
         constraints.gridx = 0;
@@ -213,16 +214,8 @@ public class GameDetailsSubPanle extends Panle {
         }
 
         // Creating the review information
-        user.getRating(toDisplay);
         GridBagConstraints constraints = new GridBagConstraints();
         createRatingSection();
-        constraints.gridx = 0;
-        constraints.gridy = 2;
-        constraints.weightx = 1;
-        constraints.weighty = 1;
-        constraints.gridwidth = 2;
-        constraints.fill = GridBagConstraints.BOTH;
-        contentPanel.add(ratingPanle, constraints);
 
         // Show components in case they were hidden
         addToListButton.setVisible(true);
@@ -395,6 +388,7 @@ public class GameDetailsSubPanle extends Panle {
 
         // Making sure it actually exists
         this.add(scrollPane, BorderLayout.CENTER);
+
     }
 
     /**
@@ -451,7 +445,8 @@ public class GameDetailsSubPanle extends Panle {
 
         // We can only actually create it if we have a user, so I'll check to make sure
         if (user == null) {
-            return;
+            // Defaulting to asking the view which user is signed in
+            user = view.getUser();
         }
 
         // Now making sure we have a rating to dhow
@@ -463,6 +458,7 @@ public class GameDetailsSubPanle extends Panle {
         // Using gridbag so that I can have different sizes and everything
         ratingPanle = new RoundedPanle(CORNER_ROUNDING_RADIUS);
         ratingPanle.setLayout(new GridBagLayout());
+        ratingPanle.setBackground(Panle.colors.getSurface0());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
 
@@ -546,6 +542,7 @@ public class GameDetailsSubPanle extends Panle {
         JTextArea reviewTextArea = new JTextArea(rating.getReview());
         reviewTextArea.setFont(new Font("Arial", Font.PLAIN, 14));
         reviewTextArea.setForeground(Panle.colors.getText());
+        reviewTextArea.setOpaque(false);
         reviewTextArea.setLineWrap(true);
         reviewTextArea.setWrapStyleWord(true);
         reviewTextArea.getDocument().addDocumentListener(new javax.swing.event.DocumentListener() {
@@ -557,6 +554,8 @@ public class GameDetailsSubPanle extends Panle {
                 rating.setReview(reviewTextArea.getText());
             }
         });
+        reviewTextArea.setMinimumSize(new Dimension(10, 10));
+        reviewTextArea.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
 
         // Adding it in 
         gbc.gridx = 0;
@@ -566,6 +565,17 @@ public class GameDetailsSubPanle extends Panle {
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
         ratingPanle.add(reviewTextArea, gbc);
+
+        // Adding the rating to the contentpanle
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.gridx = 0;
+        constraints.gridy = 2;
+        constraints.weightx = 1;
+        constraints.weighty = 1;
+        constraints.gridwidth = 2;
+        constraints.fill = GridBagConstraints.BOTH;
+        constraints.insets = new Insets(10, 10, 10, 10);
+        contentPanel.add(ratingPanle, constraints);
 
     }
 

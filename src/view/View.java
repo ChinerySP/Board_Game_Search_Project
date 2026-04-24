@@ -68,6 +68,10 @@ public class View {
             // Updating everything to the new Panle
             screen.showPanle("dashboard");
             screen.showPanle("sticky");
+
+            // Add this line to refresh components once they are on the screen
+            screen.refreshPanles();
+
         }
 
     }
@@ -128,12 +132,13 @@ public class View {
 
         } else {
 
+            // Updating the stored information
+            activeUser = toLogin;
+
             // Showing the dashboard
             showPanle("dashboard");
             showPanle("sticky");
 
-            // Updating the stored information
-            activeUser = toLogin;
             return toLogin;
         }
         return null;

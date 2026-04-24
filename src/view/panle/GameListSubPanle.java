@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.function.Consumer;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
@@ -25,8 +26,12 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
+import javax.swing.border.Border;
+import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import javax.swing.JComponent;
+
+import view.panle.colors.DarkMode;
 import view.panle.customComponents.RoundedPanle;
 import view.panle.customComponents.RoundedPopupMenu;
 import view.*;
@@ -47,7 +52,7 @@ public class GameListSubPanle extends Panle {
     public GameListSubPanle(View view, GameList games) {
         super("gamelist", view);
 
-        // Setting up the internal container and title
+        // Setting up the internal container
         this.setLayout(new BorderLayout());
         listContainer = new JPanel();
         listContainer.setLayout(new BoxLayout(listContainer, BoxLayout.Y_AXIS));
@@ -59,12 +64,8 @@ public class GameListSubPanle extends Panle {
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         
         // Creating the title panel with an edit button `
-        // TODO (WHERE I LEFT OFF) I was working on adding in a create title method that would create a border layout at the top of the list (that could be 0)
-        // titlePanle = new JPanel();
-        // titlePanle.setOpaque(false);
-        // title.setForeground(Panle.colors.getText());
-        // title.setFont(new Font("Courier", Font.BOLD, GameListSubPanle.TITLE_FONT_SIZE));
-        // this.add(title, BorderLayout.NORTH);
+        createTitleSection();
+        
 
         // Making the scrollpane look a bit better
         scrollPane.setBorder(null);
@@ -99,12 +100,9 @@ public class GameListSubPanle extends Panle {
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         
-        // Defauling to an unnamed list
-        this.games = new GameList("Un-named List");
-        title = new JLabel("Un-named List", SwingConstants.CENTER);
-        title.setForeground(Panle.colors.getText());
-        title.setFont(new Font("Courier", Font.BOLD, GameListSubPanle.TITLE_FONT_SIZE));
-        this.add(title, BorderLayout.NORTH);
+        // Defauling to a null list
+        this.games = null;
+        createTitleSection();
 
         // Setting teh scrollpane to look a bit nicer
         scrollPane.setBorder(null);
@@ -126,31 +124,61 @@ public class GameListSubPanle extends Panle {
      */
     public void updateGames() {
 
-        // TODO make sure that this works
-        // If there aren't any games, then we can default to a simple title saying No Lists
+        // Clearing the current visuals
+        listContainer.removeAll();
+        gamePanles = new ArrayList<>();
+
+        // If there aren't any lists, then we can default to a simple title saying No Lists
         if (games == null) {
-            title.setText("No Lists");
 
             // A fake game giving them instructions on how to create a list
             RoundedPanle toAdd = new Panle("fakeGame", view);
+            toAdd.setLayout(new GridBagLayout());
 
-            JTextArea desc = new JTextArea("You don't have any lists! To create one, you can click the plus sign above your collections on the right.");
+            // Making it look not terrible
+            GridBagConstraints constraints = new GridBagConstraints();
+            toAdd.setBorder(BorderFactory.createEmptyBorder(10, 10,10, 10));
+            
+            // Creating everything just like we did for regular games
+            JTextArea name = new JTextArea("You don't have any lists!");
+            JTextArea desc = new JTextArea("To create one, you can click the plus sign above your collections on the right.");
+            name.setForeground(Panle.colors.getText());
+            name.setOpaque(false);
+            name.setEditable(false);
+            name.setLineWrap(true);
+            name.setWrapStyleWord(true);
+            name.setFont(new Font("Ariel", Font.BOLD, 17));
             desc.setForeground(Panle.colors.getText());
             desc.setOpaque(false);
             desc.setEditable(false);
             desc.setLineWrap(true);
             desc.setWrapStyleWord(true);
+            toAdd.setBackground(Panle.colors.getBase());
 
-            this.add(toAdd);
 
+            // Adding in the name of the game and the description
+            toAdd.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+            constraints.fill = GridBagConstraints.BOTH;
+            constraints.weighty = 1.0;
+            constraints.gridx = 0;
+            constraints.weightx = 0.25;
+            constraints.insets = new java.awt.Insets(5, 7, 5, 0);
+            toAdd.add(name, constraints);
+            constraints.gridx = 1;
+            constraints.weightx = 0.75;
+            constraints.insets = new java.awt.Insets(5, 7, 5, 7);
+            toAdd.add(desc, constraints);
+
+            // More stuff to match the rest
+            toAdd.setRadius(toAdd.getRadius() - 5);
+            toAdd.setPreferredSize(new Dimension(0, GameListSubPanle.PANLE_HEIGHT));
+            toAdd.setMaximumSize(new Dimension(Integer.MAX_VALUE, GameListSubPanle.PANLE_HEIGHT));
+
+            listContainer.add(toAdd);
+
+            return;
 
         }
-
-
-        // Clearing the current visuals
-        listContainer.removeAll();
-        gamePanles = new ArrayList<>();
-
 
         // Iterating over the game panels and recreating them
         for (Game game : games) {
@@ -202,7 +230,7 @@ public class GameListSubPanle extends Panle {
             toAdd.setRadius(toAdd.getRadius() - 5);
 
             // Updating the height to match the size we want
-            toAdd.setPreferredSize(new Dimension(0, GameListSubPanle.PANLE_HEIGHT));
+            toAdd.setPreferredSize(new Dimension(0, PANLE_HEIGHT));
             toAdd.setMaximumSize(new Dimension(Integer.MAX_VALUE, GameListSubPanle.PANLE_HEIGHT));
 
             // Creating a mouselistener to listen for when a game is clicked
@@ -309,6 +337,9 @@ public class GameListSubPanle extends Panle {
         for (RoundedPanle p : gamePanles) {
             listContainer.add(p);
         }
+
+        // Recreating the title
+        createTitleSection();
 
         // Telling it to draw
         listContainer.revalidate();
@@ -501,6 +532,92 @@ public class GameListSubPanle extends Panle {
     }
 
     /**
+     * Creates the title section at the top of the listPanle.
+     */
+    private void createTitleSection() {
+
+        // Making sure that we remove the title section before adding  a new one
+        if (titlePanle != null) {
+            this.remove(titlePanle);
+
+            // If it isn't null, there is a chance that we want to just remove it and exit
+            if (!showTitle) {
+                return;
+            }
+
+        }
+
+        // Making sure that we have something to display
+        if (games == null) {
+            titlePanle = new JPanel();
+            titlePanle.setOpaque(false);
+            titlePanle.setLayout(new BorderLayout());   
+            titlePanle.add(new JLabel("No List Selected"));
+            return;
+        }
+
+        // A simple panle that will hold all the things
+        titlePanle = new JPanel();
+        titlePanle.setOpaque(false);
+        titlePanle.setLayout(new BorderLayout());
+
+        // Adding in the trash button on the left
+        String trashIconPath = Panle.colors instanceof DarkMode ? "resources/Trash.png" : "resources/TrashLight";
+        ImageIcon trashIcon = new ImageIcon(trashIconPath);
+        JButton trashButton = new JButton();
+        trashButton.setIcon(trashIcon);
+        trashButton.setBorder(null);
+        trashButton.setContentAreaFilled(false);
+        trashButton.setBorder(new EmptyBorder(10, 10, 10, 5));
+        titlePanle.add(trashButton, BorderLayout.WEST);
+
+        // Making the trash ask for confirmation and then delete the gamelist
+        trashButton.addActionListener(e -> {
+
+            // Asking for confirmation
+            if (JOptionPane.showConfirmDialog(view.getScreen().getFrame(),String.format("Are you sure you would like to delete list %s?", games.getName()), String.format("Confirm Delete %s", games.getName()),
+                        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                            
+                // If they do, then we can go ahead and delete this list 
+                view.getUser().getGameLists().remove(games);
+                
+                // Trying to pull the next default panle so that we have something to display
+                if (view.getUser().getGameLists().size() > 0) {
+                    games = view.getUser().getGameLists().get(0);
+                } else {
+                    games = null;
+                }
+                
+                // Making everything update
+                updateGames();
+                view.refreshPanles();
+
+            }
+
+        });
+
+        // Adding in the edit button on the right
+        String editIconPath = Panle.colors instanceof DarkMode ? "resources/Edit.png" : "resources/EditLight";
+        ImageIcon editIcon = new ImageIcon(editIconPath);
+        JButton editButton = new JButton();
+        editButton.setIcon(editIcon);
+        editButton.setBorder(null);
+        editButton.setContentAreaFilled(false);
+        editButton.setBorder(new EmptyBorder(10, 10, 10, 5));
+        titlePanle.add(editButton, BorderLayout.EAST);
+
+        // Making the title that will be in the center
+        title = new JLabel(games.getName(), SwingConstants.CENTER);
+        title.setForeground(Panle.colors.getText());
+        title.setFont(new Font("Courier", Font.BOLD, GameListSubPanle.TITLE_FONT_SIZE));
+        titlePanle.add(title, BorderLayout.CENTER);
+
+        // Adding the title panle 
+        this.add(titlePanle, BorderLayout.NORTH);
+        System.out.println("Added in the title panle");
+    }
+
+    /**
      * Hides the descriptions of all of the games and then refreshes them so that the description is updated
      */
     public void hideDescriptions() {
@@ -520,7 +637,11 @@ public class GameListSubPanle extends Panle {
     public void updateTheme() {
         super.updateTheme();
         updateGames();
-        title.setForeground(Panle.colors.getText());
+        
+        // Recreating the title section with updated themeing
+        if (showTitle) {
+            createTitleSection();
+        }
     }
 
     /**
@@ -530,7 +651,7 @@ public class GameListSubPanle extends Panle {
     public void setGameList(GameList newList) {
         games = newList;
         if (showTitle) {
-            title.setText(newList.getName());
+            createTitleSection();
         }
         updateGames();
     }
@@ -542,7 +663,7 @@ public class GameListSubPanle extends Panle {
      */
     public void hideTitle() {
         showTitle = false;
-        title.setText("");
+        this.remove(titlePanle);
     }
     
     /**
@@ -551,7 +672,7 @@ public class GameListSubPanle extends Panle {
      */
     public void showTitle() {
         showTitle = true;
-        title.setText(games.getName());
+        createTitleSection();
     }
 
     /**
@@ -561,6 +682,7 @@ public class GameListSubPanle extends Panle {
     public void setOnGameClicked(Consumer<Game> action) {
         this.onGameClicked = action;
     }
+
 
     // The games that will be displayed here
     private GameList games;
@@ -574,6 +696,7 @@ public class GameListSubPanle extends Panle {
 
     // The label that holds the title of the list
     private JLabel title;
+    private JPanel titlePanle;
 
     // The action to run when a game is clicked
     private Consumer<Game> onGameClicked;
