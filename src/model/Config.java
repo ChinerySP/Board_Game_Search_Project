@@ -36,6 +36,11 @@ public class Config {
         return state;
     }
 
+    /**
+     * Gives the status of dark mode in the program
+     * @return Returns "isDark" which indicates the dark mode status
+     * True
+     */
     public boolean isDarkMode() {
         return isDark;
     }
