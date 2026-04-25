@@ -110,7 +110,6 @@ public class GameDetailsSubPanle extends Panle {
                     GameList toAdd = new GameList(listName);
                     toAdd.addGame(toDisplay);
                     view.getUser().addGameList(toAdd);
-                    System.out.println(String.format("Added to %s", view.getUser().getUserName()));
                 }
             });
             popupMenu.add(createNewListItem);
@@ -118,7 +117,6 @@ public class GameDetailsSubPanle extends Panle {
 
             // Making sure not to do anything weird if they don't have any lists
             if (user != null && !user.getGameLists().isEmpty()) {
-                System.out.println("You exist");
 
                 // Loop through their lists and add them to the dropdown
                 for (GameList list : user.getGameLists()) {
@@ -129,14 +127,11 @@ public class GameDetailsSubPanle extends Panle {
                         if (toDisplay != null) {
                             list.addGame(toDisplay);
                             view.refreshPanles();
-                            System.out.println("Added game and refreshed panles");
                         } 
                     });
                     popupMenu.add(item);
                 }
 
-            } else {
-                System.out.println("You do not in fact exist");
             }
 
             // Show the menu exactly positioned underneath the button

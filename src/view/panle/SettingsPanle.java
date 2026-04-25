@@ -7,6 +7,10 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Insets;
+import java.net.URI;
+import java.net.URL;
+
+import javax.imageio.ImageIO;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -113,7 +117,11 @@ public class SettingsPanle extends Panle {
         this.setVisible(true);
         this.setOpaque(false);
 
-        System.out.println("A settings panle has been made");
+        // You have to be able to have fun :)
+        // If you're reading this Prof. Allen, I apologize profusely
+        // I mentioned it during a meeting and people thought it was
+        // hilarious so I couldn't resist
+        catchBreakfast();
 
     }
     
@@ -127,16 +135,28 @@ public class SettingsPanle extends Panle {
             // Updating the text to say on
             apiToggleButton.setText("API on");
 
-            // Telling the rest of the system to turn off the API
+            // Telling the rest of the system to turn on the API
             view.setAPI(true);
+
+            // Bacon 
+            catchBreakfast();
+            if (bacon != null) {
+                right.add(bacon);
+                view.refreshPanles();
+            }
 
         } else {
 
             // Updating the text to say off
             apiToggleButton.setText("API off");
 
-            // Telling the rest of the system to turn on the API            
+            // Telling the rest of the system to turn off the API            
             view.setAPI(false);
+
+            // No bacon
+            if (bacon != null) {
+                right.remove(bacon);
+            }
 
         }
 
@@ -156,6 +176,45 @@ public class SettingsPanle extends Panle {
                         "Enter your new password:",
                         "Reset Password",
                         JOptionPane.PLAIN_MESSAGE));
+
+    }
+
+    /**
+     * Pulls a picture of bacon from the internet to use 
+     */
+    private void catchBreakfast() {
+
+        // We're gonna snag a bacon picture for the bit
+        try {
+
+            bacon = new JLabel();
+
+            // Getting the URL of the image from the game
+            URL imageUrl = new URI("https://imgs.search.brave.com/HpQUjcXl_RlBJsnah8ivfLuiyAsjKN4dzbM0OBJq1cM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJzLmNvbS9p/bWFnZXMvaGQvYmFj/b24tcGljdHVyZXMt/MTkyMC14LTEwODAt/Nm1yOG03eXFqYTcx/bnh0OS5qcGc").toURL();
+
+            // Trying to read the image over the network
+            Image webImage = ImageIO.read(imageUrl);
+
+            // If it works, we use it, otherwise, we can't use it, so we jump to a default
+            if (webImage != null) {
+                // Scale the image to fit 150x150 placeholder 
+                Image scaledImage = webImage.getScaledInstance(150, 150, Image.SCALE_SMOOTH);
+                bacon.setIcon(new ImageIcon(scaledImage));
+                bacon.setText("");
+            } else {
+                // If the image is null, force it into the catch block
+                throw new Exception("Image data was null");
+            }
+
+        } catch (Exception e) {
+
+            // Null if we can't get an wifi connection so that we don't show it at all
+            bacon = null;
+            
+        }
+
+        revalidate();
+        repaint();
 
     }
 
@@ -271,5 +330,6 @@ public class SettingsPanle extends Panle {
     private PrettyToggleButton apiToggleButton;
     private PrettyToggleButton darkModeToggleButton;
     private PrettyButton logOutButton;
+    private JLabel bacon;
 
 }
