@@ -143,7 +143,7 @@ public class Model {
                 for (Map.Entry<Integer, Rating> entry : u.userRatings.entrySet()) {
                     Integer key = entry.getKey();
                     Rating value = entry.getValue();
-                    myWriterRev.write(key + "]" + value.getScore() + "]" + value.getReview() + "]" + value.getRecommended() +"}");
+                    myWriterRev.write(key + "]" + value.getScore() + "]" + value.getReview().replace("\n", ">") + "]" + value.getRecommended() +"}");
                 }
                 myWriterRev.write("\n");
             } myWriterRev.close();
@@ -186,8 +186,9 @@ public class Model {
                         String[] splitData = data[i].split("]");
                         int keyInt = Integer.parseInt(splitData[0]);
                         int scoreInt = Integer.parseInt(splitData[1]);
+                        String revToken = splitData[2].replace(">", "\n");
                         Boolean recBool = Boolean.parseBoolean(splitData[3]);
-                        Rating oldRating = new Rating(scoreInt, splitData[2], recBool);
+                        Rating oldRating = new Rating(scoreInt, revToken, recBool);
                         System.out.println("The rating we just read was " + splitData[2]);
                         user.setRating(keyInt, oldRating);
                     }
@@ -233,8 +234,9 @@ public class Model {
                         String[] splitData = data[i].split("]");
                         int keyInt = Integer.parseInt(splitData[0]);
                         int scoreInt = Integer.parseInt(splitData[1]);
+                        String revToken = splitData[2].replace(">", "\n");
                         Boolean recBool = Boolean.parseBoolean(splitData[3]);
-                        Rating oldRating = new Rating(scoreInt, splitData[2], recBool);
+                        Rating oldRating = new Rating(scoreInt, revToken, recBool);
                         System.out.println("The rating we just read was " + splitData[2]);
                         use.setRating(keyInt, oldRating);
                     }
