@@ -57,7 +57,7 @@ public class GameDetailsSubPanle extends Panle {
         // Creating a simple internal content panle so that we can use a scorllbar
         this.setLayout(new java.awt.BorderLayout());
         contentPanel = new JPanel(new GridBagLayout());
-        contentPanel.setPreferredSize(new Dimension(10, 10));
+        // contentPanel.setPreferredSize(new Dimension(10, 10));
         contentPanel.setOpaque(false);
 
         // This panle will use GridBag so that we can make things spread across the screen or be split at our leisure
@@ -279,6 +279,14 @@ public class GameDetailsSubPanle extends Panle {
         // Force a redraw just in case the size of the text drastically changed
         this.revalidate();
         this.repaint();
+
+        // Making sure that they aren't dragged to the bottom of the screen for no reason
+        descriptionArea.setCaretPosition(0);
+        javax.swing.SwingUtilities.invokeLater(() -> {
+            if (scrollPane != null && scrollPane.getVerticalScrollBar() != null) {
+                scrollPane.getVerticalScrollBar().setValue(0);
+            }
+        });
 
     }
 
@@ -554,7 +562,6 @@ public class GameDetailsSubPanle extends Panle {
     
         // Finally, the bottom section, that is just the review
         JTextArea reviewTextArea = new JTextArea(rating.getReview());
-        System.out.println("Getreview returned: " + rating.getReview());
         reviewTextArea.setFont(new Font("Arial", Font.PLAIN, 14));
         reviewTextArea.setForeground(Panle.colors.getText());
         reviewTextArea.setOpaque(false);
@@ -569,8 +576,8 @@ public class GameDetailsSubPanle extends Panle {
                 rating.setReview(reviewTextArea.getText());
             }
         });
-        reviewTextArea.setPreferredSize(new Dimension(ratingPanle.getWidth(), ratingPanle.getHeight()));
-        // reviewTextArea.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 0, 5));
+        reviewTextArea.setRows(5);
+        // reviewTextArea.setPreferredSize(new Dimension(ratingPanle.getWidth(), ratingPanle.getHeight()));
 
         // I wanted a review border so that the user could see where they were meant to type
         Border reviewBorder = BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Panle.colors.getSubtext1()), "Review", TitledBorder.LEADING, TitledBorder.TOP, null, Panle.colors.getText());

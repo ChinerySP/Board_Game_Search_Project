@@ -118,7 +118,7 @@ public class GameListSubPanle extends Panle {
         // Actually adding the scrollpane and then updating the display
         this.styleScrollBar(scrollPane);
         this.add(scrollPane, BorderLayout.CENTER);
-        updateGames();
+        // updateGames();
     }
 
     /**
@@ -160,7 +160,7 @@ public class GameListSubPanle extends Panle {
 
             // Adding in the name of the game and the description
             toAdd.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-            constraints.fill = GridBagConstraints.BOTH;
+            constraints.fill = GridBagConstraints.HORIZONTAL;
             constraints.weighty = 1.0;
             constraints.gridx = 0;
             constraints.weightx = 0.25;
