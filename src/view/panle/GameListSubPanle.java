@@ -24,6 +24,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
@@ -605,6 +606,33 @@ public class GameListSubPanle extends Panle {
         editButton.setContentAreaFilled(false);
         editButton.setBorder(new EmptyBorder(10, 10, 10, 5));
         titlePanle.add(editButton, BorderLayout.EAST);
+        editButton.addActionListener(e -> {
+
+            // Pulling the name so that they can edit it
+            String newName = (String) JOptionPane.showInputDialog(
+                view.getScreen().getFrame(),
+            "Enter the new list name:",
+                "Edit List Name",
+                JOptionPane.PLAIN_MESSAGE,
+                null,
+                null,
+                games.getName()
+            );
+
+            // Making sure they didn't enter nothing or juust spaces
+            if (newName != null && !newName.trim().isEmpty()) {
+                games.setName(newName);
+                view.refreshPanles();
+                createTitleSection();
+
+                // Technically these should already be called, but it wasn't working and adding these two lines fixed the bug
+                // and it's too close to the deadline to try to find the elegant solution that I know exists
+                titlePanle.revalidate();
+                titlePanle.repaint();
+            }
+
+
+        });
 
         // Making the title that will be in the center
         title = new JLabel(games.getName(), SwingConstants.CENTER);

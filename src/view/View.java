@@ -69,8 +69,7 @@ public class View {
             screen.showPanle("dashboard");
             screen.showPanle("sticky");
 
-            // Add this line to refresh components once they are on the screen
-            screen.refreshPanles();
+            refreshPanles();
 
         }
 
