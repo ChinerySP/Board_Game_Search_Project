@@ -107,8 +107,9 @@ public class View {
     public void search(String[] keywords) {
 
         ( (SearchResultsPanle) screen.getPanle("searchresults") ).setGameList(controller.search(keywords));
-        showPanle("searchresults");            
+        showPanle("searchresults");
 
+        refreshPanles();
     }
 
     /**

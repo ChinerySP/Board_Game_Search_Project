@@ -45,9 +45,6 @@ public class DashboardPanle extends Panle {
         gameListListPanle.setPreferredSize(new Dimension(0, gameListListPanle.getPreferredSize().height));
         gameDetailsPanle.setPreferredSize(new Dimension(0, gameDetailsPanle.getPreferredSize().height));
 
-        // Setting up the right side, one that holds all of the lists that the user owns
-        gameListListPanle.setTitle("Your Lists");
-
         // Actually showing them on the screen
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.BOTH;
@@ -173,6 +170,9 @@ public class DashboardPanle extends Panle {
         // Updating everything appropriatly 
         gameListListPanle.updateLists();
         gameListPanle.updateGames();
+
+        this.revalidate();
+        this.repaint();
     }
     
     /**

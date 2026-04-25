@@ -81,6 +81,7 @@ public class GameListSubPanle extends Panle {
         this.add(scrollPane, BorderLayout.CENTER);
         this.games = games;
         updateGames();
+        getSet();
     }
 
     /**
@@ -346,6 +347,10 @@ public class GameListSubPanle extends Panle {
         listContainer.revalidate();
         listContainer.repaint();
 
+        this.revalidate();
+        this.repaint();
+
+
     }
     
     /**
@@ -563,7 +568,7 @@ public class GameListSubPanle extends Panle {
         titlePanle.setLayout(new BorderLayout());
 
         // Adding in the trash button on the left
-        String trashIconPath = Panle.colors instanceof DarkMode ? "resources/Trash.png" : "resources/TrashLight";
+        String trashIconPath = Panle.colors instanceof DarkMode ? "resources/Trash.png" : "resources/TrashLight.png";
         ImageIcon trashIcon = new ImageIcon(trashIconPath);
         JButton trashButton = new JButton();
         trashButton.setIcon(trashIcon);
@@ -598,7 +603,7 @@ public class GameListSubPanle extends Panle {
         });
 
         // Adding in the edit button on the right
-        String editIconPath = Panle.colors instanceof DarkMode ? "resources/Edit.png" : "resources/EditLight";
+        String editIconPath = Panle.colors instanceof DarkMode ? "resources/Edit.png" : "resources/EditLight.png";
         ImageIcon editIcon = new ImageIcon(editIconPath);
         JButton editButton = new JButton();
         editButton.setIcon(editIcon);

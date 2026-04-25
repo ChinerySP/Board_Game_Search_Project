@@ -117,11 +117,20 @@ public class Screen {
 
         // Making sure that the settings panle is only shown when there is a User defined
         if (target instanceof SettingsPanle) {
-            
+
             // Making sure that it has the user that we want
             ((SettingsPanle) target).setUser(view.getUser());
 
         }
+        
+        // Making sure that the dashboard doesn't shift around when you click (I have no idea why it did before)
+        if (target instanceof DashboardPanle) {
+            
+            // Making sure that it has the user that we want
+            // ((DashboardPanle) target).
+
+        }
+        
         
         // Showing the panle
         contentPane.add(target, BorderLayout.CENTER);

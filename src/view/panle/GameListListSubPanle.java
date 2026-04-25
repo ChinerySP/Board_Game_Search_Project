@@ -51,18 +51,13 @@ public class GameListListSubPanle extends Panle {
         listContainer.setLayout(new BoxLayout(listContainer, BoxLayout.Y_AXIS));
         listContainer.setOpaque(false);
 
+        // Creating the title (heh duh)
         createTitleSection();
 
         // Creating the internal scrollpane  
         scrollPane = new JScrollPane(listContainer);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        
-        // Creating the title
-        title = new JLabel("Your Lists", SwingConstants.CENTER); 
-        title.setForeground(Panle.colors.getText());
-        title.setFont(new Font("Courier", Font.BOLD, GameListSubPanle.TITLE_FONT_SIZE));
-        this.add(title, BorderLayout.NORTH);
 
         // Making the scrollpane look a bit better
         scrollPane.setBorder(null);
@@ -96,10 +91,8 @@ public class GameListListSubPanle extends Panle {
         
         // Defauling to an unnamed list
         this.lists = new ArrayList<>();
-        title = new JLabel("Unnammed Collection of Lists", SwingConstants.CENTER);
-        title.setForeground(Panle.colors.getText());
-        title.setFont(new Font("Courier", Font.BOLD, GameListSubPanle.TITLE_FONT_SIZE));
-        this.add(title, BorderLayout.NORTH);
+
+        createTitleSection();
 
         // Setting teh scrollpane to look a bit nicer
         scrollPane.setBorder(null);
@@ -392,17 +385,33 @@ public class GameListListSubPanle extends Panle {
         titlePanle.setLayout(new BorderLayout());
 
         // Adding in the trash button on the left
-        String trashIconPath = Panle.colors instanceof DarkMode ? "resources/Trash.png" : "resources/TrashLight";
-        ImageIcon trashIcon = new ImageIcon(trashIconPath);
-        JButton trashButton = new JButton();
-        trashButton.setIcon(trashIcon);
-        trashButton.setBorder(null);
-        trashButton.setContentAreaFilled(false);
-        trashButton.setBorder(new EmptyBorder(10, 10, 10, 5));
-        titlePanle.add(trashButton, BorderLayout.WEST);
+        String addIconPath = Panle.colors instanceof DarkMode ? "resources/Add.png" : "resources/AddLight.png";
+        ImageIcon trashIcon = new ImageIcon(addIconPath);
+        JButton addButton = new JButton();
+        addButton.setIcon(trashIcon);
+        addButton.setBorder(null);
+        addButton.setContentAreaFilled(false);
+        addButton.setBorder(new EmptyBorder(10, 10, 10, 5));
+        titlePanle.add(addButton, BorderLayout.WEST);
 
         // Making the trash ask for confirmation and then delete the gamelist
-        trashButton.addActionListener(e -> {
+        addButton.addActionListener(e -> {
+
+            // Pop open a tiny window asking for the name
+            String listName = JOptionPane.showInputDialog(
+                    this,
+                    "Enter a name for your new list:",
+                    "Create New List",
+                    JOptionPane.PLAIN_MESSAGE);
+
+            // If they typed something and didn't hit cancel, send it up the chain
+            if (listName != null && !listName.trim().isEmpty()) {
+                GameList toAdd = new GameList(listName);
+                view.getUser().addGameList(toAdd);
+            }
+
+            // Making sure everything updates
+            view.refreshPanles();
 
 
         });
@@ -415,15 +424,6 @@ public class GameListListSubPanle extends Panle {
 
         // Adding the title panle 
         this.add(titlePanle, BorderLayout.NORTH);
-    }
-
-
-    /**
-     * Sets the name that is displayed at the top of the panle to the user
-     * @param String The string to be used as the title
-     */
-    public void setTitle(String newTitle) {
-        this.title.setText(newTitle);
     }
 
     // The label that holds the title of the list
