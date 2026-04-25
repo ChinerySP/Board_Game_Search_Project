@@ -12,6 +12,8 @@ import java.awt.Insets;
 import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import java.awt.Image;
+
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
@@ -21,6 +23,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
+import javax.swing.border.Border;
+import javax.swing.border.TitledBorder;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
@@ -53,6 +57,7 @@ public class GameDetailsSubPanle extends Panle {
         // Creating a simple internal content panle so that we can use a scorllbar
         this.setLayout(new java.awt.BorderLayout());
         contentPanel = new JPanel(new GridBagLayout());
+        contentPanel.setPreferredSize(new Dimension(10, 10));
         contentPanel.setOpaque(false);
 
         // This panle will use GridBag so that we can make things spread across the screen or be split at our leisure
@@ -67,6 +72,7 @@ public class GameDetailsSubPanle extends Panle {
 
         titleLabel = new JLabel("Game Name");
         titleLabel.setFont(new Font("Arial", Font.BOLD, 28));
+        titleLabel.setPreferredSize(new Dimension(this.getWidth() - 150, 28));
         titleLabel.setForeground(Panle.colors.getText());
 
         playersLabel = new JLabel("Number of Players: -");
@@ -214,7 +220,6 @@ public class GameDetailsSubPanle extends Panle {
         }
 
         // Creating the review information
-        GridBagConstraints constraints = new GridBagConstraints();
         createRatingSection();
 
         // Show components in case they were hidden
@@ -456,9 +461,9 @@ public class GameDetailsSubPanle extends Panle {
         if (ratingPanle != null) contentPanel.remove(ratingPanle);
         
         // Using gridbag so that I can have different sizes and everything
-        ratingPanle = new RoundedPanle(CORNER_ROUNDING_RADIUS);
+        ratingPanle = new RoundedPanle(15);
         ratingPanle.setLayout(new GridBagLayout());
-        ratingPanle.setBackground(Panle.colors.getSurface0());
+        ratingPanle.setBackground(Panle.colors.getMantle());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(10, 10, 10, 10);
 
@@ -530,16 +535,26 @@ public class GameDetailsSubPanle extends Panle {
         }
         
         // Adding them in 
+        gbc.gridx = 2;
+        gbc.gridy = 0;
+        gbc.weightx = 0.0; 
+        gbc.weighty = 0.0;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.anchor = GridBagConstraints.EAST;
+        gbc.insets = new Insets(0, 0, 0, 20);
+        ratingPanle.add(starPanel, gbc);
+
+        // A spacer between the stars and the thumb
         gbc.gridx = 1;
         gbc.gridy = 0;
         gbc.weightx = 1.0; 
         gbc.weighty = 0.0;
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.anchor = GridBagConstraints.WEST;
-        ratingPanle.add(starPanel, gbc);
+        ratingPanle.add(new JLabel(), gbc);
     
         // Finally, the bottom section, that is just the review
         JTextArea reviewTextArea = new JTextArea(rating.getReview());
+        System.out.println("Getreview returned: " + rating.getReview());
         reviewTextArea.setFont(new Font("Arial", Font.PLAIN, 14));
         reviewTextArea.setForeground(Panle.colors.getText());
         reviewTextArea.setOpaque(false);
@@ -554,16 +569,21 @@ public class GameDetailsSubPanle extends Panle {
                 rating.setReview(reviewTextArea.getText());
             }
         });
-        reviewTextArea.setMinimumSize(new Dimension(10, 10));
-        reviewTextArea.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        reviewTextArea.setPreferredSize(new Dimension(ratingPanle.getWidth(), ratingPanle.getHeight()));
+        // reviewTextArea.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 0, 5));
+
+        // I wanted a review border so that the user could see where they were meant to type
+        Border reviewBorder = BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Panle.colors.getSubtext1()), "Review", TitledBorder.LEADING, TitledBorder.TOP, null, Panle.colors.getText());
+        reviewTextArea.setBorder(reviewBorder);
 
         // Adding it in 
         gbc.gridx = 0;
         gbc.gridy = 1;
-        gbc.gridwidth = 2;
+        gbc.gridwidth = 3;
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.BOTH;
+        gbc.insets = new Insets(10, 10, 10, 10);
         ratingPanle.add(reviewTextArea, gbc);
 
         // Adding the rating to the contentpanle

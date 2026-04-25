@@ -642,7 +642,6 @@ public class GameListSubPanle extends Panle {
 
         // Adding the title panle 
         this.add(titlePanle, BorderLayout.NORTH);
-        System.out.println("Added in the title panle");
     }
 
     /**

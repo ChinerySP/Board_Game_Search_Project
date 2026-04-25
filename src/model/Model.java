@@ -190,8 +190,11 @@ public class Model {
                         int scoreInt = Integer.parseInt(splitData[1]);
                         Boolean recBool = Boolean.parseBoolean(splitData[3]);
                         Rating oldRating = new Rating(scoreInt, splitData[2], recBool);
+                        System.out.println("The rating we just read was " + splitData[2]);
                         user.setRating(keyInt, oldRating);
                     }
+                } else {
+                    System.out.println("Did not match username: " + data[0]);
                 }
             }
         } catch (FileNotFoundException e) {
@@ -234,6 +237,7 @@ public class Model {
                         int scoreInt = Integer.parseInt(splitData[1]);
                         Boolean recBool = Boolean.parseBoolean(splitData[3]);
                         Rating oldRating = new Rating(scoreInt, splitData[2], recBool);
+                        System.out.println("The rating we just read was " + splitData[2]);
                         user.setRating(keyInt, oldRating);
                     }
                 }

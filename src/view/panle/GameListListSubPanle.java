@@ -7,12 +7,15 @@ import java.util.ArrayList;
 import java.util.function.Consumer;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 import javax.swing.JComponent;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import java.awt.Color;
@@ -25,6 +28,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseAdapter;
 import view.*;
 import model.*;
+import view.panle.colors.DarkMode;
 import view.panle.customComponents.*;
 
 /**
@@ -46,6 +50,8 @@ public class GameListListSubPanle extends Panle {
         listContainer = new JPanel();
         listContainer.setLayout(new BoxLayout(listContainer, BoxLayout.Y_AXIS));
         listContainer.setOpaque(false);
+
+        createTitleSection();
 
         // Creating the internal scrollpane  
         scrollPane = new JScrollPane(listContainer);
@@ -371,9 +377,45 @@ public class GameListListSubPanle extends Panle {
     }
 
     /**
-     * Updates the lists that are being displayed on this Panle to match the inputted user's gamelists
+     * Creates the title section at the top of the listPanle.
      */
-    // public
+    private void createTitleSection() {
+
+        // Making sure that we remove the title section before adding  a new one
+        if (titlePanle != null) {
+            this.remove(titlePanle);
+        }
+
+        // A simple panle that will hold all the things
+        titlePanle = new JPanel();
+        titlePanle.setOpaque(false);
+        titlePanle.setLayout(new BorderLayout());
+
+        // Adding in the trash button on the left
+        String trashIconPath = Panle.colors instanceof DarkMode ? "resources/Trash.png" : "resources/TrashLight";
+        ImageIcon trashIcon = new ImageIcon(trashIconPath);
+        JButton trashButton = new JButton();
+        trashButton.setIcon(trashIcon);
+        trashButton.setBorder(null);
+        trashButton.setContentAreaFilled(false);
+        trashButton.setBorder(new EmptyBorder(10, 10, 10, 5));
+        titlePanle.add(trashButton, BorderLayout.WEST);
+
+        // Making the trash ask for confirmation and then delete the gamelist
+        trashButton.addActionListener(e -> {
+
+
+        });
+
+        // Making the title that will be in the center
+        title = new JLabel("Your Lists", SwingConstants.CENTER);
+        title.setForeground(Panle.colors.getText());
+        title.setFont(new Font("Courier", Font.BOLD, GameListSubPanle.TITLE_FONT_SIZE));
+        titlePanle.add(title, BorderLayout.CENTER);
+
+        // Adding the title panle 
+        this.add(titlePanle, BorderLayout.NORTH);
+    }
 
 
     /**
@@ -384,7 +426,11 @@ public class GameListListSubPanle extends Panle {
         this.title.setText(newTitle);
     }
 
-    // The games that will be displayed here
+    // The label that holds the title of the list
+    private JLabel title;
+    private JPanel titlePanle;
+
+    // The lists that will be displayed here
     public ArrayList<GameList> lists;
 
     // An arraylist that holds the visual elements for each game
@@ -393,9 +439,6 @@ public class GameListListSubPanle extends Panle {
     // An internal container for the games specifically
     private JPanel listContainer;
     private JScrollPane scrollPane;
-
-    // The label that holds the title of the list
-    private JLabel title;
 
     // The action to run when a game is clicked
     private Consumer<GameList> onListClicked;

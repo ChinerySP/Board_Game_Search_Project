@@ -63,10 +63,15 @@ public class RoundedPanle extends JPanel implements Themeable {
                 getHeight() - insets.bottom - insets.top + 2 * Panle.BORDER_WIDTH,
                 radius, radius);
 
+        g2.fillRoundRect(
+            insets.left, insets.top, getWidth() - insets.left - insets.right, getHeight() - insets.top - insets.bottom, radius, radius
+        );
+
         // Painting the background color
         g2.setColor(getBackground());
-        g2.fillRoundRect(x, y, getWidth() - insets.left - insets.right, getHeight() - insets.bottom - insets.top,
-                radius, radius);
+        int innerRadius = Math.max(0, radius - Panle.BORDER_WIDTH);
+        g2.fillRoundRect(x + Panle.BORDER_WIDTH, y + Panle.BORDER_WIDTH, getWidth() - insets.left - insets.right - Panle.BORDER_WIDTH * 2, getHeight() - insets.bottom - insets.top - Panle.BORDER_WIDTH * 2,
+                innerRadius, innerRadius);
 
     }
 
