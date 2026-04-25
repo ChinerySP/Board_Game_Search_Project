@@ -124,7 +124,7 @@ public class Model {
             FileWriter myWriterRev = new FileWriter("resources/userRev.txt");
             for(User u : dataBase.userList) {
                 myWriterUser.write(u.getUserName() + "\n" + u.getPassword() + "\n" + u.getDarkMode() + "\n" + u.getAPI() + "\n");
-            }
+            } myWriterUser.close();
             for(User u : dataBase.userList) {
                 myWriterData.write("\""+ u.getUserName()+ "\"");
                 myWriterData.write("}");
@@ -136,19 +136,17 @@ public class Model {
                     myWriterData.write("}");
                 }
                 myWriterData.write("\n");
-            }
+            } myWriterData.close();
             for(User u : dataBase.userList) {
-                myWriterData.write("\""+ u.getUserName()+ "\"}");
+                myWriterRev.write("\""+ u.getUserName()+ "\"}");
                 Map<Integer, Rating> map = new HashMap<Integer, Rating>();
                 for (Map.Entry<Integer, Rating> entry : u.userRatings.entrySet()) {
                     Integer key = entry.getKey();
                     Rating value = entry.getValue();
                     myWriterRev.write(key + "]" + value.getScore() + "]" + value.getReview() + "]" + value.getRecommended() +"}");
                 }
-            }
-            myWriterUser.close();
-            myWriterData.close();
-            myWriterRev.close();
+                myWriterRev.write("\n");
+            } myWriterRev.close();
         } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
@@ -230,7 +228,7 @@ public class Model {
         try (Scanner myReader = new Scanner(myObjRev)){
             while (myReader.hasNextLine()){
                 String[] data = myReader.nextLine().split("}");
-                if(data[0].equals("\"" + user.getUserName() + "\"")){
+                if(data[0].equals("\"" + use.getUserName() + "\"")){
                     for(int i = 1; i < data.length; i++ ){
                         String[] splitData = data[i].split("]");
                         int keyInt = Integer.parseInt(splitData[0]);
@@ -238,7 +236,7 @@ public class Model {
                         Boolean recBool = Boolean.parseBoolean(splitData[3]);
                         Rating oldRating = new Rating(scoreInt, splitData[2], recBool);
                         System.out.println("The rating we just read was " + splitData[2]);
-                        user.setRating(keyInt, oldRating);
+                        use.setRating(keyInt, oldRating);
                     }
                 }
             }
