@@ -118,7 +118,6 @@ public class GameListSubPanle extends Panle {
         // Actually adding the scrollpane and then updating the display
         this.styleScrollBar(scrollPane);
         this.add(scrollPane, BorderLayout.CENTER);
-        // updateGames();
     }
 
     /**
@@ -163,6 +162,7 @@ public class GameListSubPanle extends Panle {
             constraints.fill = GridBagConstraints.HORIZONTAL;
             constraints.weighty = 1.0;
             constraints.gridx = 0;
+            constraints.gridy = 0;
             constraints.weightx = 0.25;
             constraints.insets = new java.awt.Insets(5, 7, 5, 0);
             toAdd.add(name, constraints);
@@ -203,11 +203,13 @@ public class GameListSubPanle extends Panle {
             name.setLineWrap(true);
             name.setWrapStyleWord(true);
             name.setFont(new Font("Ariel", Font.BOLD, 17));
+            name.setPreferredSize(new Dimension(0, name.getPreferredSize().height));
             desc.setForeground(Panle.colors.getText());
             desc.setOpaque(false);
             desc.setEditable(false);
             desc.setLineWrap(true);
             desc.setWrapStyleWord(true);
+            desc.setPreferredSize(new Dimension(0, desc.getPreferredSize().height));
             toAdd.setBackground(Panle.colors.getBase());
 
 

@@ -144,11 +144,13 @@ public class GameListListSubPanle extends Panle {
             name.setLineWrap(true);
             name.setWrapStyleWord(true);
             name.setFont(new Font("Ariel", Font.BOLD, 17));
+            name.setPreferredSize(new Dimension(0, name.getPreferredSize().height));
             desc.setForeground(Panle.colors.getText());
             desc.setOpaque(false);
             desc.setEditable(false);
             desc.setLineWrap(true);
             desc.setWrapStyleWord(true);
+            desc.setPreferredSize(new Dimension(0, desc.getPreferredSize().height));
             toAdd.setBackground(Panle.colors.getBase());
 
             // Adding in some spacing between them all 

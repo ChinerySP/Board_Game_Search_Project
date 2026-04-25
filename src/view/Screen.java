@@ -123,14 +123,6 @@ public class Screen {
 
         }
         
-        // Making sure that the dashboard doesn't shift around when you click (I have no idea why it did before)
-        if (target instanceof DashboardPanle) {
-            
-            // Making sure that it has the user that we want
-            // ((DashboardPanle) target).
-
-        }
-        
         
         // Showing the panle
         contentPane.add(target, BorderLayout.CENTER);
@@ -139,6 +131,7 @@ public class Screen {
 
         // Telling the target to hold on to it's socks because it's about to be displayed
         target.getSet();
+        
     }
 
 
