@@ -135,7 +135,14 @@ public class SearchResultsPanle extends Panle {
      */
     public void setGameList(GameList newGames) {
         resultsPanle.setGameList(newGames);
+    }
+
+    @Override
+    public void getSet() {
+        super.getSet();
         resultsPanle.updateGames();
+        this.revalidate();
+        this.repaint();
     }
     
     @Override

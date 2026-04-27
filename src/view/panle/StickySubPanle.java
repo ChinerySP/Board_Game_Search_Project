@@ -82,10 +82,10 @@ public class StickySubPanle extends Panle {
 
         // Prevent empty searches
         if (query.length != 0) {
-            System.out.println("Got an output of " + query.toString());
             view.search(query, view.getUser().getAPI());
         }
 
+        // Making sure everything is prepped to be shown
         view.refreshPanles();
 
     }

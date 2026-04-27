@@ -198,8 +198,6 @@ public class DashboardPanle extends Panle {
         gameListPanle.updateTheme();
     }
     
-
-
     // The user that is currently being displayed
     private User user;
 
@@ -210,7 +208,5 @@ public class DashboardPanle extends Panle {
     private GameListSubPanle gameListPanle;
     private GameListListSubPanle gameListListPanle;
     private GameDetailsSubPanle gameDetailsPanle;
-
-
 
 }

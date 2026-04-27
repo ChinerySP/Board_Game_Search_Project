@@ -307,7 +307,6 @@ public class SettingsPanle extends Panle {
      * @param user The user to be stored in this settings panle
      */
     public void setUser(User user) {
-        System.out.println("Settings now has a user");
         this.user = user;
     }
 

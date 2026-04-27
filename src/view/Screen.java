@@ -79,7 +79,7 @@ public class Screen {
     public void showPanle(String name) {
 
         // Grabbing the actual place where the content is stored in the frame
-        Container contentPane = frame.getContentPane(); 
+        Container contentPane = frame.getContentPane();
 
         // The sticky subpanle is different than the others because of its location, so we check it first
         if (name.equals("sticky")) {
@@ -100,15 +100,21 @@ public class Screen {
         // Saving the layout that we are using so that we can query it
         BorderLayout layout = (BorderLayout) contentPane.getLayout();
         Component current = layout.getLayoutComponent(BorderLayout.CENTER);
-        
+
+        // If the right one is in the center, we don't have to do anything (makes sure there isn't a flash of nothing)
+        if (current != null && current.getName() != null && current.getName().equals(name)) {
+            // Even if we don't swap panels, we still need to update its data
+            Panle target = getPanle(name);
+            if (target != null) {
+                target.getSet();
+            }
+            return;
+        }
+
         // Removing whatever is in the center if there is something there, otherwise exiting
         if (current != null) {
             contentPane.remove(current);
         }
-
-        // If the right one is in the center, we don't have to do anything (makes sure there isn't a flash of nothing)
-        if (current != null && current.equals(name))
-            return;
         
         // Grabbing the target
         Panle target = getPanle(name);

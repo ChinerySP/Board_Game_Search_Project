@@ -81,7 +81,6 @@ public class View {
     public void saveData() {
         controller.saveData();
     }
-
     
     /**
      * A wrapper function that tells the Screen this View is holding to show a panle
@@ -108,9 +107,16 @@ public class View {
      */
     public void search(String[] keywords, boolean useAPI) {
 
-        ( (SearchResultsPanle) screen.getPanle("searchresults") ).setGameList(controller.search(keywords, useAPI));
+        // Requesting the games from the database
+        GameList results = controller.search(keywords, useAPI);
+
+        // Updating the games that are being shown on the search results panle
+        ((SearchResultsPanle) screen.getPanle("searchresults")).setGameList(results);
+        
+        // Showing the panle
         showPanle("searchresults");
 
+        // Making sure everything on the panle is ready to be shown
         refreshPanles();
     }
 

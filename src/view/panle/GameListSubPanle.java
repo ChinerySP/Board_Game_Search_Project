@@ -29,6 +29,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import javax.swing.JComponent;
+import javax.swing.text.DefaultCaret;
 
 import view.panle.colors.DarkMode;
 import view.panle.customComponents.RoundedPanle;
@@ -123,6 +124,12 @@ public class GameListSubPanle extends Panle {
      */
     public void updateGames() {
 
+        // Saving the scrollpanle position
+        int savedScrollPosition = 0;
+        if (scrollPane != null && scrollPane.getVerticalScrollBar() != null) {
+            savedScrollPosition = scrollPane.getVerticalScrollBar().getValue();
+        }
+
         // Clearing the current visuals
         listContainer.removeAll();
         gamePanles = new ArrayList<>();
@@ -154,6 +161,12 @@ public class GameListSubPanle extends Panle {
             desc.setWrapStyleWord(true);
             toAdd.setBackground(Panle.colors.getBase());
 
+            // Telling the littl boogers that they cannot request a scroll
+            DefaultCaret nameCaret = (DefaultCaret) name.getCaret();
+            nameCaret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
+
+            DefaultCaret descCaret = (DefaultCaret) desc.getCaret();
+            descCaret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
 
             // Adding in the name of the game and the description
             toAdd.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
@@ -201,15 +214,21 @@ public class GameListSubPanle extends Panle {
             name.setLineWrap(true);
             name.setWrapStyleWord(true);
             name.setFont(new Font("Ariel", Font.BOLD, 17));
-            name.setPreferredSize(new Dimension(0, name.getPreferredSize().height));
+            name.setPreferredSize(new Dimension(0, 0));
             desc.setForeground(Panle.colors.getText());
             desc.setOpaque(false);
             desc.setEditable(false);
             desc.setLineWrap(true);
             desc.setWrapStyleWord(true);
-            desc.setPreferredSize(new Dimension(0, desc.getPreferredSize().height));
+            desc.setPreferredSize(new Dimension(0, 0));
             toAdd.setBackground(Panle.colors.getBase());
 
+            // Telling the littl boogers that they cannot request a scroll
+            DefaultCaret nameCaret = (DefaultCaret) name.getCaret();
+            nameCaret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
+
+            DefaultCaret descCaret = (DefaultCaret) desc.getCaret();
+            descCaret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
 
             // Adding in some spacing between them all 
             toAdd.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
@@ -306,6 +325,13 @@ public class GameListSubPanle extends Panle {
             desc.setWrapStyleWord(true);
             toAdd.setBackground(Panle.colors.getBase());
 
+            // Telling the littl boogers that they cannot request a scroll
+            DefaultCaret nameCaret = (DefaultCaret) name.getCaret();
+            nameCaret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
+
+            DefaultCaret descCaret = (DefaultCaret) desc.getCaret();
+            descCaret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
+
             // Adding in some spacing between them all 
             toAdd.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
 
@@ -350,6 +376,12 @@ public class GameListSubPanle extends Panle {
         this.revalidate();
         this.repaint();
 
+        final int scrollTo = savedScrollPosition;
+        SwingUtilities.invokeLater(() -> {
+            if (scrollPane != null && scrollPane.getVerticalScrollBar() != null) {
+                scrollPane.getVerticalScrollBar().setValue(scrollTo);
+            }
+        });
 
     }
     
@@ -686,6 +718,13 @@ public class GameListSubPanle extends Panle {
             createTitleSection();
         }
         updateGames();
+
+        // Setting them to the top of the list
+        javax.swing.SwingUtilities.invokeLater(() -> {
+            if (scrollPane != null && scrollPane.getVerticalScrollBar() != null) {
+                scrollPane.getVerticalScrollBar().setValue(0);
+            }
+        });
     }
 
 
