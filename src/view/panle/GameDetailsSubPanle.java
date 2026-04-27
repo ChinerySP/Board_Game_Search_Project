@@ -32,8 +32,6 @@ import javax.swing.JMenuItem;
 import javax.imageio.ImageIO;
 import java.net.URI;
 import java.net.URL;
-import java.util.function.Consumer;
-import java.util.function.BiConsumer;
 import model.*;
 import view.*;
 import view.panle.customComponents.RoundedPanle;
@@ -429,23 +427,6 @@ public class GameDetailsSubPanle extends Panle {
     }
 
     /**
-     * Sets the action to perform when a dropdown item is clicked
-     * @param action The action to run when a game is added to a list
-     */
-    @Deprecated
-    public void setOnGameAddedToList(BiConsumer<Game, GameList> action) {
-        this.onGameAddedToList = action;
-    }
-
-    /**
-     * Sets the action to perform when the user creates a new list
-     * @param action The action to be performed when a new list is created
-     */
-    public void setOnNewListCreated(Consumer<String> action) {
-        this.onNewListCreated = action;
-    }
-
-    /**
      * Creates the review section of this game.
      * To be called internally by the constructor
      */
@@ -536,6 +517,15 @@ public class GameDetailsSubPanle extends Panle {
             });
             starPanel.add(stars[i]);
         }
+
+        // Setting the number of stars for the rating before doing anything else
+        for (int j = 0; j < 5; j++) {
+            if (j <= rating.getScore()) {
+                stars[j].setText("★");
+            } else {
+                stars[j].setText("☆");
+            }
+        }
         
         // Adding them in 
         gbc.gridx = 2;
@@ -603,12 +593,6 @@ public class GameDetailsSubPanle extends Panle {
 
     // Storing the lists that the user has so that we can add to them or remove from them
     private User user;
-
-    // A consumer (function) to call when we click add to list in this panle
-    private BiConsumer<Game, GameList> onGameAddedToList;
-
-    // A consumer to call when the user wants to create a new list
-    private Consumer<String> onNewListCreated;
 
     // A scollpane. So you can... y'know... scroll
     private JScrollPane scrollPane;
