@@ -68,7 +68,6 @@ public class DashboardPanle extends Panle {
         // If we clicked on the same game then we need to hide the panle
         if (gameDetailsPanle.getGame() == game && isShowingDetails) { // == is okay because they will always be the exact same object
             hideGameDetails();
-            System.out.println("We got the thing to do the thing");
             return;
         }
 
@@ -101,7 +100,6 @@ public class DashboardPanle extends Panle {
         this.repaint();
 
         isShowingDetails = false;
-        System.out.println("IT has been removed and should not be showing the gamedetailspanle");
     }
 
     /**

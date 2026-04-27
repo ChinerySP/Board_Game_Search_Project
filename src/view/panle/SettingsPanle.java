@@ -233,10 +233,6 @@ public class SettingsPanle extends Panle {
         // Checking their confirmation
         if (confirmation.equals("I understand")) {
 
-            if (user == null) {
-                System.out.println("Ayooo why is the user signed into the settings null?????");
-            }
-
             // Deleting the account
             view.deleteAccount(user);
 

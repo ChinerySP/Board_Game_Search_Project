@@ -59,7 +59,6 @@ public class DataBase {
                 for(int i = 0; i < 4; i++) {
                     data.add(myReader.nextLine());
                 }
-                System.out.println(data.get(0) + data.get(1) + data.get(2) + data.get(3));
                 User oldUser = new User(data.get(0), data.get(1));
                 if(data.get(2).equals("false"))
                     oldUser.setDarkMode(false);
@@ -84,9 +83,7 @@ public class DataBase {
             saveGames();
             for (Game g : games) {
                 for (String word : keywords) {
-                    //System.out.printf("Comparing \"%s\" and \"%s\"...%n", g.getName(), word);
                     if (g.name.toLowerCase().contains(word.toLowerCase())) {
-                        //System.out.println("Match found!");
                         results.addGame(g);
                     }
                 }
@@ -102,10 +99,8 @@ public class DataBase {
                 GameList searchResults = APIparser.search(word);
                 for (Game g : searchResults) {
                     results.addGame(g);
-                    //System.out.println(g.name);
                 }
             }
-            //System.out.println("test");
             return results;
         }
     }
@@ -128,12 +123,9 @@ public class DataBase {
     public boolean saveXMLStringToFile(String str, int ID, String filepath) {
         for (Game g : retrieveGames()) {
             if (ID == g.getId()) {
-                //System.out.println("Board game: \"" + g.getName() + "\" of ID: " + g.getId() + " already saved!");
                 return false;
             }
         }
-        //System.out.println("Saving XML string to " + filepath);
-        //System.out.println("ID: " + ID);
 
         //create a file with the filepath
         File saveFile = new File(filepath);

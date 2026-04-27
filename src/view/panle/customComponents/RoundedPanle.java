@@ -1,6 +1,5 @@
 package view.panle.customComponents;
 
-// TODO prune this to only import things that we need
 import java.awt.*;
 import javax.swing.*;
 import view.panle.*;

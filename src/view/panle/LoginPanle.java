@@ -206,7 +206,6 @@ public class LoginPanle extends Panle {
      * Logs in the user that currently has their username in the username slot
      */
     public void login() {
-        System.out.println("Password recovered: \"" + "" + String.valueOf(passwordInput.getPassword()) + "\"");
         view.submitLogin(usernameInput.getText(), String.valueOf(passwordInput.getPassword()));
     }
     

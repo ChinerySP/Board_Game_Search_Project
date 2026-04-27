@@ -74,7 +74,6 @@ public class Control {
      */
     public void saveData() {
         model.saveData();
-        System.out.println("System saved");
     }
     /**
      * Tells the model to turn the API to a specified state

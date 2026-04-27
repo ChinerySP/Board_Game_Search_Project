@@ -77,6 +77,7 @@ public class Panle extends RoundedPanle { // Yes, I am sticking to the bit of pa
      * Updates this panle's theme to match the global state
      */
     public void updateTheme() {
+        
         this.setBackground(Panle.colors.getBase());
     }
 

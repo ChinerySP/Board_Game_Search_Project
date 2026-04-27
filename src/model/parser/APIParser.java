@@ -50,8 +50,6 @@ public class APIParser extends Parser {
             }
         }
 
-        //System.out.println(response.body());
-
         return dataBase.XMLparser.retrieveGame(gameID);
     }
 
@@ -96,8 +94,6 @@ public class APIParser extends Parser {
             throw new RuntimeException(e);
         }
 
-        //System.out.println(response.body());
-
         GameList results = new GameList("SearchResults");
         ArrayList<Integer> idList = dataBase.XMLparser.parseAPISearch(response.body());
 
@@ -111,7 +107,7 @@ public class APIParser extends Parser {
 
             //first check if this game exists in our database
             for (Game g : dataBase.retrieveGames()) {
-                //System.out.println("checking list");
+                //ln("checking list");
                 if (g.getId() == idList.get(i)) {
                     results.addGame(g);
                     gameExists = true;
@@ -122,7 +118,7 @@ public class APIParser extends Parser {
             //if the game doesn't exist, use the APIParser to get it
             //Limit the amount of API uses to the variable APIuses
             if (!gameExists && APIuses > 0) {
-                //System.out.println("API! ! ! !");
+                //ln("API! ! ! !");
                 APIuses--;
                 results.addGame(retrieveGame(idList.get(i)));
             }

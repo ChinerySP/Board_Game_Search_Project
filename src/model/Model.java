@@ -29,10 +29,8 @@ public class Model {
      */
     public User verifyLogin(String u, String p) {
         for (User possibleMatch : dataBase.userList) {
-            System.out.println(String.format("Checking %s", possibleMatch.getUserName()));
             if (u.equals(possibleMatch.getUserName()) && p.equals(possibleMatch.getPassword())) {
                 setUser(possibleMatch);
-                System.out.println(user.getGameLists());
                 if(user.getGameLists().isEmpty())
                     restoreUserData();
                 return possibleMatch;
@@ -91,7 +89,6 @@ public class Model {
      */
     public void deleteAccount(User delete){
         int count = 0;
-        System.out.println(delete.getUserName());
         for(User i : dataBase.userList) {
             if (i == delete) {
                 dataBase.userList.remove(count);
@@ -99,7 +96,6 @@ public class Model {
             }
             count++;
         }
-        System.out.println("No user deleted.");
     }
 
     /**
@@ -107,7 +103,6 @@ public class Model {
      * @param newUser
      */
     public void newUser(User newUser){
-        System.out.println("making a new user.");
         newUser.addGameList(new GameList("Favorites"));
         dataBase.userList.add(newUser);
     }
@@ -149,7 +144,7 @@ public class Model {
                 myWriterRev.write("\n");
             } myWriterRev.close();
         } catch (IOException e) {
-            System.out.println("An error occurred.");
+            System.out.println("An error occurred when saving the data.");
             e.printStackTrace();
         }
     }
@@ -176,7 +171,7 @@ public class Model {
                 }
             }
         } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
+            System.out.println("An error occurred when restoring data: File could not be found.");
         }
         File myObjRev = new File("resources/userRev.txt");
         try (Scanner myReader = new Scanner(myObjRev)){
@@ -190,15 +185,12 @@ public class Model {
                         String revToken = splitData[2].replace(">", "\n");
                         Boolean recBool = Boolean.parseBoolean(splitData[3]);
                         Rating oldRating = new Rating(scoreInt, revToken, recBool);
-                        System.out.println("The rating we just read was " + splitData[2]);
                         user.setRating(keyInt, oldRating);
                     }
-                } else {
-                    System.out.println("Did not match username: " + data[0]);
                 }
             }
         } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
+            System.out.println("An error occurred when restoring user data: File userRev.txt not found.");
         }
 
     }
@@ -224,7 +216,7 @@ public class Model {
                 }
             }
         } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
+            System.out.println("An error occurred when restoring user data: File userList.txt not found.");
         }
         File myObjRev = new File("resources/userRev.txt");
         try (Scanner myReader = new Scanner(myObjRev)){
@@ -238,13 +230,12 @@ public class Model {
                         String revToken = splitData[2].replace(">", "\n");
                         Boolean recBool = Boolean.parseBoolean(splitData[3]);
                         Rating oldRating = new Rating(scoreInt, revToken, recBool);
-                        System.out.println("The rating we just read was " + splitData[2]);
                         use.setRating(keyInt, oldRating);
                     }
                 }
             }
         } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
+            System.out.println("An error occurred when restoring user data: File userRev.txt not found.");
         }
     }
 

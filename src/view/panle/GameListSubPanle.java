@@ -532,7 +532,6 @@ public class GameListSubPanle extends Panle {
                         GameList toAdd = new GameList(listName);
                         toAdd.addGame(currentlyRightClickedGame);
                         view.getUser().addGameList(toAdd);
-                        System.out.println(String.format("Added to %s", view.getUser().getUserName()));
                     }
 
                     // Making sure everything updates

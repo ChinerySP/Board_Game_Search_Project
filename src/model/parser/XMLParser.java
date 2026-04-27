@@ -47,12 +47,10 @@ public class XMLParser extends Parser {
     public Game retrieveGame(int gameID) {
         for (Game g : retrieveGameList()) {
             if (g.getId() == gameID) {
-                //System.out.println("Matching game of ID: \"" + String.valueOf(gameID) + "\" found.");
                 return g;
             }
         }
 
-        //System.out.println("No game with matching ID: \"" + String.valueOf(gameID) + "\" found in game list.");
         return null;
     }
 
@@ -138,7 +136,6 @@ public class XMLParser extends Parser {
             Element items = xmlDocumentTree.getDocumentElement();
             NodeList xmlGameList = items.getElementsByTagName("boardgame");
 
-            //System.out.println(xmlGameList.getLength());
             // loop for each item node within the XML
             for (int gameNumber = 0; gameNumber < xmlGameList.getLength(); gameNumber++) {
                 Node currentGame = xmlGameList.item(gameNumber);
