@@ -39,8 +39,8 @@ public class GameListListSubPanle extends Panle {
 
     /**
      * Creates a GameListSubPanle to display the inputted Games
-     * @param View The view that owns this panle
-     * @param ArrayList<GameList> The gamelists to display
+     * @param view The view that owns this panle
+     * @param lists The gamelists to display
      */
     public GameListListSubPanle(View view, ArrayList<GameList> lists) {
         super("gamelistlist", view);
@@ -73,7 +73,7 @@ public class GameListListSubPanle extends Panle {
 
     /**
      * Creates a blank GameListSubPanle to be populated with games later
-     * @param View The view that owns this subpanle
+     * @param view The view that owns this subpanle
      */
     public GameListListSubPanle(View view) {
         super("gamelistlist", view);
@@ -108,7 +108,7 @@ public class GameListListSubPanle extends Panle {
 
     /**
      * Changes the GameList that is being displayed
-     * @param ArrayList<GameList> newLists The new set of GameLists to show
+     * @param newLists The new set of GameLists to show
      */
     public void setGameListList(ArrayList<GameList> newLists) {
         this.lists = newLists;
@@ -271,14 +271,14 @@ public class GameListListSubPanle extends Panle {
     /**
      * Updates the scrollbar to be styled nicely
      * This has been moved to a specific method because it got so big
-     * @param JScrollPane pane The scrollpane that will be styled
+     * @param pane The scrollpane that will be styled
      */
     private void styleScrollBar(JScrollPane pane) {
         pane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
 
             /**
              * Overrides the regular JScrollPane up button to not show up
-             * @param int orientation Not used, left over from overriding
+             * @param orientation Not used, left over from overriding
              */
             @Override
             protected JButton createDecreaseButton(int orientation) {
@@ -287,7 +287,7 @@ public class GameListListSubPanle extends Panle {
 
             /**
              * Overrides the regular JScrollPane down button to not show up
-             * @param int orientation Not used, left over from overriding
+             * @param orientation Not used, left over from overriding
              */
             @Override
             protected JButton createIncreaseButton(int orientation) {
@@ -312,9 +312,9 @@ public class GameListListSubPanle extends Panle {
 
             /**
              * Overrides the track to be clear
-             * @param Graphics g Not used, left over from overriding
-             * @param JComponent c Not used, left over from overriding
-             * @param Rectangle trackBounds Not used, left over from overriding
+             * @param g Not used, left over from overriding
+             * @param c Not used, left over from overriding
+             * @param trackBounds Not used, left over from overriding
              */
             @Override
             protected void paintTrack(Graphics g, JComponent c, Rectangle trackBounds) {
@@ -324,9 +324,9 @@ public class GameListListSubPanle extends Panle {
 
             /**
              * Overrides the thumb (like, the button that goes up and down) to be fancy
-             * @param Graphcis g The graphics object to draw on 
-             * @param JComponent c The component to be drawing on 
-             * @param Rectangle thumbBounds The size of the thumb
+             * @param g The graphics object to draw on 
+             * @param c The component to be drawing on 
+             * @param thumbBounds The size of the thumb
              */
             @Override
             protected void paintThumb(Graphics g, JComponent c, Rectangle thumbBounds) {
@@ -358,7 +358,7 @@ public class GameListListSubPanle extends Panle {
     
     /**
      * Sets the action to be performed when a game panel is clicked.
-     * @param Consumer<Game> action The action to perform when the game is clicked on 
+     * @param action The action to perform when the game is clicked on 
      */
     public void setOnListClicked(Consumer<GameList> action) {
         this.onListClicked = action;
@@ -430,6 +430,8 @@ public class GameListListSubPanle extends Panle {
 
     // The label that holds the title of the list
     private JLabel title;
+
+    // The panle that holds the title and the plus button to create more lists
     private JPanel titlePanle;
 
     // The lists that will be displayed here
@@ -438,15 +440,19 @@ public class GameListListSubPanle extends Panle {
     // An arraylist that holds the visual elements for each game
     private ArrayList<RoundedPanle> listPanles;
 
-    // An internal container for the games specifically
+    // An internal container for the lists specifically
     private JPanel listContainer;
+
+    // The scrollpane for the list container
     private JScrollPane scrollPane;
 
     // The action to run when a game is clicked
     private Consumer<GameList> onListClicked;
 
-    // Any visual constants
+    // The height of each panle
     public static final int PANLE_HEIGHT = 100;
+
+    // The font size for the title
     public static final int TITLE_FONT_SIZE = 30;
     
 }

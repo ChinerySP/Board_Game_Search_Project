@@ -6,7 +6,10 @@ import java.awt.Color;
  * Dark mode palette using Catppuccin Macchiato
  */
 public class DarkMode extends Colors {
-    
+
+    /**
+     * Creates a new Dark Mode that can be used by Panles to change their theme
+     */
     public DarkMode() {
         // Backgrounds
         this.base = Color.decode("#24273a");

@@ -20,7 +20,7 @@ public class LoginPanle extends Panle {
 
     /**
      * Creates a new instance of the LoginPanle
-     * @param View The view that owns this panle
+     * @param view The view that owns this panle
      */
     public LoginPanle(View view) {
         super("login", view);

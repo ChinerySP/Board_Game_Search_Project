@@ -17,7 +17,7 @@ public class StickySubPanle extends Panle {
 
     /**
      * Creates a new instance of the StickySubPanle
-     * @param View The view that owns this panle
+     * @param view The view that owns this panle
      */
     public StickySubPanle(View view) {
         super("sticky", view);

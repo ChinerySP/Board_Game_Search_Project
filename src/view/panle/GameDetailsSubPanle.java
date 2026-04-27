@@ -48,7 +48,7 @@ public class GameDetailsSubPanle extends Panle {
 
     /**
      * Creates a new GameDetailsSubPanle that shows the details of the inputted game
-     * @param View The view that owns this panle
+     * @param view The view that owns this panle
      * 
      */
     public GameDetailsSubPanle(View view) {
@@ -287,7 +287,7 @@ public class GameDetailsSubPanle extends Panle {
 
     /**
      * Updates the game that is being displayed
-     * @param gameToDisplay
+     * @param gameToDisplay The game that will be displayed
      */
     public void setGame(Game gameToDisplay) {
         toDisplay = gameToDisplay;
@@ -314,7 +314,7 @@ public class GameDetailsSubPanle extends Panle {
 
                 /**
                  * Overrides the regular JScrollPane up button to not show up
-                 * @param int orientation Not used, left over from overriding
+                 * @param orientation Not used, left over from overriding
                  */
                 @Override
                 protected JButton createDecreaseButton(int orientation) {
@@ -323,7 +323,7 @@ public class GameDetailsSubPanle extends Panle {
 
                 /**
                  * Overrides the regular JScrollPane down button to not show up
-                 * @param int orientation Not used, left over from overriding
+                 * @param orientation Not used, left over from overriding
                  */
                 @Override
                 protected JButton createIncreaseButton(int orientation) {
@@ -348,9 +348,9 @@ public class GameDetailsSubPanle extends Panle {
 
                 /**
                  * Overrides the track to be clear
-                 * @param Graphics g Not used, left over from overriding
-                 * @param JComponent c Not used, left over from overriding
-                 * @param Rectangle trackBounds Not used, left over from overriding
+                 * @param g Not used, left over from overriding
+                 * @param c Not used, left over from overriding
+                 * @param trackBounds Not used, left over from overriding
                  */
                 @Override
                 protected void paintTrack(Graphics g, JComponent c, Rectangle trackBounds) {
@@ -360,9 +360,9 @@ public class GameDetailsSubPanle extends Panle {
 
                 /**
                  * Overrides the thumb (like, the button that goes up and down) to be fancy
-                 * @param Graphcis g The graphics object to draw on 
-                 * @param JComponent c The component to be drawing on 
-                 * @param Rectangle thumbBounds The size of the thumb
+                 * @param g The graphics object to draw on 
+                 * @param c The component to be drawing on 
+                 * @param thumbBounds The size of the thumb
                  */
                 @Override
                 protected void paintThumb(Graphics g, JComponent c, Rectangle thumbBounds) {
@@ -424,7 +424,7 @@ public class GameDetailsSubPanle extends Panle {
 
     /**
      * Sets the User that is currently using this panle
-     * @param User The user that will be displayed
+     * @param user The user that will be displayed
      */
     public void setUser(User user) {
         this.user = user;
@@ -432,6 +432,7 @@ public class GameDetailsSubPanle extends Panle {
 
     /**
      * Sets the action to perform when a dropdown item is clicked
+     * @param action The action to run when a game is added to a list
      */
     @Deprecated
     public void setOnGameAddedToList(BiConsumer<Game, GameList> action) {
@@ -440,6 +441,7 @@ public class GameDetailsSubPanle extends Panle {
 
     /**
      * Sets the action to perform when the user creates a new list
+     * @param action The action to be performed when a new list is created
      */
     public void setOnNewListCreated(Consumer<String> action) {
         this.onNewListCreated = action;

@@ -16,8 +16,8 @@ public class Panle extends RoundedPanle { // Yes, I am sticking to the bit of pa
     /**
      * Super constructor to create a Panle with a specific name
      * This is intended for internal use only, only to be called by subclasses
-     * @param String The name of the panle
-     * @param View The view that owns the panle
+     * @param name The name of the panle
+     * @param view The view that owns the panle
      */
     public Panle(String name, View view) {
         // All of our panles will be defaulted to just a box layout (they are all rather simple in their layout)
@@ -46,7 +46,7 @@ public class Panle extends RoundedPanle { // Yes, I am sticking to the bit of pa
 
     /**
      * A simple comparison for both names and other Panles
-     * @param Object other The other object to compare against
+     * @param other The other object to compare against
      */
     @Override
     public boolean equals(Object other) {

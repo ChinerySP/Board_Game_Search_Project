@@ -15,7 +15,7 @@ public class RoundedPanle extends JPanel implements Themeable {
 
     /**
      * Creates a rounded panle with specified radius
-     * @param int radius The radius of the corner of the panle
+     * @param radius The radius of the corner of the panle
      */
     public RoundedPanle(int radius) {
         super();
@@ -28,8 +28,8 @@ public class RoundedPanle extends JPanel implements Themeable {
     
     /**
      * Creates a rounded panle with specified radius and layout manager
-     * @param int radius The radius of the corner of the panle
-     * @param LayoutManager layout The layout of the contents of the panle
+     * @param radius The radius of the corner of the panle
+     * @param layout The layout of the contents of the panle
      */
     public RoundedPanle(int radius, LayoutManager layout) {
         super(layout);
@@ -39,7 +39,7 @@ public class RoundedPanle extends JPanel implements Themeable {
 
     /**
      * Paints the panle with its rounded corners
-     * @param Graphics g The graphic objects that we are drawing on
+     * @param g The graphic objects that we are drawing on
      */
     @Override
     protected void paintComponent(Graphics g) {
@@ -85,12 +85,13 @@ public class RoundedPanle extends JPanel implements Themeable {
     
     /**
      * Returns the radius of this RoundedPanle
+     * @return int The radius of this panle
      */
     public int getRadius() { return this.radius; }
 
     /**
      * Updates the radius of the RoundedPanle 
-     * @param int radius The new radius of the panle
+     * @param radius The new radius of the panle
      */
     public void setRadius(int radius) { this.radius = radius; }
 

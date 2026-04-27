@@ -40,8 +40,8 @@ public class View {
     /**
      * Tells the controller that login information has been submitted
      * To be called when the login button is clicked
-     * @param String username The username being signed into
-     * @param String password The password to authenticate the username
+     * @param username The username being signed into
+     * @param password The password to authenticate the username
      */
     public void submitLogin(String username, String password) {
 
@@ -85,7 +85,7 @@ public class View {
     
     /**
      * A wrapper function that tells the Screen this View is holding to show a panle
-     * @param String The name of the panle to show
+     * @param name The name of the panle to show
      */
     public void showPanle(String name) {
         screen.showPanle(name);
@@ -93,7 +93,7 @@ public class View {
 
     /**
      * Tells the controller that the user has requested to change the API state
-     * @param boolean The state to set the API to 
+     * @param state The state to set the API to 
      */
     public void setAPI(boolean state) {
         controller.setAPI(state);
@@ -102,7 +102,7 @@ public class View {
     /**
      * Tells the controller that the User wants to search for specific keywords
      * Then shows those search results to the user in the search results panle
-     * @param String[] The keywords to search for
+     * @param keywords The keywords to search for
      */
     public void search(String[] keywords) {
 
@@ -114,7 +114,7 @@ public class View {
 
     /**
      * Tells the controller that that User needs to be logged in
-     * @param String The username of the user to be logged in
+     * @param username The username of the user to be logged in
      */
     public User forgotPassword(String username) {
 
@@ -146,7 +146,7 @@ public class View {
 
     /**
      * Tells the controller to delete the specified user
-     * @param User The user to be deleted
+     * @param toDelete The user to be deleted
      */
     public void deleteAccount(User toDelete) {
         controller.deleteAccount(toDelete);

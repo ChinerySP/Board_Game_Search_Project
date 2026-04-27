@@ -47,8 +47,8 @@ public class GameListSubPanle extends Panle {
 
     /**
      * Creates a GameListSubPanle to display the inputted Games
-     * @param View The view that owns this panle
-     * @param GameList The games to display
+     * @param view The view that owns this panle
+     * @param games The games to display
      */
     public GameListSubPanle(View view, GameList games) {
         super("gamelist", view);
@@ -86,7 +86,7 @@ public class GameListSubPanle extends Panle {
 
     /**
      * Creates a blank GameListSubPanle to be populated with games later
-     * @param View The view that owns this subpanle
+     * @param view The view that owns this subpanle
      */
     public GameListSubPanle(View view) {
         super("gamelist", view);
@@ -358,14 +358,14 @@ public class GameListSubPanle extends Panle {
     /**
      * Updates the scrollbar to be styled nicely
      * This has been moved to a specific method because it got so big
-     * @param JScrollPane pane The scrollpane that will be styled
+     * @param pane The scrollpane that will be styled
      */
     private void styleScrollBar(JScrollPane pane) {
         pane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
 
             /**
              * Overrides the regular JScrollPane up button to not show up
-             * @param int orientation Not used, left over from overriding
+             * @param orientation Not used, left over from overriding
              */
             @Override
             protected JButton createDecreaseButton(int orientation) {
@@ -374,7 +374,7 @@ public class GameListSubPanle extends Panle {
 
             /**
              * Overrides the regular JScrollPane down button to not show up
-             * @param int orientation Not used, left over from overriding
+             * @param orientation Not used, left over from overriding
              */
             @Override
             protected JButton createIncreaseButton(int orientation) {
@@ -399,9 +399,9 @@ public class GameListSubPanle extends Panle {
 
             /**
              * Overrides the track to be clear
-             * @param Graphics g Not used, left over from overriding
-             * @param JComponent c Not used, left over from overriding
-             * @param Rectangle trackBounds Not used, left over from overriding
+             * @param g Not used, left over from overriding
+             * @param c Not used, left over from overriding
+             * @param trackBounds Not used, left over from overriding
              */
             @Override
             protected void paintTrack(Graphics g, JComponent c, Rectangle trackBounds) {
@@ -411,9 +411,9 @@ public class GameListSubPanle extends Panle {
 
             /**
              * Overrides the thumb (like, the button that goes up and down) to be fancy
-             * @param Graphcis g The graphics object to draw on 
-             * @param JComponent c The component to be drawing on 
-             * @param Rectangle thumbBounds The size of the thumb
+             * @param g The graphics object to draw on 
+             * @param c The component to be drawing on 
+             * @param thumbBounds The size of the thumb
              */
             @Override
             protected void paintThumb(Graphics g, JComponent c, Rectangle thumbBounds) {
@@ -680,7 +680,7 @@ public class GameListSubPanle extends Panle {
 
     /**
      * Sets the gamelist that is being displayed
-     * @param GameList The new GameList to display
+     * @param newList The new GameList to display
      */
     public void setGameList(GameList newList) {
         games = newList;
@@ -711,7 +711,7 @@ public class GameListSubPanle extends Panle {
 
     /**
      * Sets the action to be performed when a game panel is clicked.
-     * @param Consumer<Game> action The action to perform when the game is clicked on 
+     * @param action The action to perform when the game is clicked on 
      */
     public void setOnGameClicked(Consumer<Game> action) {
         this.onGameClicked = action;
@@ -726,10 +726,14 @@ public class GameListSubPanle extends Panle {
 
     // An internal container for the games specifically
     private JPanel listContainer;
+
+    // The scrollpane for the list container
     private JScrollPane scrollPane;
 
     // The label that holds the title of the list
     private JLabel title;
+
+    // The panle that holds the title
     private JPanel titlePanle;
 
     // The action to run when a game is clicked
@@ -741,11 +745,15 @@ public class GameListSubPanle extends Panle {
     // Whether or not to show the title
     private boolean showTitle = true;
 
-    // Any visual constants
+    // The height of each game
     public static final int PANLE_HEIGHT = 100;
+    
+    // The font size for the title
     public static final int TITLE_FONT_SIZE = 30;
 
     // The popup menus for the lists and for the games
     private RoundedPopupMenu sharedPopupMenu;
+
+    // The game that is currently being right clicked, used for right click interactions
     private Game currentlyRightClickedGame = null;
 }

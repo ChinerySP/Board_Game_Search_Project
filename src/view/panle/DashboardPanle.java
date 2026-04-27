@@ -27,7 +27,7 @@ public class DashboardPanle extends Panle {
 
     /**
      * Creates a new instance of the StickySubPanle
-     * @param View The view that owns this Panle
+     * @param view The view that owns this Panle
      */
     public DashboardPanle(View view) {
         super("dashboard", view);
@@ -83,7 +83,7 @@ public class DashboardPanle extends Panle {
 
     /**
      * Shows the details of a game on the gameDetailsSubpanle
-     * @param Game The game to show
+     * @param game The game to show
      */
     public void toggleGameDetails(Game game) {
 
@@ -177,7 +177,7 @@ public class DashboardPanle extends Panle {
     
     /**
      * Sets the user that is being displayed
-     * @param User newUser The new user to display
+     * @param newUser The new user to display
      */
     public void setUser(User newUser) {
         user = newUser;
@@ -206,7 +206,7 @@ public class DashboardPanle extends Panle {
     
     /**
      * Updates the list that will be displayed on the GameListSubPanle on the left
-     * @param GameList The gamelist to display
+     * @param toDisplay The gamelist to display
      */
     public void setListToDisplay(GameList toDisplay) {
         gameListPanle.setGameList(toDisplay);

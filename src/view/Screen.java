@@ -19,7 +19,7 @@ public class Screen {
 
     /**
      * Simple contructor that initializes all of the panle and opens the login panle
-     * @param View The view that owns this Screen, to allow for communication upwards
+     * @param view The view that owns this Screen, to allow for communication upwards
      */
     public Screen(View view) {
 
@@ -74,7 +74,7 @@ public class Screen {
 
     /**
      * Shows the Panle who's name matches the inputted String
-     * @param String name The name of the Panle to show
+     * @param name The name of the Panle to show
      */
     public void showPanle(String name) {
 
@@ -137,7 +137,7 @@ public class Screen {
 
     /**
      * Hides the Panle who's name matches the inputted String
-     * @param String name The name of the Panle to hide
+     * @param name The name of the Panle to hide
      */
     public void hidePanle(String name) {
         frame.remove(this.getPanle(name));
@@ -157,7 +157,7 @@ public class Screen {
 
     /**
      * Gets the panel that matches the inputted name
-     * @param String name The name of the panel to get; This must match one of the Panles, otherwise returns null
+     * @param name The name of the panel to get; This must match one of the Panles, otherwise returns null
      */
     public Panle getPanle(String name) {
 

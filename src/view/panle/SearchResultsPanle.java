@@ -15,7 +15,7 @@ public class SearchResultsPanle extends Panle {
 
     /**
      * Creates a new instance of the StickySubPanle
-     * @param View The view that owns this panle
+     * @param view The view that owns this panle
      */
     public SearchResultsPanle(View view) {
         super("searchresults", view);
@@ -83,7 +83,7 @@ public class SearchResultsPanle extends Panle {
     
     /**
      * Shows the gameDetails of a specific game when it is clicked
-     * @param Game toShow The game to display the information of in this Panle
+     * @param toShow The game to display the information of in this Panle
      */
     public void showGameDetails(Game toShow) {
 
@@ -142,7 +142,7 @@ public class SearchResultsPanle extends Panle {
 
     /**
      * Updates the search results that are shown in this panle
-     * @param GameList The games to be shown
+     * @param newGames The games to be shown
      */
     public void setGameList(GameList newGames) {
         resultsPanle.setGameList(newGames);

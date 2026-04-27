@@ -14,7 +14,7 @@ public class PrettyButton extends JButton implements Themeable {
 
     /**
      * A simple constructor creates a new PrettyButton with the inputted text on it
-     * @param String text The text to display on the 
+     * @param text text The text to display on the 
      */
     public PrettyButton(String text) {
         super(text);
@@ -26,7 +26,7 @@ public class PrettyButton extends JButton implements Themeable {
 
     /**
      * An overridden paint component method so that it looks right
-     * @param Graphics g The inputted graphics object to paint with 
+     * @param g The inputted graphics object to paint with 
      */
     protected void paintComponent(Graphics g) {
 

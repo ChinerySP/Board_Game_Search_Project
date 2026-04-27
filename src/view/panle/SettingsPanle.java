@@ -31,7 +31,7 @@ public class SettingsPanle extends Panle {
    
     /**
      * Creates a new settings panle
-     * @param View The view that owns this panle
+     * @param view The view that owns this panle
      */
     public SettingsPanle(View view) {
         super("settings", view);
@@ -249,7 +249,7 @@ public class SettingsPanle extends Panle {
     
     /**
      * Changes the color mode of the display
-     * @param boolean Whether or not darkmode should be set (dark is default)
+     * @param isDarkMode Whether or not darkmode should be set (dark is default)
      */
     public void setColorMode(boolean isDarkMode) {
         if (isDarkMode) {
@@ -304,7 +304,7 @@ public class SettingsPanle extends Panle {
 
     /**
      * Sets the user that this settings panle will display
-     * @param User user The user to be stored in this settings panle
+     * @param user The user to be stored in this settings panle
      */
     public void setUser(User user) {
         System.out.println("Settings now has a user");

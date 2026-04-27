@@ -8,6 +8,9 @@ import java.awt.Color;
  */
 public class LightMode extends Colors {
     
+    /**
+     * Creates a new Light Mode that can be used by Panles to change their theme
+     */
     public LightMode() {
         // Backgrounds
         this.base = Color.decode("#eff1f5");
