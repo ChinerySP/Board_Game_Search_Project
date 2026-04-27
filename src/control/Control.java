@@ -54,10 +54,11 @@ public class Control {
     /**
      * Gives a list of searching keywords to the database as a search querie.
      * @param keywords The keywords that we are searching for
+     * @param useAPI Whether or not to use the API in the search
      * @return GameList A ordered GameList holding all of the results of the search
      */
-    public GameList search(String[] keywords) {
-        return model.search(keywords);
+    public GameList search(String[] keywords, boolean useAPI) {
+        return model.search(keywords, useAPI);
     }
 
     /**

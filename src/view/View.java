@@ -89,6 +89,7 @@ public class View {
      */
     public void showPanle(String name) {
         screen.showPanle(name);
+        refreshPanles();
     }
 
     /**
@@ -103,10 +104,11 @@ public class View {
      * Tells the controller that the User wants to search for specific keywords
      * Then shows those search results to the user in the search results panle
      * @param keywords The keywords to search for
+     * @param useAPI Whether or not to use the API
      */
-    public void search(String[] keywords) {
+    public void search(String[] keywords, boolean useAPI) {
 
-        ( (SearchResultsPanle) screen.getPanle("searchresults") ).setGameList(controller.search(keywords));
+        ( (SearchResultsPanle) screen.getPanle("searchresults") ).setGameList(controller.search(keywords, useAPI));
         showPanle("searchresults");
 
         refreshPanles();

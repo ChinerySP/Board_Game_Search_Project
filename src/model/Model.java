@@ -65,11 +65,12 @@ public class Model {
 
     /**
      * searches the database for games
-     * @param keywords
+     * @param keywords The list of keywords to search for
+     * @param useAPI Whether or not to use the API
      * @return list of games
      */
-    public GameList search(String[] keywords){
-        return dataBase.searchGames(keywords);
+    public GameList search(String[] keywords, boolean useAPI){
+        return dataBase.searchGames(keywords, useAPI);
     }
 
     /**
