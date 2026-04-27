@@ -3,6 +3,10 @@ package control;
 import view.*;
 import model.*;
 
+/**
+ * The controller that interfaces with the view and the model to run the app
+ * @author Sam Whitlock, Holden Brolliar, Evan Stonecypher, Spencer Chinery
+ */
 public class Control {
     
     /**
@@ -22,8 +26,8 @@ public class Control {
     /**
      * Verifies the login information, and if it matches, tells the view to 
      * open the dashboard
-     * @param String username The username of the user logging in 
-     * @param String password The password to check against
+     * @param username The username of the user logging in 
+     * @param password The password to check against
      * @return User The user that logged in; null if there was no match
      */
     public User verifyLogin(String username, String password) {
@@ -32,7 +36,8 @@ public class Control {
 
     /**
      * A forgot password method, skips verifying the login with a password
-     * @param 
+     * @param username The username of the person trying to sign in
+     * @return The user that matches the username
      */
     public User forgotPassword(String username) {
         return model.getUser(username);
@@ -40,7 +45,7 @@ public class Control {
 
     /**
      * Tells the database to delete the inputted user
-     * @param User The user to delete
+     * @param toDelete The user to delete
      */
     public void deleteAccount(User toDelete) {
         model.deleteAccount(toDelete);
@@ -48,7 +53,7 @@ public class Control {
 
     /**
      * Gives a list of searching keywords to the database as a search querie.
-     * @param String[] keywords The keywords that we are searching for
+     * @param keywords The keywords that we are searching for
      * @return GameList A ordered GameList holding all of the results of the search
      */
     public GameList search(String[] keywords) {
@@ -57,7 +62,7 @@ public class Control {
 
     /**
      * Tells the database to add a new user
-     * @param User The user to add 
+     * @param newUser The user to add 
      */
     public void newUser(User newUser) {
         model.newUser(newUser);
@@ -72,7 +77,7 @@ public class Control {
     }
     /**
      * Tells the model to turn the API to a specified state
-     * @param boolean The state to set the API to
+     * @param state The state to set the API to
      */
     public void setAPI(boolean state) {
         model.setAPI(state);
