@@ -8,11 +8,15 @@ public class MeepMeep {
 
     /**
      * The main entry point for the program
+     * @param args The arguments for the program. This program does not use args.
      */
     public static void main(String[] args) {
 
         // Beginning everything by calling the constructor of the Controller
         Control controller = new Control();
+        
+        // Simple toString call to get rid of the compiler warning
+        controller.toString();
 
     }
 
