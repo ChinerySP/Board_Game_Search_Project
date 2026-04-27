@@ -44,4 +44,4 @@ Board Game Search Project.iml
 .idea/misc.xml
 
 ### Ignoring Javadoc ###
-**update/**
+**javadoc/**
