@@ -407,7 +407,9 @@ public class GameDetailsSubPanle extends Panle {
         descriptionArea.setForeground(Panle.colors.getText());
 
         // Recreate the rating section to ensure colors match
-        createRatingSection();
+        if (toDisplay != null) {
+            createRatingSection();
+        }
     }
 
     /**
