@@ -77,21 +77,37 @@ public class DataBase {
      * @param keywords list of keywords to look for within the game
      * @return A game list containing the games which match the results
      */
-    public GameList searchGames(String[] keywords) {
+    public GameList searchGames(String[] keywords, Boolean APIMode) {
         GameList results = new GameList("Search Results");
 
-        saveGames();
-        for (Game g : games) {
-            for (String word : keywords) {
-                System.out.printf("Comparing \"%s\" and \"%s\"...%n", g.getName(), word);
-                if (g.name.toLowerCase().contains(word.toLowerCase())) {
-                    System.out.println("Match found!");
-                    results.addGame(g);
+        if (!APIMode) {
+            saveGames();
+            for (Game g : games) {
+                for (String word : keywords) {
+                    //System.out.printf("Comparing \"%s\" and \"%s\"...%n", g.getName(), word);
+                    if (g.name.toLowerCase().contains(word.toLowerCase())) {
+                        //System.out.println("Match found!");
+                        results.addGame(g);
+                    }
                 }
             }
-        }
 
-        return results;
+            return results;
+        }
+        else {
+            //For each word in the keywords, search the API for that keyword
+            //With each returned game list, add each game to the results
+
+            for (String word : keywords) {
+                GameList searchResults = APIparser.search(word);
+                for (Game g : searchResults) {
+                    results.addGame(g);
+                    //System.out.println(g.name);
+                }
+            }
+            //System.out.println("test");
+            return results;
+        }
     }
 
     /**
@@ -112,12 +128,12 @@ public class DataBase {
     public boolean saveXMLStringToFile(String str, int ID, String filepath) {
         for (Game g : retrieveGames()) {
             if (ID == g.getId()) {
-                System.out.println("Board game: \"" + g.getName() + "\" of ID: " + g.getId() + " already saved!");
+                //System.out.println("Board game: \"" + g.getName() + "\" of ID: " + g.getId() + " already saved!");
                 return false;
             }
         }
-        System.out.println("Saving XML string to " + filepath);
-        System.out.println("ID: " + ID);
+        //System.out.println("Saving XML string to " + filepath);
+        //System.out.println("ID: " + ID);
 
         //create a file with the filepath
         File saveFile = new File(filepath);

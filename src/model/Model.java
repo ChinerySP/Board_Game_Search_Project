@@ -70,7 +70,7 @@ public class Model {
      * @return list of games
      */
     public GameList search(String[] keywords, boolean useAPI){
-        return dataBase.searchGames(keywords);
+        return dataBase.searchGames(keywords, useAPI);
     }
 
     /**

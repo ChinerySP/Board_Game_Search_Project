@@ -18,11 +18,21 @@ public class XMLParser extends Parser {
     public String fileLocation;
     private DataBase dataBase;
 
+    /**
+     * unused
+     * @param numGames
+     * @return
+     */
     @Override
     public ArrayList<Game> getBoardGames(int numGames) {
         return null;
     }
 
+    /**
+     * unused
+     * @param toSearch
+     * @return
+     */
     @Override
     public GameList search(String toSearch) {
         return null;
@@ -139,7 +149,13 @@ public class XMLParser extends Parser {
         return currentGameList;
     }
 
-
+    /**
+     * This function simply parses the results the API will return when searching terms
+     * It only retrieves the ID from the results and nothing else.
+     * The result is used by the API parser to get the whole game object using the API and ID
+     * @param xmlSearchContent The content of the search results as a string
+     * @return an array list containing the ID of each game found in the reults
+     */
     public ArrayList<Integer> parseAPISearch(String xmlSearchContent) {
         //create document builder stuff
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();

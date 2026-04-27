@@ -40,6 +40,8 @@ public class APIParser extends Parser {
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
+
+        //get the game XML, save it to our XML database, and add it to the game list
         if (dataBase.saveXMLStringToFile(response.body(), gameID, dataBase.gameXML)) {
             try {
                 dataBase.XMLparser.addGameToList(response.body());
@@ -53,11 +55,20 @@ public class APIParser extends Parser {
         return dataBase.XMLparser.retrieveGame(gameID);
     }
 
+    /**
+     * never needed for the API parser
+     * @return
+     */
     @Override
     public GameList retrieveGameList() {
         return null;
     }
 
+    /**
+     * unused
+     * @param numGames
+     * @return
+     */
     @Override
     public ArrayList<Game> getBoardGames(int numGames) {
         return null;
@@ -90,20 +101,29 @@ public class APIParser extends Parser {
         GameList results = new GameList("SearchResults");
         ArrayList<Integer> idList = dataBase.XMLparser.parseAPISearch(response.body());
 
-        //go through the list and get search results
-        for (int i = 0; i < idList.size(); i++) {
+        //amount of times we can use the API before terminating and returning results
+        //API just takes too much time and we aren't using threads
+        int APIuses = 5;
+        //go through the list and get search results using the top 30
+        //again, no threads so we have to save time
+        for (int i = 0; i < Math.min(idList.size(), 30); i++) {
             boolean gameExists = false;
 
             //first check if this game exists in our database
             for (Game g : dataBase.retrieveGames()) {
+                //System.out.println("checking list");
                 if (g.getId() == idList.get(i)) {
                     results.addGame(g);
                     gameExists = true;
+                    break;
                 }
             }
 
             //if the game doesn't exist, use the APIParser to get it
-            if (!gameExists) {
+            //Limit the amount of API uses to the variable APIuses
+            if (!gameExists && APIuses > 0) {
+                //System.out.println("API! ! ! !");
+                APIuses--;
                 results.addGame(retrieveGame(idList.get(i)));
             }
         }
