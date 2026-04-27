@@ -3,19 +3,7 @@ package view.panle;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import javax.swing.Box;
-import javax.swing.JMenuItem;
-import javax.swing.JLabel;
-import javax.swing.JPopupMenu;
-import java.awt.event.*;
-
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
-import javax.swing.JPopupMenu;
-
 import view.*;
-import view.panle.customComponents.RoundedPopupMenu;
 import model.*;
 
 

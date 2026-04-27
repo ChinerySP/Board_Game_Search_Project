@@ -12,7 +12,6 @@ import java.awt.Insets;
 import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import java.awt.Image;
-
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -34,7 +33,6 @@ import javax.imageio.ImageIO;
 import java.net.URI;
 import java.net.URL;
 import java.util.function.Consumer;
-import java.util.ArrayList;
 import java.util.function.BiConsumer;
 import model.*;
 import view.*;
