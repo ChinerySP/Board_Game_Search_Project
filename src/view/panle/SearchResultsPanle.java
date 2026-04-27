@@ -61,17 +61,6 @@ public class SearchResultsPanle extends Panle {
         // The right side, which holds the game details (obviously)
         gameDetailsPanle = new GameDetailsSubPanle(view);
 
-        // Setting what happens when a user wants to add a game to the list
-        gameDetailsPanle.setOnNewListCreated(listName -> {
-
-            // Creating a new list that we can add to the User
-            GameList toAdd = new GameList(listName);
-
-            // Adding it to the user's list
-            view.getUser().addGameList(toAdd);
-
-        });
-
         // Setting the widths to something that allows us to control the width
         gameDetailsPanle.setPreferredSize(new Dimension(0, gameDetailsPanle.getPreferredSize().height));
         resultsPanle.setPreferredSize(new Dimension(0, resultsPanle.getPreferredSize().height));

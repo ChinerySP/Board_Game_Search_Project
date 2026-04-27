@@ -49,17 +49,6 @@ public class DashboardPanle extends Panle {
         // Make clicking on a game in the left panle open the gameDetailsSubPanle
         gameListPanle.setOnGameClicked(game -> toggleGameDetails(game));
 
-        // Setting what happens when a user wants to add a game to the list
-        gameDetailsPanle.setOnNewListCreated(listName -> {
-
-            // Creating a new list that we can add to the User
-            GameList toAdd = new GameList(listName);
-
-            // Adding it to the user's list
-            view.getUser().addGameList(toAdd);
-
-        });
-
         // Making it switch the list on the left to match whetever is clicked
         gameListListPanle.setOnListClicked(list -> setListToDisplay(list));
 
