@@ -86,15 +86,18 @@ public class APIParser extends Parser {
                 .GET()
                 .build();
         HttpResponse<String> response = null;
+        //create a game list to put stuff in
+        GameList results = new GameList("SearchResults");
         try {
             response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+        } catch (IOException | InterruptedException e) {
+            System.err.println("Request failed: " + e.getMessage());
+            return null;
         }
+        //} catch (InterruptedException e) {
+           // throw new RuntimeException(e);
+        //}
 
-        GameList results = new GameList("SearchResults");
         ArrayList<Integer> idList = dataBase.XMLparser.parseAPISearch(response.body());
 
         //amount of times we can use the API before terminating and returning results

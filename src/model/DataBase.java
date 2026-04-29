@@ -96,9 +96,29 @@ public class DataBase {
             //With each returned game list, add each game to the results
 
             for (String word : keywords) {
+                //attempt to use the API to get results
                 GameList searchResults = APIparser.search(word);
-                for (Game g : searchResults) {
-                    results.addGame(g);
+
+                //check if we get a response
+
+                //yes response
+                if (searchResults == null) {
+
+                    //just get from our database
+                    saveGames();
+                    for (Game g : games) {
+                        for (String term : keywords) {
+                            if (g.name.toLowerCase().contains(term.toLowerCase())) {
+                                results.addGame(g);
+                            }
+                        }
+                    }
+                }
+                //yes response
+                else {
+                    for (Game g : searchResults) {
+                        results.addGame(g);
+                    }
                 }
             }
             return results;
